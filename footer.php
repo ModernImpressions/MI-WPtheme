@@ -49,7 +49,7 @@
             </div>
         </footer>
                                                                                                           
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>     
+ <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>  WHY???? - I have no idea why Triad thought manually declaring jquery in a wordpress site was a good idea.  This was causing js errors in the background, so I've commented it out, to be deleted later once I verify it isn't tied to anything.   -->
         <?php wp_footer(); ?>      
     </body>
 </html>
