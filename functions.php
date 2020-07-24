@@ -11,6 +11,7 @@ function add_cors_http_header(){
 }
 add_action('init','add_cors_http_header'); 
 
+
 function ali_theam_jquery() {
 
 	wp_enqueue_script('jquery');
@@ -69,8 +70,13 @@ include_once('inc/theme-options.php');
 
 include_once('inc/metabox.php');
 
-
-
+function codextent_ssl_srcset( $sources ) {
+    foreach ( $sources as &$source ) {
+        $source['url'] = set_url_scheme( $source['url'], 'https' );
+    }
+    return $sources;
+}
+add_filter( 'wp_calculate_image_srcset', 'codextent_ssl_srcset' );
 
 
 
