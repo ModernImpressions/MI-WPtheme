@@ -11,6 +11,12 @@ function add_cors_http_header(){
 }
 add_action('init','add_cors_http_header'); 
 
+// disables WP Heartbeat - this is only for real-time plugin notifications, or showing if a user is editing a post, due to the nature of this site, this is currently un-needed, and is cause higher CPU usage.
+add_action( 'init', 'stop_heartbeat', 1 );
+function stop_heartbeat() {
+
+    wp_deregister_script('heartbeat');
+}
 
 function ali_theam_jquery() {
 
