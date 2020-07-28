@@ -1,0 +1,4 @@
+[submodule "option-tree"]
+	path = option-tree
+	url = https://github.com/ModernImpressions/option-tree.git
+	branch = master
