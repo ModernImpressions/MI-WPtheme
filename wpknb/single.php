@@ -1,11 +1,28 @@
+<?php
+/**
+*Template Name: Full Width Page
+*/
+
+get_header(); ?>
 <?php global $wpknb; ?>
 <style>
 .hentry .entry-title, .entry .entry-title{
 	display: none;
 }
 </style>
-<div class="wpknb">
-	<div class="wpknb-inner">
+  
+    <!-- Content Area
+    ================================================== -->  
+        <div id="full_page_area">
+            <?php if (have_posts()) : ?>	
+            <?php while (have_posts()) : the_post(); ?>             
+            <div class="inner_full_page_thumb">
+            </div>
+			<div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+						<div class="wpknb">
+						<div class="wpknb-inner">
 		<?php if(!empty( $wpknb['title'] )):?>
 			<h1 class="wpknb-title"><?php echo $wpknb['title'] ;?></h1>
 		<?php endif;?>
@@ -17,8 +34,16 @@
 	while(have_posts()) : the_post();
 	$term_list = get_the_term_list( get_the_ID() , 'knb-category', '<span class="wpknb-terms">in ',',','</span>');
 	?>
-		<article class="wpknb-single">
-	    	<h2><?php the_title(); ?></h2>
+						</div>
+					</div>
+				</div>
+			</div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="original_content_area wpkb">
+						<article class="wpknb-single">
+                            <h2 class="title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
 	    	<div class="wpknb-meta">
 		        <time class="updated" datetime="<?php echo get_the_modified_date('c'); ?>" pubdate><?php echo __('Last Updated:', 'wpKnB') . ' '. human_time_diff(get_the_modified_date('U'), current_time('timestamp')) . ' ' . __('ago', 'wpKnB'); ?></time> <?php echo $term_list;?>
 		    </div>
@@ -35,7 +60,21 @@
 		    	echo do_shortcode('[knowledge_base_vote id="'. get_the_ID() .'"]');
 		    ?>
 	    </article>
-	<?php
-	endwhile;
-?>	</div>
-</div>
+                        </div>
+						<div id="comments_template">
+
+                            <?php comments_template(); ?>
+
+                        </div> 
+                        <?php endwhile; ?>
+                        <?php else : ?>
+                        <h3><?php _e('404 Error&#58; Not Found', 'alihossain'); ?></h3>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    <!-- Footer Bottom area
+    ================================================== -->		
+    <?php get_footer(); ?>
