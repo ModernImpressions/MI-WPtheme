@@ -15,8 +15,6 @@ get_header(); ?>
 <!-- Content Area
     ================================================== -->
 <div id="full_page_area">
-    <?php if (have_posts()) : ?>
-    <?php while (have_posts()) : the_post(); ?>
     <div class="inner_full_page_thumb">
     </div>
     <div class="container">
@@ -69,7 +67,6 @@ get_header(); ?>
                         <?php comments_template(); ?>
 
                     </div>
-                    <?php endwhile; ?>
                 </div>
             </div>
         </div>
