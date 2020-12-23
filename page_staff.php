@@ -27,11 +27,11 @@ get_header(); ?>
                     </div>
                 </div>
                 <div class="row">
-                    <div id="team-item">
+                    <div id="staff-team-item">
                         <?php query_posts('post_type=team_area&post_status=publish&posts_per_page=-1&paged='. get_query_var('post')); ?>
                             <?php if(have_posts()) : ?>
                         <?php while (have_posts()) : the_post(); ?>	
-                    <div class="item">
+                    <div class="staff-item">
                         <div class="child_team_area">
                             <?php the_post_thumbnail( 'team_area' ); ?>
                             <div class="team_social">
