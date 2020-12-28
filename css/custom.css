@@ -1122,20 +1122,6 @@ blockquote {
     font-size: 400 0.8em/1;
 }
 
-p {
-    font-size: .94em;
-    line-height: 1.25em;
-    margin: 0.625em 0;
-    padding: .25;
-    text-align: justify;
-    word-break: break-all;
-}
-
-p:first-line {
-    font-size: 1.10em;
-    font-variant: small-caps;
-}
-
 .portrait-details li:first-child {
     font-size: 140%;
     text-transform: uppercase;
