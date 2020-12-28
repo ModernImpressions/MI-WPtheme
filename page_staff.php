@@ -34,9 +34,7 @@ get_header(); ?>
                         <div class='child_team_area portrait-member'>
                             <?php the_post_thumbnail( 'team_area' ); ?>
                             <ul class='team_details portrait-details'>
-                                <li></li>
-                                <li class="title"><?php echo get_post_meta($post->ID, 'team_position', true); ?></li>
-                                <li><p></p></li><BR>
+                                <li class="portrait-title"><?php echo get_post_meta($post->ID, 'team_position', true); ?></li>
                                 <li class="team_social">
                                 <?php $variable = get_post_meta($post->ID, 'team_social_list', true); ?>
                                     <?php
