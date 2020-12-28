@@ -1103,6 +1103,7 @@ blockquote {
     font-weight: 700;
     max-width: 250px;
     margin: 5%;
+    line-height: inherit !important;
 }
 
 @media all and (max-width: 64em) {
