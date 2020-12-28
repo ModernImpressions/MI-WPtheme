@@ -27,6 +27,9 @@ get_header(); ?>
                     </div>
                 </div>
                 <div class="row">
+                <?php query_posts('post_type=team_area&post_status=publish&posts_per_page=-1&paged='. get_query_var('post')); ?>
+                <?php if(have_posts()) : ?>
+                    <?php while (have_posts()) : the_post(); ?>	
                     <div class='staff-item portrait-container'>
                         <div class='child_team_area portrait-member'>
                             <?php the_post_thumbnail( 'team_area' ); ?>
@@ -48,6 +51,8 @@ get_header(); ?>
                             </ul>
                         </div>
                     </div>
+                    <?php endwhile; ?>
+                    <?php endif; ?> 
                 </div>
                 </div>
                 </div>
