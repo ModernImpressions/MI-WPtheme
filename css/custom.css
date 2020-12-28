@@ -1091,12 +1091,12 @@ blockquote {
     -o-transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-    border-bottom: 2px solid rgba(0, 200, 255, .5);
+    border-bottom: 2px solid rgba(0, 127, 123, .5);
 }
 
 .portrait-title {
     text-transform: uppercase;
-    background: rgba(0, 200, 255, .5);
+    background: rgba(0, 127, 123, .5);
     color: #fff;
     letter-spacing: .5px;
     padding: 1.5em 1.9em 0.7em;
