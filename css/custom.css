@@ -1059,8 +1059,6 @@ blockquote {
 }
 
 .portrait-member {
-    height: 200px;
-    width: 200px;
     display: inline-block;
     position: relative;
     margin: 1em;
@@ -1076,7 +1074,7 @@ blockquote {
     filter: grayscale(100%) opacity(0.7);
 }
 
-.portrait:hover {
+.portrait-member:hover {
     -webkit-filter: grayscale(0) opacity(1);
     filter: grayscale(0) opacity(1);
     -moz-border-radius: 0;
