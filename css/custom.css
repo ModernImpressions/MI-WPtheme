@@ -1052,7 +1052,6 @@ blockquote {
 
 .portrait-container {
     max-width: 1020px;
-    height: 200px;
     margin: 0 auto;
     *zoom: 1;
     text-align: center;
@@ -1086,15 +1085,9 @@ blockquote {
 }
 
 .portrait-details {
-    /* white-space: nowrap; */
     cursor: text;
-    position: absolute;
     list-style-type: none;
-    margin-top: 200px;
-    margin-left: -.5px;
     padding: 5px;
-    height: 360px;
-    width: 191px;
     background: rgba(0, 0, 0, .6);
     -moz-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
@@ -1103,9 +1096,15 @@ blockquote {
     border-bottom: 2px solid rgba(0, 200, 255, .5);
 }
 
-.title {
+.portrait-title {
     text-transform: uppercase;
     background: rgba(0, 200, 255, .5);
+    color: #fff;
+    letter-spacing: .5px;
+    padding: 1.5em 1.9em 0.7em;
+    font-weight: 700;
+    max-width: 250px;
+    margin: 5%;
 }
 
 @media all and (max-width: 64em) {
