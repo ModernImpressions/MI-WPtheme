@@ -1118,7 +1118,7 @@ blockquote {
     color: #fff;
     line-height: .5rem;
     padding: 0.3em 1.9em;
-    font: 400 0.8em/1 'Roboto', serif;
+    font-size: 400 0.8em/1;
 }
 
 p {
@@ -1136,7 +1136,7 @@ p:first-line {
 }
 
 .portrait-details li:first-child {
-    font: 200% 'Roboto', sans-serif;
+    font-size: 200%;
     text-transform: uppercase;
     padding: 21px;
     margin-top: -8px;
