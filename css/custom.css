@@ -1151,7 +1151,7 @@ p:first-line {
 .portrait-details li:nth-child(2) {
     color: #fff;
     letter-spacing: .5px;
-    padding: 1.5em 1.9em 0.7em;
+    padding: 5%;
     font-weight: 700;
 }
 
