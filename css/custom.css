@@ -1136,11 +1136,10 @@ p:first-line {
 }
 
 .portrait-details li:first-child {
-    font-size: 200%;
+    font-size: 140%;
     text-transform: uppercase;
-    padding: 21px;
-    margin-top: -8px;
-    margin-left: -0px;
+    line-height: inherit;
+    padding: 15px;
     color: #fff;
 }
 
