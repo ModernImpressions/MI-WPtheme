@@ -10,7 +10,7 @@ function ali_widgets_init() {
 		'description'   => __( 'Appears in the Banner section of the site. Below the Navigation', 'alihossain' ),
 		'before_widget' => '<div class="child_banner">',
 		'after_widget'  => '</div>',
-		'before_title'  => '<h2 class="title">',
+		'before_title'  => '<h2 class="title" style="display: none;">',
 		'after_title'   => '</h2>',
 	) );
 	register_sidebar( array(
