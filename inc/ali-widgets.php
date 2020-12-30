@@ -6,7 +6,7 @@
 function ali_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Banner Widget Area', 'alihossain' ),
-		'id'            => 'banner-widget',
+		'id'            => 'sidebar-0',
 		'description'   => __( 'Appears in the Banner section of the site. Below the Navigation', 'alihossain' ),
 		'before_widget' => '<div class="child_banner">',
 		'after_widget'  => '</div>',
