@@ -30,17 +30,18 @@ blockquote,
 th,
 td {
     margin: 0;
-    padding: 0
+    padding: 0;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 table {
     border-collapse: collapse;
-    border-spacing: 0
+    border-spacing: 0;
 }
 
 fieldset,
 img {
-    border: 0
+    border: 0;
 }
 
 address,
