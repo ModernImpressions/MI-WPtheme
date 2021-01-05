@@ -31,7 +31,7 @@ th,
 td {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 table {
@@ -677,6 +677,24 @@ blockquote {
 #slider a:hover {
     background: #007f7b;
     color: #fff;
+}
+
+#owl-slider-item .owl-buttons .owl-prev {
+    position: absolute;
+    left: 0;
+    width: 32px;
+    height: 35px;
+    background: url(../img/left.png);
+    text-indent: 0;
+}
+
+#owl-slider-item .owl-buttons .owl-next {
+    position: absolute;
+    right: 0;
+    width: 32px;
+    height: 35px;
+    background: url(../img/right.png);
+    text-indent: 0;
 }
 
 
