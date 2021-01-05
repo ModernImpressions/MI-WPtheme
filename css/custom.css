@@ -57,9 +57,20 @@ var {
     font-weight: normal
 }
 
+strong {
+    font-weight: bold;
+    color: #0F6B66;
+}
+
 ol,
 ul {
     list-style: none
+}
+
+ul {
+    list-style-type: disc;
+    list-style-position: outside;
+    padding: 25px;
 }
 
 caption,
@@ -563,6 +574,7 @@ blockquote {
     /*box-shadow: 0 0px 16px #d7d7d7;*/
     padding: 0;
     margin: 15px 0 0;
+    border-bottom: 2px solid #007f7b;
 }
 
 #slider .quality {
@@ -816,7 +828,7 @@ blockquote {
 ========================================================================== */
 
 #impression_area {
-    background: #007f7b;
+    background: #77511E;
     padding: 45px 0;
     overflow: hidden;
     color: #fff;
@@ -837,7 +849,7 @@ blockquote {
 }
 
 #impression_area .col-md-10 p {
-    color: #9ce4e2;
+    color: #fff;
     font-size: 15px;
     font-weight: 400;
     margin: 0;
@@ -869,6 +881,7 @@ blockquote {
     width: 100%;
     overflow: hidden;
     position: relative;
+    min-height: 380px;
 }
 
 #impression_area .child_impression h2 {
@@ -1496,6 +1509,10 @@ body.archive #content_area {
     width: 100%;
 }
 
+#full_page_area h3 {
+    color: #007F7B;
+}
+
 #full_page_area img.attachment-post-thumbnail {
     height: auto;
     width: 100%;
@@ -1539,6 +1556,10 @@ body.archive #content_area {
 
 #full_page_area .post_head h1.entry-title a:hover {
     color: #007F7B;
+}
+
+#full_page_area .original_content_area h2 {
+    /* display:none;  --inserted from the theme editor inline CSS, triad did this to hide the h2 title on pages and posts, for some reason.  It's garbage, so I'm commenting it out, but moving it here so it's no longer inline*/
 }
 
 #full_page_area .original_content_area p {
