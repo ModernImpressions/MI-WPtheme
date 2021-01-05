@@ -1190,11 +1190,11 @@ blockquote {
 }
 
 #brand_area .child_logo:last-child {
-    margin-right: 0%;
+    margin-right: 2%;
 }
 
 #brand_area .child_logo:first-child {
-    margin-left: 0%;
+    margin-left: 2%;
 }
 
 #brand_area .child_logo a {
