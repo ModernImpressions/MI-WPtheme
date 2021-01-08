@@ -679,34 +679,6 @@ blockquote {
     color: #fff;
 }
 
-#owl-slider-item .owl-buttons .owl-prev {
-    position: absolute;
-    left: 0;
-    width: 32px;
-    height: 35px;
-    background: none;
-    text-indent: 0;
-}
-
-#owl-slider-item .owl-controls .owl-buttons .owl-prev:before {
-    content: "\f104";
-    font-family: Font Awesome;
-}
-
-#owl-slider-item .owl-buttons .owl-next {
-    position: absolute;
-    right: 0;
-    width: 32px;
-    height: 35px;
-    background: none;
-    text-indent: 0;
-}
-
-#owl-slider-item .owl-controls .owl-buttons .owl-next:before {
-    content: "\f105";
-    font-family: Font Awesome;
-}
-
 
 /* ==========================================================================
    Welcome Area

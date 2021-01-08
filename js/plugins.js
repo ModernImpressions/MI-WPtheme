@@ -471,7 +471,9 @@
             buildButtons: function() {
                 var i = this,
                     s = t('<div class="owl-buttons"/>');
-                i.owlControls.append(s), i.buttonPrev = t("<div/>", { class: "owl-prev", html: i.options.navigationText[0] || "" }), i.buttonNext = t("<div/>", { class: "owl-next", html: i.options.navigationText[1] || "" }), s.append(i.buttonPrev).append(i.buttonNext), s.on("touchstart.owlControls mousedown.owlControls", 'div[class^="owl"]', function(t) { t.preventDefault() }), s.on("touchend.owlControls mouseup.owlControls", 'div[class^="owl"]', function(s) { s.preventDefault(), t(this).hasClass("owl-next") ? i.next() : i.prev() })
+                i.owlControls.append(s), i.buttonPrev = t("<i class="
+                    far fa - chevron - left "></i><div/>", { class: "owl-prev", html: i.options.navigationText[0] || "" }), i.buttonNext = t("<i class="
+                    far fa - chevron - right "></i><div/>", { class: "owl-next", html: i.options.navigationText[1] || "" }), s.append(i.buttonPrev).append(i.buttonNext), s.on("touchstart.owlControls mousedown.owlControls", 'div[class^="owl"]', function(t) { t.preventDefault() }), s.on("touchend.owlControls mouseup.owlControls", 'div[class^="owl"]', function(s) { s.preventDefault(), t(this).hasClass("owl-next") ? i.next() : i.prev() })
             },
             buildPagination: function() {
                 var i = this;
