@@ -4,8 +4,8 @@
 
 @media only screen and (min-width: 1200px) and (max-width: 1440px) {
     .hustle-ui[data-id="3"] .hustle-info .hustle-content-wrap {
-        margin-left: 10%;
-        margin-right: 10%;
+        margin-left: 10% !important;
+        margin-right: 10% !important;
     }
 }
 
@@ -29,6 +29,10 @@
     }
     #slider h3 {
         font-size: 28px;
+    }
+    .hustle-ui[data-id="3"] .hustle-info .hustle-content-wrap {
+        margin-left: 8% !important;
+        margin-right: 8% !important;
     }
 }
 
