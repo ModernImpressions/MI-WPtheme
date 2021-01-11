@@ -89,6 +89,10 @@
     #impression_area .child_impression {
         min-height: 100px;
     }
+    .hustle-ui[data-id="3"] .hustle-info .hustle-content-wrap {
+        margin-left: 1% !important;
+        margin-right: 1% !important;
+    }
 }
 
 
@@ -225,5 +229,19 @@
     #slider {
         padding: 0;
         margin: 0;
+    }
+    .hustle-ui[data-id="3"] .hustle-info .hustle-content-wrap {
+        margin-left: 2% !important;
+        margin-right: 2% !important;
+        flex-direction: column;
+    }
+    .hustle-ui[data-id="3"] .hustle-info .hustle-layout .hustle-cta-container {
+        margin-top: 5% !important;
+        margin-bottom: 5% !important;
+    }
+    .hustle-ui[data-id="3"] .hustle-info .hustle-layout .hustle-title {
+        text-align: center !important;
+        padding-right: 5% !important;
+        margin-bottom: 5% !important;
     }
 }
