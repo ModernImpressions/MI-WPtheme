@@ -575,6 +575,10 @@ blockquote {
     font-family: 'Poppins', sans-serif !important;
 }
 
+.hustle-ui.module_id_3 .hustle-layout .hustle-group-content p:not([class*="forminator-"]) {
+    font-family: 'Poppins', sans-serif !important;
+}
+
 
 /* ==========================================================================
    Slider Styles
