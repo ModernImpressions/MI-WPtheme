@@ -1,4 +1,16 @@
 /* ==========================================================================
+   1440p Layout: 1440px.
+   ========================================================================== */
+
+@media only screen and (min-width: 1200px) and (max-width: 1440px) {
+    .hustle-ui[data-id="3"] .hustle-info .hustle-content-wrap {
+        margin-left: 10% !important;
+        margin-right: 10% !important;
+    }
+}
+
+
+/* ==========================================================================
    Medium Layout: 1280px.
    ========================================================================== */
 
@@ -9,11 +21,18 @@
     .main_menu ul#nav li a {
         padding: 12px 15px;
     }
+    #impression_area .child_impression {
+        min-height: 550px;
+    }
     #impression_area .child_impression h5 {
         font-size: 15px;
     }
     #slider h3 {
         font-size: 28px;
+    }
+    .hustle-ui[data-id="3"] .hustle-info .hustle-content-wrap {
+        margin-left: 8% !important;
+        margin-right: 8% !important;
     }
 }
 
@@ -66,6 +85,13 @@
         font-size: 14px;
         font-weight: 400;
         line-height: 1.1;
+    }
+    #impression_area .child_impression {
+        min-height: 100px;
+    }
+    .hustle-ui[data-id="3"] .hustle-info .hustle-content-wrap {
+        margin-left: 1% !important;
+        margin-right: 1% !important;
     }
 }
 
@@ -203,5 +229,19 @@
     #slider {
         padding: 0;
         margin: 0;
+    }
+    .hustle-ui[data-id="3"] .hustle-info .hustle-content-wrap {
+        margin-left: 2% !important;
+        margin-right: 2% !important;
+        flex-direction: column;
+    }
+    .hustle-ui[data-id="3"] .hustle-info .hustle-layout .hustle-cta-container {
+        margin-top: 5% !important;
+        margin-bottom: 5% !important;
+    }
+    .hustle-ui[data-id="3"] .hustle-info .hustle-layout .hustle-title {
+        text-align: center !important;
+        padding-right: 5% !important;
+        margin-bottom: 5% !important;
     }
 }

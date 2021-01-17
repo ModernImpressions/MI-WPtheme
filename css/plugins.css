@@ -413,12 +413,12 @@
 
 #owl-slider-item .owl-controls .owl-buttons .owl-prev:before {
     content: "\f104";
-    font-family: FontAwesome;
+    font-family: Font Awesome Pro;
 }
 
 #owl-slider-item .owl-controls .owl-buttons .owl-next:before {
     content: "\f105";
-    font-family: FontAwesome;
+    font-family: Font Awesome Pro;
 }
 
 .owl-carousel .item img,
