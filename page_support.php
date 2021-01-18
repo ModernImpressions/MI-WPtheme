@@ -18,7 +18,8 @@ get_header('support'); ?>
                     <div class="col-md-12">
                         <div class="original_content_area">
                             <h2 class="title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-                            <p style="text-align: center;"><?php echo do_shortcode('[basepress-search]'); ?></p>
+                            <p style="text-align: center;"><?php echo do_shortcode('[basepress-search kb="help-docs"]'); ?></p>
+                            <hr/>
                             <div id="app"></div>
                             <script type="x-template" id="app-template">
                             <flow-form
