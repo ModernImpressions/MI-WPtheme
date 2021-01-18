@@ -8,7 +8,7 @@
 // Add all CSS Files
 function my_css_calling(){ 
     wp_register_style('plugins', get_template_directory_uri().'/css/plugins.css', array(), '1.0.1', 'all' ); 
-    wp_enqueue_style( 'ali-style', get_stylesheet_uri() );
+    wp_register_style( 'ali-style', get_stylesheet_uri() );
     wp_register_style('custom', get_template_directory_uri().'/css/custom.css', array(), '1.0.1', 'all' );
     wp_register_style('responsive', get_template_directory_uri().'/css/responsive.css', array(), '1.0.1', 'all' );
     wp_enqueue_style( 'bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css', array(), '4.5.0', 'all' );
