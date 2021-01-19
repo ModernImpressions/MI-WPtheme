@@ -16,7 +16,7 @@ var app = new Vue({
             questions: [
                 new FlowForm.QuestionModel({
                     id: 'multiple_choice',
-                    tagline: "Welcome to our demo support page!",
+                    tagline: "Welcome to our Support Center!",
                     title: 'Hi 👋, how can we help you today?',
                     type: FlowForm.QuestionType.MultipleChoice,
                     multiple: false,
@@ -28,28 +28,33 @@ var app = new Vue({
                             value: 'technical_issue'
                         }),
                         new FlowForm.ChoiceOption({
+                            label: 'I need to update account information',
+                            value: 'account_issue'
+                        }),
+                        new FlowForm.ChoiceOption({
                             label: 'I wish to check my ticket status',
                             value: 'enter_ticket'
                         }),
                     ],
                     jump: {
                         technical_issue: 'technical_issue',
+                        account_issue: 'account_issue',
                         enter_ticket: 'enter_ticket'
                     }
                 }),
                 new FlowForm.QuestionModel({
                     id: 'technical_issue',
                     tagline: 'Submit issue > Step 1/3',
-                    title: 'Have you read our technical FAQ?',
+                    title: 'Have you checked our Support Documentation?',
                     type: FlowForm.QuestionType.MultipleChoice,
                     multiple: false,
                     required: true,
                     helpTextShow: false,
-                    description: "Here you'll find answers to",
+                    description: "Find solutions to common problems in our",
                     descriptionLink: [
                         new FlowForm.LinkOption({
-                            url: '#',
-                            text: 'FAQs',
+                            url: 'https://www.modernimpressions.com/docs/',
+                            text: ' Support Docs',
                             target: '_self'
                         })
                     ],
@@ -61,6 +66,32 @@ var app = new Vue({
                     ],
                     jump: {
                         faq_no: 'faq_no'
+                    }
+                }),
+                new FlowForm.QuestionModel({
+                    id: 'account_issue',
+                    tagline: 'Account Updates > Step 1/2',
+                    title: 'I wish to update my Account Information',
+                    type: FlowForm.QuestionType.MultipleChoice,
+                    multiple: false,
+                    required: true,
+                    helpTextShow: false,
+                    description: "If you wish to update the contact information you can do so here: ",
+                    descriptionLink: [
+                        new FlowForm.LinkOption({
+                            url: 'https://www.modernimpressions.com/support/change-contact-information/',
+                            text: ' Change Contact Infomation',
+                            target: '_self'
+                        })
+                    ],
+                    options: [
+                        new FlowForm.ChoiceOption({
+                            label: 'I need to make other account changes...',
+                            value: 'account_no'
+                        }),
+                    ],
+                    jump: {
+                        account_no: 'account_no'
                     }
                 }),
                 new FlowForm.QuestionModel({
@@ -84,6 +115,26 @@ var app = new Vue({
                     type: FlowForm.QuestionType.LongText,
                     required: true,
                     placeholder: 'Start typing here...',
+                }),
+                new FlowForm.QuestionModel({
+                    id: 'account_no',
+                    tagline: 'Account Updates > Step 2/2',
+                    title: 'I need to make other account changes...',
+                    type: FlowForm.QuestionType.MultipleChoice,
+                    multiple: false,
+                    required: true,
+                    helpTextShow: false,
+                    description: "If you have other changes to make, please call our office 1-800-840-2554 or ",
+                    descriptionLink: [
+                        new FlowForm.LinkOption({
+                            url: 'https://www.modernimpressions.com/contact/',
+                            text: ' Contact Us',
+                            target: '_self'
+                        })
+                    ],
+                    options: [
+
+                    ]
                 })
             ]
         }
