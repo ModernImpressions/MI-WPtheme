@@ -44,8 +44,8 @@ var app = new Vue({
                 }),
                 new FlowForm.QuestionModel({
                     id: 'technical_issue',
-                    tagline: 'Submit issue > Step 1/3',
-                    title: 'Have you checked our Support Documentation?',
+                    tagline: 'Submit issue > Step 1/2',
+                    title: 'Have you checked our Support Documentation? You can also search in the bar at the top of this page.',
                     type: FlowForm.QuestionType.MultipleChoice,
                     multiple: false,
                     required: true,
@@ -61,11 +61,11 @@ var app = new Vue({
                     options: [
                         new FlowForm.ChoiceOption({
                             label: 'Yes, but still couldn’t find the answer.',
-                            value: 'faq_no'
+                            value: 'support_no'
                         }),
                     ],
                     jump: {
-                        faq_no: 'faq_no'
+                        support_no: 'support_no'
                     }
                 }),
                 new FlowForm.QuestionModel({
@@ -109,12 +109,24 @@ var app = new Vue({
                     }
                 }),
                 new FlowForm.QuestionModel({
-                    id: 'faq_no',
+                    id: 'support_no',
                     tagline: 'Submit issue > Step 2/3',
-                    title: 'Please describe your problem',
-                    type: FlowForm.QuestionType.LongText,
+                    title: 'Please Submit a Service Call',
+                    type: FlowForm.QuestionType.MultipleChoice,
+                    multiple: false,
                     required: true,
-                    placeholder: 'Start typing here...',
+                    helpTextShow: false,
+                    description: "We're here to help, just ",
+                    descriptionLink: [
+                        new FlowForm.LinkOption({
+                            url: 'https://www.modernimpressions.com/support/place-a-service-call/',
+                            text: ' Submit a Service Call',
+                            target: '_self'
+                        })
+                    ],
+                    options: [
+
+                    ]
                 }),
                 new FlowForm.QuestionModel({
                     id: 'account_no',
@@ -124,7 +136,7 @@ var app = new Vue({
                     multiple: false,
                     required: true,
                     helpTextShow: false,
-                    description: "If you have other changes to make, please call our office 1-800-840-2554 or ",
+                    description: "If you have other changes to make, please call our office 1-800-840-2554 or",
                     descriptionLink: [
                         new FlowForm.LinkOption({
                             url: 'https://www.modernimpressions.com/contact/',
