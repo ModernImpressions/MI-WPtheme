@@ -32,14 +32,19 @@ var app = new Vue({
                             value: 'account_issue'
                         }),
                         new FlowForm.ChoiceOption({
-                            label: 'I wish to check my ticket status',
-                            value: 'enter_ticket'
+                            label: 'I need to order supplies',
+                            value: 'order_supplies'
+                        }),
+                        new FlowForm.ChoiceOption({
+                            label: 'I need to submit a meter reading',
+                            value: 'submit_meter'
                         }),
                     ],
                     jump: {
                         technical_issue: 'technical_issue',
                         account_issue: 'account_issue',
-                        enter_ticket: 'enter_ticket'
+                        order_supplies: 'order_supplies',
+                        submit_meter: 'submit_meter'
                     }
                 }),
                 new FlowForm.QuestionModel({
@@ -95,18 +100,24 @@ var app = new Vue({
                     }
                 }),
                 new FlowForm.QuestionModel({
-                    id: 'enter_ticket',
-                    tagline: 'Support page > Ticket status',
-                    title: 'Please enter your 6-digit code',
-                    subtitle: 'You received this when you reported your problem',
-                    type: FlowForm.QuestionType.Number,
+                    id: 'order_supplies',
+                    tagline: 'Supplies > Place an order',
+                    title: 'I need to order supplies...',
+                    type: FlowForm.QuestionType.MultipleChoice,
                     multiple: false,
                     required: true,
-                    mask: '#-#-#-#-#-#',
-                    placeholder: '#-#-#-#-#-#',
-                    jump: {
-                        _other: '_submit'
-                    }
+                    helpTextShow: false,
+                    description: "You'll need your device information handy, but you can ",
+                    descriptionLink: [
+                        new FlowForm.LinkOption({
+                            url: 'https://www.modernimpressions.com/support/order-supplies/',
+                            text: 'place a supply order.',
+                            target: '_self'
+                        })
+                    ],
+                    options: [
+
+                    ]
                 }),
                 new FlowForm.QuestionModel({
                     id: 'support_no',
@@ -120,7 +131,27 @@ var app = new Vue({
                     descriptionLink: [
                         new FlowForm.LinkOption({
                             url: 'https://www.modernimpressions.com/support/place-a-service-call/',
-                            text: ' Submit a Service Call',
+                            text: 'Submit a Service Call',
+                            target: '_self'
+                        })
+                    ],
+                    options: [
+
+                    ]
+                }),
+                new FlowForm.QuestionModel({
+                    id: 'submit_meter',
+                    tagline: 'Meters > Submit',
+                    title: 'I need to submit a meter reading...',
+                    type: FlowForm.QuestionType.MultipleChoice,
+                    multiple: false,
+                    required: true,
+                    helpTextShow: false,
+                    description: "You'll need your device information handy, but you can ",
+                    descriptionLink: [
+                        new FlowForm.LinkOption({
+                            url: 'https://www.modernimpressions.com/support/meter-reading/',
+                            text: 'Submit a Meter Reading',
                             target: '_self'
                         })
                     ],
@@ -136,11 +167,11 @@ var app = new Vue({
                     multiple: false,
                     required: true,
                     helpTextShow: false,
-                    description: "If you have other changes to make, please call our office 1-800-840-2554 or",
+                    description: "If you have other changes to make, please call our office 1-800-840-2554 or ",
                     descriptionLink: [
                         new FlowForm.LinkOption({
                             url: 'https://www.modernimpressions.com/contact/',
-                            text: ' Contact Us',
+                            text: 'Contact Us',
                             target: '_self'
                         })
                     ],
