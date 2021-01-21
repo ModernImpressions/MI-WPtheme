@@ -311,7 +311,6 @@ svg.logo {
     z-index: 1;
     line-height: 1.2;
     font-weight: 900;
-    text-transform: lowercase;
 }
 
 .o-btn-action span {
