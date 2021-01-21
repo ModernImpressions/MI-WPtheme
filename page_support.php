@@ -28,35 +28,19 @@ get_header('support'); ?>
                                 v-bind:questions="questions"
                                 v-bind:language="language"
                                 v-bind:progressbar="false"
+                                v-bind:navigation="false"
                             >
                             <!-- Custom content for the Complete/Submit screen slots in the FlowForm component -->
                             <!-- We've overriden the default "complete" slot content -->
-                            <template v-slot:complete>
-                                <div class="section-wrap">
-                                    <div v-if="questions[0].answer === 'technical_issue'">
-                                        <span class="f-tagline">Submit issue &gt; Step 3/3</span>
-                                        <div v-if="loading">
-                                            <span class="fh2">Please wait, submitting your ticket.</span>
-                                        </div>
-                                        <div v-else>
-                                            <span class="fh2">Your ticket number is: {{ getTicket() }}</span>
-                                            <p class="description"><span>Thank You 😊. Our support team will contact you as soon as possible.</span></p>
-                                        </div>
-                                    </div>
-                                    <div v-else>
-                                        <span class="f-tagline">Support page &gt; Ticket status</span>
-                                        <span class="fh2">Good news - the wheels are turning, your ticket is being processed!😉</span>
-                                    </div>
-                                </div>
-                            </template>
                             <!-- We've overriden the default "completeButton" slot content -->
                             <template v-slot:completeButton>
                                 <div class="f-submit">
                                     <!-- Leave empty to hide default submit button -->
                                 </div>
                             </template>
-                        </flow-form>
-                    </script>
+                            </flow-form>
+                        </script>
+                        <hr/>
                             <?php the_content(); ?>
                         </div>
                         <?php endwhile; ?>

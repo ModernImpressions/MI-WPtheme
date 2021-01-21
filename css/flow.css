@@ -106,7 +106,6 @@ a:active {
 ul.f-radios li {
     border: 1px solid var(--secondary-text-color);
     font-weight: 900;
-    color: var(--secondary-text-color);
 }
 
 ul.f-radios li.f-other.f-selected input {
@@ -117,7 +116,7 @@ ul.f-radios li.f-selected,
 ul.f-radios li:active {
     border-color: var(--main-text-color);
     color: var(--main-text-color);
-    background-color: #232323;
+    background-color: #929292;
 }
 
 .f-key {
@@ -128,9 +127,7 @@ ul.f-radios li:active {
 
 /*field-dropdowntype*/
 
-span.f-empty {
-    color: var(--secondary-text-color);
-}
+span.f-empty {}
 
 span.f-answered {
     color: var(--main-text-color);
@@ -266,9 +263,7 @@ p.text-success {
         background-color: #007F7B;
     }
     /*field-multiplechoicetype*/
-    ul.f-radios li {
-        color: var(--secondary-text-color);
-    }
+    ul.f-radios li {}
     .f-key {
         color: #007F7B;
         font-weight: 300;
