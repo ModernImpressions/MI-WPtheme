@@ -542,9 +542,6 @@ span.f-tagline {
     color: #007F7B;
 }
 
-span.f-tagline,
-span.f-sub,
-p.description,
 .text-muted {
     color: var(--secondary-text-color);
 }
