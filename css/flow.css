@@ -121,7 +121,7 @@ ul.f-radios li:active {
 }
 
 .f-key {
-    color: var(--secondary-accent-color);
+    color: #007F7B;
     font-weight: 300;
 }
 
@@ -159,7 +159,7 @@ span.f-answered {
 
 .f-footer .f-prev svg,
 .f-footer .f-next svg {
-    fill: var(--main-text-color);
+    fill: #007F7B;
 }
 
 .f-progress {
@@ -223,21 +223,21 @@ p.text-success {
         background-color: transparent;
     }
     header svg.logo {
-        fill: var(--main-accent-color);
+        fill: #007F7B;
     }
     .v-form textarea,
     .v-form input,
     .v-form select option {
-        color: var(--main-accent-color);
+        color: #007F7B;
     }
     span.f-answered {
-        color: var(--main-accent-color);
+        color: #007F7B;
     }
     .f-arrow-down svg {
-        fill: var(--main-accent-color);
+        fill: #007F7B;
     }
     .text-success {
-        color: var(--main-accent-color);
+        color: #007F7B;
     }
     /*footer*/
     .f-footer .footer-inner-wrap {
@@ -245,7 +245,7 @@ p.text-success {
     }
     .f-footer .f-prev svg,
     .f-footer .f-next svg {
-        fill: var(--main-accent-color);
+        fill: #007F7B;
     }
     .f-footer .f-prev.f-disabled svg,
     .f-footer .f-next.f-disabled svg {
@@ -270,7 +270,7 @@ p.text-success {
         color: var(--secondary-text-color);
     }
     .f-key {
-        color: var(--main-accent-color);
+        color: #007F7B;
         font-weight: 300;
     }
 }
