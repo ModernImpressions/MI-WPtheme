@@ -535,9 +535,18 @@ h3 {
 
 span.f-sub,
 span.f-tagline {
-    font-weight: 400;
+    font-weight: 600;
+    line-height: 1.5em;
     display: block;
-    font-size: 1.222rem;
+    font-size: 1.75rem;
+    color: #007F7B;
+}
+
+span.f-tagline,
+span.f-sub,
+p.description,
+.text-muted {
+    color: var(--secondary-text-color);
 }
 
 span.f-sub,
