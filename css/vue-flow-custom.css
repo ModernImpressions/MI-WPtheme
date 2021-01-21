@@ -504,9 +504,9 @@ h1 {
 
 .fh2,
 h2 {
-    font-weight: 900;
-    font-size: 2.4rem;
-    line-height: 1.34;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.2;
     padding-right: 4rem;
     margin-bottom: 20px;
 }
@@ -528,7 +528,7 @@ h3 {
 @media screen and (max-width: 767px) {
     .fh2,
     h2 {
-        font-size: 2.2rem;
+        font-size: 1.3rem;
         padding-right: 0;
     }
 }
