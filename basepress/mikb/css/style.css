@@ -242,8 +242,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     position: relative;
     width: 100%;
     margin: 0;
-    padding: 100px 25px 60px;
-    background-color: #34424c;
+    padding: 10px 25px 30px;
+    background-color: #404040;
     background-size: cover;
     background-position: center;
 }
@@ -305,7 +305,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     position: absolute;
     right: 15px;
     top: -15px;
-    background-color: #36444f;
+    background-color: #404040;
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -325,10 +325,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 .bpress-post-link {
     position: relative;
     margin: 0;
-    padding: 10px 5px;
+    padding: 5px 5px;
     border-bottom: 1px dashed #ddd;
     list-style-type: none;
-    font-size: 1em;
+    font-size: 0.6em;
     line-height: 1.5;
 }
 

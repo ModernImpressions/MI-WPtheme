@@ -121,7 +121,7 @@ var app = new Vue({
                 }),
                 new FlowForm.QuestionModel({
                     id: 'support_no',
-                    tagline: 'Submit issue > Step 2/3',
+                    tagline: 'Submit issue > Step 2/2',
                     title: 'Please Submit a Service Call',
                     type: FlowForm.QuestionType.MultipleChoice,
                     multiple: false,
