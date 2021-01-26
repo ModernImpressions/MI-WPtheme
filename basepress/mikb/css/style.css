@@ -599,31 +599,31 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     background: transparent;
 }
 
-.bpress-post-skill-tag-filter .Beginner {
+.bpress-post-skill-tag-filter.Beginner {
     background: #0089d1;
     color: #fff;
     text-decoration: none;
 }
 
-.bpress-post-skill-tag-filter .Easy {
+.bpress-post-skill-tag-filter.Easy {
     background: #00942a;
     color: #fff;
     text-decoration: none;
 }
 
-.bpress-post-skill-tag-filter .Moderate {
+.bpress-post-skill-tag-filter.Moderate {
     background: #f7931d;
     color: #fff;
     text-decoration: none;
 }
 
-.bpress-post-skill-tag-filter .Difficult {
+.bpress-post-skill-tag-filter.Difficult {
     background: #d00000;
     color: #fff;
     text-decoration: none;
 }
 
-.bpress-post-skill-tag-filter .Expert {
+.bpress-post-skill-tag-filter.Expert {
     background: #000;
     color: #fff;
     text-decoration: none;
