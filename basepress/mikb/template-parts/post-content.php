@@ -25,7 +25,7 @@ $bpkb_post_post_date_icon = isset( $bpkb_post_meta_icons[3] ) ? $bpkb_post_meta_
 			<span class="bpress-post-likes"><i class="fas fa-thumbs-up"></i><?php echo $bpkb_post_metas['votes']['like']; ?></span>
 			<span class="bpress-post-dislikes"><i class="fas fa-thumbs-down"></i><?php echo $bpkb_post_metas['votes']['dislike']; ?></span>
 			<?php } ?>
-			<span class="bpress-post-date"><i class="fas fa-calendar-day"></i><?php echo get_the_modified_date(); ?></span>
+			<span class="bpress-post-date"><i class="fas fa-calendar-day"></i><?php echo "Created: "; ?><?php echo get_the_date(); ?><?php echo " Last Update: "; ?><?php echo get_the_modified_date(); ?></span>
 		</div>
 	</header>
 
