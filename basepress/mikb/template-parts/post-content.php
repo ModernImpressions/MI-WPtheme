@@ -19,13 +19,13 @@ $bpkb_post_post_date_icon = isset( $bpkb_post_meta_icons[3] ) ? $bpkb_post_meta_
 		<div class="bpress-post-meta">
 			<?php $bpkb_post_metas = basepress_get_post_meta( get_the_ID() ); ?>
 
-			<span class="bpress-post-views"><span class="<?php echo $bpkb_post_views_icon; ?>"></span><?php echo $bpkb_post_metas['views']; ?></span>
+			<span class="bpress-post-views"><i class="far fa-eye"></i><?php echo $bpkb_post_metas['views']; ?></span>
 
 			<?php if( basepress_show_post_votes() ){ ?>
-			<span class="bpress-post-likes"><span class="<?php echo $bpkb_post_post_like_icon; ?>"></span><?php echo $bpkb_post_metas['votes']['like']; ?></span>
-			<span class="bpress-post-dislikes"><span class="<?php echo $bpkb_post_post_dislike_icon; ?>"></span><?php echo $bpkb_post_metas['votes']['dislike']; ?></span>
+			<span class="bpress-post-likes"><i class="fas fa-thumbs-up"></i><?php echo $bpkb_post_metas['votes']['like']; ?></span>
+			<span class="bpress-post-dislikes"><i class="fas fa-thumbs-down"></i><?php echo $bpkb_post_metas['votes']['dislike']; ?></span>
 			<?php } ?>
-			<span class="bpress-post-date"><span class="<?php echo $bpkb_post_post_date_icon; ?>"></span><?php echo get_the_modified_date(); ?></span>
+			<span class="bpress-post-date"><i class="fas fa-calendar-day"></i><?php echo get_the_modified_date(); ?></span>
 		</div>
 	</header>
 
