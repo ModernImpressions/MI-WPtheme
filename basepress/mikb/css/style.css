@@ -570,6 +570,79 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     color: #df3a3a;
 }
 
+.bpress-post-access {
+    padding: 5px 0 0 0;
+    display: block;
+    margin-top: 0;
+    line-height: 1em;
+}
+
+.bpress-post-accessContainer {
+    display: inline-block;
+    margin-left: 0;
+}
+
+.bpress-post-skill-text {}
+
+.bpress-post-skill-tag-filter {
+    color: #fff;
+    font-weight: bold;
+    line-height: .75em;
+    margin: 5px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 12px 17px;
+    border-width: 0;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 3px;
+    background: transparent;
+}
+
+.bpress-post-skill-tag-filter .Beginner {
+    background: #0089d1;
+    color: #fff;
+    text-decoration: none;
+}
+
+.bpress-post-skill-tag-filter .Easy {
+    background: #00942a;
+    color: #fff;
+    text-decoration: none;
+}
+
+.bpress-post-skill-tag-filter .Moderate {
+    background: #f7931d;
+    color: #fff;
+    text-decoration: none;
+}
+
+.bpress-post-skill-tag-filter .Difficult {
+    background: #d00000;
+    color: #fff;
+    text-decoration: none;
+}
+
+.bpress-post-skill-tag-filter .Expert {
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+}
+
+.bpress-post-skill-link {
+    color: #fff;
+    font-weight: bold;
+    line-height: .75em;
+    cursor: pointer;
+    display: inline-block;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 3px;
+    background: transparent;
+    text-decoration: none;
+}
+
 
 /**
  * 9.0 - Breadcrumbs
