@@ -8,6 +8,7 @@
 $difficulty = get_field( "difficulty" ); 
 $deviceBrand = get_field( "device-brand" );
 $userBrand = get_field( "end-device-brand" );
+$relevantProducts = $deviceBrand || $userBrand;
 ?>
 
 <div class="bpress-post-metalist">
@@ -17,18 +18,18 @@ $userBrand = get_field( "end-device-brand" );
             <div class="bpress-post-skill-tag-filter <?php echo $difficulty ?>">
                 <a id="bpress-post-skill-link" href="#"><?php echo $difficulty ?></a>
             </div>
+            <?php if( isset($relevantProducts)) { ?>
+                <div class="bpress-post-brands-text"><?php echo "Relevant Product(s): " ?></div>
+            <?php } endif ?>
             <?php if( isset($deviceBrand) ) { ?>
                 <?php if ($deviceBrand != "none" ) { ?>
-                <div class="bpress-post-brands-text"><?php echo "Relevant Product(s): " ?></div>
                 <div class="bpress-post-brands-tag-filter <?php echo $deviceBrand ?>">
                     <a id="bpress-post-brands-link" href="#"><?php echo $deviceBrand ?></a>
                 </div>
-            <?php } else { 
-                 
-            } ?>
+                <?php } endif ?>
             <?php } else { ?>
 
-            <?php } ?>
+            <?php } endif ?>
         </div>
     </div>
 </div>
