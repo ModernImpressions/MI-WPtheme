@@ -20,10 +20,10 @@ $showbrands = ('false');
                 <a class="bpress-post-skill-link" href="#"><?php echo $difficulty ?></a>
             </div>
             <?php if ($relevantProducts == "true" ) { ?>
-                <?php if (($deviceBrand != "none") or ($deviceBrand != "NULL")) { ?>
+                <?php if ((isset($deviceBrand)) && (($deviceBrand != "none") or ($deviceBrand != "NULL"))) { ?>
                     <div class="bpress-post-brands-text"><?php echo "Relevant Product(s): " ?></div>
                     <?php echo $deviceBrand ?>
-                <?php } elseif (($userBrand != "none") or ($userBrand != "NULL") ) { ?>
+                <?php } elseif ((isset($userBrand)) && (($userBrand != "none") or ($userBrand != "NULL"))) { ?>
                     <div class="bpress-post-brands-text"><?php echo "Relevant Product(s): " ?></div>
                     <?php echo $userBrand ?>
                 <?php } ?>
