@@ -29,14 +29,19 @@ $relevantProducts = (($deviceBrand != "none") or ($userBrand != "none"));
             <?php if (isset($deviceBrand) ) { ?>
                 <?php if ($deviceBrand != "none" ) { ?>
                 <div class="bpress-post-brands-tag-filter <?php echo $deviceBrand ?>">
-                    <a class="bpress-post-brands-link" href="#"><?php echo $deviceBrand ?></a>
+                    <a class="bpress-post-brands-link" href="#">
+                        <?php echo $deviceBrand ?>
+                    </a>
                 </div>
                 <?php } ?>
             <?php } ?>
             <?php if (isset($userBrand) ) { ?>
                 <?php if ($userBrand != "none" ) { ?>
                 <div class="bpress-post-brands-tag-filter <?php echo $userBrand ?>">
-                    <a class="bpress-post-brands-link" href="#"><?php echo $userBrand ?></a>
+                    <a class="bpress-post-brands-link" href="#">
+                        <?php echo $userBrand ?>
+                        <i class="fab fa-<?php echo $userBrand ?>"></i>
+                    </a>
                 </div>
                 <?php } ?>
             <?php } ?>
