@@ -9,6 +9,21 @@ $difficulty = get_field( "difficulty" );
 $deviceBrand = get_field( "device-brand" );
 $userBrand = get_field( "end-device-brand" );
 $relevantProducts = (($deviceBrand != "none") or ($userBrand != "none"));
+$showbrands = ('false');
+
+
+function relevant_products ($deviceBrand,$userBrand,$relevantProducts,$showbrands) {
+    if ($deviceBrand == "none") {
+        return false;
+     }
+     if ($userBrand == "none") {
+        return false;
+     }
+     // got here, must have succeeded
+     $showbrands = ('true');
+     return true;
+}
+
 ?>
 
 <div class="bpress-post-metalist">
@@ -18,9 +33,11 @@ $relevantProducts = (($deviceBrand != "none") or ($userBrand != "none"));
             <div class="bpress-post-skill-tag-filter <?php echo $difficulty ?>">
                 <a class="bpress-post-skill-link" href="#"><?php echo $difficulty ?></a>
             </div>
+            <?php relevant_products($deviceBrand, $userBrand, $relevantProducts, $showbrands); ?>
             <?php if ($relevantProducts == "true" ) { ?>
                 <div class="bpress-post-brands-text"><?php echo "Relevant Product(s): " ?></div>
             <?php } ?>
+            <?php echo $showbrands ?>
             <?php if (isset($deviceBrand) ) { ?>
                 <?php if ($deviceBrand != "none" ) { ?>
                 <div class="bpress-post-brands-tag-filter <?php echo $deviceBrand ?>">
