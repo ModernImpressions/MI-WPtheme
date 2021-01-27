@@ -22,8 +22,10 @@ $showbrands = ('false');
             <?php if ($relevantProducts == "true" ) { ?>
                 <?php if ($deviceBrand != "none" ) { ?>
                     <div class="bpress-post-brands-text"><?php echo "Relevant Product(s): " ?></div>
+                    <?php echo $deviceBrand ?>
                 <?php } elseif ($userBrand != "none" ) { ?>
                     <div class="bpress-post-brands-text"><?php echo "Relevant Product(s): " ?></div>
+                    <?php echo $userBrand ?>
                 <?php } ?>
             <?php } ?>
             
