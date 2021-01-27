@@ -17,8 +17,8 @@ $userBrand = get_field( "end-device-brand" );
             <div class="bpress-post-skill-tag-filter <?php echo $difficulty ?>">
                 <a id="bpress-post-skill-link" href="#"><?php echo $difficulty ?></a>
             </div>
-            <?php if ($deviceBrand != "none") { ?>
-                <div class="bpress-post-brands-text"><?php echo "Relevant Products: " ?></div>
+            <?php if ($deviceBrand != "none" or $deviceBrand != "") { ?>
+                <div class="bpress-post-brands-text"><?php echo "Relevant Product(s): " ?></div>
                 <div class="bpress-post-brands-tag-filter <?php echo $deviceBrand ?>">
                     <a id="bpress-post-brands-link" href="#"><?php echo $deviceBrand ?></a>
                 </div>
