@@ -8,7 +8,7 @@
 $difficulty = get_field( "difficulty" ); 
 $deviceBrand = get_field( "device-brand" );
 $userBrand = get_field( "end-device-brand" );
-$relevantProducts = ($deviceBrand or $userBrand);
+$relevantProducts = (($deviceBrand != "none") or ($userBrand != "none"));
 ?>
 
 <div class="bpress-post-metalist">
