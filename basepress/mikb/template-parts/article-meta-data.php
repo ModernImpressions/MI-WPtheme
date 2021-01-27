@@ -8,7 +8,7 @@
 $difficulty = get_field( "difficulty" ); 
 $deviceBrand = get_field( "device-brand" );
 $userBrand = get_field( "end-device-brand" );
-$relevantProducts = $deviceBrand || $userBrand;
+$relevantProducts = ($deviceBrand or $userBrand);
 ?>
 
 <div class="bpress-post-metalist">
@@ -18,7 +18,7 @@ $relevantProducts = $deviceBrand || $userBrand;
             <div class="bpress-post-skill-tag-filter <?php echo $difficulty ?>">
                 <a id="bpress-post-skill-link" href="#"><?php echo $difficulty ?></a>
             </div>
-            <?php if (isset($relevantProducts) ) { ?>
+            <?php if ($relevantProducts == "true" ) { ?>
                 <div class="bpress-post-brands-text"><?php echo "Relevant Product(s): " ?></div>
             <?php } ?>
             <?php if (isset($deviceBrand) ) { ?>
