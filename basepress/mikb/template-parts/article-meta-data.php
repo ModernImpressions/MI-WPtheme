@@ -28,6 +28,13 @@ $relevantProducts = ($deviceBrand or $userBrand);
                 </div>
                 <?php } ?>
             <?php } ?>
+            <?php if (isset($userBrand) ) { ?>
+                <?php if ($userBrand != "none" ) { ?>
+                <div class="bpress-post-brands-tag-filter <?php echo $userBrand ?>">
+                    <a id="bpress-post-brands-link" href="#"><?php echo $userBrand ?></a>
+                </div>
+                <?php } ?>
+            <?php } ?>
         </div>
     </div>
 </div>
