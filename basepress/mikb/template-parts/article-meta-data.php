@@ -21,7 +21,6 @@ $relevantProducts = ($deviceBrand or $userBrand);
             <?php if ($relevantProducts == "true" ) { ?>
                 <div class="bpress-post-brands-text"><?php echo "Relevant Product(s): " ?></div>
             <?php } ?>
-            <?php echo $relevantProducts ?>
             <?php if (isset($deviceBrand) ) { ?>
                 <?php if ($deviceBrand != "none" ) { ?>
                 <div class="bpress-post-brands-tag-filter <?php echo $deviceBrand ?>">
