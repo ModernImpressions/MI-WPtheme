@@ -9,7 +9,6 @@ $difficulty = get_field( "difficulty" );
 $deviceBrand = get_field( "device-brand" );
 $userBrand = get_field( "end-device-brand" );
 $relevantProducts = (($deviceBrand != "none") or ($userBrand != "none"));
-$showbrands = ('false');
 ?>
 
 <div class="bpress-post-metalist">
@@ -22,10 +21,8 @@ $showbrands = ('false');
             <?php if ($relevantProducts == "true" ) { ?>
                 <?php if ((isset($deviceBrand)) && (($deviceBrand != "none") or ($deviceBrand != "NULL"))) { ?>
                     <div class="bpress-post-brands-text"><?php echo "Relevant Product(s): " ?></div>
-                    <?php echo $deviceBrand ?>
                 <?php } elseif ((isset($userBrand)) && (($userBrand != "none") or ($userBrand != "NULL"))) { ?>
                     <div class="bpress-post-brands-text"><?php echo "Relevant Product(s): " ?></div>
-                    <?php echo $userBrand ?>
                 <?php } ?>
             <?php } ?>
             
