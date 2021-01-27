@@ -643,6 +643,16 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     text-decoration: none;
 }
 
+.bpress-post-skill-link a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.bpress-post-skill-link a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
 
 /**
  * 9.0 - Breadcrumbs
