@@ -616,6 +616,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     background: transparent;
 }
 
+.bpress-post-brands-tag-filter {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
 .bpress-post-skill-tag-filter.Beginner {
     background: #0089d1;
     color: #fff;
