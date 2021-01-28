@@ -11,10 +11,6 @@ $userBrand = get_field( "end-device-brand" );
 $relevantProducts = (($deviceBrand != "none") or ($userBrand != "none"));
 $deviceObject = get_field_object( "device-brand" );
 $userObject = get_field_object( "end-device-brand" );
-$deviceBrandValue = $deviceBrand[0];
-$deviceBrandLabel = $deviceBrand[1];
-$userBrandValue = $userBrand[0];
-$userBrandLabel = $userBrand[1];
 ?>
 
 <div class="bpress-post-metalist">
@@ -25,31 +21,31 @@ $userBrandLabel = $userBrand[1];
                 <a class="bpress-post-skill-link" href="#"><?php echo $difficulty ?></a>
             </div>
             <?php if ($relevantProducts == "true" ) { ?>
-                <?php if ((isset($deviceBrandValue)) && (($deviceBrandValue != "none") or ($deviceBrandValue != "NULL"))) { ?>
+                <?php if ((isset($deviceBrand)) && (($deviceBrand != "none") or ($deviceBrand != "NULL"))) { ?>
                     <div class="bpress-post-brands-text"><?php echo "Relevant Product(s): " ?></div>
-                <?php } elseif ((isset($userBrandValue)) && (($userBrandValue != "none") or ($userBrandValue != "NULL"))) { ?>
+                <?php } elseif ((isset($userBrand)) && (($userBrand != "none") or ($userBrand != "NULL"))) { ?>
                     <div class="bpress-post-brands-text"><?php echo "Relevant Product(s): " ?></div>
                 <?php } ?>
             <?php } ?>
             
-            <?php if (isset($deviceBrandValue) ) { ?>
-                <?php if ($deviceBrandValue != "none" ) { ?>
-                <div class="bpress-post-brands-tag-filter <?php echo $deviceBrandValue ?>">
+            <?php if (isset($deviceBrand) ) { ?>
+                <?php if ($deviceBrand != "none" ) { ?>
+                <div class="bpress-post-brands-tag-filter <?php echo $deviceBrand ?>">
                     <a class="bpress-post-brands-link" href="#">
-                        <?php echo $deviceBrandLabel ?>
+                        <?php echo $deviceBrand ?>
                     </a>
                 </div>
                 <?php } ?>
             <?php } ?>
-            <?php if (isset($userBrandValue) ) { ?>
-                <?php if ($userBrandValue != "none" ) { ?>
-                <div class="bpress-post-brands-tag-filter <?php echo $userBrandValue ?>">
+            <?php if (isset($userBrand) ) { ?>
+                <?php if ($userBrand != "none" ) { ?>
+                <div class="bpress-post-brands-tag-filter <?php echo $userBrand ?>">
                     <a class="bpress-post-brands-link" href="#">
                         <?php echo $userBrand; ?>
-                        <?php if ($userBrandLabel != "Other" ) { ?>
-                            <i class="fab fa-<?php echo $userBrandValue ?>"></i>
+                        <?php if ($userBrand ) { ?>
+                            <i class="fab fa-<?php echo $userBrand ?>"></i>
                         <?php } else { ?>
-                            <i class="fas fa-<?php echo $userBrandValue ?>"></i>
+                            <i class="fas fa-<?php echo $userBrand ?>"></i>
                         <?php } ?>
                     </a>
                 </div>
