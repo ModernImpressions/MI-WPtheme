@@ -744,25 +744,21 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 .lanier::before {
     font-family: 'vendorlogos' !important;
     content: "\e90c";
-    color: red;
 }
 
 .ricoh::before {
     font-family: 'vendorlogos' !important;
     content: "\e90e";
-    color: red;
 }
 
 .kyocera::before {
     font-family: 'vendorlogos' !important;
     content: "\e90f";
-    color: red;
 }
 
 .fpmail::before {
     font-family: 'vendorlogos' !important;
     content: "\e90d";
-    color: red;
 }
 
 .lexmark::before {
