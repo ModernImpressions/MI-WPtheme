@@ -58,37 +58,53 @@ switch ($userBrand) {
 <div class="bpress-post-metalist">
     <div class="bpress-post-access">
         <div class="bpress-post-accessContainer">
-            <div class="bpress-post-skill-text">Difficulty: </div>
-            <div class="bpress-post-skill-tag-filter <?php echo $difficulty ?>">
-                <a class="bpress-post-skill-link" href="#"><?php echo $difficulty ?></a>
+            <div class="bpress-post-skill-container">
+                <div class="bpress-post-skill-text">Difficulty: </div>
+                <div class="bpress-post-skill-tag-filter <?php echo $difficulty ?>">
+                    <a class="bpress-post-skill-link" href="#">
+                        <?php echo $difficulty ?>
+                    </a>
+                </div>
             </div>
             <?php if (isset($deviceBrand) ) { ?>
-                <?php if ($deviceBrand != "none" ) { ?>
-                    <?php if ((isset($deviceBrand)) && (($deviceBrand != "none") or ($deviceBrand != "NULL"))) { ?>
-                    <div class="bpress-post-brands-text"><?php echo "Relevant Product: " ?></div>
+                <div class="bpress-post-devicebrands-container">
+                    <?php if ($deviceBrand != "none" ) { ?>
+                        <?php if ((isset($deviceBrand)) && (($deviceBrand != "none") or ($deviceBrand != "NULL"))) { ?>
+                            <div class="bpress-post-brands-text"><?php echo "Relevant Product: " ?></div>
+                        <?php } ?>
+                        <div class="bpress-post-brands-tag-filter">
+                            <a class="bpress-post-brands-link" href="#">
+                                <?php if ($deviceBrand != "lexmark" ) { ?>
+                                    <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>"></span><?php echo $deviceBrandLabel ?>
+                                <?php } else { ?>
+                                    <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                        <span class="path4"></span>
+                                    </span>
+                                    <?php echo $deviceBrandLabel ?>
+                                <?php } ?>
+                            </a>
+                        </div>
                     <?php } ?>
-                    <div class="bpress-post-brands-tag-filter">
-                        <a class="bpress-post-brands-link" href="#">
-                            <?php if ($deviceBrand != "lexmark" ) { ?>
-                                <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>"></span><?php echo $deviceBrandLabel ?>
-                            <?php } else { ?>
-                                <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span><?php echo $deviceBrandLabel ?>
-                            <?php } ?>
-                        </a>
-                    </div>
-                <?php } ?>
+                </div>
             <?php } ?>
             <?php if (isset($userBrand) ) { ?>
-                <?php if ($userBrand != "none" ) { ?>
-                    <?php if ((isset($userBrand)) && (($userBrand != "none") or ($userBrand != "NULL"))) { ?>
-                    <div class="bpress-post-brands-text"><?php echo "Affected Device: " ?></div>
+                <div class="bpress-post-userbrands-container">
+                    <?php if ($userBrand != "none" ) { ?>
+                        <?php if ((isset($userBrand)) && (($userBrand != "none") or ($userBrand != "NULL"))) { ?>
+                            <div class="bpress-post-brands-text">
+                                <?php echo "Affected Device: " ?>
+                            </div>
+                        <?php } ?>
+                        <div class="bpress-post-brands-tag-filter">
+                            <a class="bpress-post-brands-link" href="#">
+                                <span class="bpress-post-brands-icon <?php echo $userBrand ?>"></span><?php echo $userBrandLabel ?>
+                            </a>
+                        </div>
                     <?php } ?>
-                    <div class="bpress-post-brands-tag-filter">
-                        <a class="bpress-post-brands-link" href="#">
-                            <span class="bpress-post-brands-icon <?php echo $userBrand ?>"></span><?php echo $userBrandLabel ?>
-                        </a>
-                    </div>
-                <?php } ?>
+                </div>
             <?php } ?>
         </div>
     </div>
