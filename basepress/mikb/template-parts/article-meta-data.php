@@ -78,10 +78,12 @@ switch ($userBrand) {
                                     <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>"></span><?php echo $deviceBrandLabel ?>
                                 <?php } else { ?>
                                     <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>">
-                                        <span class="path1"></span>
-                                        <span class="path2"></span>
-                                        <span class="path3"></span>
-                                        <span class="path4"></span>
+                                        <div style="display: inline-flex;">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                            <span class="path3"></span>
+                                            <span class="path4"></span>
+                                        </div>
                                     </span>
                                     <?php echo $deviceBrandLabel ?>
                                 <?php } ?>
