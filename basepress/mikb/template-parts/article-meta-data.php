@@ -11,6 +11,51 @@ $userBrand = get_field( "end-device-brand" );
 $relevantProducts = (($deviceBrand != "none") or ($userBrand != "none"));
 $deviceObject = get_field_object( "device-brand" );
 $userObject = get_field_object( "end-device-brand" );
+$deviceBrandLabel = "";
+$userBrandLabel = "";
+
+switch ($deviceBrand) {
+    case "none":
+        $deviceBrandLabel = "";
+        break;
+    case "lanier":
+        $deviceBrandLabel = "LANIER";
+        break;
+    case "kyocera":
+        $deviceBrandLabel = "KYOCERA";
+        break;
+    case "lexmark":
+        $deviceBrandLabel = "LEXMARK";
+        break;
+}
+
+switch ($userBrand) {
+    case "none":
+        $userBrandLabel = "";
+        break;
+    case "windows":
+        $userBrandLabel = "Windows";
+        break;
+    case "apple":
+        $userBrandLabel = "OSX/Mac";
+        break;
+    case "linux":
+        $userBrandLabel = "Linux";
+        break;
+    case "android":
+        $userBrandLabel = "Android";
+        break;
+    case "app-store-ios":
+        $userBrandLabel = "iOS/iPhone/iPad";
+        break;
+    case "chrome":
+        $userBrandLabel = "Chrome OS/Chromebook";
+        break;
+    case "ellipsis-h":
+        $userBrandLabel = "Other/Miscellaneous";
+        break;
+}
+
 ?>
 
 <div class="bpress-post-metalist">
@@ -32,7 +77,7 @@ $userObject = get_field_object( "end-device-brand" );
                 <?php if ($deviceBrand != "none" ) { ?>
                 <div class="bpress-post-brands-tag-filter <?php echo $deviceBrand ?>">
                     <a class="bpress-post-brands-link" href="#">
-                        <?php echo $deviceBrand ?>
+                        <?php echo $deviceBrandLabel ?>
                     </a>
                 </div>
                 <?php } ?>
@@ -41,7 +86,7 @@ $userObject = get_field_object( "end-device-brand" );
                 <?php if ($userBrand != "none" ) { ?>
                 <div class="bpress-post-brands-tag-filter <?php echo $userBrand ?>">
                     <a class="bpress-post-brands-link" href="#">
-                        <?php echo $userBrand; ?>
+                        <?php echo $userBrandLabel ?>
                         <?php if ($userBrand ) { ?>
                             <i class="fab fa-<?php echo $userBrand ?>"></i>
                         <?php } else { ?>
