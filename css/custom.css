@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'vendorlogos';
-    src: url('/webfonts/vendorlogos.eot?3rfh9o');
-    src: url('/webfonts/vendorlogos.eot?3rfh9o#iefix') format('embedded-opentype'), url('/webfonts/vendorlogos.ttf?3rfh9o') format('truetype'), url('/webfonts/vendorlogos.woff?3rfh9o') format('woff'), url('/webfonts/vendorlogos.svg?3rfh9o#vendorlogos') format('svg');
+    src: url('webfonts/vendorlogos.eot?3rfh9o');
+    src: url('webfonts/vendorlogos.eot?3rfh9o#iefix') format('embedded-opentype'), url('webfonts/vendorlogos.ttf?3rfh9o') format('truetype'), url('webfonts/vendorlogos.woff?3rfh9o') format('woff'), url('webfonts/vendorlogos.svg?3rfh9o#vendorlogos') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
