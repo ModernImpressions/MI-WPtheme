@@ -69,7 +69,7 @@ switch ($userBrand) {
                     <?php } ?>
                     <div class="bpress-post-brands-tag-filter <?php echo $deviceBrand ?>">
                         <a class="bpress-post-brands-link" href="#">
-                            <?php echo $deviceBrandLabel ?>
+                        <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>"></span><?php echo $deviceBrandLabel ?>
                         </a>
                     </div>
                 <?php } ?>
@@ -81,12 +81,7 @@ switch ($userBrand) {
                     <?php } ?>
                     <div class="bpress-post-brands-tag-filter <?php echo $userBrand ?>">
                         <a class="bpress-post-brands-link" href="#">
-                            <?php echo $userBrandLabel ?>
-                            <?php if ($userBrand ) { ?>
-                                <i class="fab fa-<?php echo $userBrand ?>"></i>
-                            <?php } else { ?>
-                                <i class="fas fa-<?php echo $userBrand ?>"></i>
-                            <?php } ?>
+                        <span class="bpress-post-brands-icon <?php echo $userBrand ?>"></span><?php echo $userBrandLabel ?>
                         </a>
                     </div>
                 <?php } ?>

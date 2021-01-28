@@ -653,6 +653,50 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     text-decoration: none;
 }
 
+.bpress-post-brands-icon::before {
+    font-size: 25px;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+.windows::before {
+    font-family: "Font Awesome 5 Brands";
+    content: "\f17a";
+}
+
+.apple::before {
+    font-family: "Font Awesome 5 Brands";
+    content: "\f179";
+}
+
+.linux::before {
+    font-family: "Font Awesome 5 Brands";
+    content: "\f17c";
+}
+
+.android::before {
+    font-family: "Font Awesome 5 Brands";
+    content: "\f17b";
+}
+
+.app-store-ios::before {
+    font-family: "Font Awesome 5 Brands";
+    content: "\f179";
+}
+
+.chrome::before {
+    font-family: "Font Awesome 5 Brands";
+    content: "\f268";
+}
+
+.ellipsis-h::before {
+    font-family: "Font Awesome 5 Pro";
+    content: "\f141";
+}
+
 
 /**
  * 9.0 - Breadcrumbs
