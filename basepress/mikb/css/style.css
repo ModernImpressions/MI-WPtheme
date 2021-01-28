@@ -578,7 +578,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 }
 
 .bpress-post-accessContainer {
-    display: inline-block;
+    display: flex;
     margin-left: 0;
 }
 
