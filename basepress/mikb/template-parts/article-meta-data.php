@@ -69,7 +69,11 @@ switch ($userBrand) {
                     <?php } ?>
                     <div class="bpress-post-brands-tag-filter">
                         <a class="bpress-post-brands-link" href="#">
-                        <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>"></span><?php echo $deviceBrandLabel ?>
+                            <?php if ($deviceBrand != "lexmark" ) { ?>
+                                <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>"></span><?php echo $deviceBrandLabel ?>
+                            <?php } else { ?>
+                                <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span><?php echo $deviceBrandLabel ?>
+                            <?php } ?>
                         </a>
                     </div>
                 <?php } ?>
@@ -81,7 +85,7 @@ switch ($userBrand) {
                     <?php } ?>
                     <div class="bpress-post-brands-tag-filter">
                         <a class="bpress-post-brands-link" href="#">
-                        <span class="bpress-post-brands-icon <?php echo $userBrand ?>"></span><?php echo $userBrandLabel ?>
+                            <span class="bpress-post-brands-icon <?php echo $userBrand ?>"></span><?php echo $userBrandLabel ?>
                         </a>
                     </div>
                 <?php } ?>
