@@ -742,13 +742,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 .lanier::before {
     font-family: 'vendorlogos' !important;
-    content: "\e90c";
-    font-size: 3em;
+    content: "\e904";
 }
 
 .ricoh::before {
     font-family: 'vendorlogos' !important;
-    content: "\e90e";
+    content: "\e904";
 }
 
 .kyocera::before {
