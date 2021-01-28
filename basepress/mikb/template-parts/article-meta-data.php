@@ -67,7 +67,7 @@ switch ($userBrand) {
                     <?php if ((isset($deviceBrand)) && (($deviceBrand != "none") or ($deviceBrand != "NULL"))) { ?>
                     <div class="bpress-post-brands-text"><?php echo "Relevant Product: " ?></div>
                     <?php } ?>
-                    <div class="bpress-post-brands-tag-filter <?php echo $deviceBrand ?>">
+                    <div class="bpress-post-brands-tag-filter">
                         <a class="bpress-post-brands-link" href="#">
                         <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>"></span><?php echo $deviceBrandLabel ?>
                         </a>
@@ -79,7 +79,7 @@ switch ($userBrand) {
                     <?php if ((isset($userBrand)) && (($userBrand != "none") or ($userBrand != "NULL"))) { ?>
                     <div class="bpress-post-brands-text"><?php echo "Affected Device: " ?></div>
                     <?php } ?>
-                    <div class="bpress-post-brands-tag-filter <?php echo $userBrand ?>">
+                    <div class="bpress-post-brands-tag-filter">
                         <a class="bpress-post-brands-link" href="#">
                         <span class="bpress-post-brands-icon <?php echo $userBrand ?>"></span><?php echo $userBrandLabel ?>
                         </a>
