@@ -76,9 +76,9 @@ switch ($userBrand) {
                             <a class="bpress-post-brands-link" href="#">
                                 <?php if ($deviceBrand != "lexmark" ) { ?>
                                     <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>"></span>
-                                    <dev>
-                                        <?php echo $deviceBrandLabel ?>
-                                    </dev>
+                                    <div>
+                                        (<?php echo $deviceBrandLabel ?>)
+                                    </div>
                                 <?php } else { ?>
                                     <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>">
                                         <div style="display: inline-flex;">
@@ -88,9 +88,9 @@ switch ($userBrand) {
                                             <span class="path4"></span>
                                         </div>
                                     </span>
-                                    <dev>
+                                    <div>
                                         (<?php echo $deviceBrandLabel ?>)
-                                    </dev>
+                                    </div>
                                 <?php } ?>
                             </a>
                         </div>
