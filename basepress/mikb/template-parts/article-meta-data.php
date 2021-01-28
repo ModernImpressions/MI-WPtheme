@@ -29,10 +29,10 @@ $userObject = get_field_object( "end-device-brand" );
             <?php } ?>
             
             <?php if (isset($deviceObject[ 'value' ]) ) { ?>
-                <?php if ($deviceObject[ 'value' ] != "none" ) { ?>
-                <div class="bpress-post-brands-tag-filter <?php echo $deviceObject[ 'value' ] ?>">
+                <?php if ($deviceObject[ 'value[0]' ] != "none" ) { ?>
+                <div class="bpress-post-brands-tag-filter <?php echo $deviceObject[ 'value[0]' ] ?>">
                     <a class="bpress-post-brands-link" href="#">
-                        <?php echo $deviceObject[ 'value' ]; ?>
+                        <?php echo $deviceObject[ 'value[0]' ]; ?>
                     </a>
                 </div>
                 <?php } ?>
