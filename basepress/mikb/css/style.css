@@ -755,6 +755,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 .kyocera::before {
     font-family: 'vendorlogos' !important;
     content: "\e90f";
+    color: #DB0D23;
 }
 
 .fpmail::before {
