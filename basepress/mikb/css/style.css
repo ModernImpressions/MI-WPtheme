@@ -582,6 +582,23 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     margin-left: 0;
 }
 
+.bpress-post-skill-container {
+    display: inline-block;
+    margin-right: 1em;
+}
+
+.bpress-post-devicebrands-container {
+    display: inline-block;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.bpress-post-userbrands-container {
+    display: inline-block;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
 .bpress-post-skill-text {}
 
 .bpress-post-skill-tag-filter {
@@ -653,6 +670,30 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     text-decoration: none;
 }
 
+.bpress-post-brands-link {
+    color: #fff;
+    font-weight: bold;
+    line-height: .75em;
+    cursor: pointer;
+    display: inline-block;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 3px;
+    background: transparent;
+    text-decoration: none;
+}
+
+.bpress-post-brands-link a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.bpress-post-brands-link a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
 .bpress-post-brands-icon::before {
     font-size: 25px;
     speak: never;
@@ -704,21 +745,25 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 .lanier::before {
     font-family: 'vendorlogos' !important;
     content: "\e90c";
+    color: red;
 }
 
 .ricoh::before {
     font-family: 'vendorlogos' !important;
     content: "\e90e";
+    color: red;
 }
 
 .kyocera::before {
     font-family: 'vendorlogos' !important;
     content: "\e90f";
+    color: red;
 }
 
 .fpmail::before {
     font-family: 'vendorlogos' !important;
     content: "\e90d";
+    color: red;
 }
 
 .lexmark::before {
