@@ -693,7 +693,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 }
 
 .bpress-post-brands-icon::before {
-    font-size: 25px;
+    font-size: 2.5em;
+    line-height: normal;
     speak: never;
     display: inline-block;
     font-style: normal;
