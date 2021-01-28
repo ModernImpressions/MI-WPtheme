@@ -32,7 +32,7 @@ $userObject = get_field_object( "end-device-brand" );
                 <?php if ($deviceObject[ 'value' ] != "none" ) { ?>
                 <div class="bpress-post-brands-tag-filter <?php echo $deviceObject[ 'value' ] ?>">
                     <a class="bpress-post-brands-link" href="#">
-                        <?php echo $deviceObject[ 'label' ]; ?>
+                        <?php echo $deviceObject[ 'value' ]; ?>
                     </a>
                 </div>
                 <?php } ?>
@@ -41,7 +41,7 @@ $userObject = get_field_object( "end-device-brand" );
                 <?php if ($userObject[ 'value' ] != "none" ) { ?>
                 <div class="bpress-post-brands-tag-filter <?php echo $userObject[ 'value' ]; ?>">
                     <a class="bpress-post-brands-link" href="#">
-                        <?php echo $userObject[ 'label' ]; ?>
+                        <?php echo $userObject[ 'value' ]; ?>
                         <?php if ($userObject[ 'value' ] ) { ?>
                             <i class="fab fa-<?php echo $userObject[ 'value' ]; ?>"></i>
                         <?php } else { ?>
