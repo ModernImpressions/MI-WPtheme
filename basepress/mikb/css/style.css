@@ -743,11 +743,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 .lanier::before {
     font-family: 'vendorlogos' !important;
     content: "\e904";
+    color: #cf142b;
 }
 
 .ricoh::before {
     font-family: 'vendorlogos' !important;
     content: "\e904";
+    color: #cf142b;
 }
 
 .kyocera::before {
@@ -758,6 +760,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 .fpmail::before {
     font-family: 'vendorlogos' !important;
     content: "\e90d";
+    color: #d20032;
 }
 
 .lexmark::before {
@@ -768,7 +771,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     font-family: 'vendorlogos' !important;
     content: "\e900";
     font-size: 2em;
-    color: rgb(74, 74, 74);
+    color: #00C425;
 }
 
 .lexmark .path2:before {
@@ -776,7 +779,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     content: "\e901";
     margin-left: -1em;
     font-size: 2em;
-    color: rgb(53, 53, 53);
+    color: #3AF23A;
 }
 
 .lexmark .path3:before {
@@ -784,7 +787,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     content: "\e902";
     margin-left: -1em;
     font-size: 2em;
-    color: rgb(32, 32, 32);
+    color: #006446;
 }
 
 .lexmark .path4:before {
@@ -792,7 +795,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     content: "\e903";
     margin-left: -1em;
     font-size: 2em;
-    color: rgb(53, 53, 53);
+    color: #008A44;
 }
 
 
