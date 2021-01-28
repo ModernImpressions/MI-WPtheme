@@ -75,7 +75,10 @@ switch ($userBrand) {
                         <div class="bpress-post-brands-tag-filter">
                             <a class="bpress-post-brands-link" href="#">
                                 <?php if ($deviceBrand != "lexmark" ) { ?>
-                                    <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>"></span><?php echo $deviceBrandLabel ?>
+                                    <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>"></span>
+                                    <dev>
+                                        <?php echo $deviceBrandLabel ?>
+                                    </dev>
                                 <?php } else { ?>
                                     <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>">
                                         <div style="display: inline-flex;">
@@ -85,7 +88,9 @@ switch ($userBrand) {
                                             <span class="path4"></span>
                                         </div>
                                     </span>
-                                    <?php echo $deviceBrandLabel ?>
+                                    <dev>
+                                        (<?php echo $deviceBrandLabel ?>)
+                                    </dev>
                                 <?php } ?>
                             </a>
                         </div>
@@ -102,7 +107,10 @@ switch ($userBrand) {
                         <?php } ?>
                         <div class="bpress-post-brands-tag-filter">
                             <a class="bpress-post-brands-link" href="#">
-                                <span class="bpress-post-brands-icon <?php echo $userBrand ?>"></span><?php echo $userBrandLabel ?>
+                                <span class="bpress-post-brands-icon <?php echo $userBrand ?>"></span>
+                                <div>
+                                    (<?php echo $userBrandLabel ?>)
+                                </div>
                             </a>
                         </div>
                     <?php } ?>
