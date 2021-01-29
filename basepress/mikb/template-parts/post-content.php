@@ -42,8 +42,7 @@ $bpkb_post_introduction = get_field( "introduction" );
 
 	<div>
     	<div class="content col">
-		<?php echo $bpkb_post_introduction ?>
-		<hr/>
+		<p><?php echo $bpkb_post_introduction ?></p>
         <?php the_content(); ?>
     	</div>
 	
