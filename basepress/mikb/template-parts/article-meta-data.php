@@ -73,26 +73,28 @@ switch ($userBrand) {
                             <div class="bpress-post-brands-text"><?php echo "Relevant Product: " ?></div>
                         <?php } ?>
                         <div class="bpress-post-brands-tag-filter">
-                            <a class="bpress-post-brands-link" href="#">
-                                <?php if ($deviceBrand != "lexmark" ) { ?>
-                                    <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>"></span>
-                                    <div>
-                                        (<?php echo $deviceBrandLabel ?>)
-                                    </div>
-                                <?php } else { ?>
-                                    <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>">
-                                        <div style="display: inline-flex;">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                            <span class="path3"></span>
-                                            <span class="path4"></span>
+                            <div>
+                                <a class="bpress-post-brands-link" href="#">
+                                    <?php if ($deviceBrand != "lexmark" ) { ?>
+                                        <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>"></span>
+                                        <div>
+                                            (<?php echo $deviceBrandLabel ?>)
                                         </div>
-                                    </span>
-                                    <div>
-                                        (<?php echo $deviceBrandLabel ?>)
-                                    </div>
-                                <?php } ?>
-                            </a>
+                                    <?php } else { ?>
+                                        <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>">
+                                            <div style="display: inline-flex;">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                                <span class="path4"></span>
+                                            </div>
+                                        </span>
+                                        <div>
+                                            (<?php echo $deviceBrandLabel ?>)
+                                        </div>
+                                    <?php } ?>
+                                </a>
+                            </div>
                         </div>
                     <?php } ?>
                 </div>

@@ -599,7 +599,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     margin-right: 1em;
 }
 
-.bpress-post-skill-text {}
+.bpress-post-skill-text {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
 
 .bpress-post-skill-tag-filter {
     color: #fff;
