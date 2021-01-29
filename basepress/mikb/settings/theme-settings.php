@@ -87,19 +87,19 @@ class Basepress_Modern_Theme_Settings {
 		}
 
 		$defaults = array(
-			'enable_settings'      => '',
+			'enable_settings'      => true,
 			'font_family'          => '',
 			'font_size'            => '',
-			'header_title'         => '',
+			'header_title'         => 'Help Articles',
 			'full_width_header'    => '',
 			'header_offset'        => '',
 			'header_image'         => '',
 			'sticky_sidebar'       => '',
 			'sidebar_threshold'    => '100px',
 			'enable_custom_colors' => false,
-			'header_color'         => '#34424c',
+			'header_color'         => '#404040',
 			'header_text_color'    => '#ffffff',
-			'accent_color'         => '#17aacf',
+			'accent_color'         => '#007f7b',
 			'buttons_text_color'   => '#ffffff',
 			'custom_css'           => '',
 		);
