@@ -264,6 +264,13 @@ if ( ! function_exists( 'basepress_modern_theme' ) ) {
 	new basepress_modern_theme;
 }
 
+function get_the_table_of_contents()
+{
+    global $tableOfContents;
+
+    return $tableOfContents;
+}
+
 // Inject the TOC on each post.
 add_filter('the_content', function ($content) {
     global $tableOfContents;

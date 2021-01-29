@@ -9,14 +9,6 @@ $bpkb_post_views_icon = isset( $bpkb_post_meta_icons[0] ) ? $bpkb_post_meta_icon
 $bpkb_post_post_like_icon = isset( $bpkb_post_meta_icons[1] ) ? $bpkb_post_meta_icons[1] : '';
 $bpkb_post_post_dislike_icon = isset( $bpkb_post_meta_icons[2] ) ? $bpkb_post_meta_icons[2] : '';
 $bpkb_post_post_date_icon = isset( $bpkb_post_meta_icons[3] ) ? $bpkb_post_meta_icons[3] : '';
-
-function get_the_table_of_contents()
-{
-    global $tableOfContents;
-
-    return $tableOfContents;
-}
-
 ?>
 
 <article id="post-<?php the_ID(); ?>">
