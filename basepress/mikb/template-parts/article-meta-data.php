@@ -73,7 +73,7 @@ switch ($userBrand) {
                             <div class="bpress-post-brands-text"><?php echo "Relevant Product: " ?></div>
                         <?php } ?>
                         <div class="bpress-post-brands-tag-filter">
-                            <div>
+                            <div class="bpress-post-brands-logo-container">
                                 <a class="bpress-post-brands-link" href="#">
                                     <?php if ($deviceBrand != "lexmark" ) { ?>
                                         <span class="bpress-post-brands-icon <?php echo $deviceBrand ?>"></span>
@@ -108,12 +108,14 @@ switch ($userBrand) {
                             </div>
                         <?php } ?>
                         <div class="bpress-post-brands-tag-filter">
-                            <a class="bpress-post-brands-link" href="#">
-                                <span class="bpress-post-brands-icon <?php echo $userBrand ?>"></span>
-                                <div>
-                                    (<?php echo $userBrandLabel ?>)
-                                </div>
-                            </a>
+                            <div class="bpress-post-brands-logo-container">
+                                <a class="bpress-post-brands-link" href="#">
+                                    <span class="bpress-post-brands-icon <?php echo $userBrand ?>"></span>
+                                    <div>
+                                        (<?php echo $userBrandLabel ?>)
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     <?php } ?>
                 </div>

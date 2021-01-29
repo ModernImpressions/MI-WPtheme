@@ -599,7 +599,20 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     margin-right: 1em;
 }
 
+.bpress-post-brands-logo-container {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
 .bpress-post-skill-text {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.bpress-post-brands-text {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
