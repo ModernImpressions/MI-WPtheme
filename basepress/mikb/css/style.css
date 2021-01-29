@@ -1223,6 +1223,22 @@ input.bpress-search-field:focus {
     text-decoration: underline;
 }
 
+.item-h3 {
+    padding-left: 15px;
+}
+
+.item-h4 {
+    padding-left: 30px;
+}
+
+.item-h5 {
+    padding-left: 45px;
+}
+
+.item-h6 {
+    padding-left: 60px;
+}
+
 
 /**
  * 13.0 - Votes
