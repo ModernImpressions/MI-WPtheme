@@ -39,7 +39,18 @@ $bpkb_post_post_date_icon = isset( $bpkb_post_meta_icons[3] ) ? $bpkb_post_meta_
 	basepress_get_template_part( 'table-of-content' );
 	?>
 
-	<?php the_content(); ?>
+	<div id="preface" class="post-content row">
+    	<div class="content col">
+        <?php the_content(); ?>
+    	</div>
+	
+		<div class="post-toc col-auto">
+            <div class="wrapper">
+                <?= get_the_table_of_contents() ?>
+            </div>
+			<div class="placeholder"></div>
+		</div>
+    </div>
 
 	<?php
 	//Articles tag list

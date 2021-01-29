@@ -264,59 +264,41 @@ if ( ! function_exists( 'basepress_modern_theme' ) ) {
 	new basepress_modern_theme;
 }
 
-// filter function to generate the table of content (from webdeasy.de)
-function get_table_of_content($content) {
-    ob_start();
+// Inject the TOC on each post.
+add_filter('the_content', function ($content) {
+    global $tableOfContents;
 
-    preg_match_all("/<h[2,3](?:\sid=\"(.*)\")?(?:.*)?>(.*)<\/h[2,3]>/", $content, $matches);
-    $tags = $matches[0];
-    $ids = $matches[1];
-    $names = $matches[2];
+    $tableOfContents = "
+        <div class='bpress-toc h5'>
+            Table of Contents <span class='toggle'>+ show</span>
+        </div>
+        <div class='bpress-toc-list items'>
+            <div class='item-h2'>
+                <a href='#preface'>Preface</a>
+            </div>
+    ";
+    $index = 1;
 
-    ?>
-    <ul class="table-of-contents">
-        <li><strong>Inhaltsverzeichnis</strong></li>
-        <!-- Table of contents by webdeasy.de (LH) -->
-        <?php for($i = 0; $i < count($names); $i++) { ?>
-            <?php if(strpos($tags[$i], "h2") === false || strpos($tags[$i], "class=\"nitoc\"") !== false) continue; ?>
-            
-                <li>
-                    <?php if(!empty($ids[$i])) { ?>
-                        <a href="#<?php echo $ids[$i]; ?>"><?php echo $names[$i]; ?></a>
-                    <?php } else { ?>
-                        <?php echo $names[$i]; ?>  
-                    <?php } ?>
-        
-                    <?php if($i !== count($names) && strpos($tags[$i+1], "h3") !== false) { ?>
-                        <ul>
-                            <?php for($j = 0; $j < count($names) - 1; $j++) { ?>
-                                <?php $sub_index = $i + $j; ?>
-                                <?php if($j != 0 && strpos($tags[$sub_index], "h2") !== false) break; ?>
-                                <?php if(strpos($tags[$sub_index], "h3") === false || strpos($tags[$sub_index], "class=\"nitoc\"") !== false) continue; ?>
+    // Insert the IDs and create the TOC.
+    $content = preg_replace_callback('#<(h[1-6])(.*?)>(.*?)</\1>#si', function ($matches) use (&$index, &$tableOfContents) {
+        $tag = $matches[1];
+        $title = strip_tags($matches[3]);
+        $hasId = preg_match('/id=(["\'])(.*?)\1[\s>]/si', $matches[2], $matchedIds);
+        $id = $hasId ? $matchedIds[2] : $index++ . '-' . sanitize_title($title);
 
-                                <li>
-                                    <?php if(!empty($ids[$sub_index])) { ?>
-                                        <a href="#<?php echo $ids[$sub_index]; ?>"><?php echo $names[$sub_index]; ?></a>
-                                    <?php } else { ?>
-                                        <?php echo $names[$sub_index]; ?>  
-                                    <?php } ?>
-                                </li>
-                            <?php } ?>
-                        </ul>
-                    <?php } ?>
-                </li>
+        $tableOfContents .= "<div class='item-$tag'><a href='#$id'>$title</a></div>";
 
-        <?php } ?>
-    </ul>
-    <?php
-    return ob_get_clean();
-}
+        if ($hasId) {
+            return $matches[0];
+        }
 
-function add_table_of_content($content) {
-    return str_replace("<p>{{TABLE_OF_CONTENTS}}</p>", get_table_of_content($content), $content);
-}
-// add our table of contents filter (from webdeasy.de)
-add_filter('the_content', 'add_table_of_content');
+        return sprintf('<%s%s id="%s">%s</%s>', $tag, $matches[2], $id, $matches[3], $tag);
+    }, $content);
+
+    $tableOfContents .= '</div>';
+
+    return $content;
+});
 
 add_filter( 'basepress_modern_theme_header_title', function( $default = false ){
 	$options = get_option( 'basepress_modern_theme' );
