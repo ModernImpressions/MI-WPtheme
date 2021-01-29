@@ -277,7 +277,7 @@ add_filter('the_content', function ($content) {
 
     $tableOfContents = "
         <div class='bpress-toc h5'>
-            Table of Contents <span class='toggle'>+ show</span>
+            Table of Contents
         </div>
         <div class='bpress-toc-list items'>
             <div class='item-h2'>
