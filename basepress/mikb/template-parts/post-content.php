@@ -46,7 +46,7 @@ $bpkb_post_post_date_icon = isset( $bpkb_post_meta_icons[3] ) ? $bpkb_post_meta_
 	
 		<div class="post-toc col-auto">
             <div class="wrapper">
-                <?= get_the_table_of_contents() ?>
+                <?= get_the_table_of_contents(); ?>
             </div>
 			<div class="placeholder"></div>
 		</div>
