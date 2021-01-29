@@ -6,6 +6,6 @@
 ?>
 
 <div class="bpress-toc">
-{{TABLE_OF_CONTENTS}}
+	<p>{{TABLE_OF_CONTENTS}}</p>
 </div>
 
