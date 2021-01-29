@@ -40,9 +40,9 @@ $bpkb_post_introduction = get_field( "introduction" );
 	basepress_get_template_part( 'table-of-content' );
 	?>
 
-	<div>
-    	<div class="content col">
+	<div id="preface" class="post-content row">
 		<p><?php echo $bpkb_post_introduction ?></p>
+		<div class="content col">
         <?php the_content(); ?>
     	</div>
 	
