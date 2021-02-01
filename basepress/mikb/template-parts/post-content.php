@@ -27,6 +27,29 @@ $bpkb_updated_date = get_the_modified_date();
 			<span class="bpress-post-likes"><i class="fas fa-thumbs-up"></i><?php echo $bpkb_post_metas['votes']['like']; ?></span>
 			<span class="bpress-post-dislikes"><i class="fas fa-thumbs-down"></i><?php echo $bpkb_post_metas['votes']['dislike']; ?></span>
 			<?php } ?>
+			<?php
+// This will display "0 votes" and increase as votes are added
+$votes = get_post_meta($post->ID, "votes", true);
+$votes = !empty($votes) ? $votes : "0";
+if($votes == 1) $plural = ""; else $plural = "s";
+echo '<div id="votecounter">'.$votes.' vote'.$plural.'</div>';
+?>
+
+<?php
+// This will display the vote button and disable it if a cookie has already
+// been set. We also add the security nonce here. 
+$hasvoted = $_COOKIE['better_votes'];
+$hasvoted = explode(",", $hasvoted);
+if(in_array($post->ID, $hasvoted)) {
+	$vtext = "VOTED";
+	$class = ' class="disabled"';
+} else {
+	$vtext = "VOTE";
+	$class = "";
+}
+?>
+<a href="javascript:void(0)" id="vote"<?php echo $class; ?>><?php echo $vtext; ?></a>
+<?php if(function_exists('wp_nonce_field')) wp_nonce_field('voting_nonce', 'voting_nonce'); ?>
 			<span class="bpress-post-date">
 					<div><i class="fas fa-calendar-day"></i><?php echo " Created: "; ?><?php echo $bpkb_post_date ?></div>
 				<?php if ( $bpkb_post_date == $bpkb_updated_date ){ ?>

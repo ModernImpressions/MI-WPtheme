@@ -100,25 +100,55 @@ function codextent_ssl_srcset( $sources ) {
 }
 add_filter( 'wp_calculate_image_srcset', 'codextent_ssl_srcset' );
 
+function getPostViews($postID){
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+        return "0 View";
+    }
+    return $count.' Views';
+}
+function setPostViews($postID) {
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+    }else{
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+}
+// Remove issues with prefetching adding extra views
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
+add_action("wp_ajax_add_votes_options", "add_votes_options");
+add_action("wp_ajax_nopriv_add_votes_options", "add_votes_options");
+function add_votes_options() {
+	if (!wp_verify_nonce($_POST['nonce'], 'voting_nonce'))
+		return;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	$postid = $_POST['postid'];
+	$ip = $_POST['ip'];
+	
+	$voter_ips = get_post_meta($postid, "voter_ips", true);
+	if(!empty($voter_ips) && in_array($ip, $voter_ips)) {
+		echo "null";
+		die(0);
+	} else {
+		$voter_ips[] = $ip;
+		update_post_meta($postid, "voter_ips", $voter_ips);
+	}	
+			
+	$current_votes = get_post_meta($postid, "votes", true);
+	$new_votes = intval($current_votes) + 1;
+	update_post_meta($postid, "votes", $new_votes);
+	$return = $new_votes>1 ? $new_votes." votes" : $new_votes." vote";
+	echo $return;
+	die(0);
+}
 
 ?>
