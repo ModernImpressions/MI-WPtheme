@@ -1228,6 +1228,29 @@ input.bpress-search-field:focus {
     word-break: keep-all;
 }
 
+.bpress-toc-list ol {
+    display: table;
+    width: 100%;
+    counter-reset: item;
+    margin: 0;
+    padding: 0;
+    list-style: none !important;
+}
+
+.bpress-toc-list ol li {
+    display: table-row;
+    line-height: 2em;
+}
+
+.bpress-toc-list ol li:before {
+    display: table-cell;
+    width: 1em;
+    content: counters(item, ".") ". ";
+    counter-increment: item;
+    padding-right: 0.5em;
+    word-break: keep-all;
+}
+
 .bpress-toc li a {
     display: block;
     padding: 10px 5px;
