@@ -47,7 +47,7 @@ $bpkb_post_introduction = get_field( "introduction" );
     	</div>
 	
 		<div class="post-toc col-auto">
-            <div class=".bpress-toc-wrapper">
+            <div class="bpress-toc-wrapper">
                 <?= get_the_table_of_contents(); ?>
             </div>
 			<div class="placeholder"></div>
