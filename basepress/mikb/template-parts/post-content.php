@@ -10,6 +10,9 @@ $bpkb_post_post_like_icon = isset( $bpkb_post_meta_icons[1] ) ? $bpkb_post_meta_
 $bpkb_post_post_dislike_icon = isset( $bpkb_post_meta_icons[2] ) ? $bpkb_post_meta_icons[2] : '';
 $bpkb_post_post_date_icon = isset( $bpkb_post_meta_icons[3] ) ? $bpkb_post_meta_icons[3] : '';
 $bpkb_post_introduction = get_field( "introduction" );
+
+$bpkb_post_date = get_the_date();
+$bpkb_updated_date = get_the_modified_date();
 ?>
 
 <article id="post-<?php the_ID(); ?>">
@@ -22,11 +25,17 @@ $bpkb_post_introduction = get_field( "introduction" );
 
 			<span class="bpress-post-views"><i class="far fa-eye"></i><?php echo $bpkb_post_metas['views']; ?></span>
 
-			<?php if( basepress_show_post_votes() ){ ?>
+			<?php if ( basepress_show_post_votes() ){ ?>
 			<span class="bpress-post-likes"><i class="fas fa-thumbs-up"></i><?php echo $bpkb_post_metas['votes']['like']; ?></span>
 			<span class="bpress-post-dislikes"><i class="fas fa-thumbs-down"></i><?php echo $bpkb_post_metas['votes']['dislike']; ?></span>
 			<?php } ?>
-			<span class="bpress-post-date"><i class="fas fa-calendar-day"></i><?php echo " Created: "; ?><?php echo get_the_date(); ?>&nbsp<i class="fas fa-calendar-edit"></i><?php echo "  Last Update: "; ?><?php echo get_the_modified_date(); ?></span>
+			<span class="bpress-post-date">
+				<i class="fas fa-calendar-day"></i><?php echo " Created: "; ?><?php echo $bpkb_post_date ?>
+				<?php if ( $bpkb_post_date == $bpkb_updated_date ){ ?>
+				<?php } else { ?>
+					<i class="fas fa-calendar-edit"></i><?php echo "  Last Update: "; ?><?php echo $bpkb_updated_date ?>
+				<?php } ?>
+			</span>
 		</div>
 	</header>
 
