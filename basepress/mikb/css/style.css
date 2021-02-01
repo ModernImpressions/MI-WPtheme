@@ -1211,6 +1211,7 @@ input.bpress-search-field:focus {
     counter-reset: item;
     margin: 0;
     padding: 0;
+    list-style: none !important;
 }
 
 .bpress-toc ol li {
@@ -1221,7 +1222,8 @@ input.bpress-search-field:focus {
 .bpress-toc ol li:before {
     display: table-cell;
     width: 1em;
-    content: none;
+    content: counters(item, ".") ". ";
+    counter-increment: item;
     padding-right: 0.5em;
     word-break: keep-all;
 }
