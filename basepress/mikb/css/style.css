@@ -769,10 +769,18 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     color: #cf142b;
 }
 
+.lanier::before:hover {
+    color: #17aacf;
+}
+
 .ricoh::before {
     font-family: 'vendorlogos' !important;
     content: "\e904";
     color: #cf142b;
+}
+
+.ricoh::before:hover {
+    color: #17aacf;
 }
 
 .kyocera::before {
@@ -781,10 +789,18 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     color: #DB0D23;
 }
 
+.kyocera::before:hover {
+    color: #17aacf;
+}
+
 .fpmail::before {
     font-family: 'vendorlogos' !important;
     content: "\e90d";
     color: #d20032;
+}
+
+.fpmail::before:hover {
+    color: #17aacf;
 }
 
 .lexmark::before {
@@ -798,12 +814,20 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     color: #00C425;
 }
 
+.lexmark .path1::before:hover {
+    color: #17aacf;
+}
+
 .lexmark .path2:before {
     font-family: 'vendorlogos' !important;
     content: "\e901";
     margin-left: -1em;
     font-size: 2em;
     color: #3AF23A;
+}
+
+.lexmark .path2::before:hover {
+    color: #17aacf;
 }
 
 .lexmark .path3:before {
@@ -814,12 +838,20 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     color: #006446;
 }
 
+.lexmark .path3::before:hover {
+    color: #17aacf;
+}
+
 .lexmark .path4:before {
     font-family: 'vendorlogos' !important;
     content: "\e903";
     margin-left: -1em;
     font-size: 2em;
     color: #008A44;
+}
+
+.lexmark .path4::before:hover {
+    color: #17aacf;
 }
 
 
