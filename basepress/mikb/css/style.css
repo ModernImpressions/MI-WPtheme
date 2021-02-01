@@ -1222,7 +1222,6 @@ input.bpress-search-field:focus {
     display: table-cell;
     width: 1em;
     content: none;
-    counter-increment: item;
     padding-right: 0.5em;
     word-break: keep-all;
 }
