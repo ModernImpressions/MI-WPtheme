@@ -1177,8 +1177,7 @@ input.bpress-search-field:focus {
     font-weight: bold;
 }
 
-.bpress-toc h4 {
-    margin: 0 0 0.5em;
+.bpress-toc .h4 {
     font-size: 1.25em;
     font-weight: bold;
 }
