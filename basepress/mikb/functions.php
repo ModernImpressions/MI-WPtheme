@@ -281,7 +281,7 @@ add_filter('the_content', function ($content) {
         </div>
         <div class='bpress-toc-list items' data-highlight='true'>
 			<ol>	
-				<li>
+				<li class='item-h4'>
                 	<a href='#preface'>Preface</a>
             	</li>
     ";

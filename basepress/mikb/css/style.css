@@ -1221,7 +1221,7 @@ input.bpress-search-field:focus {
 .bpress-toc ol li:before {
     display: table-cell;
     width: 1em;
-    content: counters(item, ".") ". ";
+    content: none;
     counter-increment: item;
     padding-right: 0.5em;
     word-break: keep-all;
