@@ -1173,8 +1173,10 @@ input.bpress-search-field:focus {
 }
 
 .bpress-toc-title {
+    padding: 0.25em;
     font-size: 1.25em;
     font-weight: bold;
+    color: #007f7b;
 }
 
 .bpress-toc h2 {
