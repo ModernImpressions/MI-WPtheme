@@ -1161,6 +1161,7 @@ input.bpress-search-field:focus {
 
 .bpress-toc-wrapper {
     background-color: #dcdcdc;
+    padding: 1em;
 }
 
 .bpress-toc {

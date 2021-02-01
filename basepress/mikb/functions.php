@@ -279,10 +279,11 @@ add_filter('the_content', function ($content) {
         <div class='bpress-toc bpress-toc-title'>
             Table of Contents
         </div>
-        <div class='bpress-toc-list items'>
-            <div class='item-h2'>
-                <a href='#preface'>Preface</a>
-            </div>
+        <div class='bpress-toc-list items' data-highlight='true'>
+			<ol>	
+				<li>
+                	<a href='#preface'>Preface</a>
+            	</li>
     ";
     $index = 1;
 
@@ -293,7 +294,7 @@ add_filter('the_content', function ($content) {
         $hasId = preg_match('/id=(["\'])(.*?)\1[\s>]/si', $matches[2], $matchedIds);
         $id = $hasId ? $matchedIds[2] : $index++ . '-' . sanitize_title($title);
 
-        $tableOfContents .= "<div class='item-$tag'><a href='#$id'>$title</a></div>";
+        $tableOfContents .= "<li class='item-$tag'><a href='#$id'>$title</a></li>";
 
         if ($hasId) {
             return $matches[0];
@@ -302,7 +303,7 @@ add_filter('the_content', function ($content) {
         return sprintf('<%s%s id="%s">%s</%s>', $tag, $matches[2], $id, $matches[3], $tag);
     }, $content);
 
-    $tableOfContents .= '</div>';
+    $tableOfContents .= '</ol></div>';
 
     return $content;
 });
