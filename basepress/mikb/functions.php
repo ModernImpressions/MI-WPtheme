@@ -294,7 +294,7 @@ add_filter('the_content', function ($content) {
         $hasId = preg_match('/id=(["\'])(.*?)\1[\s>]/si', $matches[2], $matchedIds);
         $id = $hasId ? $matchedIds[2] : $index++ . '-' . sanitize_title($title);
 
-        $tableOfContents .= "<li class='item-$tag'><a href='#$id'>$title</a></li>";
+        $tableOfContents .= "<li class='item-$tag listed-items'><a href='#$id'>$title</a></li>";
 
         if ($hasId) {
             return $matches[0];
