@@ -1161,9 +1161,10 @@ input.bpress-search-field:focus {
 
 .bpress-toc {
     padding: 2em;
-    background-color: #dcdcdc;
-    border-top: 3px solid #dcdcdc;
-    border-bottom: 3px solid #dcdcdc;
+    background-color: #dcdcdc !important;
+    border-top: 3px solid #dcdcdc !important;
+    border-bottom: 3px solid #dcdcdc !important;
+    margin-top: 0 !important;
 }
 
 .bpress-toc h2 {
