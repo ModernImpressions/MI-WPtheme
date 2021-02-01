@@ -1171,6 +1171,11 @@ input.bpress-search-field:focus {
     margin-top: 0 !important;
 }
 
+.bpress-toc-title {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
 .bpress-toc h2 {
     margin: 0 0 0.5em;
     font-size: 1.5em;
