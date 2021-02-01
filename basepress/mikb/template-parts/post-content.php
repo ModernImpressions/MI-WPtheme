@@ -22,18 +22,16 @@ $bpkb_updated_date = get_the_modified_date();
 
 		<div class="bpress-post-meta">
 			<?php $bpkb_post_metas = basepress_get_post_meta( get_the_ID() ); ?>
-
-			<span class="bpress-post-views"><i class="far fa-eye"></i><?php echo $bpkb_post_metas['views']; ?></span>
-
+			<span class="bpress-post-views"><i class="far fa-eye"></i><?php echo getPostViews(get_the_ID()); ?></span>
 			<?php if ( basepress_show_post_votes() ){ ?>
 			<span class="bpress-post-likes"><i class="fas fa-thumbs-up"></i><?php echo $bpkb_post_metas['votes']['like']; ?></span>
 			<span class="bpress-post-dislikes"><i class="fas fa-thumbs-down"></i><?php echo $bpkb_post_metas['votes']['dislike']; ?></span>
 			<?php } ?>
 			<span class="bpress-post-date">
-				<i class="fas fa-calendar-day"></i><?php echo " Created: "; ?><?php echo $bpkb_post_date ?>
+					<div><i class="fas fa-calendar-day"></i><?php echo " Created: "; ?><?php echo $bpkb_post_date ?></div>
 				<?php if ( $bpkb_post_date == $bpkb_updated_date ){ ?>
 				<?php } else { ?>
-					<i class="fas fa-calendar-edit"></i><?php echo "  Last Update: "; ?><?php echo $bpkb_updated_date ?>
+					<div><i class="fas fa-calendar-edit"></i><?php echo "  Last Update: "; ?><?php echo $bpkb_updated_date ?></div>
 				<?php } ?>
 			</span>
 		</div>
