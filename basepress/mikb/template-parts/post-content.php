@@ -51,7 +51,7 @@ $bpkb_updated_date = get_the_modified_date();
 	
 		<div class="post-toc col-auto">
             <div class="bpress-toc-wrapper">
-                <?php get_the_table_of_contents(); ?>
+                <?php echo get_the_table_of_contents(); ?>
             </div>
 			<div class="placeholder"></div>
 		</div>
@@ -68,6 +68,7 @@ $bpkb_updated_date = get_the_modified_date();
 	<!-- Pagination -->
 	<nav class="bpress-pagination">
 		<?php basepress_post_pagination(); ?>
+		<?php echo voteme_getvotelink(); ?>
 	</nav>
 
 </article>
