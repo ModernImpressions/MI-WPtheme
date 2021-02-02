@@ -29,7 +29,7 @@
             nonce: nonce,
             postid: '<?php echo $post->ID; ?>',
             ip: '<?php echo $_SERVER['
-            HTTP_CF_CONNECTING_IP ']; ?>'
+            HTTP_CLIENT_IP ']; ?>'
         };
         $.post('<?php echo admin_url('
             admin - ajax.php '); ?>', data,
