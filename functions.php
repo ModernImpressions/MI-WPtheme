@@ -66,7 +66,7 @@ add_action('init', 'ali_theam_jquery');
  function mikb_helpul($themes) {
  
    $themes []= [
-     'id' => 'modern',
+     'id' => 'custom',
      'label' => esc_html_x( 'MI Theme', 'theme name', 'textdomain' ),
      'stylesheet' => get_template_directory_uri() . '/helpful/theme.css',
    ];
