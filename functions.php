@@ -114,4 +114,77 @@ function setPostViews($postID) {
 }
 // Remove issues with prefetching adding extra views
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+
+<?php
+/**
+ * Determines the content for the shortcode for the last best rated posts.
+ * Example: [helpful_pro post_type="post" limit="5"]
+ *
+ * @param array $atts
+ * 
+ * @return string
+ */
+function register_helpful_shortcode( $atts ) {
+
+	$defaults = [
+		'post_type' => 'post',
+		'limit'     => 5,
+	];
+
+	$atts = shortcode_atts( $defaults, $atts, 'helpful_pro' );
+
+	$shortcodes = '';
+
+	$limit = 5;
+
+	if ( 5 !== $atts['limit'] && is_numeric( $atts['limit'] ) ) {
+		$limit = intval( $atts['limit'] );
+	}
+
+	$args = [
+		'post_type'      => $atts['post_type'],
+		'posts_per_page' => $atts['limit'],
+		'metakey'        => 'helpful-pro',
+		'orderby'        => [ 'helpful-pro' => 'DESC' ],
+	];
+
+	$query = new WP_Query( $args );
+
+	if ( $query->have_posts() ) {
+
+		$shortcode .= '<ul>';
+
+		while ( $query->have_posts() ) : $query->the_post();
+
+			$post_id = get_the_ID();
+			$pro     = helpful_get_pro( $post_id );
+			update_post_meta( $post_id, 'helpful-pro', $pro );
+
+			$shortcode .= sprintf(
+				'<li><a href="%1$s">%2$s</a></li>',
+				get_the_permalink(),
+				get_the_title()
+			);
+
+		endwhile;
+
+		$shortcode .= '</ul>';
+
+		wp_reset_postdata();
+	}
+
+	return $shortcode;
+}
+
+/**
+ * Register the shortcode.
+ * Example: [helpful_pro post_type="post" limit="5"]
+ */
+add_shortcode( 'helpful_pro', 'register_helpful_shortcode' );
+
+/**
+ * Allows the use of shortcuts in widgets.
+ */
+add_filter( 'widget_text', 'do_shortcode' );
+
 ?>
