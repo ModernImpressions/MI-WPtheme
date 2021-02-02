@@ -62,15 +62,17 @@ add_action('init', 'ali_theam_jquery');
 
  include_once('inc/ali-widgets.php');
 
-
-
-
-
-
-
-
-
-
+ add_filter( 'helpful_themes', 'mikb_helpful' );
+ function mikb_helpul($themes) {
+ 
+   $themes []= [
+     'id' => 'modern',
+     'label' => esc_html_x( 'MI Theme', 'theme name', 'textdomain' ),
+     'stylesheet' => get_template_directory_uri() . '/helpful/theme.css',
+   ];
+ 
+   return $themes;
+ }
 
 /***********************************************************************************************/
 
