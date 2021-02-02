@@ -21,8 +21,6 @@ $bpkb_updated_date = get_the_modified_date();
 		<div class="bpress-post-meta">
 			<?php $bpkb_post_metas = basepress_get_post_meta( get_the_ID() ); ?>
 			<span class="bpress-post-views"><i class="far fa-eye"></i><?php echo getPostViews(get_the_ID()); ?></span>
-			<span class="bpress-post-likes"><i class="fas fa-thumbs-up"></i><?php echo $bpkb_post_metas['votes']['like']; ?></span>
-			<span class="bpress-post-dislikes"><i class="fas fa-thumbs-down"></i><?php echo $bpkb_post_metas['votes']['dislike']; ?></span>
 			<span class="bpress-post-date">
 					<div><i class="fas fa-calendar-day"></i><?php echo " Created: "; ?><?php echo $bpkb_post_date ?></div>
 				<?php if ( $bpkb_post_date == $bpkb_updated_date ){ ?>
