@@ -43,6 +43,24 @@ get_header('support'); ?>
                         <hr/>
                             <?php the_content(); ?>
                         </div>
+                        <?php {
+                            /** * Order posts by helpful pro in descendend order. */
+                            $args = [
+                                'post_type'      => 'post',
+	                            'posts_per_page' => -1,
+	                            'meta_query'     => [],
+	                            'fields'         => 'ids',
+	                            'meta_key'       => 'helpful-pro',
+	                            'orderby'        => 'meta_value_num',
+	                            'order'          => 'DESC',
+                            ];
+                            $query = new WP_Query( $args );
+                            if ( $query->found_posts ) {
+                                printf( '<strong>%s</strong><br>', esc_html__( 'Pro:' ) );
+                                foreach ( $query->posts as $post_id ) :
+                                    printf( '%s: %d<br>', get_the_title( $post_id ), (int) get_post_meta( $post_id, 'helpful-pro', true ) );
+                                endforeach;
+                        } ?>
                         <?php endwhile; ?>
                         <?php else : ?>
                         <h3><?php _e('404 Error&#58; Not Found', 'alihossain'); ?></h3>
