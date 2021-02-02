@@ -67,7 +67,7 @@ $bpkb_updated_date = get_the_modified_date();
 	<nav class="bpress-pagination">
 		<?php basepress_post_pagination(); ?>
 	</nav>
-	<?php previous_post_link('<span class="left">&laquo; %link</span>', '%title', TRUE); ?>
-	<?php next_post_link('<span class="right">%link &raquo;</span>', '%title', TRUE); ?>
+	<?php previous_post_link('<span class="left">&laquo; %link</span>', '%title'); ?>
+	<?php next_post_link('<span class="right">%link &raquo;</span>', '%title'); ?>
 	<div class="clearfix"></div>
 </article>
