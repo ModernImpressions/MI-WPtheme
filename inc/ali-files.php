@@ -23,7 +23,7 @@ function my_css_calling(){
     wp_enqueue_script('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js', array(), '4.5.0', 'true' );
     wp_enqueue_script('plugins', get_template_directory_uri() .'/js/plugins.js', array(), '1.0.1', 'true' );
     wp_enqueue_script('fontawesomepro', get_template_directory_uri() .'/js/all.min.js', array(), '5.15.2', 'false' );
-    wp_enqueue_script('bpkbvote', get_template_directory_uri() .'/basepress/mikb/js/bpkb_vote.js', array(), '1.0.0', 'true' );
+    // wp_enqueue_script('bpkbvote', get_template_directory_uri() .'/basepress/mikb/js/bpkb_vote.js', array(), '1.0.0', 'true' );  -- Moving inline, declaring it here was leading to undeclared variables.
     wp_enqueue_script('main', get_template_directory_uri() .'/js/main.js', array(), '1.0.1', 'true' );
 
 }
