@@ -68,62 +68,32 @@ $bpkb_updated_date = get_the_modified_date();
 		<?php basepress_post_pagination(); ?>
 	</nav>
 	<?php 
-//Get Previous and Next articles
-$bpkb_prev_article = basepress_prev_article();
-$bpkb_next_article = basepress_next_article();
-$bpkb_show_icon = basepress_show_post_icon();
-$bpkb_post_class = $bpkb_show_icon ? ' show-icon' : '';
-$bpkb_grid_align = $bpkb_next_article && ! $bpkb_prev_article ? ' bpress-align-right' : '';
-
-if ( $bpkb_prev_article || $bpkb_next_article ) { ?>
-
-	<div class="bpress-grid<?php echo $bpkb_grid_align; ?>">
-
-		<?php
-		if ( $bpkb_prev_article ) {
-			$bpkb_prev_link = get_permalink( $bpkb_prev_article->ID );
-		?>
-		<div class="bpress-col bpress-col-2">
-			<div class="bpress-prev-post">
-				<span class="bpress-adjacent-title"><?php echo basepress_prev_article_text(); ?></span>
-
-				<div class="bpress-adjacent-post<?php echo $bpkb_post_class; ?>">
-					<?php if ( basepress_show_post_icon() ) { ?>
-						<span class="bp-icon <?php echo $bpkb_prev_article->icon; ?>"></span>
-					<?php } ?>
-					<h4>
-						<a href="<?php echo $bpkb_prev_link; ?>"><?php echo $bpkb_prev_article->post_title; ?></a>
-					</h4>
-				</div>
-			</div>
-		</div>
-		<?php } ?>
-
-
-
-
-	<?php
-	if ( $bpkb_next_article ) {
-		$bpkb_next_link = get_permalink( $bpkb_next_article->ID );
-	?>
-	<div class="bpress-col bpress-col-2">
-		<div class="bpress-next-post">
-			<span class="bpress-adjacent-title"><?php echo basepress_next_article_text(); ?></span>
-
-			<div class="bpress-adjacent-post<?php echo $bpkb_post_class; ?>">
-				<?php if ( basepress_show_post_icon() ) { ?>
-					<span class="bp-icon <?php echo $bpkb_next_article->icon; ?>"></span>
-				<?php } ?>
-				<h4>
-					<a href="<?php echo $bpkb_next_link; ?>"><?php echo $bpkb_next_article->post_title; ?></a>
-				</h4>
-			</div>
-		</div>
-	</div>
-	<?php } ?>
-
-</div>
-<?php } ?>
+	// get_posts in same custom taxonomy
+$postlist_args = array(
+	'posts_per_page'  => -1,
+	'orderby'         => 'menu_order title',
+	'order'           => 'ASC',
+	'post_type'       => 'knowledgebase',
+	'your_custom_taxonomy' => 'section'
+ ); 
+ $postlist = get_posts( $postlist_args );
+ 
+ // get ids of posts retrieved from get_posts
+ $ids = array();
+ foreach ($postlist as $thepost) {
+	$ids[] = $thepost->ID;
+ }
+ 
+ // get and echo previous and next post in the same taxonomy        
+ $thisindex = array_search($post->ID, $ids);
+ $previd = $ids[$thisindex-1];
+ $nextid = $ids[$thisindex+1];
+ if ( !empty($previd) ) {
+	echo '<a rel="prev" href="' . get_permalink($previd). '">previous</a>';
+ }
+ if ( !empty($nextid) ) {
+	echo '<a rel="next" href="' . get_permalink($nextid). '">next</a>';
+ }
 	?>
 	<div class="clearfix"></div>
 </article>
