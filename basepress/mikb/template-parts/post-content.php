@@ -68,7 +68,6 @@ $bpkb_updated_date = get_the_modified_date();
 	<!-- Pagination -->
 	<nav class="bpress-pagination">
 		<?php basepress_post_pagination(); ?>
-		<?php echo voteme_getvotelink(); ?>
 	</nav>
 
 </article>
