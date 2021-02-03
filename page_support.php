@@ -44,9 +44,6 @@ get_header('support'); ?>
                             <?php the_content(); ?>
                         <hr/>
                             <div>
-                                <span><?php echo helpful_get_pro_all(); ?> visitors have found our <a class="support-center link" href="<?php echo site_url('/docs/'); ?>">Help Articles</a> to be helpful, we may have the answer you're looking for too.</span>
-                            </div>
-                            <div>
                                 <?php 
                                 	/**
                                     * Order posts by helpful pro in descendend order.
@@ -78,6 +75,9 @@ get_header('support'); ?>
                                     print( $list );
                                 ?>
                              </div>
+                             <div>
+                                <span><?php echo helpful_get_pro_all(); ?> visitors have found our <a class="support-center link" href="<?php echo site_url('/docs/'); ?>">Help Articles</a> to be helpful, we may have the answer you're looking for too.</span>
+                            </div>
                         </div>
                         <?php endwhile; ?>
                         <?php else : ?>
