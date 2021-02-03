@@ -13,6 +13,8 @@ $bpkb_post_introduction = get_field( "introduction" );
 
 $bpkb_post_date = get_the_date();
 $bpkb_updated_date = get_the_modified_date();
+//Get the Knowledge Base objects
+$bpkb_knowledge_bases = basepress_kbs();
 ?>
 
 <article id="post-<?php the_ID(); ?>">
@@ -67,12 +69,12 @@ $bpkb_updated_date = get_the_modified_date();
 	<nav class="bpress-pagination">
 		<?php basepress_post_pagination(); ?>
 	</nav>
-	<?php $prev_post = get_adjacent_post( true, '', true, 'taxonomy_slug' ); ?>
-<?php if ( is_a( $prev_post, 'WP_Post' ) ) { ?>
+	<?php $prev_post = get_adjacent_post( true, '', true, $bpkb_knowledge_base->slug ); ?>
+<?php if ( is_a( $prev_post, 'knowledgebase' ) ) { ?>
    <a href="<?php echo get_permalink( $prev_post->ID ); ?>"><?php echo get_the_title( $prev_post->ID ); ?></a>
 <?php } ?>
-<?php $next_post = get_adjacent_post( true, '', false, 'taxonomy_slug' ); ?>
-<?php if ( is_a( $next_post, 'WP_Post' ) ) {  ?>
+<?php $next_post = get_adjacent_post( true, '', false, $bpkb_knowledge_base->slug ); ?>
+<?php if ( is_a( $next_post, 'knowledgebase' ) ) {  ?>
    <a href="<?php echo get_permalink( $next_post->ID ); ?>"><?php echo get_the_title( $next_post->ID ); ?></a>
 <?php } ?>
 	<div class="clearfix"></div>
