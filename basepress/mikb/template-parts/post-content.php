@@ -67,13 +67,33 @@ $bpkb_updated_date = get_the_modified_date();
 	<nav class="bpress-pagination">
 		<?php basepress_post_pagination(); ?>
 	</nav>
-	<?php $prev_post = get_adjacent_post( true, '', true, 'taxonomy_slug' ); ?>
-<?php if ( is_a( $prev_post, 'WP_Post' ) ) { ?>
-   <a href="<?php echo get_permalink( $prev_post->ID ); ?>"><?php echo get_the_title( $prev_post->ID ); ?></a>
-<?php } ?>
-<?php $next_post = get_adjacent_post( true, '', false, 'taxonomy_slug' ); ?>
-<?php if ( is_a( $next_post, 'WP_Post' ) ) {  ?>
-   <a href="<?php echo get_permalink( $next_post->ID ); ?>"><?php echo get_the_title( $next_post->ID ); ?></a>
-<?php } ?>
+	<?php 
+	// get_posts in same custom taxonomy
+$postlist_args = array(
+	'posts_per_page'  => -1,
+	'orderby'         => 'menu_order title',
+	'order'           => 'ASC',
+	'post_type'       => 'knowledgebase',
+	'your_custom_taxonomy' => 'section'
+ ); 
+ $postlist = get_posts( $postlist_args );
+ 
+ // get ids of posts retrieved from get_posts
+ $ids = array();
+ foreach ($postlist as $thepost) {
+	$ids[] = $thepost->ID;
+ }
+ 
+ // get and echo previous and next post in the same taxonomy        
+ $thisindex = array_search($post->ID, $ids);
+ $previd = $ids[$thisindex-1];
+ $nextid = $ids[$thisindex+1];
+ if ( !empty($previd) ) {
+	echo '<a rel="prev" href="' . get_permalink($previd). '">previous</a>';
+ }
+ if ( !empty($nextid) ) {
+	echo '<a rel="next" href="' . get_permalink($nextid). '">next</a>';
+ }
+	?>
 	<div class="clearfix"></div>
 </article>
