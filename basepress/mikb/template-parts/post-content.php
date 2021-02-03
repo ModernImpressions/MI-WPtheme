@@ -79,7 +79,7 @@ $bpkb_section = basepress_sections();
 				<div class="bpress-adjacent-post show-icon">
 					<span class="bp-icon bp-search"><i class="far fa-link"></i></span>
 					<h4>
-						<?php previous_post_link('<span>%link</span>'); ?>
+						<?php previous_post_link('%link'); ?>
 					</h4>
 				</div>
 			</div>
@@ -90,7 +90,7 @@ $bpkb_section = basepress_sections();
 				<div class="bpress-adjacent-post show-icon">
 					<span class="bp-icon bp-link"><i class="far fa-link"></i></span>
 					<h4>
-						<?php next_post_link('<span>%link</span>'); ?>
+						<?php next_post_link('%link'); ?>
 					</h4>
 				</div>
 			</div>
