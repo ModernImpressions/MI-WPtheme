@@ -46,7 +46,36 @@ get_header('support'); ?>
                             <div>
                                 <span><?php echo helpful_get_pro_all(); ?> visitors have found our <a class="support-center link" href="<?php echo site_url('/docs/'); ?>">Help Articles</a> to be helpful, we may have the answer you're looking for too.</span>
                             </div>
-                            <div><?php echo get_most_helpful_articles(); ?></div>
+                            <div>
+                                <?php 
+                                	/**
+                                    * Order posts by helpful pro in descendend order.
+                                    */
+                                    $args = [
+                                        'post_type'      => 'knowledgebase',
+                                        'posts_per_page' => -1,
+                                        'meta_query'     => [],
+                                        'fields'         => 'ids',
+                                        'meta_key'       => 'helpful-pro',
+                                        'orderby'        => 'meta_value_num',
+                                        'order'          => 'DESC',
+                                    ];
+                                    $url = '';
+                                    $title = '';
+                                    $list ='';
+                                    $query = new WP_Query( $args );
+                                    if ( $query->found_posts ) {
+                                        $list .= '<ul>';
+                                        foreach ( $query->posts as $post_id ) :
+                                            $url = get_the_permalink( $post_id );
+                                            $title = get_the_title( $post_id );
+                                            $list .= sprintf( '<li><a href="%1$s">%2$s</a></li>', $url, $title );
+                                        endforeach;
+                                        $list .= '</ul>';
+                                    }
+                                    print( $list );
+                                ?>
+                             </div>
                         </div>
                         <?php endwhile; ?>
                         <?php else : ?>

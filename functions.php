@@ -181,36 +181,6 @@ function register_helpful_shortcode( $atts ) {
  */
 add_shortcode( 'helpful_pro', 'register_helpful_shortcode' );
 
-function get_most_helpful_articles() {
-	/**
- * Order posts by helpful pro in descendend order.
- */
-$args = [
-	'post_type'      => 'knowledgebase',
-	'posts_per_page' => -1,
-	'meta_query'     => [],
-	'fields'         => 'ids',
-	'meta_key'       => 'helpful-pro',
-	'orderby'        => 'meta_value_num',
-	'order'          => 'DESC',
-];
-$url = '';
-$title = '';
-$list ='';
-
-$query = new WP_Query( $args );
-
-if ( $query->found_posts ) {
-	$list .= '<ul>';
-	foreach ( $query->posts as $post_id ) :
-		$url = get_the_permalink( $post_id );
-		$title = get_the_title( $post_id );
-		$list .= sprintf( '<li><a href="%1$s">%2$s</a></li>', $url, $title );
-	endforeach;
-	$list .= '</ul>';
-}
-}
-
 /**
  * Allows the use of shortcuts in widgets.
  */
