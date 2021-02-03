@@ -14,14 +14,14 @@
 	<div class="helpful-controls">
 		<div>
 			<button class="helpful-pro helpful-button" type="button" data-value="pro" data-post="<?php echo $helpful['post_id']; ?>" role="button">
-				<?php echo $helpful['button_pro']; ?><i class="fas fa-thumbs-up"></i>
+				<?php echo $helpful['button_pro']; ?>&nbsp<i class="fas fa-thumbs-up"></i>
 				<?php echo $helpful['counter'] ? sprintf( '<span class="helpful-counter">%s</span>', $helpful['count_pro'] ) : ''; ?>
 			</button>
 		</div>
 
 		<div>
 			<button class="helpful-contra helpful-button" type="button" data-value="contra" data-post="<?php echo $helpful['post_id']; ?>" role="button">
-				<?php echo $helpful['button_contra']; ?><i class="fas fa-thumbs-down"></i>
+				<?php echo $helpful['button_contra']; ?>&nbsp<i class="fas fa-thumbs-down"></i>
 				<?php echo $helpful['counter'] ? sprintf( '<span class="helpful-counter">%s</span>', $helpful['count_contra'] ) : ''; ?>
 			</button>
 		</div>
