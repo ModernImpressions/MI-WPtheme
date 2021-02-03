@@ -47,6 +47,7 @@ get_header('support'); ?>
                                 <span><?php echo helpful_get_pro_all(); ?> visitors have found our <a class="support-center link" href="<?php echo site_url('/docs/'); ?>">Help Articles</a> to be helpful, we may have the answer you're looking for too.</span>
                             </div>
                             <div><?php echo do_shortcode( '[helpful_pro post_type="knowledgebase" limit="5"]' ); ?></div>
+                            <div><?php echo get_most_helpful_articles(); ?></div>
                         </div>
                         <?php endwhile; ?>
                         <?php else : ?>
