@@ -62,7 +62,8 @@ get_header('support'); ?>
                                     ];
                                     $url = '';
                                     $title = '';
-                                    $list ='';
+                                    $list = '';
+                                    $countlimit = 0;
                                     $query = new WP_Query( $args );
                                     if ( $query->found_posts ) {
                                         $list .= '<ul>';
@@ -70,6 +71,7 @@ get_header('support'); ?>
                                             $url = get_the_permalink( $post_id );
                                             $title = get_the_title( $post_id );
                                             $list .= sprintf( '<li><a href="%1$s">%2$s</a></li>', $url, $title );
+                                            if (++$counterlimit == 5) break ;
                                         endforeach;
                                         $list .= '</ul>';
                                     }
