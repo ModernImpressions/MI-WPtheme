@@ -45,10 +45,11 @@ $bpkb_section = basepress_sections();
 	basepress_get_template_part( 'table-of-content' );
 	?>
 
-	<div id="preface" class="post-content row">
-		<p><?php echo $bpkb_post_introduction ?></p>
+	<div class="post-content row">
 		<div class="content col">
-        <?php the_content(); ?>
+			<h4 id="preface">Introduction</h4>
+			<p><?php echo $bpkb_post_introduction ?></p>
+        	<?php the_content(); ?>
     	</div>
 	
 		<div class="post-toc col-auto">
