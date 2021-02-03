@@ -202,7 +202,7 @@ if ( $query->found_posts ) {
 	printf( '<strong>%s</strong><br>', esc_html__( 'Pro:' ) );
 
 	foreach ( $query->posts as $post_id ) :
-		printf( '%s: %d<br>', get_the_title( $post_id ), (int) get_post_meta( $post_id, 'helpful-pro', true ) );
+		printf( '<a href="%"></a>%</a><br>',  get_the_permalink( $post_id ), get_the_title( $post_id ));
 	endforeach;
 }
 }
