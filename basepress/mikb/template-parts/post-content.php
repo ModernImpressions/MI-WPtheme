@@ -14,7 +14,7 @@ $bpkb_post_introduction = get_field( "introduction" );
 $bpkb_post_date = get_the_date();
 $bpkb_updated_date = get_the_modified_date();
 //Get the Knowledge Base objects
-$bpkb_knowledge_bases = basepress_kbs();
+$bpkb_knowledge_base = basepress_kb();
 ?>
 
 <article id="post-<?php the_ID(); ?>">
