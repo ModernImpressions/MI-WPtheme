@@ -186,7 +186,7 @@ function get_most_helpful_articles() {
  * Order posts by helpful pro in descendend order.
  */
 $args = [
-	'post_type'      => 'post',
+	'post_type'      => 'knowledgebase',
 	'posts_per_page' => -1,
 	'meta_query'     => [],
 	'fields'         => 'ids',
