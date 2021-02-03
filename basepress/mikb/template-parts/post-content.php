@@ -13,6 +13,9 @@ $bpkb_post_introduction = get_field( "introduction" );
 
 $bpkb_post_date = get_the_date();
 $bpkb_updated_date = get_the_modified_date();
+
+//Get the Knowledge Base objects
+$bpkb_knowledge_base = basepress_kb();
 ?>
 
 <article id="post-<?php the_ID(); ?>">
@@ -74,7 +77,7 @@ $postlist_args = array(
 	'orderby'         => 'menu_order title',
 	'order'           => 'ASC',
 	'post_type'       => 'knowledgebase',
-	'your_custom_taxonomy' => 'section'
+	'your_custom_taxonomy' => $bpkb_knowledge_base->slug,
  ); 
  $postlist = get_posts( $postlist_args );
  
