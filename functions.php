@@ -205,7 +205,7 @@ if ( $query->found_posts ) {
 	foreach ( $query->posts as $post_id ) :
 		$url = get_the_permalink( $post_id );
 		$title = get_the_title( $post_id );
-		sprintf( '<li><a href="%1$s">%2$s</a></li>', $url, $title );
+		$list .= sprintf( '<li><a href="%1$s">%2$s</a></li>', $url, $title );
 	endforeach;
 	$list .= '</ul>';
 }
