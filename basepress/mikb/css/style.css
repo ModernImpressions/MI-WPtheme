@@ -1520,6 +1520,18 @@ button.bpress-btn.bpress-vote-like.disabled:hover {
     -webkit-transition: opacity .2s ease-in-out;
 }
 
+.helpful .helpful-content .helpful-button[data-value="pro"]:hover,
+.helpful>.helpful-controls>div>.helpful-button[data-value="pro"]:hover {
+    background-color: #88c057;
+    color: #fff;
+}
+
+.helpful .helpful-content .helpful-button[data-value="contra"]:hover,
+.helpful>.helpful-controls>div>.helpful-button[data-value="contra"]:hover {
+    background-color: #ed7161;
+    color: #fff;
+}
+
 .helpful>.helpful-controls>div>.helpful-button[data-value="pro"] {
     border-left: 2px solid #88c057;
 }
