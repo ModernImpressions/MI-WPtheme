@@ -71,9 +71,30 @@ $bpkb_section = basepress_sections();
 	<nav class="bpress-pagination">
 		<?php basepress_post_pagination(); ?>
 	</nav>
-	<?php
-    previous_post_link('<span class="left">&laquo; %link</span>');
-	next_post_link('<span class="right">%link &raquo;</span>');
-	?>  
+
+	<div class="bpress-grid">
+		<div class="bpress-col bpress-col-2">
+			<div class="bpress-prev-post">
+				<span class="bpress-adjacent-title">Previous Article</span>
+				<div class="bpress-adjacent-post show-icon">
+					<span class="bp-icon bp-search"></span>
+					<h4>
+						<?php previous_post_link('<span>%link</span>'); ?>
+					</h4>
+				</div>
+			</div>
+		</div>
+		<div class="bpress-col bpress-col-2">
+			<div class="bpress-next-post">
+				<span class="bpress-adjacent-title">Next Article</span>
+				<div class="bpress-adjacent-post show-icon">
+					<span class="bp-icon bp-link"></span>
+					<h4>
+						<?php next_post_link('<span>%link</span>'); ?>
+					</h4>
+				</div>
+			</div>
+		</div>
+	</div> 
 	<div class="clearfix"></div>
 </article>
