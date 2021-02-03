@@ -71,33 +71,9 @@ $bpkb_section = basepress_sections();
 	<nav class="bpress-pagination">
 		<?php basepress_post_pagination(); ?>
 	</nav>
-	<?php 
-	// get_posts in same custom taxonomy
-$postlist_args = array(
-	'posts_per_page'  => -1,
-	'orderby'         => 'menu_order title',
-	'order'           => 'ASC',
-	'post_type'       => 'knowledgebase',
-	'your_custom_taxonomy' => $bpkb_section->slug,
- ); 
- $postlist = get_posts( $postlist_args );
- 
- // get ids of posts retrieved from get_posts
- $ids = array();
- foreach ($postlist as $thepost) {
-	$ids[] = $thepost->ID;
- }
- 
- // get and echo previous and next post in the same taxonomy        
- $thisindex = array_search($post->ID, $ids);
- $previd = $ids[$thisindex-1];
- $nextid = $ids[$thisindex+1];
- if ( !empty($previd) ) {
-	echo '<a rel="prev" href="' . get_permalink($previd). '">previous</a>';
- }
- if ( !empty($nextid) ) {
-	echo '<a rel="next" href="' . get_permalink($nextid). '">next</a>';
- }
-	?>
+	<?php
+    previous_post_link('<span class="left">&laquo; %link</span>');
+	next_post_link('<span class="right">%link &raquo;</span>');
+	?>  
 	<div class="clearfix"></div>
 </article>
