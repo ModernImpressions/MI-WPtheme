@@ -67,7 +67,7 @@ get_header('support'); ?>
                                         foreach ( $query->posts as $post_id ) :
                                             $url = get_the_permalink( $post_id );
                                             $title = get_the_title( $post_id );
-                                            $list .= sprintf( '<li><a href="%1$s">%2$s</a></li>', $url, $title );
+                                            $list .= sprintf( '<li><i class="fas fa-book"></i><a href="%1$s">%2$s</a></li>', $url, $title );
                                             if (++$counterlimit == 5) break ;
                                         endforeach;
                                         $list .= '</ul>';
