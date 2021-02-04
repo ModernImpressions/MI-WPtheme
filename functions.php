@@ -185,5 +185,4 @@ add_shortcode( 'helpful_pro', 'register_helpful_shortcode' );
  * Allows the use of shortcuts in widgets.
  */
 add_filter( 'widget_text', 'do_shortcode' );
-
 ?>
