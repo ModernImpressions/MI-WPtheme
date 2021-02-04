@@ -960,7 +960,7 @@ input[type="text"].bpress-search-field {
     height: 100%;
     padding: 0 55px 0 25px;
     border: 1px solid #ddd;
-    border-radius: 30px;
+    border-radius: 5px;
     background-color: #fafafa;
     font-size: inherit;
 }
@@ -1010,7 +1010,7 @@ input.bpress-search-field:focus {
     margin: 0;
     padding: 0;
     border: none;
-    border-radius: 50px;
+    border-radius: 5px;
     background-color: #17aacf;
     background-image: none !important;
     color: #fff;
