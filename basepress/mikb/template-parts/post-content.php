@@ -22,9 +22,8 @@ $bpkb_section = basepress_sections();
 <article id="post-<?php the_ID(); ?>">
 	<header class="bpress-post-header">
 		<h1><?php the_title(); ?></h1>
-		<div class="bpress-post-meta">
-			<?php $bpkb_post_metas = basepress_get_post_meta( the_ID() ); ?>
-			<span class="bpress-post-views"><i class="far fa-eye"></i><?php echo getPostViews(the_ID()); ?></span>
+		<div class="bpress-post-meta">	
+			<span class="bpress-post-views"><i class="far fa-eye"></i><?php $bpkb_post_metas = basepress_get_post_meta( the_ID() ); ?></span>
 			<span class="bpress-post-date">
 					<div><i class="fas fa-calendar-day"></i><?php echo " Created: "; ?><?php echo $bpkb_post_date ?></div>
 				<?php if ( $bpkb_post_date == $bpkb_updated_date ){ ?>
