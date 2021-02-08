@@ -46,7 +46,7 @@ get_header('support'); ?>
                         <div>
                         <?php 
                             $bpkb_sections = basepress_sections(); 
-                            foreach ( $bpkb_sections as $bpkb_section ) {
+                            foreach ( $bpkb_sections as $bpkb_section ) :
                                 if ( $bpkb_section->name == 'Videos' ) { ?>
 <!-- Post list -->
 <ul class="bpress-section-list">
@@ -72,7 +72,7 @@ get_header('support'); ?>
 				<?php endforeach; ?>
 			</ul>
                                 <?php } ?>
-                        <?php } ?>
+                        <?php endforeach; ?>
                         </div>
                         <hr/>
                             <div>
