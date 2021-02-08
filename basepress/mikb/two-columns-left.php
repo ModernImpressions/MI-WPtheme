@@ -1,5 +1,5 @@
 <?php
-/* Template Name: MI Left Sidebar */
+/* Template Name: Left Sidebar */
 
 //Get Knowledge Base object
 $bpkb_knowledge_base = basepress_kb();
