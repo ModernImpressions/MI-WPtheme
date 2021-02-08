@@ -43,38 +43,6 @@ get_header('support'); ?>
                         <hr/>
                             <?php the_content(); ?>
                         <hr/>
-                        <div>
-                        <?php 
-                            $bpkb_sections = basepress_sections(); 
-                            foreach ( $bpkb_sections as $bpkb_section ) :
-                                if ( $bpkb_section->name == 'Videos' ) { ?>
-<!-- Post list -->
-<ul class="bpress-section-list">
-				<?php
-				foreach ( $bpkb_section->posts as $bpkb_article ) :
-					$bpkb_show_post_icon = basepress_show_post_icon();
-					$bpkb_post_class = $bpkb_show_post_icon ? ' show-icon' : '';
-				?>
-				<li class="bpress-post-link single-section">
-
-					<div class="bpress-heading<?php echo $bpkb_post_class; ?>">
-						<!-- Post icon -->
-						<?php if ( $bpkb_show_post_icon ) { ?>
-							<span aria-hidden="true" class="bpress-heading-icon <?php echo $bpkb_article->icon; ?>"></span>
-						<?php } ?>
-
-						<h3>
-							<!-- Post permalink -->
-							<a href="<?php echo get_the_permalink( $bpkb_article->ID ); ?>"><?php echo $bpkb_article->post_title; ?></a>
-						</h3>
-					</div>
-				</li>
-				<?php endforeach; ?>
-			</ul>
-                                <?php } ?>
-                        <?php endforeach; ?>
-                        </div>
-                        <hr/>
                             <div>
                                 <?php 
                                 	/**
