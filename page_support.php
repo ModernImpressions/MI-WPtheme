@@ -63,7 +63,7 @@ get_header('support'); ?>
                                     $countlimit = 0;
                                     $query = new WP_Query( $args );
                                     if ( $query->found_posts ) {
-                                        $list .= '<ul>';
+                                        $list .= '<ul class="support-center-helpful-list">';
                                         foreach ( $query->posts as $post_id ) :
                                             $url = get_the_permalink( $post_id );
                                             $title = get_the_title( $post_id );

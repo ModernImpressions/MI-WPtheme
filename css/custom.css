@@ -2099,3 +2099,12 @@ body.archive #content_area {
     font-size: 25px;
     font-weight: 700;
 }
+
+
+/* ==========================================================================
+   Support Center Page
+========================================================================== */
+
+.support-center-helpful-list {
+    list-style: none;
+}
