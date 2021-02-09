@@ -71,17 +71,16 @@ basepress_get_header( 'basepress' );
 			<?php if ( is_active_sidebar( 'basepress-sidebar' ) ) : ?>
 				<aside class="bpress-sidebar bpress-float-right" role="complementary">
 					<div class="hide-scrollbars">
-					<?php dynamic_sidebar( 'basepress-sidebar' ); ?>
+						<?php dynamic_sidebar( 'basepress-sidebar' ); ?>
+					</div>
+					<br/>
+					<div class="hide-scrollbars">
+						<h3 class="widget-title">Need Support?</h3>
+						<p>Can't find the answer you're looking for? Don't worry we're here to help!</p>
+						<a class="button primary-button large full" href="#">contact support</a>
 					</div>
 				</aside>
 			<?php endif; ?>
-			<aside class="bpress-sidebar bpress-float-right widget support-widget" role="complementary">
-				<div class="hide-scrollbars">
-					<h3 class="widget-title">Need Support?</h3>
-					<p>Can't find the answer you're looking for? Don't worry we're here to help!</p>
-					<a class="button primary-button large full" href="#">contact support</a>
-				</div>
-			</aside>
 		</div>
 	</div><!-- .wrap -->
 
