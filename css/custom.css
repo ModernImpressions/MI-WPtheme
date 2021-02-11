@@ -1103,6 +1103,11 @@ blockquote {
     display: block;
 }
 
+.staff-item.portrait-container {
+    display: block;
+    margin-bottom: 5em;
+}
+
 .portrait-container {
     max-width: 1020px;
     margin: 0 auto;
