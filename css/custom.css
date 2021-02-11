@@ -1089,6 +1089,18 @@ blockquote {
     margin: 3%;
 }
 
+.team-details-container {
+    background: rgba(0, 0, 0, .6);
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    border-bottom: 2px solid rgba(0, 127, 123, .5);
+    height: 100%;
+    max-height: 300px;
+    display: block;
+}
+
 .portrait-container {
     max-width: 1020px;
     margin: 0 auto;
@@ -1098,7 +1110,7 @@ blockquote {
 }
 
 .portrait-member {
-    display: inline-block;
+    display: contents;
     position: relative;
     margin: 1em;
     background-size: cover;
@@ -1125,12 +1137,6 @@ blockquote {
     cursor: text;
     list-style-type: none;
     padding: 5px;
-    background: rgba(0, 0, 0, .6);
-    -moz-transition: all 0.2s ease-in-out;
-    -o-transition: all 0.2s ease-in-out;
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-    border-bottom: 2px solid rgba(0, 127, 123, .5);
 }
 
 .portrait-title {
