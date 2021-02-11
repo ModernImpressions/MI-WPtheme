@@ -32,12 +32,13 @@ get_header(); ?>
                     <?php while (have_posts()) : the_post(); ?>	
                     <div class='staff-item portrait-container'>
                         <div class='child_team_area portrait-member'>
-                            <?php the_post_thumbnail( 'team_area' ); ?>
-                            <ul class='team_details portrait-details'>
-                                <li><?php the_title(); ?></li>
-                                <li class="portrait-title"><?php echo get_post_meta($post->ID, 'team_position', true); ?></li>
-                                <li class="team_social">
-                                <?php $variable = get_post_meta($post->ID, 'team_social_list', true); ?>
+                            <div><?php the_post_thumbnail( 'team_area' ); ?></div>
+                            <div>
+                                <ul class='team_details portrait-details'>
+                                    <li><?php the_title(); ?></li>
+                                    <li class="portrait-title"><?php echo get_post_meta($post->ID, 'team_position', true); ?></li>
+                                    <li class="team_social">
+                                    <?php $variable = get_post_meta($post->ID, 'team_social_list', true); ?>
                                     <?php
                                     if ( !empty( $variable ) ) {
                                         echo '<nav class="containersocial">';
@@ -46,8 +47,9 @@ get_header(); ?>
                                         }
                                         echo '</nav>';
                                     }?>
-                                </li>
-                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <?php endwhile; ?>
