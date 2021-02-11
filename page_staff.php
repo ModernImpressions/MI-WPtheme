@@ -32,8 +32,8 @@ get_header(); ?>
                     <?php while (have_posts()) : the_post(); ?>	
                     <div class='staff-item portrait-container'>
                         <div class='child_team_area portrait-member'>
-                            <div><?php the_post_thumbnail( 'team_area' ); ?></div>
-                            <div>
+                            <div class='portrait-container'><?php the_post_thumbnail( 'team_area' ); ?></div>
+                            <div class='team-details-container'>
                                 <ul class='team_details portrait-details'>
                                     <li><?php the_title(); ?></li>
                                     <li class="portrait-title"><?php echo get_post_meta($post->ID, 'team_position', true); ?></li>
