@@ -26,12 +26,21 @@ get_header(); ?>
                         <?php endif; ?>
                     </div>
                 </div>
-                <!-- Staff area ================================================== -->	           
-                    <?php get_template_part('staff_part/staff_area-admin'); ?>
-                    <?php get_template_part('staff_part/staff_area-sales'); ?>
-                    <?php get_template_part('staff_part/staff_area-marketing'); ?>
-                    <?php get_template_part('staff_part/staff_area-service'); ?>
-                    <?php get_template_part('staff_part/staff_area-it'); ?>
+                <!-- Staff area ================================================== -->
+                <h2 class="title department-title">Admin</h2>	           
+                <div><?php get_template_part('staff_part/staff_area-admin'); ?></div>
+                <hr/>
+                <h2 class="title department-title">Sales</h2>
+                <div><?php get_template_part('staff_part/staff_area-sales'); ?></div>
+                <hr/>
+                <h2 class="title department-title">Marketing</h2>
+                <div><?php get_template_part('staff_part/staff_area-marketing'); ?></div>
+                <hr/>
+                <h2 class="title department-title">Service</h2>
+                <div><?php get_template_part('staff_part/staff_area-service'); ?></div>
+                <hr/>
+                <h2 class="title department-title">IT</h2>
+                <div><?php get_template_part('staff_part/staff_area-it'); ?></div>
                 </div>
                 </div>
                 </div>    
