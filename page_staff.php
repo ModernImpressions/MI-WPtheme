@@ -28,6 +28,10 @@ get_header(); ?>
                 </div>
                 <!-- Staff area ================================================== -->	           
                     <?php get_template_part('staff_part/staff_area-admin'); ?>
+                    <?php get_template_part('staff_part/staff_area-sales'); ?>
+                    <?php get_template_part('staff_part/staff_area-marketing'); ?>
+                    <?php get_template_part('staff_part/staff_area-service'); ?>
+                    <?php get_template_part('staff_part/staff_area-it'); ?>
                 </div>
                 </div>
                 </div>    
