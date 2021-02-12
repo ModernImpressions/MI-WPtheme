@@ -11,7 +11,8 @@
                         <div class='team-details-container'>
                             <ul class='team_details portrait-details'>
                                 <li><?php the_title(); ?></li>
-                                <li class="portrait-title"><?php echo get_post_meta($post->ID, 'team_position', true); ?>(<?php echo $member_location ?>)</li>
+                                <li class="portrait-title"><?php echo get_post_meta($post->ID, 'team_position', true); ?></li>
+                                <li class="team_location"><?php echo $member_location ?></li>
                                 <li class="team_social">
                                     <?php $variable = get_post_meta($post->ID, 'team_social_list', true); ?>
                                     <?php
