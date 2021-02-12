@@ -3,6 +3,7 @@
     <?php if(have_posts()) : ?>
         <?php while (have_posts()) : the_post(); ?>
             <?php $member_department = get_field( "department" ); ?>
+            <?php $member_location = get_field( "location" ); ?>
             <?php if($member_department == "admin" ) { ?>	
                 <div class='staff-item portrait-container'>
                     <div class='child_team_area portrait-member'>
@@ -10,7 +11,7 @@
                         <div class='team-details-container'>
                             <ul class='team_details portrait-details'>
                                 <li><?php the_title(); ?></li>
-                                <li class="portrait-title"><?php echo get_post_meta($post->ID, 'team_position', true); ?></li>
+                                <li class="portrait-title"><?php echo get_post_meta($post->ID, 'team_position', true); ?>(<?php echo $member_location ?>)</li>
                                 <li class="team_social">
                                     <?php $variable = get_post_meta($post->ID, 'team_social_list', true); ?>
                                     <?php
