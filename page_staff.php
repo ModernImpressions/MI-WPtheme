@@ -27,7 +27,7 @@ get_header(); ?>
                     </div>
                 </div>
                 <!-- Staff area ================================================== -->
-                <h2 class="title department-title">Admin</h2>	           
+                <h2 class="title department-title">Administration</h2>	           
                 <div><?php get_template_part('staff_part/staff_area-admin'); ?></div>
                 <hr/>
                 <h2 class="title department-title">Sales</h2>

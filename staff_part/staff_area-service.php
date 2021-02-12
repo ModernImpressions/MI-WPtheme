@@ -3,7 +3,6 @@
     <?php if(have_posts()) : ?>
         <?php while (have_posts()) : the_post(); ?>
             <?php $member_department = get_field( "department" ); ?>
-            <?php $member_sort = get_field( "display_order" ); ?>
             <?php if($member_department == "service" ) { ?>	
                 <div class='staff-item portrait-container'>
                     <div class='child_team_area portrait-member'>
