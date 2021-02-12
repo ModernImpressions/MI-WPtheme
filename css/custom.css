@@ -1132,6 +1132,10 @@ blockquote {
     position: relative;
 }
 
+.portrait-container img {
+    margin-bottom: 0px;
+}
+
 .portrait-member {
     display: contents;
     position: relative;
