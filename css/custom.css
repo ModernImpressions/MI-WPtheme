@@ -1080,6 +1080,11 @@ blockquote {
    Staff Team Page
 ========================================================================== */
 
+.department-list {
+    list-style: none;
+    display: inline-flex;
+}
+
 #staff-team-item {
     background: #fff;
     padding: 45px 0;
