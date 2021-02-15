@@ -1,11 +1,12 @@
 <div class="row">
+    <ul>
     <?php query_posts('post_type=team_area&post_status=publish&posts_per_page=-1&meta_key=display_order&orderby=meta_value&order=ASC&paged='. get_query_var('post')); ?>
     <?php if(have_posts()) : ?>
         <?php while (have_posts()) : the_post(); ?>
             <?php $member_department = get_field( "department" ); ?>
             <?php $member_location = get_field( "location" ); ?>
             <?php if($member_department == "admin" ) { ?>	
-                <div class='staff-item portrait-container'>
+                <li><div class='staff-item portrait-container'>
                     <div class='child_team_area portrait-member'>
                         <div class='portrait-container'><?php the_post_thumbnail( 'team_area' ); ?></div>
                         <div class='team-details-container'>
@@ -27,8 +28,9 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div></li>
             <?php } ?>
         <?php endwhile; ?>
     <?php endif; ?> 
+    </ul>
 </div>
