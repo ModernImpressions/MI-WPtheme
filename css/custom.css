@@ -1083,6 +1083,7 @@ blockquote {
 .department-list {
     list-style: none;
     display: inline-flex;
+    flex-flow: wrap;
 }
 
 .department-list li {
