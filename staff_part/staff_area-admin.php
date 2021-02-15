@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row mx-auto">
     <ul class="department-list">
     <?php query_posts('post_type=team_area&post_status=publish&posts_per_page=-1&meta_key=display_order&orderby=meta_value&order=ASC&paged='. get_query_var('post')); ?>
     <?php if(have_posts()) : ?>
