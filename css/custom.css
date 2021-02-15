@@ -1092,13 +1092,6 @@ blockquote {
     margin-bottom: 4em;
 }
 
-.department-list:first-child:nth-last-child(n+3),
-:first-child:nth-last-child(n+3)~* {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 4em;
-}
-
 .department-list-item {
     background: rgba(0, 0, 0, .6);
     -moz-transition: all 0.2s ease-in-out;
