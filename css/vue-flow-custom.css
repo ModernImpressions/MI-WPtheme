@@ -285,7 +285,6 @@ ul.reset-list {
 img.logo,
 svg.logo {
     height: 18px;
-    max-width: 240px;
     opacity: 1;
 }
 
