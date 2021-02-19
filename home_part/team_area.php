@@ -16,22 +16,20 @@
                         'post_status' => 'publish',
                         'posts_per_page' => -1,
                         'meta_query'    => array(
-                            array(
-                                'relation' => 'AND',
-                                'department' => array(
-                                    'key'       => 'department',
-                                    'compare'   => 'EXISTS',
-                                ),
-                                'display_order' => array(
-                                    'key'       => 'display_order',
-                                    'compare'   => 'EXISTS',
-                                    'type'      => 'NUMERIC',
-                                ),
-                            );
-                            'orderby' => array(
-                                'department'       => 'ASC',
-                                'display_order'     => 'ASC',
-                            );
+                            'relation' => 'AND',
+                            'department' => array(
+                                'key'       => 'department',
+                                'compare'   => 'EXISTS',
+                            ),
+                            'display_order' => array(
+                                'key'       => 'display_order',
+                                'compare'   => 'EXISTS',
+                                'type'      => 'NUMERIC',
+                            ),
+                        );
+                        'orderby' => array(
+                            'department'       => 'ASC',
+                            'display_order'     => 'ASC',
                         );
                     ); ?>
                     <?php query_posts($args . get_query_var('post')); ?>
