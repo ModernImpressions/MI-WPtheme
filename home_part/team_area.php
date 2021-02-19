@@ -11,30 +11,7 @@
                 </div>
                 <div class="row">
                     <div id="owl-team-item">
-                    <?php $args = array(
-                        'post_type' => 'team_area',
-                        'post_status' => 'publish',
-                        'posts_per_page' => -1,
-                        'meta_query'    => array(
-                            array (
-                            'relation' => 'AND',
-                            'query_one' => array(
-                                'key'       => 'department',
-                                'compare'   => 'EXISTS',
-                            ),
-                            'query_two' => array(
-                                'key'       => 'display_order',
-                                'compare'   => 'EXISTS',
-                                'type'      => 'NUMERIC',
-                            ),
-                            )
-                        )
-                        'orderby' => array(
-                            'query_one'       => 'ASC',
-                            'query_two'     => 'ASC',
-                        )
-                        ); 
-                        query_posts($args . get_query_var('post')); ?>
+                    <?php query_posts('post_type=team_area&post_status=publish&posts_per_page=-1&meta_key=department&orderby=display_order&order=ASC&paged=' . get_query_var('post')); ?>
                     <?php if(have_posts()) : ?>
                     <?php while (have_posts()) : the_post(); ?>
                     <?php $member_department = get_field( "department" ); ?>
