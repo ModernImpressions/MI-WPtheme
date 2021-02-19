@@ -11,7 +11,7 @@
                 </div>
                 <div class="row">
                     <div id="owl-team-item">
-                    <?php query_posts('post_type=team_area&post_status=publish&posts_per_page=-1&meta_key=display_order&orderby=meta_value&order=ASC&paged='. get_query_var('post')); ?>
+                    <?php query_posts('post_type=team_area&post_status=publish&posts_per_page=-1&meta_key=department&orderby=meta_value&order=ASC&paged='. get_query_var('post')); ?>
                     <?php if(have_posts()) : ?>
                     <?php while (have_posts()) : the_post(); ?>
                     <?php $member_department = get_field( "department" ); ?>
