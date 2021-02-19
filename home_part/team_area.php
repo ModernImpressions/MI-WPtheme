@@ -14,7 +14,7 @@
                     <?php $args = array(
                         'post_type' => 'team_area',
                         'post_status' => 'publish',
-                        'posts_per_page' => '-1',
+                        'posts_per_page' => -1,
                         'meta_query'    => array(
                             array (
                             'relation' => 'AND',
@@ -33,8 +33,8 @@
                             'query_one'       => 'ASC',
                             'query_two'     => 'ASC',
                         )
-                    ) ?>
-                    <?php query_posts($args . get_query_var('post')); ?>
+                        ); 
+                        query_posts($args . get_query_var('post')); ?>
                     <?php if(have_posts()) : ?>
                     <?php while (have_posts()) : the_post(); ?>
                     <?php $member_department = get_field( "department" ); ?>
