@@ -32,6 +32,7 @@
                                 'display_order'     => 'ASC',
                             )
                         )
+                    )
                     ; ?>
                     <?php query_posts($args . get_query_var('post')); ?>
                     <?php if(have_posts()) : ?>
