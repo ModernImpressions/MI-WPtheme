@@ -25,15 +25,15 @@
                                 'display_order' => array(
                                     'key'       => 'display_order',
                                     'compare'   => 'EXISTS',
+                                    'type'      => 'NUMERIC',
                                 ),
-                            )
+                            );
                             'orderby' => array(
                                 'department'       => 'ASC',
                                 'display_order'     => 'ASC',
-                            )
-                        )
-                    )
-                    ; ?>
+                            );
+                        );
+                    ); ?>
                     <?php query_posts($args . get_query_var('post')); ?>
                     <?php if(have_posts()) : ?>
                     <?php while (have_posts()) : the_post(); ?>
