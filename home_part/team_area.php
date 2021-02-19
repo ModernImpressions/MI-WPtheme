@@ -24,7 +24,7 @@
                                     <div class="team_details">
                                         <h3><?php the_title(); ?></h3>
                                         <p><?php echo get_post_meta($post->ID, 'team_position', true); ?></p>
-                                        <p><?php $member_location ?></p>
+                                        <p><?php echo $member_location ?></p>
                                         <?php $variable = get_post_meta($post->ID, 'team_social_list', true); ?>
                                         <?php
                                         if ( !empty( $variable ) ) {
