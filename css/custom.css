@@ -1084,6 +1084,7 @@ blockquote {
     list-style: none;
     display: inline-flex;
     flex-flow: wrap;
+    width: 100%;
 }
 
 .department-list li.department-list-item {
