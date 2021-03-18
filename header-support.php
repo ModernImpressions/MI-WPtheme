@@ -154,7 +154,7 @@
         ================================================== -->  
         <header id="header_area">
             <div class="main_header">
-                <div class="container">
+                <div class="container header_container">
                     <div class="row">
                         <div class="col-md-4">
                             <i class="far fa-envelope"></i>
@@ -182,7 +182,7 @@
             </div>
             <div class="main_menu">
                 <div class="inner_header_area">
-                    <div class="container">
+                    <div class="container menu_container">
                         <div class="row">
                             <div class="col-md-12">
                             <?php
