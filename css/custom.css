@@ -594,8 +594,8 @@ blockquote {
 }
 
 .hustle-ui.module_id_3 .hustle-layout .hustle-content {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: auto !important;
+    margin-right: auto !important;
     width: 100%;
     max-width: 1980px;
 }
