@@ -593,6 +593,13 @@ blockquote {
     font-family: 'Poppins', sans-serif !important;
 }
 
+.hustle-ui.module_id_3 .hustle-layout .hustle-content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1980px;
+}
+
 .hustle-ui.module_id_3 .hustle-layout .hustle-group-content p:not([class*="forminator-"]) {
     font-family: 'Poppins', sans-serif !important;
 }
