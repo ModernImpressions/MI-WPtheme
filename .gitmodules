@@ -4,4 +4,4 @@
 	branch = master
 [submodule "other_part/ceojuice-commentsquery"]
 	path = other_part/ceojuice-commentsquery
-	url = https://github.com/ModernImpressions/ceojuice-commentsquery.git
+	url = git@github.com:ModernImpressions/ceojuice-commentsquery.git
