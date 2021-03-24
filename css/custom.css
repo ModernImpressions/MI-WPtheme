@@ -2179,7 +2179,8 @@ body.archive #content_area {
 blockquote.customer-blockquote {
     margin: 0;
     padding: 30px;
-    width: 500px;
+    width: max-content;
+    max-width: 700px;
     background-color: #007F7B;
     color: white;
     box-shadow: 0 5px 2px rgba(0, 0, 0, 0.1);
