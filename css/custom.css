@@ -2188,6 +2188,10 @@ blockquote.customer-blockquote {
     border: none;
 }
 
+blockquote.customer-blockquote p {
+    font-size: 1.8em;
+}
+
 blockquote.customer-blockquote:after {
     content: " ";
     height: 0;
