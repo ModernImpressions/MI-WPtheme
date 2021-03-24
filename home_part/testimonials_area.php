@@ -14,7 +14,6 @@
 		        });
         	});
 </script>
-<?php wp_enqueue_script('fittext', get_template_directory_uri() .'/js/fittext-nojquery/fittext.js', array(), '1.2.0', 'true' ); ?>
 <section id="testimonial_area" class="testimonials">
     <div class="container">
         <div class="row">
