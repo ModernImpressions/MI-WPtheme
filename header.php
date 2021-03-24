@@ -131,8 +131,7 @@
     url('<?php echo get_template_directory_uri(); ?>/webfonts/poppins-v12-latin-ext_latin_devanagari-600.svg#Poppins') format('svg');
     /* Legacy iOS */
 }
-    </style>
-    <link rel="stylesheet" href='<?php echo get_template_directory_uri().'/js/fittext-nojquery/fittext.js'; ?>'> 
+    </style> 
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
