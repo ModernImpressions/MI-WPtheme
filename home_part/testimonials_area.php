@@ -1,4 +1,4 @@
-<script>
+<script type="text/javascript">
     jQuery(document).ready(function($) {
         		"use strict";
         		//  TESTIMONIALS CAROUSEL HOOK
@@ -14,7 +14,7 @@
 		        });
         	});
 </script>
-<script>
+<script type="text/javascript">
 /*!	
 * FitText.js 1.0 jQuery free version
 *
@@ -79,4 +79,4 @@ window.fitText = function (el, kompressor, options) {
 </section>
 <script type="text/javascript">
 		$("#comment-text").fitText(0.8);
-	</script>
+</script>
