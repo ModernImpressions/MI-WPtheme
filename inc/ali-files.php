@@ -25,7 +25,7 @@ function my_css_calling(){
     wp_enqueue_script('fontawesomepro', get_template_directory_uri() .'/js/all.min.js', array(), '5.15.2', 'false' );
     // wp_enqueue_script('bpkbvote', get_template_directory_uri() .'/basepress/mikb/js/bpkb_vote.js', array(), '1.0.0', 'true' );  -- removed, cookie issue & didn't work as expected
     wp_enqueue_script('main', get_template_directory_uri() .'/js/main.js', array(), '1.0.1', 'true' );
-    wp_enqueue_script('fittext', get_template_directory_uri() .'/js/fittext/jquery.fittext.js', array(), '1.2.0', 'true' );
+    wp_enqueue_script('fittext', get_template_directory_uri() .'/js/fittext-nojquery/fittext.js', array(), '1.2.0', 'true' );
 }
 add_action('wp_enqueue_scripts', 'my_css_calling');
 
