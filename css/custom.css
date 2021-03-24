@@ -2167,6 +2167,15 @@ body.archive #content_area {
    Testimonials Area
 ========================================================================== */
 
+.testimonial-container {
+    width: 500px;
+    min-height: 315px;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 30px;
+    overflow: hidden;
+}
+
 blockquote {
     margin: 0;
     padding: 30px;
@@ -2189,6 +2198,28 @@ blockquote:after {
     border-left-color: #DA532B;
     border-width: 10px;
     left: 10%;
+}
+
+#second:checked~.two blockquote {
+    background-color: purple;
+}
+
+.two blockquote:after {
+    border: solid transparent;
+    border-top-color: purple;
+    border-left-color: purple;
+    border-width: 10px;
+}
+
+#third:checked~.three blockquote {
+    background-color: #54885F;
+}
+
+.three blockquote:after {
+    border: solid transparent;
+    border-top-color: #54885F;
+    border-left-color: #54885F;
+    border-width: 10px;
 }
 
 .quotes {
@@ -2242,6 +2273,13 @@ label.second {
 
 label.third {
     left: 68%;
+}
+
+.testimonial-slide {
+    position: absolute;
+    left: -100%;
+    opacity: 0;
+    transition: all 0.6s ease-in;
 }
 
 #first:checked~label.first {
