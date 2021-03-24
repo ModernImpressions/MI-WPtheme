@@ -25,3 +25,6 @@
         </div>
     </div>
 </section>
+<script type="text/javascript">
+		$("#comment-text").fitText(0.8);
+	</script>
