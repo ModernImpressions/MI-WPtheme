@@ -2180,7 +2180,7 @@ blockquote {
     margin: 0;
     padding: 30px;
     width: 500px;
-    background-color: #DB532B;
+    background-color: #007F7B;
     color: white;
     box-shadow: 0 5px 2px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -2194,31 +2194,31 @@ blockquote:after {
     position: absolute;
     top: 100%;
     border: solid transparent;
-    border-top-color: #DA532B;
-    border-left-color: #DA532B;
+    border-top-color: #007F7B;
+    border-left-color: #007F7B;
     border-width: 10px;
     left: 10%;
 }
 
 #second:checked~.two blockquote {
-    background-color: purple;
+    background-color: #007F7B;
 }
 
 .two blockquote:after {
     border: solid transparent;
-    border-top-color: purple;
-    border-left-color: purple;
+    border-top-color: #007F7B;
+    border-left-color: #007F7B;
     border-width: 10px;
 }
 
 #third:checked~.three blockquote {
-    background-color: #54885F;
+    background-color: #007F7B;
 }
 
 .three blockquote:after {
     border: solid transparent;
-    border-top-color: #54885F;
-    border-left-color: #54885F;
+    border-top-color: #007F7B;
+    border-left-color: #007F7B;
     border-width: 10px;
 }
 
@@ -2239,7 +2239,7 @@ blockquote:after {
 }
 
 .customername {
-    color: #736861;
+    color: #404040;
     margin: 15px 0 5px;
     text-shadow: 0 1px rgba(255, 255, 255, 0.5);
 }
@@ -2284,16 +2284,16 @@ label.third {
 
 #first:checked~label.first {
     border-width: 6px;
-    border-color: #DB532B;
+    border-color: #007F7B;
 }
 
 #second:checked~label.second {
     border-width: 6px;
-    border-color: purple;
+    border-color: #007F7B;
 }
 
 #third:checked~label.third {
-    border: 6px solid #54885F;
+    border: 6px solid #007F7B;
 }
 
 #first:checked~div.one {
