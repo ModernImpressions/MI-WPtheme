@@ -2207,12 +2207,10 @@ blockquote:after {
 }
 
 .leftq {
-    top: -25px;
     left: 5px;
 }
 
 .rightq {
-    bottom: -10px;
     right: 5px;
 }
 
@@ -2237,10 +2235,6 @@ blockquote:after {
 }
 
 #customers-testimonials .item {
-    text-align: center;
-    padding: 50px;
-    margin-bottom: 80px;
-    opacity: .2;
     -webkit-transform: scale3d(0.8, 0.8, 1);
     transform: scale3d(0.8, 0.8, 1);
     -webkit-transition: all 0.3s ease-in-out;
