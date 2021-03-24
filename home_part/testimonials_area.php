@@ -14,6 +14,7 @@
 		        });
         	});
 </script>
+<link rel="stylesheet" href='<?php echo get_template_directory_uri().'/js/fittext-nojquery/fittext.js'; ?>'>
 <section id="testimonial_area" class="testimonials">
     <div class="container">
         <div class="row">
