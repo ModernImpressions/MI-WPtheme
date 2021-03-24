@@ -2176,7 +2176,7 @@ body.archive #content_area {
     overflow: hidden;
 }
 
-blockquote {
+blockquote.customer-blockquote {
     margin: 0;
     padding: 30px;
     width: 500px;
@@ -2187,7 +2187,7 @@ blockquote {
     transition: background-color 0.6s linear;
 }
 
-blockquote:after {
+blockquote.customer-blockquote:after {
     content: " ";
     height: 0;
     width: 0;
@@ -2240,6 +2240,8 @@ blockquote:after {
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 #customers-testimonials .owl-item.active.center .item {
