@@ -2237,6 +2237,7 @@ blockquote.customer-blockquote:after {
     color: #404040;
     margin: 15px 0 5px;
     text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+    font-size: 1.9em;
 }
 
 #customers-testimonials .item {
