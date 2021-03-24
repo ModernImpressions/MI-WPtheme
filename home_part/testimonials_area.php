@@ -1,7 +1,7 @@
 <section id="testimonial_area">
     <div class="container">
         <div class="row">
-            <div class="testimonials-container">
+            <div class="testimonial-container">
                 <input type="radio" name="nav" id="first" checked/>
                 <input type="radio" name="nav" id="second" />
                 <input type="radio" name="nav" id="third" />
