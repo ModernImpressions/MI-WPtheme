@@ -1,9 +1,7 @@
 <section id="testimonial_area">
     <div class="container">
         <div class="row">
-            <?php if (file_exists('other_part\ceojuice-commentsquery\testimonials_part.php')) {
-                include 'other_part\ceojuice-commentsquery\testimonials_part.php'; 
-            } ?>
+            <?php get_template_part('other_part/ceojuice-commentsquery/testimonials_part'); ?>
         </div>
     </div>
 </section>
