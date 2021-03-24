@@ -9,3 +9,6 @@
 	path = js/fittext
 	url = https://github.com/davatron5000/FitText.js.git
 	branch = master
+[submodule "js/fittext-nojquery"]
+	path = js/fittext-nojquery
+	url = https://github.com/adactio/FitText.js.git
