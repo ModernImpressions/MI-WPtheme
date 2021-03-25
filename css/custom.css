@@ -2234,6 +2234,10 @@ blockquote.customer-blockquote:after {
     left: 10%;
 }
 
+blockquote.customer-blockquote span {
+    display: flex;
+}
+
 .quotes {
     position: relative;
     color: rgba(255, 255, 255, 0.5);
@@ -2255,6 +2259,22 @@ blockquote.customer-blockquote:after {
     color: #404040;
     margin: 15px 0 5px;
     text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.surveydate {
+    margin: 15px 0 5px;
+    line-height: 1.5em;
+    color: #404040;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+.companyname {
+    margin: 15px 0 5px;
+    line-height: 1.5em;
+    color: #404040;
+    font-style: italic;
+    margin-top: 20px;
 }
 
 #customers-testimonials .shadow-effect p {
