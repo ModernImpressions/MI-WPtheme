@@ -2238,6 +2238,10 @@ blockquote.customer-blockquote:after {
     display: flex;
 }
 
+.contact-citation::before {
+    content: "\2014 \00A0";
+}
+
 .quotes {
     position: relative;
     color: rgba(255, 255, 255, 0.5);
