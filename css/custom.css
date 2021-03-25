@@ -2253,8 +2253,8 @@ blockquote.customer-blockquote:after {
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #customers-testimonials .owl-item.active.center .item {
