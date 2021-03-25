@@ -9,6 +9,7 @@
 		            margin: 0,
 		            autoplay: true,
 		            nav: true,
+                    dots: false,
 		            autoplayTimeout: 8500,
 		            smartSpeed: 450,
                     mouseDrag: true,
