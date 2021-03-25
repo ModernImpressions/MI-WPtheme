@@ -8,9 +8,12 @@
 		            items: 1,
 		            margin: 0,
 		            autoplay: true,
-		            dots:true,
+		            nav: true,
 		            autoplayTimeout: 8500,
 		            smartSpeed: 450,
+                    mouseDrag: true,
+                    touchDrag: true,
+                    stagePadding: 1,
 		        });
         	});
 </script>
