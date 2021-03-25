@@ -78,5 +78,5 @@ window.fitText = function (el, kompressor, options) {
     </div>
 </section>
 <script type="text/javascript">
-		$("#comment-text").fitText(0.8);
+        fitText(document.getElementById('#comment-text'), 1.2)
 </script>
