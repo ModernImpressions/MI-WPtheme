@@ -17,6 +17,13 @@
 <section id="testimonial_area" class="testimonials">
     <div class="container">
         <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h3>Customer Testimonials</h3>
+                <p>Why do people love Modern Impressions? See what our customers have to say.</p>                          
+            </div>
+        </div>
+        <div class="row">
             <div class="col-sm-12">
                 <div id="customers-testimonials" class="owl-carousel">
                     <?php get_template_part('other_part/ceojuice-commentsquery/testimonials_part'); ?>
