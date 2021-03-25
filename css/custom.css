@@ -2190,7 +2190,9 @@ blockquote.customer-blockquote {
 }
 
 blockquote.customer-blockquote p {
-    font-size: 1.8em;
+    font-size: 1em;
+    width: 100%;
+    display: inline-block;
 }
 
 blockquote.customer-blockquote:after {
