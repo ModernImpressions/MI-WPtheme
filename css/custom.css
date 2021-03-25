@@ -2187,12 +2187,13 @@ blockquote.customer-blockquote {
     position: relative;
     transition: background-color 0.6s linear;
     border: none;
+    display: block;
 }
 
 blockquote.customer-blockquote p {
     font-size: 1em;
     width: 100%;
-    display: inline-block;
+    display: block;
 }
 
 blockquote.customer-blockquote:after {
