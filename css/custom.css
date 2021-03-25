@@ -2217,10 +2217,13 @@ blockquote.customer-blockquote:after {
 
 .leftq {
     left: 5px;
+    float: left;
 }
 
 .rightq {
     right: 5px;
+    float: right;
+    top: -40px;
 }
 
 .customername {
