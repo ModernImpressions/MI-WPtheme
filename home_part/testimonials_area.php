@@ -14,6 +14,17 @@
 		        });
         	});
 </script>
+<section id="testimonial_area" class="testimonials">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="customers-testimonials" class="owl-carousel">
+                    <?php get_template_part('other_part/ceojuice-commentsquery/testimonials_part'); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <script type="text/javascript">
 /*!	
 * FitText.js 1.0 jQuery free version
@@ -66,17 +77,6 @@ window.fitText = function (el, kompressor, options) {
 };
 })();
 </script>
-<section id="testimonial_area" class="testimonials">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div id="customers-testimonials" class="owl-carousel">
-                    <?php get_template_part('other_part/ceojuice-commentsquery/testimonials_part'); ?>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <script type="text/javascript">
         fitText(document.getElementById('#comment-text'), 1.2)
 </script>
