@@ -2238,10 +2238,6 @@ blockquote.customer-blockquote:after {
     display: flex;
 }
 
-.contact-citation::before {
-    content: "\2014 \00A0";
-}
-
 .quotes {
     position: relative;
     color: rgba(255, 255, 255, 0.5);
@@ -2271,6 +2267,10 @@ blockquote.customer-blockquote:after {
     color: #404040;
     font-style: italic;
     margin-top: 20px;
+}
+
+.surveydate::before {
+    content: "\2014 \00A0";
 }
 
 .companyname {
