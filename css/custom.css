@@ -2255,6 +2255,7 @@ blockquote.customer-blockquote:after {
     transition: all 0.3s ease-in-out;
     margin-left: auto;
     margin-right: auto;
+    max-width: 700px;
 }
 
 #customers-testimonials .owl-item.active.center .item {
