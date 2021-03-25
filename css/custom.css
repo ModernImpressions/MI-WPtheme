@@ -2283,3 +2283,8 @@ blockquote.customer-blockquote:after {
     transition: all 250ms ease-out 0s;
     width: 20px;
 }
+
+#comment-text {
+    width: 100%;
+    display: inline-block;
+}
