@@ -1,5 +1,5 @@
 <?php
-$testitoggle = demo_get_option('ceojuice_reviews');
+$testitoggle = ot_get_option('ceojuice_reviews');
 
 if ($testitoggle == "off") {
 
@@ -42,4 +42,4 @@ if ($testitoggle == "off") {
         </div>
     </div>
 </section>
-<?php }; ?>
+<?php } ?>
