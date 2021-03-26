@@ -1,9 +1,9 @@
 <?php
-$testitoggle = demo_get_option( 'demo_on_off' );
+$testitoggle = demo_get_option('ceojuice_reviews');
 
-if ($testitoggle == "off") { ?>
+if ($testitoggle == "off") {
 
-<?php } else { ?>
+} else { ?>
 <script type="text/javascript">
     jQuery(document).ready(function($) {
         		"use strict";
