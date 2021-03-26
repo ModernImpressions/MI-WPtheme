@@ -280,6 +280,15 @@ function custom_theme_options() {
             'std'         => '<p>© 2019 modern impresion. All Rights Reserved.</p>',
             'type'        => 'textarea',
             'section'     => 'footer_settings',
+          ),
+          array(
+            'id'          => 'ceojuice_reviews',
+            'label'       => __( 'Activate CEOJuice Testimonials', 'theme-text-domain' ),
+            'desc'        => __( 'Turn this on to display comments polled from the CEOJuice Website', 'theme-text-domain' ),
+            'std'         => '',
+            'type'        => 'on-off',
+            'section'     => 'system_settings',
+            'operator'    => 'and'
           ),        
       
     )
