@@ -1,3 +1,9 @@
+<?php
+$testitoggle = demo_get_option( 'demo_on_off' );
+
+if ($testitoggle == "off") { ?>
+
+<?php } else { ?>
 <script type="text/javascript">
     jQuery(document).ready(function($) {
         		"use strict";
@@ -91,3 +97,5 @@ window.fitText = function (el, kompressor, options) {
 <script type="text/javascript">
         //fitText(document.getElementById('comment-text'), 0.5)
 </script>
+
+<?php } ?>
