@@ -285,11 +285,27 @@ function custom_theme_options() {
             'id'          => 'ceojuice_reviews',
             'label'       => __( 'Activate CEOJuice Testimonials', 'theme-text-domain' ),
             'desc'        => __( 'Turn this on to display comments polled from the CEOJuice Website', 'theme-text-domain' ),
-            'std'         => '',
+            'std'         => 'off',
             'type'        => 'on-off',
             'section'     => 'system_settings',
             'operator'    => 'and'
-          ),        
+          ),
+          array(
+            'id'          => 'ceojuice_customerid',
+            'label'       => __( 'Customer ID', 'theme-text-domain' ),
+            'desc'        => __( 'The User ID found in your CEOJuice Account.', 'theme-text-domain' ),
+            'std'         => '',
+            'type'        => 'text',
+            'section'     => 'system_settings',
+          ),
+          array(
+            'id'          => 'ceojuice_apiauth',
+            'label'       => __( 'CEOJuice API Key', 'theme-text-domain' ),
+            'desc'        => __( 'The unique API Key found in your CEOJuice Account.', 'theme-text-domain' ),
+            'std'         => '',
+            'type'        => 'text',
+            'section'     => 'system_settings',
+          ),            
       
     )
   );
