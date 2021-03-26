@@ -52,7 +52,11 @@ function custom_theme_options() {
       array(
         'id'          => 'footer_settings',
         'title'       => __( 'Footer Settings ', 'theme-text-domain' )
-      ),        
+      ),
+      array(
+        'id'          => 'system_settings',
+        'title'       => __( 'Site System Settings ', 'theme-text-domain' )
+      ),         
     ),
     'settings'        => array( 
           array(
