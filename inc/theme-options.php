@@ -305,7 +305,16 @@ function custom_theme_options() {
             'std'         => '',
             'type'        => 'text',
             'section'     => 'system_settings',
-          ),            
+          ),
+          array(
+            'id'          => 'ceojuice_commentcount',
+            'label'       => __( 'Number of Comments to Poll', 'theme-text-domain' ),
+            'desc'        => __( 'Higher numbers may result in reduced performance, you need to like at least the same number of comments on CEOJuice for them to all display.', 'theme-text-domain' ),
+            'std'         => '10',
+            'type'        => 'numeric-slider',
+            'section'     => 'system_settings',
+            'min_max_step'=> '1,100,1',
+          ),             
       
     )
   );
