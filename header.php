@@ -131,7 +131,7 @@
     url('<?php echo get_template_directory_uri(); ?>/webfonts/poppins-v12-latin-ext_latin_devanagari-600.svg#Poppins') format('svg');
     /* Legacy iOS */
 }
-    </style>
+    </style> 
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
@@ -153,7 +153,7 @@
         ================================================== -->  
         <header id="header_area">
             <div class="main_header">
-                <div class="container">
+                <div class="container header_container">
                     <div class="row">
                         <div class="col-md-4">
                             <i class="far fa-envelope"></i>
@@ -181,7 +181,7 @@
             </div>
             <div class="main_menu">
                 <div class="inner_header_area">
-                    <div class="container">
+                    <div class="container menu_container">
                         <div class="row">
                             <div class="col-md-12">
                             <?php

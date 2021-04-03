@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'vendorlogos';
+    src: url('../webfonts/vendorlogos.eot?3rfh9o');
+    src: url('../webfonts/vendorlogos.eot?3rfh9o#iefix') format('embedded-opentype'), url('../webfonts/vendorlogos.ttf?3rfh9o') format('truetype'), url('../webfonts/vendorlogos.woff?3rfh9o') format('woff'), url('../webfonts/vendorlogos.svg?3rfh9o#vendorlogos') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+
 /* ==========================================================================
    Css reset
    ========================================================================== */
@@ -423,6 +433,10 @@ blockquote {
     box-shadow: 0px 0px 12px #aeaeae;
 }
 
+.header_container {
+    max-width: 1440px;
+}
+
 
 /* ==========================================================================
   Main Header Area
@@ -562,6 +576,10 @@ blockquote {
     overflow-y: scroll !important;
 }
 
+.menu_container {
+    max-width: 1440px;
+}
+
 
 /* ==========================================================================
    Banner Widget Styles
@@ -573,6 +591,13 @@ blockquote {
 
 .hustle-ui.module_id_3 .hustle-layout .hustle-group-content {
     font-family: 'Poppins', sans-serif !important;
+}
+
+.hustle-ui.module_id_3 .hustle-layout .hustle-content {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100%;
+    max-width: 1980px;
 }
 
 .hustle-ui.module_id_3 .hustle-layout .hustle-group-content p:not([class*="forminator-"]) {
@@ -600,6 +625,9 @@ blockquote {
     padding: 0;
     margin: 15px 0 0;
     border-bottom: 2px solid #007f7b;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1903px;
 }
 
 #slider .quality {
@@ -906,7 +934,7 @@ blockquote {
     width: 100%;
     overflow: hidden;
     position: relative;
-    min-height: 380px;
+    min-height: 300px;
 }
 
 #impression_area .child_impression h2 {
@@ -1078,6 +1106,39 @@ blockquote {
    Staff Team Page
 ========================================================================== */
 
+.department-list {
+    list-style: none;
+    display: inline-flex;
+    flex-flow: wrap;
+    width: 100%;
+}
+
+h2.title.department-title {
+    text-align: center;
+}
+
+.department-list li.department-list-item {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5em;
+}
+
+.department-list-item {
+    background: rgba(0, 0, 0, .6);
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    border-bottom: 2px solid rgba(0, 127, 123, .5);
+}
+
+.department-list-item:hover {
+    -webkit-filter: grayscale(0) opacity(1);
+    filter: grayscale(0) opacity(1);
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+}
+
 #staff-team-item {
     background: #fff;
     padding: 45px 0;
@@ -1090,12 +1151,6 @@ blockquote {
 }
 
 .team-details-container {
-    background: rgba(0, 0, 0, .6);
-    -moz-transition: all 0.2s ease-in-out;
-    -o-transition: all 0.2s ease-in-out;
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-    border-bottom: 2px solid rgba(0, 127, 123, .5);
     height: 100%;
     max-height: 250px;
     display: block;
@@ -1107,20 +1162,6 @@ blockquote {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    overflow: hidden;
-    -moz-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
-    -webkit-filter: grayscale(100%) opacity(0.7);
-    filter: grayscale(100%) opacity(0.7);
-}
-
-.staff-item.portrait-container:hover {
-    -webkit-filter: grayscale(0) opacity(1);
-    filter: grayscale(0) opacity(1);
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
 }
 
 .portrait-container {
@@ -1129,6 +1170,10 @@ blockquote {
     *zoom: 1;
     text-align: center;
     position: relative;
+}
+
+.portrait-container img {
+    margin-bottom: 0px;
 }
 
 .portrait-member {
@@ -1432,6 +1477,10 @@ blockquote {
     border-radius: 50%;
     max-height: 250px;
     max-width: 250px;
+}
+
+.njt-gdpr.njt-gdpr-full_width.bottom {
+    z-index: 999999;
 }
 
 
@@ -2110,4 +2159,196 @@ body.archive #content_area {
     color: #ff0000;
     font-size: 25px;
     font-weight: 700;
+}
+
+
+/* ==========================================================================
+   Support Center Page
+========================================================================== */
+
+.support-center-helpful-list {
+    list-style: none;
+}
+
+
+/* ==========================================================================
+   Testimonials Area
+========================================================================== */
+
+#testimonial_area .col-md-10 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#testimonial_area .col-md-10 h3 {
+    color: #303030;
+    font-size: 45px;
+    font-weight: 600;
+    line-height: 1.3em;
+    text-transform: uppercase;
+    margin-bottom: 0
+}
+
+#testimonial_area .col-md-10 p {
+    color: #727272;
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 0
+}
+
+#testimonial_area .col-md-3 {
+    padding: 0 5px;
+}
+
+.testimonial-container {
+    width: 500px;
+    min-height: 315px;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 30px;
+    overflow: hidden;
+}
+
+blockquote.customer-blockquote {
+    margin: 0;
+    padding: 30px;
+    width: max-content;
+    max-width: 700px;
+    background-color: #007F7B;
+    color: white;
+    box-shadow: 0 5px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: background-color 0.6s linear;
+    border: none;
+    display: block;
+}
+
+blockquote.customer-blockquote p {
+    font-size: 1.5em;
+    width: 100%;
+    display: block;
+}
+
+blockquote.customer-blockquote:after {
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 100%;
+    border: solid transparent;
+    border-top-color: #007F7B;
+    border-left-color: #007F7B;
+    border-width: 10px;
+    left: 10%;
+}
+
+.contact-citation {
+    display: flex;
+}
+
+.quotes {
+    position: relative;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 5em;
+}
+
+.leftq {
+    left: 5px;
+    float: left;
+}
+
+.rightq {
+    right: 5px;
+    float: right;
+    top: -40px;
+}
+
+.customername {
+    color: #404040;
+    margin: 15px 0 5px;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.surveydate {
+    margin: 15px 0 5px;
+    line-height: 1.5em;
+    color: #404040;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+.surveydate::before {
+    content: "\2014 \00A0";
+}
+
+.companyname {
+    margin: 15px 0 5px;
+    line-height: 1.5em;
+    color: #404040;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+#customers-testimonials .shadow-effect p {
+    font-family: inherit;
+    font-size: 17px;
+    line-height: 1.5;
+    margin: 0 0 17px 0;
+    font-weight: 300;
+}
+
+.testimonial-name {
+    color: #404040;
+    margin: 15px 0 5px;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+    font-size: 1.9em;
+}
+
+#customers-testimonials .item {
+    -webkit-transform: scale3d(0.8, 0.8, 1);
+    transform: scale3d(0.8, 0.8, 1);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+}
+
+#customers-testimonials .owl-item.active.center .item {
+    opacity: 1;
+    -webkit-transform: scale3d(1.0, 1.0, 1);
+    transform: scale3d(1.0, 1.0, 1);
+}
+
+#customers-testimonials.owl-carousel .owl-dots .owl-dot.active span,
+#customers-testimonials.owl-carousel .owl-dots .owl-dot:hover span {
+    background: #3190E7;
+    transform: translate3d(0px, -50%, 0px) scale(0.7);
+}
+
+#customers-testimonials.owl-carousel .owl-dots {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+#customers-testimonials.owl-carousel .owl-dots .owl-dot {
+    display: inline-block;
+}
+
+#customers-testimonials.owl-carousel .owl-dots .owl-dot span {
+    background: #3190E7;
+    display: inline-block;
+    height: 20px;
+    margin: 0 2px 5px;
+    transform: translate3d(0px, -50%, 0px) scale(0.3);
+    transform-origin: 50% 50% 0;
+    transition: all 250ms ease-out 0s;
+    width: 20px;
+}
+
+#comment-text {
+    width: 100%;
+    display: block;
 }

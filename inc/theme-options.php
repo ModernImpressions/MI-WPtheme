@@ -52,7 +52,11 @@ function custom_theme_options() {
       array(
         'id'          => 'footer_settings',
         'title'       => __( 'Footer Settings ', 'theme-text-domain' )
-      ),        
+      ),
+      array(
+        'id'          => 'system_settings',
+        'title'       => __( 'Site System Settings ', 'theme-text-domain' )
+      ),         
     ),
     'settings'        => array( 
           array(
@@ -276,7 +280,41 @@ function custom_theme_options() {
             'std'         => '<p>© 2019 modern impresion. All Rights Reserved.</p>',
             'type'        => 'textarea',
             'section'     => 'footer_settings',
-          ),        
+          ),
+          array(
+            'id'          => 'ceojuice_reviews',
+            'label'       => __( 'Activate CEOJuice Testimonials', 'theme-text-domain' ),
+            'desc'        => __( 'Turn this on to display comments polled from the CEOJuice Website', 'theme-text-domain' ),
+            'std'         => 'off',
+            'type'        => 'on-off',
+            'section'     => 'system_settings',
+            'operator'    => 'and'
+          ),
+          array(
+            'id'          => 'ceojuice_customerid',
+            'label'       => __( 'Customer ID', 'theme-text-domain' ),
+            'desc'        => __( 'The User ID found in your CEOJuice Account.', 'theme-text-domain' ),
+            'std'         => '',
+            'type'        => 'text',
+            'section'     => 'system_settings',
+          ),
+          array(
+            'id'          => 'ceojuice_apiauth',
+            'label'       => __( 'CEOJuice API Key', 'theme-text-domain' ),
+            'desc'        => __( 'The unique API Key found in your CEOJuice Account.', 'theme-text-domain' ),
+            'std'         => '',
+            'type'        => 'text',
+            'section'     => 'system_settings',
+          ),
+          array(
+            'id'          => 'ceojuice_commentcount',
+            'label'       => __( 'Number of Comments to Poll', 'theme-text-domain' ),
+            'desc'        => __( 'Higher numbers may result in reduced performance, you need to like at least the same number of comments on CEOJuice for them to all display.', 'theme-text-domain' ),
+            'std'         => '10',
+            'type'        => 'numeric-slider',
+            'section'     => 'system_settings',
+            'min_max_step'=> '1,100,1',
+          ),             
       
     )
   );

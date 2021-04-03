@@ -2,3 +2,13 @@
 	path = option-tree
 	url = https://github.com/ModernImpressions/option-tree.git
 	branch = master
+[submodule "other_part/ceojuice-commentsquery"]
+	path = other_part/ceojuice-commentsquery
+	url = git@github.com:ModernImpressions/ceojuice-commentsquery.git
+[submodule "js/fittext"]
+	path = js/fittext
+	url = https://github.com/davatron5000/FitText.js.git
+	branch = master
+[submodule "js/fittext-nojquery"]
+	path = js/fittext-nojquery
+	url = https://github.com/adactio/FitText.js.git
