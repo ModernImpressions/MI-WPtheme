@@ -7,6 +7,10 @@
         margin-left: 10% !important;
         margin-right: 10% !important;
     }
+    .hustle-ui[data-id="7"] .hustle-info .hustle-content-wrap {
+        margin-left: 10% !important;
+        margin-right: 10% !important;
+    }
 }
 
 
@@ -31,6 +35,10 @@
         font-size: 28px;
     }
     .hustle-ui[data-id="3"] .hustle-info .hustle-content-wrap {
+        margin-left: 8% !important;
+        margin-right: 8% !important;
+    }
+    .hustle-ui[data-id="7"] .hustle-info .hustle-content-wrap {
         margin-left: 8% !important;
         margin-right: 8% !important;
     }
@@ -90,6 +98,10 @@
         min-height: 100px;
     }
     .hustle-ui[data-id="3"] .hustle-info .hustle-content-wrap {
+        margin-left: 1% !important;
+        margin-right: 1% !important;
+    }
+    .hustle-ui[data-id="7"] .hustle-info .hustle-content-wrap {
         margin-left: 1% !important;
         margin-right: 1% !important;
     }
@@ -240,6 +252,20 @@
         margin-bottom: 5% !important;
     }
     .hustle-ui[data-id="3"] .hustle-info .hustle-layout .hustle-title {
+        text-align: center !important;
+        padding-right: 5% !important;
+        margin-bottom: 5% !important;
+    }
+    .hustle-ui[data-id="7"] .hustle-info .hustle-content-wrap {
+        margin-left: 2% !important;
+        margin-right: 2% !important;
+        flex-direction: column;
+    }
+    .hustle-ui[data-id="7"] .hustle-info .hustle-layout .hustle-cta-container {
+        margin-top: 5% !important;
+        margin-bottom: 5% !important;
+    }
+    .hustle-ui[data-id="7"] .hustle-info .hustle-layout .hustle-title {
         text-align: center !important;
         padding-right: 5% !important;
         margin-bottom: 5% !important;
