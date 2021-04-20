@@ -181,6 +181,11 @@ function register_helpful_shortcode( $atts ) {
  */
 add_shortcode( 'helpful_pro', 'register_helpful_shortcode' );
 
+function add_woocommerce_support() {
+	add_theme_support( 'woocommerce' );
+}
+add_action( 'after_setup_theme', 'add_woocommerce_support' );
+
 /**
  * Allows the use of shortcuts in widgets.
  */
