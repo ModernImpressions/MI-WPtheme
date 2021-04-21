@@ -32,8 +32,6 @@ do_action( 'woocommerce_before_main_content' );
  <!-- Content Area
     ================================================== -->
 	<div id="full_page_area">
-            <?php if (have_posts()) : ?>
-            <?php while (have_posts()) : the_post(); ?>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -93,10 +91,6 @@ do_action( 'woocommerce_before_main_content' );
 							}
 							?>
                         </div>
-                        <?php endwhile; ?>
-                        <?php else : ?>
-                        <h3><?php _e('404 Error&#58; Not Found', 'alihossain'); ?></h3>
-                        <?php endif; ?>
 						<?php 
 						/**
  						* Hook: woocommerce_after_main_content.
