@@ -217,7 +217,7 @@ function woo_product_subcategories( $args = array() ) {
 	}
 }
  
-add_action( 'woocommerce_before_shop_loop', 'woo_product_subcategories', 50 );
+add_action( 'woocommerce_archive_description', 'woo_product_subcategories', 50 );
 
 /**
  * Allows the use of shortcuts in widgets.
