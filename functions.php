@@ -196,8 +196,8 @@ function woo_product_subcategories( $args = array() ) {
 	$parentid = get_queried_object_id();
  
 	$args = array(
-		'parent' => $parentid;
-		'hide_empty' => 0;
+		'parent' => $parentid,
+		'hide_empty' => 0
 	);
 	 
 	$terms = get_terms( 'product_cat', $args );
