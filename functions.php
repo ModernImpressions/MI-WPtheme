@@ -206,6 +206,7 @@ function woo_product_subcategories( $args = array() ) {
 	 
 		foreach ( $terms as $term ) {
 			echo '<li class="category">';
+			woocommerce_subcategory_thumbnail( $term );
 				echo '<h2>';
 					echo '<a href="' .  esc_url( get_term_link( $term ) ) . '" class="' . $term->slug . '">';
 						echo $term->name;
