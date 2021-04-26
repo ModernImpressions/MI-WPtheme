@@ -217,7 +217,17 @@ function woo_product_subcategories( $args = array() ) {
 		echo '</ul>';
 	}
 }
- 
+
+/** 
+ * Don't hide empty shop categories.
+ */
+add_filter( 'woocommerce_product_subcategories_hide_empty', 'hide_empty_categories', 10, 1 );
+function hide_empty_categories ( $hide_empty ) {
+    $hide_empty  =  FALSE;
+    // You can add other logic here too
+    return $hide_empty;
+}
+
 add_action( 'woocommerce_archive_description', 'woo_product_subcategories', 50 );
 
 /**
