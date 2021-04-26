@@ -217,6 +217,7 @@ function woo_product_subcategories( $args = array() ) {
 		echo '</ul>';
 	}
 }
+add_action( 'woocommerce_archive_description', 'woo_product_subcategories', 50 );
 
 /** 
  * Don't hide empty shop categories.
@@ -227,8 +228,6 @@ function hide_empty_categories ( $hide_empty ) {
     // You can add other logic here too
     return $hide_empty;
 }
-
-add_action( 'woocommerce_archive_description', 'woo_product_subcategories', 50 );
 
 /**
  * Allows the use of shortcuts in widgets.
