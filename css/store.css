@@ -25,7 +25,7 @@ ul.product-cats li img {
 }
 
 ul.product-cats li.category img {
-    width: auto;
+    width: 100%;
 }
 
 @media screen and (min-width:768px) {
@@ -60,6 +60,8 @@ ul.product-cats li.category {
     color: #fff;
     cursor: pointer;
     height: 88px;
+    z-index: 3;
+    position: relative;
 }
 
 .category-hover {
@@ -67,6 +69,7 @@ ul.product-cats li.category {
     opacity: 0.9;
     top: 100%;
     transition: all 0.25s ease-in-out;
+    display: none;
 }
 
 .category-hover ul {
