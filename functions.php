@@ -230,7 +230,9 @@ function woo_product_subcategories( $args = array() ) {
 							echo '<div class="category-hover hover-' . $term->slug . '">';
 								echo '<!--pop-over image and text content starts-->';
 								$child_ids = get_term_children( $term->term_id, $taxonomy );
-        						echo '<ul>';
+        						echo '<img src="' . get_template_directory_uri().'/svgs/shop-icons/'.$term->slug.'.svg' . '" class="category-icon icon-' . $term->slug . '" alt="Icon that represents Equipment.">';
+								echo '<br>';
+								echo '<ul>';
 								if( $child_ids != null ) {
         							foreach ( $child_ids as $child_id ) {
             							if( $child_id != $main_term->term_id ) {
