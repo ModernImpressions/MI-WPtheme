@@ -233,14 +233,11 @@ function woo_product_subcategories( $args = array() ) {
 									'hide_empty' => false, 
 									'child_of' => $main_term->parent
 								);
-								if ( $main_term->parent != 0 ) {
-									// Loop through WP_Term Objects
 									foreach ( get_terms( $args_query ) as $term ) {
 										if( $term->term_id != $main_term->term_id ) {
 											echo '<li>' . $term->name . '</li>';
 										}
 									}
-								}
 								echo '</ul>';
 								echo '<!--pop-over image and text content ends-->';
 							echo '</div>';
