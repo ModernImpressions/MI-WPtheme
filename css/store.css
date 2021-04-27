@@ -39,5 +39,5 @@ ul.product-cats li img {
     font-size: 1.4em;
     font-weight: 550;
     line-height: 1.4em;
-    color: #fff;
+    color: #fff !important;
 }
