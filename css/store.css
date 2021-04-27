@@ -27,6 +27,10 @@ ul.product-cats li img {
     }
 }
 
+ul.product-cats li.category {
+    padding: 5px;
+}
+
 .category.cat-uncategorized {
     display: none !important;
 }
