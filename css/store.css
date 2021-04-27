@@ -70,7 +70,7 @@ ul.product-cats li.category {
     transition: all 0.25s ease-in-out;
     display: none;
     position: absolute;
-    height: 100%;
+    height: 93%;
     top: 0;
     bottom: 0;
     left: 0;
@@ -114,6 +114,11 @@ ul.product-cats li.category {
     border-bottom: 4px solid #007F7B;
     transition-timing-function: ease-out;
     transition-duration: 0.3s;
+}
+
+.HoverLine:hover .category-hover {
+    transition: all 0.25s ease-in-out;
+    display: unset;
 }
 
 .category-header h3 {
