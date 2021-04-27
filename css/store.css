@@ -51,6 +51,8 @@ ul.product-cats li.category {
     padding: 1%;
     width: 33.33333333%;
     margin: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .category.cat-uncategorized {
