@@ -9,7 +9,7 @@ ul.product-cats.product-cats-gallery {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    flex-flow: wrap-reverse;
+    flex-flow: wrap;
 }
 
 ul.product-cats li {
@@ -86,7 +86,7 @@ ul.product-cats li.category {
 
 .category-hover ul {
     display: flex;
-    flex-flow: column-reverse;
+    flex-flow: column;
 }
 
 .category-hover ul li {
