@@ -213,12 +213,20 @@ function woo_product_subcategories( $args = array() ) {
 	 
 		foreach ( $terms as $term ) {
 			echo '<li class="category cat-' . $term->slug . '">';
-			woocommerce_subcategory_thumbnail( $term );
-				echo '<h3>';
-					echo '<a href="' .  esc_url( get_term_link( $term ) ) . '" class="' . $term->slug . '">';
-						echo $term->name;
+				echo '<section>';
+					echo '<a href="' .  esc_url( get_term_link( $term ) ) . '" class="' . $term->slug . '" style="text-decoration:none">';
+						echo '<div>';
+							echo '<!--image content starts-->';
+							woocommerce_subcategory_thumbnail( $term );
+							echo '<!--image content ends-->';
+							echo '<div class="category-header header-' . $term->slug . '">';
+								echo '<!--heading content starts-->';
+								echo '<h3>' . $term->name . '</h3>';
+								echo '<!--heading content ends-->';
+							echo '</div>';
+						echo '</div>';
 					echo '</a>';
-				echo '</h3>';
+				echo '</section>';
 			echo '</li>';
 		}
 		echo '</ul>';
