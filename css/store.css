@@ -55,7 +55,7 @@ ul.product-cats li.category {
 
 .category-header {
     background-color: #232323;
-    padding: 28px 0px;
+    padding: 30px;
     text-align: center;
     color: #fff;
     cursor: pointer;
@@ -122,8 +122,8 @@ ul.product-cats li.category {
 }
 
 .category-header h3 {
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-weight: 550;
-    line-height: 1.4em;
+    line-height: 1.2em;
     color: #fff !important;
 }
