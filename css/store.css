@@ -51,6 +51,15 @@ ul.product-cats li.category {
 
 .category-header {
     background-color: #232323;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    padding: 28px 0px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    height: 88px;
 }
 
 .category-header h3 {
