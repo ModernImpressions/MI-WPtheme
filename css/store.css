@@ -9,7 +9,7 @@ ul.product-cats.product-cats-gallery {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    flex-flow: wrap;
+    flex-flow: wrap-reverse;
 }
 
 ul.product-cats li {
@@ -65,23 +65,24 @@ ul.product-cats li.category {
 .category-hover {
     background-color: #666;
     opacity: 0.9;
-    bottom: 0;
-    left: 0px;
-    position: absolute;
-    right: 0px;
     top: 100%;
     transition: all 0.25s ease-in-out;
+}
+
+.category-hover ul {
+    display: flex;
+    flex-flow: column-reverse;
 }
 
 .category-hover ul li {
     color: #fff;
     text-align: center;
-    margin-left: 48px;
-    margin-right: 48px;
-    margin-bottom: 48px !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
     position: relative;
-    top: 168px;
     font-size: 1em;
+    width: 100%;
 }
 
 .category-header h3 {
