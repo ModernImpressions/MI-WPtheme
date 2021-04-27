@@ -189,6 +189,12 @@ function add_woocommerce_support() {
 }
 add_action( 'after_setup_theme', 'add_woocommerce_support' );
 
+function add_catalog_styles() {
+	wp_register_style('store_overrides', get_template_directory_uri().'/css/store.css', array(), '1.0.0', 'all' ); 
+	wp_enqueue_style('store_overrides');
+}
+add_action( 'woocommerce_before_main_content', 'add_catalog_styles' );
+
 /** 
  * Setup Custom Display of Categories on the Shop/Catalog page.
  */
@@ -208,11 +214,11 @@ function woo_product_subcategories( $args = array() ) {
 		foreach ( $terms as $term ) {
 			echo '<li class="category cat-' . $term->slug . '">';
 			woocommerce_subcategory_thumbnail( $term );
-				echo '<h2>';
+				echo '<h3>';
 					echo '<a href="' .  esc_url( get_term_link( $term ) ) . '" class="' . $term->slug . '">';
 						echo $term->name;
 					echo '</a>';
-				echo '</h2>';
+				echo '</h3>';
 			echo '</li>';
 		}
 		echo '</ul>';
