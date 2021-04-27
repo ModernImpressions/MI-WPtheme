@@ -49,6 +49,10 @@ ul.product-cats li.category {
     display: none !important;
 }
 
+.category a {
+    color: unset;
+}
+
 .category-header {
     background-color: #232323;
     padding: 28px 0px;
