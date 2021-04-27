@@ -127,3 +127,9 @@ ul.product-cats li.category {
     line-height: 1.2em;
     color: #fff !important;
 }
+
+.category-icon {
+    margin-top: 15%;
+    margin-left: auto;
+    margin-right: auto;
+}
