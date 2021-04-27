@@ -227,7 +227,6 @@ function woo_product_subcategories( $args = array() ) {
 							echo '</div>';
 							echo '<div class="category-hover hover-' . $term->slug . '">';
 								echo '<!--pop-over image and text content starts-->';
-								if ( $parentid->parent != 0 ) {
 									$child_ids = get_term_children( $parentid->parent, $taxonomy );
 							
 									echo '<ul>';
@@ -239,7 +238,6 @@ function woo_product_subcategories( $args = array() ) {
 										}
 									}
 									echo '</ul>';
-								}
 								echo '<!--pop-over image and text content ends-->';
 							echo '</div>';
 						echo '</div>';
