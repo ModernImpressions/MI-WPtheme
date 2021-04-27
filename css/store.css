@@ -67,9 +67,21 @@ ul.product-cats li.category {
 .category-hover {
     background-color: #666;
     opacity: 0.9;
-    top: 100%;
     transition: all 0.25s ease-in-out;
     display: none;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    margin: 3%;
+}
+
+.category-hover:hover {
+    transition: all 0.25s ease-in-out;
+    display: unset;
 }
 
 .category-hover ul {
