@@ -209,7 +209,7 @@ function woo_product_subcategories( $args = array() ) {
 	$terms = get_terms( 'product_cat', $args );
 	 
 	if ( $terms ) {
-		echo '<ul class="product-cats">';
+		echo '<ul class="product-cats product-cats-gallery">';
 	 
 		foreach ( $terms as $term ) {
 			echo '<li class="category cat-' . $term->slug . '">';
