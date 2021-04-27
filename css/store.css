@@ -28,7 +28,9 @@ ul.product-cats li img {
 }
 
 ul.product-cats li.category {
-    padding: 5px;
+    padding: 1%;
+    width: 33.33333333%;
+    margin: 0;
 }
 
 .category.cat-uncategorized {
