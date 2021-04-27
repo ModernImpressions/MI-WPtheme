@@ -200,7 +200,7 @@ add_action( 'woocommerce_before_main_content', 'add_catalog_styles' );
  */
 function woo_product_subcategories( $args = array() ) {
 	$parentid = get_queried_object_id();
-	$taxonomy = 'product_cat';
+	$main_term = get_queried_object();
  
 	$args = array(
 		'parent' => $parentid,
@@ -227,17 +227,21 @@ function woo_product_subcategories( $args = array() ) {
 							echo '</div>';
 							echo '<div class="category-hover hover-' . $term->slug . '">';
 								echo '<!--pop-over image and text content starts-->';
-									$child_ids = get_term_children( $parentid->parent, $taxonomy );
-							
-									echo '<ul>';
-							
-									foreach ( $child_ids as $child_id ) {
-										if( $child_id != $parentid->term_id ) {
-											$term = get_term_by( 'id', $child_id, $taxonomy );
+								echo '<ul>';
+								$args_query = array(
+									'taxonomy' => 'product_cat', 
+									'hide_empty' => false, 
+									'child_of' => $main_term->parent
+								);
+								if ( $main_term->parent != 0 ) {
+									// Loop through WP_Term Objects
+									foreach ( get_terms( $args_query ) as $term ) {
+										if( $term->term_id != $main_term->term_id ) {
 											echo '<li>' . $term->name . '</li>';
 										}
 									}
-									echo '</ul>';
+								}
+								echo '</ul>';
 								echo '<!--pop-over image and text content ends-->';
 							echo '</div>';
 						echo '</div>';
