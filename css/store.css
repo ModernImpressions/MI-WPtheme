@@ -24,6 +24,10 @@ ul.product-cats li img {
     margin: 0 auto;
 }
 
+ul.product-cats li.category img {
+    width: auto;
+}
+
 @media screen and (min-width:768px) {
     ul.product-cats li {
         width: 29.4117647059%;
