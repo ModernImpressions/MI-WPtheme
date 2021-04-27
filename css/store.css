@@ -1,3 +1,11 @@
+.woocommerce-breadcrumb {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    margin-top: 1%;
+}
+
 ul.product-cats {
     margin-left: 0;
     display: inline-block;
