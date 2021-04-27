@@ -213,6 +213,7 @@ function woo_product_subcategories( $args = array() ) {
 		echo '<ul class="product-cats product-cats-gallery">';
 	 
 		foreach ( $terms as $term ) {
+			$current_term = $term;
 			echo '<li class="category cat-' . $term->slug . '">';
 				echo '<section>';
 					echo '<a href="' .  esc_url( get_term_link( $term ) ) . '" class="' . $term->slug . '" style="text-decoration:none">';
@@ -231,10 +232,10 @@ function woo_product_subcategories( $args = array() ) {
 								$args_query = array(
 									'taxonomy' => 'product_cat', 
 									'hide_empty' => false, 
-									'child_of' => $main_term->parent
+									'child_of' => $current_term->parent
 								);
 									foreach ( get_terms( $args_query ) as $term ) {
-										if( $term->term_id != $main_term->term_id ) {
+										if( $term->term_id != $current_term->term_id ) {
 											echo '<li>' . $term->name . '</li>';
 										}
 									}
