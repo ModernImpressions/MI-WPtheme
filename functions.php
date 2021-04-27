@@ -231,14 +231,25 @@ function woo_product_subcategories( $args = array() ) {
 								echo '<!--pop-over image and text content starts-->';
 								$child_ids = get_term_children( $term->term_id, $taxonomy );
         						echo '<ul>';
-
-        						foreach ( $child_ids as $child_id ) {
-            						if( $child_id != $main_term->term_id ) {
-                						$term = get_term_by( 'id', $child_id, $taxonomy );
-                						echo '<li>' . $term->name . '</li>';
-										echo '<br>';
-            						}
-        						}
+								if( $child_ids != null ) {
+        							foreach ( $child_ids as $child_id ) {
+            							if( $child_id != $main_term->term_id ) {
+                							$term = get_term_by( 'id', $child_id, $taxonomy );
+                							echo '<li>' . $term->name . '</li>';
+											echo '<br>';
+            							}
+        							}
+								} elseif ( $child_ids != 0 ) { 
+									foreach ( $child_ids as $child_id ) {
+            							if( $child_id != $main_term->term_id ) {
+                							$term = get_term_by( 'id', $child_id, $taxonomy );
+                							echo '<li>' . $term->name . '</li>';
+											echo '<br>';
+            							}
+        							}
+								} else {
+									echo '<li>' . $term->name . '</li>';
+								}
         						echo '</ul>';
 								echo '<!--pop-over image and text content ends-->';
 							echo '</div>';
