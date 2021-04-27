@@ -201,6 +201,7 @@ add_action( 'woocommerce_before_main_content', 'add_catalog_styles' );
 function woo_product_subcategories( $args = array() ) {
 	$parentid = get_queried_object_id();
 	$main_term = get_queried_object();
+	$taxonomy   = 'product_cat';
  
 	$args = array(
 		'parent' => $parentid,
@@ -228,18 +229,16 @@ function woo_product_subcategories( $args = array() ) {
 							echo '</div>';
 							echo '<div class="category-hover hover-' . $term->slug . '">';
 								echo '<!--pop-over image and text content starts-->';
-								echo '<ul>';
-								$args_query = array(
-									'taxonomy' => 'product_cat', 
-									'hide_empty' => false, 
-									'child_of' => $current_term->parent
-								);
-									foreach ( get_terms( $args_query ) as $term ) {
-										if( $term->term_id != $current_term->term_id ) {
-											echo '<li>' . $term->name . '</li>';
-										}
-									}
-								echo '</ul>';
+								$child_ids = get_term_children( $term->parent, $taxonomy );
+        						echo '<ul>';
+
+        						foreach ( $child_ids as $child_id ) {
+            						if( $child_id != $term->term_id ) {
+                						$term = get_term_by( 'id', $child_id, $taxonomy );
+                						echo '<li><a href="' . get_term_link( $child_id, $taxonomy ) . '">' . $term->name . '</a></li>';
+            						}
+        						}
+        						echo '</ul>';
 								echo '<!--pop-over image and text content ends-->';
 							echo '</div>';
 						echo '</div>';
