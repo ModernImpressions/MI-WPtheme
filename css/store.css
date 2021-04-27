@@ -85,6 +85,22 @@ ul.product-cats li.category {
     width: 100%;
 }
 
+.HoverLinePop {
+    top: 0%;
+    bottom: 5%;
+    transition: all 1s ease-in-out;
+}
+
+.HoverLine {
+    border-bottom: 4px solid #333;
+}
+
+.HoverLine:hover {
+    border-bottom: 4px solid #007F7B;
+    transition-timing-function: ease-out;
+    transition-duration: 0.3s;
+}
+
 .category-header h3 {
     font-size: 1.4em;
     font-weight: 550;
