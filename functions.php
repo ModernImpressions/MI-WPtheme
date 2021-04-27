@@ -218,7 +218,7 @@ function woo_product_subcategories( $args = array() ) {
 			echo '<li class="category cat-' . $term->slug . '">';
 				echo '<section>';
 					echo '<a href="' .  esc_url( get_term_link( $term ) ) . '" class="' . $term->slug . '" style="text-decoration:none">';
-						echo '<div>';
+						echo '<div class="HoverLine">';
 							echo '<!--image content starts-->';
 							woocommerce_subcategory_thumbnail( $term );
 							echo '<!--image content ends-->';
