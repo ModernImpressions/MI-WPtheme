@@ -229,11 +229,11 @@ function woo_product_subcategories( $args = array() ) {
 							echo '</div>';
 							echo '<div class="category-hover hover-' . $term->slug . '">';
 								echo '<!--pop-over image and text content starts-->';
-								$child_ids = get_term_children( $term, $taxonomy );
+								$child_ids = get_term_children( $term->term_id, $taxonomy );
         						echo '<ul>';
 
         						foreach ( $child_ids as $child_id ) {
-            						if( $child_id != $term->term_id ) {
+            						if( $child_id != $main_term->term_id ) {
                 						$term = get_term_by( 'id', $child_id, $taxonomy );
                 						echo '<li><a href="' . get_term_link( $child_id, $taxonomy ) . '">' . $term->name . '</a></li>';
             						}
