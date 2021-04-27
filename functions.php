@@ -222,6 +222,7 @@ function woo_product_subcategories( $args = array() ) {
 			echo '</li>';
 		}
 		echo '</ul>';
+		echo '<hr/>';
 	}
 }
 add_action( 'woocommerce_archive_description', 'woo_product_subcategories', 50 );
