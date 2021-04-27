@@ -26,5 +26,5 @@ ul.product-cats li img {
 }
 
 .category.cat-uncategorized {
-    display: none!;
+    display: none !important;
 }
