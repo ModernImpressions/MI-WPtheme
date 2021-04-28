@@ -198,7 +198,7 @@ add_action( 'woocommerce_before_main_content', 'add_catalog_styles' );
 /** 
  * Setup Custom Display of Categories on the Shop/Catalog page.
  */
-function woo_product_subcategories( $args = array() ) {
+function woo_product_cats_and_subcategories( $args = array() ) {
 	$parentid = get_queried_object_id();
 	$main_term = get_queried_object();
 	$taxonomy   = 'product_cat';
@@ -276,14 +276,14 @@ function woo_product_subcategories( $args = array() ) {
 		echo '<hr/>';
 	}
 }
-add_action( 'woocommerce_archive_description', 'woo_product_subcategories', 50 );
+add_action( 'woocommerce_archive_description', 'woo_product_cats_and_subcategories', 50 );
 
 /** 
  * Don't hide empty shop categories.
  */
 add_filter( 'woocommerce_product_subcategories_hide_empty', 'hide_empty_categories', 10, 1 );
 function hide_empty_categories ( $hide_empty ) {
-    $hide_empty  =  FALSE;
+    $hide_empty  =  false;
     // You can add other logic here too
     return $hide_empty;
 }
