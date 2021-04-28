@@ -216,6 +216,7 @@ function woo_product_subcategories( $args = array() ) {
 		foreach ( $terms as $term ) {
 			$current_term = $term;
 			$category_count = 0;
+			$parent_cat_name = $term->name;
 			echo '<li class="category cat-' . $term->slug . '">';
 				echo '<section>';
 					echo '<a href="' .  esc_url( get_term_link( $term ) ) . '" class="' . $term->slug . '" style="text-decoration:none">';
@@ -261,7 +262,7 @@ function woo_product_subcategories( $args = array() ) {
 										}
         							}
 								} else {
-									echo '<li>' . $term->name . '</li>';
+									echo '<li>' . $parent_cat_name . '</li>';
 								}
         						echo '</ul>';
 								echo '<!--pop-over image and text content ends-->';
