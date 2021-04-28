@@ -202,6 +202,7 @@ function woo_product_subcategories( $args = array() ) {
 	$parentid = get_queried_object_id();
 	$main_term = get_queried_object();
 	$taxonomy   = 'product_cat';
+	$category_count = 0;
  
 	$args = array(
 		'parent' => $parentid,
@@ -239,19 +240,25 @@ function woo_product_subcategories( $args = array() ) {
 								echo '<ul>';
 								if( $child_ids != null ) {
         							foreach ( $child_ids as $child_id ) {
-            							if( $child_id != $main_term->term_id ) {
-                							$term = get_term_by( 'id', $child_id, $taxonomy );
-                							echo '<li>' . $term->name . '</li>';
-											echo '<br>';
-            							}
+            							if ( $category_count <= 4 ) {
+											if( $child_id != $main_term->term_id ) {
+												$term = get_term_by( 'id', $child_id, $taxonomy );
+												echo '<li>' . $term->name . '</li>';
+												echo '<br>';
+												$category_count++;
+											}
+										}
         							}
 								} elseif ( $child_ids != 0 ) { 
 									foreach ( $child_ids as $child_id ) {
-            							if( $child_id != $main_term->term_id ) {
-                							$term = get_term_by( 'id', $child_id, $taxonomy );
-                							echo '<li>' . $term->name . '</li>';
-											echo '<br>';
-            							}
+            							if ( $category_count <= 4 ) {
+											if( $child_id != $main_term->term_id ) {
+												$term = get_term_by( 'id', $child_id, $taxonomy );
+												echo '<li>' . $term->name . '</li>';
+												echo '<br>';
+												$category_count++;
+											}
+										}
         							}
 								} else {
 									echo '<li>' . $term->name . '</li>';
