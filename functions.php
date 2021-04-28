@@ -202,7 +202,6 @@ function woo_product_subcategories( $args = array() ) {
 	$parentid = get_queried_object_id();
 	$main_term = get_queried_object();
 	$taxonomy   = 'product_cat';
-	$category_count = 0;
  
 	$args = array(
 		'parent' => $parentid,
@@ -216,6 +215,7 @@ function woo_product_subcategories( $args = array() ) {
 	 
 		foreach ( $terms as $term ) {
 			$current_term = $term;
+			$category_count = 0;
 			echo '<li class="category cat-' . $term->slug . '">';
 				echo '<section>';
 					echo '<a href="' .  esc_url( get_term_link( $term ) ) . '" class="' . $term->slug . '" style="text-decoration:none">';
@@ -240,7 +240,7 @@ function woo_product_subcategories( $args = array() ) {
 								echo '<ul>';
 								if( $child_ids != null ) {
         							foreach ( $child_ids as $child_id ) {
-            							if ( $category_count <= 4 ) {
+            							if ( $category_count <= 3 ) {
 											if( $child_id != $main_term->term_id ) {
 												$term = get_term_by( 'id', $child_id, $taxonomy );
 												echo '<li>' . $term->name . '</li>';
@@ -251,7 +251,7 @@ function woo_product_subcategories( $args = array() ) {
         							}
 								} elseif ( $child_ids != 0 ) { 
 									foreach ( $child_ids as $child_id ) {
-            							if ( $category_count <= 4 ) {
+            							if ( $category_count <= 3 ) {
 											if( $child_id != $main_term->term_id ) {
 												$term = get_term_by( 'id', $child_id, $taxonomy );
 												echo '<li>' . $term->name . '</li>';
