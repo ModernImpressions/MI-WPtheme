@@ -47,85 +47,83 @@ do_action( 'woocommerce_before_main_content' );
 								do_action( 'woocommerce_archive_description' );
 							?>
 							<?php
-/** 
- * Setup Custom Display of Categories on the Shop/Catalog page.
- */
-	$parentid = get_queried_object_id();
-	$main_term = get_queried_object();
-	$taxonomy   = 'product_cat';
- 
-	$args = array(
-		'parent' => $parentid,
-		'hide_empty' => false,
-	);
+								/** 
+								 * Setup Custom Display of Categories on the Shop/Catalog page.
+ 								 */
+								$parentid = get_queried_object_id();
+								$main_term = get_queried_object();
+								$taxonomy   = 'product_cat';
+								$args = array(
+									'parent' => $parentid,
+									'hide_empty' => false,
+								);
+								$terms = get_terms( 'product_cat', $args );
 	 
-	$terms = get_terms( 'product_cat', $args );
+								if ( $terms ) {
+									echo '<ul class="product-cats product-cats-gallery">';
 	 
-	if ( $terms ) {
-		echo '<ul class="product-cats product-cats-gallery">';
-	 
-		foreach ( $terms as $term ) {
-			$current_term = $term;
-			$category_count = 0;
-			$parent_cat_name = $term->name;
-			echo '<li class="category cat-' . $term->slug . '">';
-				echo '<section>';
-					echo '<a href="' .  esc_url( get_term_link( $term ) ) . '" class="' . $term->slug . '" style="text-decoration:none">';
-						echo '<div class="HoverLine">';
-							echo '<!--image content starts-->';
-							woocommerce_subcategory_thumbnail( $term );
-							echo '<!--image content ends-->';
-							echo '<div class="category-header header-' . $term->slug . '">';
-								echo '<!--heading content starts-->';
-								echo '<h3>' . $term->name . '</h3>';
-								echo '<!--heading content ends-->';
-							echo '</div>';
-							echo '<div class="category-hover hover-' . $term->slug . '">';
-								echo '<!--pop-over image and text content starts-->';
-								$child_ids = get_term_children( $term->term_id, $taxonomy );
-        						echo '<div class="category-icon icon-' . $term->slug . '">';
-									echo '<svg width="90" height="90">';
-										echo '<image xlink:href="' . get_template_directory_uri().'/svgs/shop-icons/'.$term->slug.'.svg' . '" alt="Icon that represents Equipment." width="90" height="90">';
-									echo '</svg>';
-								echo '</div>';
-								echo '<br>';
-								echo '<ul>';
-								if( $child_ids != null ) {
-        							foreach ( $child_ids as $child_id ) {
-            							if ( $category_count <= 3 ) {
-											if( $child_id != $main_term->term_id ) {
-												$term = get_term_by( 'id', $child_id, $taxonomy );
-												echo '<li>' . $term->name . '</li>';
-												echo '<br>';
-												$category_count++;
-											}
-										}
-        							}
-								} elseif ( $child_ids != 0 ) { 
-									foreach ( $child_ids as $child_id ) {
-            							if ( $category_count <= 3 ) {
-											if( $child_id != $main_term->term_id ) {
-												$term = get_term_by( 'id', $child_id, $taxonomy );
-												echo '<li>' . $term->name . '</li>';
-												echo '<br>';
-												$category_count++;
-											}
-										}
-        							}
-								} else {
-									echo '<li>' . $parent_cat_name . '</li>';
-								}
-        						echo '</ul>';
-								echo '<!--pop-over image and text content ends-->';
-							echo '</div>';
-						echo '</div>';
-					echo '</a>';
-				echo '</section>';
-			echo '</li>';
-		}
-		echo '</ul>';
-		echo '<hr/>';
-	} ?>
+									foreach ( $terms as $term ) {
+										$current_term = $term;
+										$category_count = 0;
+										$parent_cat_name = $term->name;
+										echo '<li class="category cat-' . $term->slug . '">';
+											echo '<section>';
+												echo '<a href="' .  esc_url( get_term_link( $term ) ) . '" class="' . $term->slug . '" style="text-decoration:none">';
+													echo '<div class="HoverLine">';
+														echo '<!--image content starts-->';
+														woocommerce_subcategory_thumbnail( $term );
+														echo '<!--image content ends-->';
+														echo '<div class="category-header header-' . $term->slug . '">';
+															echo '<!--heading content starts-->';
+															echo '<h3>' . $term->name . '</h3>';
+															echo '<!--heading content ends-->';
+														echo '</div>';
+														echo '<div class="category-hover hover-' . $term->slug . '">';
+															echo '<!--pop-over image and text content starts-->';
+															$child_ids = get_term_children( $term->term_id, $taxonomy );
+        													echo '<div class="category-icon icon-' . $term->slug . '">';
+																echo '<svg width="90" height="90">';
+																	echo '<image xlink:href="' . get_template_directory_uri().'/svgs/shop-icons/'.$term->slug.'.svg' . '" alt="Icon that represents Equipment." width="90" height="90">';
+																echo '</svg>';
+															echo '</div>';
+															echo '<br>';
+															echo '<ul>';
+																if( $child_ids != null ) {
+        															foreach ( $child_ids as $child_id ) {
+            															if ( $category_count <= 3 ) {
+																			if( $child_id != $main_term->term_id ) {
+																				$term = get_term_by( 'id', $child_id, $taxonomy );
+																				echo '<li>' . $term->name . '</li>';
+																				echo '<br>';
+																				$category_count++;
+																			}
+																		}
+        															}
+																} elseif ( $child_ids != 0 ) { 
+																	foreach ( $child_ids as $child_id ) {
+            															if ( $category_count <= 3 ) {
+																			if( $child_id != $main_term->term_id ) {
+																				$term = get_term_by( 'id', $child_id, $taxonomy );
+																				echo '<li>' . $term->name . '</li>';
+																				echo '<br>';
+																				$category_count++;
+																			}
+																		}
+        															}
+																} else {
+																	echo '<li>' . $parent_cat_name . '</li>';
+																}
+        													echo '</ul>';
+															echo '<!--pop-over image and text content ends-->';
+														echo '</div>';
+													echo '</div>';
+												echo '</a>';
+											echo '</section>';
+										echo '</li>';
+									}
+								echo '</ul>';
+								echo '<hr/>';
+							} ?>
 							<h3 class="title subtitle">Products</h3>
                             <?php 
 							if ( woocommerce_product_loop() ) {

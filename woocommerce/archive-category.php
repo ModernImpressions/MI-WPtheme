@@ -46,6 +46,41 @@ do_action( 'woocommerce_before_main_content' );
 	 							*/
 								do_action( 'woocommerce_archive_description' );
 							?>
+							<?php
+								/** 
+								 * Setup Custom Display of Categories on the Shop/Catalog page.
+ 								 */
+								$parentid = get_queried_object_id();
+								$main_term = get_queried_object();
+								$taxonomy   = 'product_cat';
+								$args = array(
+									'parent' => $parentid,
+									'hide_empty' => false,
+								);
+								$terms = get_terms( 'product_cat', $args );
+	 
+								if ( $terms ) {
+									echo '<ul class="product-cats product-cats-gallery">';
+	 
+									foreach ( $terms as $term ) {
+										$current_term = $term;
+										echo '<li class="category cat-' . $term->slug . '">';
+											echo '<section>';
+												echo '<a href="' .  esc_url( get_term_link( $term ) ) . '" class="' . $term->slug . '" style="text-decoration:none">';
+													echo '<div class="HoverLine">';
+														echo '<div class="category-header header-' . $term->slug . '">';
+															echo '<!--heading content starts-->';
+															echo '<h3>' . $term->name . '</h3>';
+															echo '<!--heading content ends-->';
+														echo '</div>';
+													echo '</div>';
+												echo '</a>';
+											echo '</section>';
+										echo '</li>';
+									}
+								echo '</ul>';
+								echo '<hr/>';
+							} ?>
 							<h3 class="title subtitle">Products</h3>
                             <?php 
 							if ( woocommerce_product_loop() ) {
