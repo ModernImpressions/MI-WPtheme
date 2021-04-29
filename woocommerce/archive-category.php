@@ -36,16 +36,26 @@ do_action( 'woocommerce_before_main_content' );
                 <div class="row">
                     <div class="col-md-12">
                         <div class="original_content_area">
-                            <h2 class="title"><?php woocommerce_page_title(); ?></h2>
-							<?php
-								/**
-	 							* Hook: woocommerce_archive_description.
-	 							*
-	 							* @hooked woocommerce_taxonomy_archive_description - 10
-	 							* @hooked woocommerce_product_archive_description - 10
-	 							*/
-								do_action( 'woocommerce_archive_description' );
-							?>
+							<div class="product-listing-hero-banner mobi-displaynone" style="background-image:url('#');">
+								<div class="container">
+									<div class="row padlr">
+										<div class="promo-content-block overflow pull-left">
+											<h1 class="title"><?php woocommerce_page_title(); ?></h1>
+											<div class="">
+												<?php
+													/**
+	 												* Hook: woocommerce_archive_description.
+	 												*
+	 												* @hooked woocommerce_taxonomy_archive_description - 10
+	 												* @hooked woocommerce_product_archive_description - 10
+	 												*/
+													do_action( 'woocommerce_archive_description' );
+												?>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 							<?php
 								/** 
 								 * Setup Custom Display of Categories on the Shop/Catalog page.
