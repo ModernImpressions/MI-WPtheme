@@ -187,6 +187,8 @@ ul.sub-category-list li.cateogry {
 .sub-category-header {
     padding: 0;
     height: 60px;
+    color: #007F7B;
+    background-color: #dedede;
 }
 
 .sub-category-title {
@@ -199,4 +201,8 @@ ul.sub-category-list li.cateogry {
     text-decoration: none;
     margin: 0;
     font-weight: 400;
+}
+
+.HoverLine.subcat-hover {
+    border-bottom: 4px solid #dedede;
 }

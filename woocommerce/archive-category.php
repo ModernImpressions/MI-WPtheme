@@ -78,7 +78,7 @@ do_action( 'woocommerce_before_main_content' );
 													echo '<li class="category cat-' . $term->slug . ' sub-category">';
 														echo '<section>';
 															echo '<a href="' .  esc_url( get_term_link( $term ) ) . '" class="' . $term->slug . '" style="text-decoration:none">';
-																echo '<div class="HoverLine">';
+																echo '<div class="HoverLine subcat-hover">';
 																	echo '<div class="category-header header-' . $term->slug . ' sub-category-header">';
 																		echo '<!--heading content starts-->';
 																		echo '<h4 class="sub-category-title">' . $term->name . '</h4>';
