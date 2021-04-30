@@ -151,6 +151,9 @@ ul.product-cats li.category {
 
 ul.sub-category-list {
     border-color: #fff;
+    flex-flow: row;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
 ul.sub-category-list li.cateogry {
@@ -168,7 +171,8 @@ ul.sub-category-list li.cateogry {
 
 .sub-category {
     margin: 0 !important;
-    width: 25%;
+    width: 100% !important;
+    padding: 0;
 }
 
 .sub-category-header {
