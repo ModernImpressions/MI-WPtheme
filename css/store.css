@@ -64,7 +64,7 @@ ul.product-cats li.category {
 }
 
 .category-header {
-    background-color: #232323;
+    background-color: #5b5b5b;
     padding: 30px;
     text-align: center;
     color: #fff;
@@ -117,7 +117,7 @@ ul.product-cats li.category {
 }
 
 .HoverLine {
-    border-bottom: 4px solid #333;
+    border-bottom: 4px solid #5b5b5b;
 }
 
 .HoverLine:hover {
