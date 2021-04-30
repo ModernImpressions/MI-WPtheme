@@ -172,7 +172,7 @@ ul.sub-category-list li.cateogry {
 .sub-category {
     margin: 0 !important;
     width: 100% !important;
-    padding: 0;
+    padding: 0 !important;
 }
 
 .sub-category-header {
