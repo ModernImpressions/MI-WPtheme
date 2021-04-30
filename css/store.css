@@ -164,7 +164,7 @@ ul.product-cats li.category {
     margin: 0;
 }
 
-#common-tabs ul.sub-category-list li.cateogry h4 {
+#common-tabs ul.sub-category-list li.cateogry a div div h4 {
     width: 100%;
     padding: 22px 0 21px 0;
     line-height: 1.2;
