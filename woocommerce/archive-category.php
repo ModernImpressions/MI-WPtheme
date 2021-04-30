@@ -70,8 +70,8 @@ do_action( 'woocommerce_before_main_content' );
 								$terms = get_terms( 'product_cat', $args );
 	 
 								if ( $terms ) {
-									echo '<ul class="product-cats product-cats-gallery">';
-	 
+									echo '<div id="common-tabs" class="overflow pad0 boxsizing">';
+									echo '<ul class="product-cats product-cats-gallery sub-category-list">'; 
 									foreach ( $terms as $term ) {
 										$current_term = $term;
 										echo '<li class="category cat-' . $term->slug . '">';
@@ -80,7 +80,7 @@ do_action( 'woocommerce_before_main_content' );
 													echo '<div class="HoverLine">';
 														echo '<div class="category-header header-' . $term->slug . '">';
 															echo '<!--heading content starts-->';
-															echo '<h3>' . $term->name . '</h3>';
+															echo '<h4>' . $term->name . '</h4>';
 															echo '<!--heading content ends-->';
 														echo '</div>';
 													echo '</div>';
@@ -89,6 +89,7 @@ do_action( 'woocommerce_before_main_content' );
 										echo '</li>';
 									}
 								echo '</ul>';
+								echo '</div>';
 								echo '<hr/>';
 							} ?>
 							<h3 class="title subtitle">Products</h3>

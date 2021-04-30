@@ -143,3 +143,23 @@ ul.product-cats li.category {
     margin-left: auto;
     margin-right: auto;
 }
+
+#common-tabs {
+    border-right: 0 solid #fff;
+    border-color: #fff;
+}
+
+#common-tabs ul.sub-category-list {
+    border-color: #fff;
+}
+
+#common-tabs ul.sub-category-list li.cateogry {
+    width: 100%;
+    padding: 22px 0 21px 0;
+    line-height: 1.2;
+    font-size: 1.125em;
+    overflow: hidden;
+    float: left;
+    text-decoration: none;
+    margin: 0;
+}
