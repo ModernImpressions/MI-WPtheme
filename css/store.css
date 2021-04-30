@@ -206,3 +206,7 @@ ul.sub-category-list li.cateogry {
 .HoverLine.subcat-hover {
     border-bottom: 4px solid #dedede;
 }
+
+.HoverLine.subcat-hover:hover {
+    border-bottom: 4px solid #007F7B;
+}
