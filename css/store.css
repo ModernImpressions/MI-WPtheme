@@ -162,9 +162,16 @@ ul.product-cats li.category {
     float: left;
     text-decoration: none;
     margin: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
-#common-tabs ul.sub-category-list li.cateogry a div div h4 {
+#common-tabs ul.sub-category-list li.cateogry section a div.category-header {
+    padding: 0;
+    height: unset;
+}
+
+#common-tabs ul.sub-category-list li.cateogry section a div.category-header div h4 {
     width: 100%;
     padding: 22px 0 21px 0;
     line-height: 1.2;
@@ -172,4 +179,6 @@ ul.product-cats li.category {
     overflow: hidden;
     float: left;
     text-decoration: none;
+    margin: 0;
+    font-weight: 400;
 }
