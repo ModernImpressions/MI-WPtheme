@@ -163,3 +163,13 @@ ul.product-cats li.category {
     text-decoration: none;
     margin: 0;
 }
+
+#common-tabs ul.sub-category-list li.cateogry h4 {
+    width: 100%;
+    padding: 22px 0 21px 0;
+    line-height: 1.2;
+    font-size: 1.125em;
+    overflow: hidden;
+    float: left;
+    text-decoration: none;
+}
