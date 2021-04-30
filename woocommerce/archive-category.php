@@ -70,26 +70,28 @@ do_action( 'woocommerce_before_main_content' );
 								$terms = get_terms( 'product_cat', $args );
 	 
 								if ( $terms ) {
-									echo '<div id="common-tabs" class="overflow pad0 boxsizing">';
-									echo '<ul class="product-cats product-cats-gallery sub-category-list">'; 
-									foreach ( $terms as $term ) {
-										$current_term = $term;
-										echo '<li class="category cat-' . $term->slug . ' sub-category">';
-											echo '<section>';
-												echo '<a href="' .  esc_url( get_term_link( $term ) ) . '" class="' . $term->slug . '" style="text-decoration:none">';
-													echo '<div class="HoverLine">';
-														echo '<div class="category-header header-' . $term->slug . ' sub-category-header">';
-															echo '<!--heading content starts-->';
-															echo '<h4 class="sub-category-title">' . $term->name . '</h4>';
-															echo '<!--heading content ends-->';
-														echo '</div>';
-													echo '</div>';
-												echo '</a>';
-											echo '</section>';
-										echo '</li>';
-									}
-								echo '</ul>';
-								echo '</div>';
+									echo '<div id="tabs">';
+										echo '<div id="common-tabs" class="overflow pad0 boxsizing">';
+											echo '<ul class="product-cats product-cats-gallery sub-category-list">'; 
+												foreach ( $terms as $term ) {
+													$current_term = $term;
+													echo '<li class="category cat-' . $term->slug . ' sub-category">';
+														echo '<section>';
+															echo '<a href="' .  esc_url( get_term_link( $term ) ) . '" class="' . $term->slug . '" style="text-decoration:none">';
+																echo '<div class="HoverLine">';
+																	echo '<div class="category-header header-' . $term->slug . ' sub-category-header">';
+																		echo '<!--heading content starts-->';
+																		echo '<h4 class="sub-category-title">' . $term->name . '</h4>';
+																		echo '<!--heading content ends-->';
+																	echo '</div>';
+																echo '</div>';
+															echo '</a>';
+														echo '</section>';
+													echo '</li>';
+												}
+											echo '</ul>';
+										echo '</div>';
+									echo '</div>';
 								echo '<hr/>';
 							} ?>
 							<h3 class="title subtitle">Products</h3>

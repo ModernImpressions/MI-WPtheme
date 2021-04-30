@@ -144,9 +144,18 @@ ul.product-cats li.category {
     margin-right: auto;
 }
 
+#tabs {
+    background-color: #c9c9c9;
+    width: 100%;
+}
+
 #common-tabs {
     border-right: 0 solid #fff;
     border-color: #fff;
+    background-color: #dedede;
+    max-width: 1008px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 ul.product-cats.product-cats-gallery.sub-category-list {
