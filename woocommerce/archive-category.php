@@ -74,7 +74,7 @@ do_action( 'woocommerce_before_main_content' );
 									echo '<ul class="product-cats product-cats-gallery sub-category-list">'; 
 									foreach ( $terms as $term ) {
 										$current_term = $term;
-										echo '<li class="category cat-' . $term->slug . '">';
+										echo '<li class="category cat-' . $term->slug . ' sub-category">';
 											echo '<section>';
 												echo '<a href="' .  esc_url( get_term_link( $term ) ) . '" class="' . $term->slug . '" style="text-decoration:none">';
 													echo '<div class="HoverLine">';

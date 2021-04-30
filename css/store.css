@@ -149,11 +149,11 @@ ul.product-cats li.category {
     border-color: #fff;
 }
 
-#common-tabs ul.sub-category-list {
+ul.sub-category-list {
     border-color: #fff;
 }
 
-#common-tabs ul.sub-category-list li.cateogry {
+ul.sub-category-list li.cateogry {
     width: 100%;
     padding: 22px 0 21px 0;
     line-height: 1.2;
@@ -166,12 +166,17 @@ ul.product-cats li.category {
     margin-right: 0;
 }
 
-div.sub-category-header {
-    padding: 0;
-    height: unset;
+.sub-category {
+    margin: 0 !important;
+    width: 25%;
 }
 
-h4.sub-category-title {
+.sub-category-header {
+    padding: 0;
+    height: 60px;
+}
+
+.sub-category-title {
     width: 100%;
     padding: 22px 0 21px 0;
     line-height: 1.2;
