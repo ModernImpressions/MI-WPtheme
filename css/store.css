@@ -166,12 +166,12 @@ ul.product-cats li.category {
     margin-right: 0;
 }
 
-#common-tabs ul.sub-category-list li.cateogry section a div.category-header {
+#common-tabs ul.sub-category-list li.cateogry section a div.HoverLine div.category-header {
     padding: 0;
     height: unset;
 }
 
-#common-tabs ul.sub-category-list li.cateogry section a div.category-header div h4 {
+#common-tabs ul.sub-category-list li.cateogry section a div.HoverLine div.category-header h4 {
     width: 100%;
     padding: 22px 0 21px 0;
     line-height: 1.2;
