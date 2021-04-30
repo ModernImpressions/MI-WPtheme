@@ -149,7 +149,7 @@ ul.product-cats li.category {
     border-color: #fff;
 }
 
-ul.sub-category-list {
+ul.product-cats.product-cats-gallery.sub-category-list {
     border-color: #fff;
     flex-flow: row;
     flex-direction: row;
