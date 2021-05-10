@@ -94,6 +94,7 @@ do_action( 'woocommerce_before_main_content' );
 									echo '</div>';
 								echo '<hr/>';
 							} ?>
+							<?php dynamic_sidebar( 'filter-widget' ); ?>
 							<h3 class="title subtitle">Products</h3>
                             <?php 
 							if ( woocommerce_product_loop() ) {

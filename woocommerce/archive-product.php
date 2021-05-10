@@ -124,6 +124,7 @@ do_action( 'woocommerce_before_main_content' );
 								echo '</ul>';
 								echo '<hr/>';
 							} ?>
+							<?php dynamic_sidebar( 'filter-widget' ); ?>
 							<h3 class="title subtitle">Products</h3>
                             <?php 
 							if ( woocommerce_product_loop() ) {
@@ -179,7 +180,7 @@ do_action( 'woocommerce_before_main_content' );
 						do_action( 'woocommerce_after_main_content' );
 						?>
                     </div>
-					<?php do_shortcode('[ultimate-woocommerce-filter]'); ?>
+					
                 </div>
             </div>
         </div>  
