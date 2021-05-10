@@ -210,3 +210,18 @@ ul.sub-category-list li.cateogry {
 .HoverLine.subcat-hover:hover {
     border-bottom: 4px solid #007F7B;
 }
+
+.zoo-title-filter-block {
+    position: relative;
+    margin-bottom: 15px;
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+.zoo-filter-block {
+    margin-bottom: 0;
+}
+
+.zoo-list-filter-item {
+    padding-top: inherit;
+}
