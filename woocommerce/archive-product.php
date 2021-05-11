@@ -170,7 +170,6 @@ do_action( 'woocommerce_before_main_content' );
 							}
 							?>
                         </div>
-					</div>
 						<?php 
 						/**
  						* Hook: woocommerce_after_main_content.
@@ -182,6 +181,7 @@ do_action( 'woocommerce_before_main_content' );
 						<div class="col-md-3">
 						<div class="sideber_main_area">
 							<?php dynamic_sidebar( 'filter-widget' ); ?>
+						</div>
 						</div>
                     </div>
 					
