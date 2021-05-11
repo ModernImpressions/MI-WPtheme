@@ -94,6 +94,18 @@ do_action( 'woocommerce_before_main_content' );
 									echo '</div>';
 								echo '<hr/>';
 							} ?>
+							<div class="col-sm-12" id="sub-category1">
+    							<div class="accordion-sub-block">
+        							<div class="container padlr">
+            							<div class="col-sm-12 accord-refine-block">
+                							<h2 class="col-sm-2 text-center">Refine</h2>
+            							</div>                                 
+        							</div>
+    							</div>
+    							<div class="gradient-block displayblock" style="height: 33px;">
+        							<?php dynamic_sidebar( 'filter-widget' ); ?>
+    							</div>
+							</div>
 							<h3 class="title subtitle">Products</h3>
                             <?php 
 							if ( woocommerce_product_loop() ) {
@@ -148,11 +160,6 @@ do_action( 'woocommerce_before_main_content' );
  						*/
 						do_action( 'woocommerce_after_main_content' );
 						?>
-						<div class="col-md-3">
-						<div class="sideber_main_area">
-							<?php dynamic_sidebar( 'filter-widget' ); ?>
-						</div>
-						</div>
                     </div>
                 </div>
             </div>
