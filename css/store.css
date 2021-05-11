@@ -243,6 +243,6 @@ ul.sub-category-list li.cateogry {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    display: flex;
+    display: flex !important;
     font-size: 2em;
 }
