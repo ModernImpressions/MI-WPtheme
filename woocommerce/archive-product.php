@@ -132,7 +132,7 @@ do_action( 'woocommerce_before_main_content' );
             							</div>                                 
         							</div>
     							</div>
-    							<div class="gradient-block displayblock" style="height: 33px;">
+    							<div class="gradient-block displayblock">
         							<?php dynamic_sidebar( 'filter-widget' ); ?>
     							</div>
 							</div>
