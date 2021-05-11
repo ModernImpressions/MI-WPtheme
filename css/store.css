@@ -251,7 +251,12 @@ ul.sub-category-list li.cateogry {
     margin-top: 1em;
     display: flex;
     background: #007F7B;
-    color: #fff;
+    color: #fff !important;
     width: 100%;
     max-width: max-content;
+}
+
+.woocommerce ul.products li.product .button:hover {
+    background: #fff;
+    color: #007F7B !important;
 }
