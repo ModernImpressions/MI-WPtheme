@@ -128,7 +128,7 @@ do_action( 'woocommerce_before_main_content' );
     							<div class="accordion-sub-block">
         							<div class="container padlr">
             							<div class="col-sm-12 accord-refine-block">
-                							<h2 class="col-sm-2 text-center">Refine</h2>
+                							<h2 class="col-sm-2 text-center filter-section-title">Refine</h2>
             							</div>                                 
         							</div>
     							</div>

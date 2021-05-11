@@ -53,9 +53,9 @@ function ali_widgets_init() {
 		'name'          => __( 'Catalog Filter Widget', 'alihossain' ),
 		'id'            => 'filter-widget',
 		'description'   => __( 'Appears in the shop/catalog section of the site.', 'alihossain' ),
-		'before_widget' => '<br/>',
+		'before_widget' => '',
 		'after_widget'  => '<hr>',
-		'before_title'  => '<h3>',
+		'before_title'  => '<h3 id="shop-filters" class="shop-filters-title">',
 		'after_title'   => '</h3>',
 	) );
 }
