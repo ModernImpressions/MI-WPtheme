@@ -13,6 +13,7 @@ if ($testitoggle == "off") {
 		            center: true,
 		            items: 1,
 		            margin: 0,
+                    autoWidth:true,
 		            autoplay: true,
 		            nav: true,
                     dots: false,
