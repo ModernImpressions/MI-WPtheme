@@ -11,9 +11,8 @@ if ($testitoggle == "off") {
 		        $('#customers-testimonials').owlCarousel({
 		            loop: true,
 		            center: true,
-		            items: 1,
 		            margin: 0,
-                    autoWidth:true,
+                    autoWidth: true,
 		            autoplay: true,
 		            nav: true,
                     dots: false,
@@ -22,6 +21,12 @@ if ($testitoggle == "off") {
                     mouseDrag: true,
                     touchDrag: true,
                     stagePadding: 1,
+                    responsiveBaseElement:$("#customers-testimonials")[0],
+                    responsive  :{ // I want to determine the number of slider elements according to the range of .right
+                        0:{
+                            items:1
+                        },
+                    }
 		        });
         	});
 </script>
