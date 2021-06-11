@@ -21,7 +21,6 @@ if ($testitoggle == "off") {
                     mouseDrag: true,
                     touchDrag: true,
                     stagePadding: 1,
-                    responsiveBaseElement:$("#customers-testimonials")[0],
 		        });
         	});
 </script>
