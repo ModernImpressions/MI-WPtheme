@@ -22,11 +22,6 @@ if ($testitoggle == "off") {
                     touchDrag: true,
                     stagePadding: 1,
                     responsiveBaseElement:$("#customers-testimonials")[0],
-                    responsive  :{ // I want to determine the number of slider elements according to the range of .right
-                        0:{
-                            items:1
-                        },
-                    }
 		        });
         	});
 </script>
