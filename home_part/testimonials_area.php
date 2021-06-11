@@ -11,6 +11,7 @@ if ($testitoggle == "off") {
 		        $('#customers-testimonials').owlCarousel({
 		            loop: true,
 		            center: true,
+		            items: 1,
 		            margin: 0,
                     autoWidth: true,
 		            autoplay: true,
