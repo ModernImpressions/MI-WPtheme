@@ -22,6 +22,7 @@ jQuery(document).ready(function($) {
         touchDrag: true,
         stagePadding: 1,
         stopOnHover: true,
+        singleItem: true,
     });
 });
 </script>
