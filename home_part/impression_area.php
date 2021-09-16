@@ -25,7 +25,7 @@
                         <div class="su-youtube su-u-responsive-media-yes"><iframe allowfullscreen=""
                                 allow="autoplay; encrypted-media; picture-in-picture"
                                 title="Introduction to Modern Impressions"
-                                data-src="https://www.youtube.com/watch?v=USgOhNJGxjs?autohide=1&amp;autoplay=0&amp;mute=0&amp;controls=1&amp;fs=1&amp;loop=1&amp;modestbranding=1&amp;playlist=VXYd89PQe7w&amp;rel=1&amp;showinfo=1&amp;theme=light&amp;wmode=&amp;playsinline=1"
+                                data-src="https://www.youtube.com/watch?v=USgOhNJGxjs?autohide=1&amp;autoplay=0&amp;mute=0&amp;controls=1&amp;fs=1&amp;loop=1&amp;modestbranding=1&amp;playlist=USgOhNJGxjs&amp;rel=1&amp;showinfo=1&amp;theme=light&amp;wmode=&amp;playsinline=1"
                                 class=" lazyloaded" width="600" height="400" frameborder="0"></iframe></div>
                         <?php else : ?>
                         <?php endif;
