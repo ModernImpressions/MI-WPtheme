@@ -4,28 +4,7 @@
                     <div class="col-md-10">
                         <?php if (function_exists('get_option_tree')) : if (get_option_tree('impression_textarea')) : ?>
                         <?php get_option_tree('impression_textarea', '', 'true'); ?>
-                        <style>
-                        .embed-container {
-                            position: relative;
-                            padding-bottom: 56.25%;
-                            height: 0;
-                            overflow: hidden;
-                            max-width: 100%;
-                        }
-
-                        .embed-container iframe,
-                        .embed-container object,
-                        .embed-container embed {
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                        }
-
-                        </style>
-                        <div class='embed-container'><iframe src='https://www.youtube.com/embed/USgOhNJGxjs'
-                                frameborder='0' allowfullscreen></iframe></div>
+                        <?php echo do_shortcode('[su_youtube_advanced url="https://www.youtube.com/watch?v=USgOhNJGxjs" width="420" height="280" controls="alt" autohide="yes" modestbranding="yes" wmode="transparent" playsinline="yes" title="An Introduction to Modern Impressions"]'); ?>
                         <?php else : ?>
                         <?php endif;
                         endif; ?>
