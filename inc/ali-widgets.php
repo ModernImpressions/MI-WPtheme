@@ -49,6 +49,15 @@ function ali_widgets_init() {
 		'before_title'  => '<h3>',
 		'after_title'   => '</h3>',
 	) );
+	register_sidebar( array(
+		'name'          => __( 'Catalog Filter Widget', 'alihossain' ),
+		'id'            => 'filter-widget',
+		'description'   => __( 'Appears in the shop/catalog section of the site.', 'alihossain' ),
+		'before_widget' => '',
+		'after_widget'  => '<hr>',
+		'before_title'  => '<h3 id="shop-filters" class="shop-filters-title">',
+		'after_title'   => '</h3>',
+	) );
 }
 add_action( 'widgets_init', 'ali_widgets_init' );
 

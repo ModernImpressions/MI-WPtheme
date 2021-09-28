@@ -181,6 +181,30 @@ function register_helpful_shortcode( $atts ) {
  */
 add_shortcode( 'helpful_pro', 'register_helpful_shortcode' );
 
+/** 
+ * Declare WooCommerce Support
+ */
+function add_woocommerce_support() {
+	add_theme_support( 'woocommerce' );
+}
+add_action( 'after_setup_theme', 'add_woocommerce_support' );
+
+function add_catalog_styles() {
+	wp_register_style('store_overrides', get_template_directory_uri().'/css/store.css', array(), '1.0.0', 'all' ); 
+	wp_enqueue_style('store_overrides');
+}
+add_action( 'woocommerce_before_main_content', 'add_catalog_styles' );
+
+/** 
+ * Don't hide empty shop categories.
+ */
+add_filter( 'woocommerce_product_subcategories_hide_empty', 'hide_empty_categories', 10, 1 );
+function hide_empty_categories ( $hide_empty ) {
+    $hide_empty  =  false;
+    // You can add other logic here too
+    return $hide_empty;
+}
+
 /**
  * Allows the use of shortcuts in widgets.
  */
