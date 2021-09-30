@@ -1700,7 +1700,11 @@ body.archive #content_area {
 
 #full_page_area .original_content_area h2.title {
   font-size: 25px;
-  display: none;
+  /* display: none; -the curse of Triad again, I missed this one */
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 #full_page_area .original_content_area h2 {
