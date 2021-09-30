@@ -78,7 +78,7 @@ basepress_get_header('basepress');
             <div class="hide-scrollbars">
                 <h3 class="widget-title">Need Support?</h3>
                 <p>Can't find the answer you're looking for? Don't worry we're here to help!</p>
-                <a class="button primary-button large full bpress-search-submit"
+                <a class="btn btn-primary button primary-button large full"
                     href="<?php echo site_url('/support/place-a-service-call'); ?>">Contact Support</a>
             </div>
         </aside>
