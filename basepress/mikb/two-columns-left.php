@@ -79,7 +79,7 @@ basepress_get_header('basepress');
                 <section class="widget">
                     <h3 class="widget-title">Need Support?</h3>
                     <p>Can't find the answer you're looking for? Don't worry we're here to help!</p>
-                    <a class="btn btn-primary button primary-button large full"
+                    <a class="btn btn-primary button primary-button large full mi-button"
                         href="<?php echo site_url('/support/place-a-service-call'); ?>">Contact Support</a>
                 </section>
             </div>
