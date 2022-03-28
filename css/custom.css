@@ -1270,6 +1270,25 @@ h2.title.department-title {
   overflow: hidden;
 }
 
+#brand_area .container.brand-container {
+  /*! max-width: 1240px; */
+}
+
+#brand_area .row.brand-row {
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-left: -100px;
+  margin-right: -100px;
+}
+
+.row.brand-row .col-md-12 {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  display: inline-flex;
+}
+
 #brand_area .child_logo {
   margin-right: 3%;
   float: left;
