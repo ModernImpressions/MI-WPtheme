@@ -1277,8 +1277,9 @@ h2.title.department-title {
 #brand_area .row.brand-row {
   display: inline-flex;
   flex-wrap: wrap;
-  margin-left: -100px;
-  margin-right: -100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 .row.brand-row .col-md-12 {
