@@ -268,16 +268,18 @@ if (!function_exists('basepress_modern_theme')) {
 	new basepress_modern_theme;
 }
 
+
 function get_the_table_of_contents()
 {
-	global $tableOfContents;
+	global $tableOfContents; //Global variable
 
 	return $tableOfContents;
 }
 
 // Inject the TOC on each post.
-add_filter('the_content', function ($content) {
-	global $tableOfContents;
+add_filter('the_content', function ($content) { // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+	// Only inject the TOC on single posts. This is to avoid duplicating the TOC on pages.
+	global $tableOfContents; // Globalize the table of contents.
 
 	$tableOfContents = "
         <div class='bpress-toc bpress-toc-title'>
@@ -288,28 +290,28 @@ add_filter('the_content', function ($content) {
 				<li>
                 	<a href='#preface'>Introduction</a>
             	</li>
-    ";
+    "; // Start the TOC.
 	$index = 1;
 
 	// Insert the IDs and create the TOC.
-	$content = preg_replace_callback('#<(h[1-6])(.*?)>(.*?)</\1>#si', function ($matches) use (&$index, &$tableOfContents) {
-		$tag = $matches[1];
-		$title = strip_tags($matches[3]);
-		$hasId = preg_match('/id=(["\'])(.*?)\1[\s>]/si', $matches[2], $matchedIds);
-		$id = $hasId ? $matchedIds[2] : $index++ . '-' . sanitize_title($title);
+	$content = preg_replace_callback('#<(h[1-6])(.*?)>(.*?)</\1>#si', function ($matches) use (&$index, &$tableOfContents) { // Find all headings.
+		$tag = $matches[1]; // The tag.
+		$title = strip_tags($matches[3]); // The title.
+		$hasId = preg_match('/id=(["\'])(.*?)\1[\s>]/si', $matches[2], $matchedIds); // Does the tag have an ID?
+		$id = $hasId ? $matchedIds[2] : $index++ . '-' . sanitize_title($title); // The ID.
 
-		$tableOfContents .= "<li class='item-$tag listed-items'><a href='#$id'>$title</a></li>";
+		$tableOfContents .= "<li class='item-$tag listed-items'><a href='#$id'>$title</a></li>"; // Add the TOC item.
 
-		if ($hasId) {
-			return $matches[0];
+		if ($hasId) { // If the tag has an ID, use it.
+			return $matches[0]; // Return the original tag.
 		}
 
-		return sprintf('<%s%s id="%s">%s</%s>', $tag, $matches[2], $id, $matches[3], $tag);
+		return sprintf('<%s%s id="%s">%s</%s>', $tag, $matches[2], $id, $matches[3], $tag); // Else, add the ID.
 	}, $content);
 
-	$tableOfContents .= '</ol></div>';
+	$tableOfContents .= '</ol></div>'; // Close the TOC.
 
-	return $content;
+	return $content; // Return the content.
 });
 
 add_filter('basepress_modern_theme_header_title', function ($default = false) {
