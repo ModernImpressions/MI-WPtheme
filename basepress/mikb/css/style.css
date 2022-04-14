@@ -1152,6 +1152,13 @@ input.bpress-search-field:focus {
 .bpress-toc-wrapper {
 	background-color: #dcdcdc;
 	padding: 1em;
+	position: sticky;
+	position: -webkit-sticky;
+	top: 100px;
+}
+
+.bpress-toc-wrapper.bpress-float-right {
+	float: right;
 }
 
 .bpress-toc {
