@@ -38,7 +38,7 @@ function voteme_addvote()
 	$votemecountNew = $votemecount + 1;
 	update_post_meta($post_ID, '_votemecount', $votemecountNew);
 
-	$results .= ''; // removed <div class="votescore" >'.$votemecountNew.'</div> from the string to prevent the count from showing on the pages.
+	$results .= '<div class="votescore" >' . $votemecountNew . '</div>';
 
 	// Return the String
 	die($results);
