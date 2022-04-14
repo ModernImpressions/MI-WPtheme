@@ -47,7 +47,7 @@ $bpkb_section = basepress_sections();
 	basepress_get_template_part('table-of-content');
 	?>
     <div class="post-content row">
-        <div class="content col">
+        <div class="content col introduction">
             <?php if (empty($bpkb_post_introduction) != true) { ?>
             <h4 id="preface">Introduction</h4>
             <p><?php echo $bpkb_post_introduction ?></p>
@@ -68,7 +68,6 @@ $bpkb_section = basepress_sections();
             <?php the_content(); ?>
         </div>
     </div>
-
     <?php
 	//Articles tag list
 	if (basepress_article_has_tags()) :
