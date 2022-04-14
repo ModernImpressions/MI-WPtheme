@@ -1,11 +1,11 @@
-<?php {
+<?php
 
 function voteme_enqueuescripts()
 {
 	wp_enqueue_script('voteme', get_template_directory_uri() .'/basepress/mikb/js/bpkb_vote.js', array('jquery'));
 	wp_localize_script( 'voteme', 'votemeajax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 }
-add_action('wp_enqueue_scripts', voteme_enqueuescripts);</pre>
+add_action('wp_enqueue_scripts', voteme_enqueuescripts);
 
 function voteme_getvotelink()
 {
@@ -47,4 +47,3 @@ function voteme_addvote()
 		// creating Ajax call for WordPress
 		add_action( 'wp_ajax_nopriv_voteme_addvote', 'voteme_addvote' );
 		add_action( 'wp_ajax_voteme_addvote', 'voteme_addvote' );
-} ?>
