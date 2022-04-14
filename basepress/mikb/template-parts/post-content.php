@@ -36,15 +36,9 @@ $bpkb_section = basepress_sections();
             </span>
         </div>
     </header>
-
     <?php
 	//Add the Article meta-date
 	basepress_get_template_part('article-meta-data');
-	?>
-
-    <?php
-	//Add the table of content
-	basepress_get_template_part('table-of-content');
 	?>
     <div class="post-content row">
         <div class="content col introduction">
@@ -56,16 +50,16 @@ $bpkb_section = basepress_sections();
             <hr />
             <?php } ?>
         </div>
+    </div>
+    <div class="post-content row">
+        <div class="content col">
+            <?php the_content(); ?>
+        </div>
         <div class="post-toc col-auto">
             <div class="bpress-toc-wrapper">
                 <?php echo get_the_table_of_contents(); ?>
             </div>
             <div class="placeholder"></div>
-        </div>
-    </div>
-    <div class="post-content row">
-        <div class="content col">
-            <?php the_content(); ?>
         </div>
     </div>
     <?php
