@@ -29,25 +29,24 @@ $bpkb_section = basepress_sections();
                 <div><i class="fas fa-calendar-day"></i><?php echo " Created: "; ?><?php echo $bpkb_post_date ?></div>
                 <?php if ($bpkb_post_date == $bpkb_updated_date) { ?>
                 <?php } else { ?>
-                <div><i
-                        class="fas fa-calendar-edit"></i><?php echo "  Last Update: "; ?><?php echo $bpkb_updated_date ?>
-                </div>
+                    <div><i class="fas fa-calendar-edit"></i><?php echo "  Last Update: "; ?><?php echo $bpkb_updated_date ?>
+                    </div>
                 <?php } ?>
             </span>
         </div>
     </header>
     <?php
-	//Add the Article meta-date
-	basepress_get_template_part('article-meta-data');
-	?>
+    //Add the Article meta-date
+    basepress_get_template_part('article-meta-data');
+    ?>
     <div class="post-content row">
         <div class="content col introduction">
             <?php if (empty($bpkb_post_introduction) != true) { ?>
-            <h4 id="preface">Introduction</h4>
-            <p><?php echo $bpkb_post_introduction ?></p>
+                <h4 id="preface">Introduction</h4>
+                <p><?php echo $bpkb_post_introduction ?></p>
             <?php } ?>
             <?php if (empty($bpkb_post_introduction) != true) { ?>
-            <hr />
+                <hr />
             <?php } ?>
         </div>
     </div>
@@ -63,11 +62,11 @@ $bpkb_section = basepress_sections();
         </div>
     </div>
     <?php
-	//Articles tag list
-	if (basepress_article_has_tags()) :
-	?>
-    <p><?php basepress_tag_list_title();
-			basepress_article_tags(); ?></p>
+    //Articles tag list
+    if (basepress_article_has_tags()) :
+    ?>
+        <p><?php basepress_tag_list_title();
+            basepress_article_tags(); ?></p>
 
     <?php endif; ?>
 
