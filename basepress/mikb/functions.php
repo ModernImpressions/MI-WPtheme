@@ -287,10 +287,13 @@ add_filter('the_content', function ($content) { // phpcs:ignore WordPress.Naming
         </div>
         <div class='bpress-toc-list items' data-highlight='true'>
 			<ol>
-				<li>
-                	<a href='#preface'>Introduction</a>
-            	</li>
     "; // Start the TOC.
+	$toc_introElement = "<li>
+                	<a href='#preface'>Introduction</a>
+            	</li>";
+	if (empty($bpkb_post_introduction) != true) {
+		$tableOfContents .= $toc_introElement;
+	}
 	$index = 1;
 
 	// Insert the IDs and create the TOC.
