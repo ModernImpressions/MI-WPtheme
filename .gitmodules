@@ -12,3 +12,6 @@
 [submodule "js/fittext-nojquery"]
 	path = js/fittext-nojquery
 	url = https://github.com/adactio/FitText.js.git
+[submodule "other_part/ceojuice-npscore"]
+	path = other_part/ceojuice-npscore
+	url = https://github.com/ModernImpressions/ceojuice-npscore.git
