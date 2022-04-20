@@ -43,7 +43,7 @@ get_header(); ?>
 <div class="row">
     <div class="col-sm-12">
         <div id="netpromoter">
-            <?php get_template_part('other_part/ceojuice-npscore/netpromoter_part.php'); ?>
+            <?php get_template_part('other_part/ceojuice-npscore/netpromoter_part'); ?>
         </div>
     </div>
 </div>
