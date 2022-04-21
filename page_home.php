@@ -36,17 +36,13 @@ get_header(); ?>
     ================================================== -->
 <?php get_template_part('home_part/testimonials_area'); ?>
 
+<!-- Homepage Netpromoter Score area
+    ================================================== -->
+<?php get_template_part('home_part/nps_area'); ?>
+
 <!-- Homepage Brand area
     ================================================== -->
 <?php get_template_part('home_part/brand_area'); ?>
-
-<div class="row">
-    <div class="col-sm-12">
-        <div id="netpromoter">
-            <?php get_template_part('other_part/ceojuice-npscore/netpromoter_part'); ?>
-        </div>
-    </div>
-</div>
 
 <!-- Footer Bottom area
     ================================================== -->
