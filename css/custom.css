@@ -1270,6 +1270,26 @@ h2.title.department-title {
   overflow: hidden;
 }
 
+#brand_area .container.brand-container {
+  /*! max-width: 1240px; */
+}
+
+#brand_area .row.brand-row {
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.row.brand-row .col-md-12 {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  display: inline-flex;
+}
+
 #brand_area .child_logo {
   margin-right: 3%;
   float: left;
@@ -2353,4 +2373,20 @@ blockquote.customer-blockquote:after {
 #comment-text {
   width: 100%;
   display: block;
+}
+
+.mi-button {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007f7b;
+  background-image: none !important;
+  color: #fff;
+  font-family: inherit !important;
+  font-size: 16px !important;
+  font-weight: normal !important;
+  text-transform: uppercase !important;
 }
