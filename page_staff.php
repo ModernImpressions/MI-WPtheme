@@ -33,8 +33,6 @@ get_header(); ?>
         <hr />
         <h2 class="title department-title">Sales</h2>
         <div><?php get_template_part('staff_part/staff_area-sales'); ?></div>
-        <hr />
-        <h2 class="title department-title">Marketing</h2>
         <div><?php get_template_part('staff_part/staff_area-marketing'); ?></div>
         <hr />
         <h2 class="title department-title">Service</h2>
