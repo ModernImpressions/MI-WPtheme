@@ -895,6 +895,11 @@ blockquote {
 	color: #fff;
 }
 
+/** if not the first container in the section, add a top margin **/
+#impression_area:not(:first-child) + .container {
+	margin-top: 10%;
+}
+
 #impression_area .col-md-10 {
 	text-align: center;
 	margin-bottom: 30px;
@@ -2205,7 +2210,7 @@ body.archive #content_area {
 }
 
 #testimonial_area .col-md-10 h3 {
-	color: #303030;
+	color: #ffffff;
 	font-size: 45px;
 	font-weight: 600;
 	line-height: 1.3em;
@@ -2214,7 +2219,7 @@ body.archive #content_area {
 }
 
 #testimonial_area .col-md-10 p {
-	color: #727272;
+	color: #ffffff;
 	font-size: 15px;
 	font-weight: 400;
 	margin-bottom: 0;
@@ -2403,7 +2408,7 @@ blockquote.customer-blockquote:after {
 }
 
 #netpromoter_area .col-md-10 h3 {
-	color: #303030;
+	color: #ffffff;
 	font-size: 45px;
 	font-weight: 600;
 	line-height: 1.3em;
@@ -2412,7 +2417,7 @@ blockquote.customer-blockquote:after {
 }
 
 #netpromoter_area .col-md-10 p {
-	color: #727272;
+	color: #ffffff;
 	font-size: 15px;
 	font-weight: 400;
 	margin-bottom: 0;
