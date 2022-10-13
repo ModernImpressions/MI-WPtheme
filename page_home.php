@@ -31,15 +31,6 @@ get_header(); ?>
     ================================================== -->
 <?php get_template_part('home_part/team_area'); ?>
 
-
-<!-- Homepage Testimonials area
-    ================================================== -->
-<?php get_template_part('home_part/testimonials_area'); ?>
-
-<!-- Homepage Netpromoter Score area
-    ================================================== -->
-<?php get_template_part('home_part/nps_area'); ?>
-
 <!-- Homepage Brand area
     ================================================== -->
 <?php get_template_part('home_part/brand_area'); ?>
