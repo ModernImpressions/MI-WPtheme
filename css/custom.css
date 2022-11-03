@@ -2211,7 +2211,7 @@ body.archive #content_area {
 
 #testimonial_area .col-md-10 h3 {
 	color: #ffffff;
-	font-size: 45px;
+	font-size: 30px;
 	font-weight: 600;
 	line-height: 1.3em;
 	text-transform: uppercase;
@@ -2293,7 +2293,7 @@ blockquote.customer-blockquote:after {
 }
 
 .customername {
-	color: #404040;
+	color: white;
 	margin: 15px 0 5px;
 	text-shadow: 0 1px rgba(255, 255, 255, 0.5);
 }
@@ -2301,7 +2301,7 @@ blockquote.customer-blockquote:after {
 .surveydate {
 	margin: 15px 0 5px;
 	line-height: 1.5em;
-	color: #404040;
+	color: white;
 	font-style: italic;
 	margin-top: 20px;
 }
@@ -2313,7 +2313,7 @@ blockquote.customer-blockquote:after {
 .companyname {
 	margin: 15px 0 5px;
 	line-height: 1.5em;
-	color: #404040;
+	color: white;
 	font-style: italic;
 	margin-top: 20px;
 }
@@ -2327,7 +2327,7 @@ blockquote.customer-blockquote:after {
 }
 
 .testimonial-name {
-	color: #404040;
+	color: white;
 	margin: 15px 0 5px;
 	text-shadow: 0 1px rgba(255, 255, 255, 0.5);
 	font-size: 1.9em;
@@ -2409,7 +2409,7 @@ blockquote.customer-blockquote:after {
 
 #netpromoter_area .col-md-10 h3 {
 	color: #ffffff;
-	font-size: 45px;
+	font-size: 30px;
 	font-weight: 600;
 	line-height: 1.3em;
 	text-transform: uppercase;
