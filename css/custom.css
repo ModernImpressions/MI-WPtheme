@@ -2204,6 +2204,13 @@ body.archive #content_area {
    Testimonials Area
 ========================================================================== */
 
+#testimonial_area {
+	background: #77511e;
+	padding: 45px 0;
+	overflow: hidden;
+	color: #fff;
+}
+
 #testimonial_area .col-md-10 {
 	text-align: center;
 	margin-bottom: 30px;
@@ -2401,6 +2408,13 @@ blockquote.customer-blockquote:after {
 /* ==========================================================================
    NetPromoterScore Area
 ========================================================================== */
+
+#netpromoter_area {
+	background: #77511e;
+	padding: 45px 0;
+	overflow: hidden;
+	color: #fff;
+}
 
 #netpromoter_area .col-md-10 {
 	text-align: center;
