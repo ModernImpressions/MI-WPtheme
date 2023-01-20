@@ -12,11 +12,6 @@ if ($npstoggle == "off") {
                 <p>Net Promoter Score (NPS®) has become the world standard for measuring customer satisfaction levels.
                     Rather than saying we have the "Best" service we use a 3rd party company to automate follow up
                     messages to our customers including getting feedback and tracking NPS®.</p>
-                <p>CEO Juice is an independent A.I. company with an audited process where every step is controlled by
-                    them, the numbers cannot be changed even if we show our customer gave us a low score in error. NPS®
-                    is a scale of -100 to +100 and is based on the single question "How likely are you to recommend us
-                    to a friend or colleague." Like revenue or profit it needs to be for a period of time.</p>
-                </p>
                 <p><small>Net Promoter, NPS, and Net Promoter Score are trademarks of Satmetrix Systems, Inc., Bain &
                         Company, and Fred Reichheld</small></p>
             </div>
