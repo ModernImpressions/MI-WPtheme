@@ -30,4 +30,11 @@
                 }
                 ?>
             </div>
+            <!-- Homepage Testimonials area
+    ================================================== -->
+            <?php get_template_part('home_part/testimonials_area'); ?>
+
+            <!-- Homepage Netpromoter Score area
+    ================================================== -->
+            <?php get_template_part('home_part/nps_area'); ?>
         </section>
