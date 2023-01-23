@@ -70,7 +70,7 @@ $merchantTransactionKey = get_option('MERCHANT_TRANSACTION_KEY');
                         $response = $controller->executeWithApiResponse(\net\authorize\api\constants\ANetEnvironment::SANDBOX);
 
                         if (($response != null) && ($response->getMessages()->getResultCode() == "Ok")) {
-                            echo $response->getToken() . "\n";
+                            //echo $response->getToken() . "\n";
                         } else {
                             echo "ERROR :  Failed to get hosted payment page token\n";
                             $errorMessages = $response->getMessages()->getMessage();
@@ -80,6 +80,13 @@ $merchantTransactionKey = get_option('MERCHANT_TRANSACTION_KEY');
                     }
                     if (!defined('DONT_RUN_SAMPLES')) {
                         getAnAcceptPaymentPage();
+                        if ($response != null) {
+                            // Send an HTML POST to the hosted payment page
+                            $token = $response->getToken();
+                            $url = "https://accept.authorize.net/payment/payment";
+                            $url .= "?token=" . $token;
+                            echo "<script type='text/javascript'>window.location.href = '" . $url . "';</script>"; // Redirect to hosted payment page
+                        }
                     } ?>
                 </div>
             </div>
