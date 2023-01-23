@@ -5,7 +5,7 @@
  */
 
 get_header();
-require_once('vendor/authorizenet/authorizenet/autoload.php');
+require('vendor/autoload.php');
 
 use net\authorize\api\contract\v1 as AnetAPI;
 use net\authorize\api\controller as AnetController;
@@ -23,11 +23,6 @@ $merchantTransactionKey = get_option('MERCHANT_TRANSACTION_KEY');
         <div class="row">
             <div class="col-md-8">
                 <div class="original_content_area">
-                    <div class="post_head">
-                        <h1 class="entry-title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h1>
-                        <p><i class="fa fa-user"></i>by <?php the_author_posts_link(); ?> Posted on <i
-                                class="fa fa-calendar-alt "></i><?php echo the_time('F j, Y'); ?></p>
-                    </div>
                     <?php
                     function getAnAcceptPaymentPage()
                     {
@@ -89,7 +84,6 @@ $merchantTransactionKey = get_option('MERCHANT_TRANSACTION_KEY');
                 </div>
             </div>
             <div class="col-md-4">
-                <?php get_sidebar(); ?>
             </div>
         </div>
     </div>
