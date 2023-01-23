@@ -9,7 +9,7 @@
 function add_cors_http_header(){
     header("Access-Control-Allow-Origin: *");
 }
-add_action('init','add_cors_http_header'); 
+add_action('init','add_cors_http_header');
 
 /*
 // disables WP Heartbeat - this is only for real-time plugin notifications, or showing if a user is editing a post, due to the nature of this site, this is currently un-needed, and is cause higher CPU usage.
@@ -20,14 +20,14 @@ function stop_heartbeat() {
 }
 */
 
-function call_flowscripts(){ 
+function call_flowscripts(){
     wp_register_style( 'vue-flow', 'https://unpkg.com/@ditdot-dev/vue-flow-form@1.1.2/dist/vue-flow-form.min.css', array(), '1.1.2', 'all' );
-    wp_register_style('flow', get_template_directory_uri().'/css/flow.css', array(), '1.0.0', 'all' ); 
+    wp_register_style('flow', get_template_directory_uri().'/css/flow.css', array(), '1.0.0', 'all' );
     wp_register_style('flow-custom', get_template_directory_uri().'/css/vue-flow-custom.css', array(), '1.0.0', 'all' );
 
     wp_enqueue_style('flow');
     wp_enqueue_style('flow-custom');
-    
+
     wp_enqueue_script( 'vue', 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js', array(), '2.6.11', 'all' );
     wp_enqueue_script( 'vue-flow', 'https://unpkg.com/@ditdot-dev/vue-flow-form@1.1.2', array(), '1.1.2', 'all' );
     wp_enqueue_script('flow', get_template_directory_uri() .'/js/flow.js', array(), '1.0.0', 'true' );
@@ -38,7 +38,7 @@ function ali_theam_jquery() {
 
 	wp_enqueue_script('jquery');
 
-} 
+}
 
 add_action('init', 'ali_theam_jquery');
 
@@ -61,6 +61,9 @@ add_action('init', 'ali_theam_jquery');
 // Add Theme Widgets function
 
  include_once('inc/ali-widgets.php');
+
+ // Add Authorize.net Functions
+ include_once('inc/authorize.net/functions.php');
 
 /***********************************************************************************************/
 
@@ -120,7 +123,7 @@ remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
  * Example: [helpful_pro post_type="post" limit="5"]
  *
  * @param array $atts
- * 
+ *
  * @return string
  */
 function register_helpful_shortcode( $atts ) {
@@ -181,7 +184,7 @@ function register_helpful_shortcode( $atts ) {
  */
 add_shortcode( 'helpful_pro', 'register_helpful_shortcode' );
 
-/** 
+/**
  * Declare WooCommerce Support
  */
 function add_woocommerce_support() {
@@ -190,12 +193,12 @@ function add_woocommerce_support() {
 add_action( 'after_setup_theme', 'add_woocommerce_support' );
 
 function add_catalog_styles() {
-	wp_register_style('store_overrides', get_template_directory_uri().'/css/store.css', array(), '1.0.0', 'all' ); 
+	wp_register_style('store_overrides', get_template_directory_uri().'/css/store.css', array(), '1.0.0', 'all' );
 	wp_enqueue_style('store_overrides');
 }
 add_action( 'woocommerce_before_main_content', 'add_catalog_styles' );
 
-/** 
+/**
  * Don't hide empty shop categories.
  */
 add_filter( 'woocommerce_product_subcategories_hide_empty', 'hide_empty_categories', 10, 1 );
@@ -209,4 +212,3 @@ function hide_empty_categories ( $hide_empty ) {
  * Allows the use of shortcuts in widgets.
  */
 add_filter( 'widget_text', 'do_shortcode' );
-?>
