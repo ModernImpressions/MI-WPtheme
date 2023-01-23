@@ -15,3 +15,6 @@
 [submodule "other_part/ceojuice-npscore"]
 	path = other_part/ceojuice-npscore
 	url = https://github.com/ModernImpressions/ceojuice-npscore.git
+[submodule "authorize.net/sdk-php"]
+	path = authorize.net/sdk-php
+	url = https://github.com/AuthorizeNet/sdk-php.git
