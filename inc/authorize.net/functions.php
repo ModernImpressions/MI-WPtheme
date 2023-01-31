@@ -169,7 +169,7 @@ class authorizenet_Settings_Page
 
             // Create a transaction
             $transactionRequestType = new AnetAPI\TransactionRequestType();
-            $transactionRequestType->setTransactionType("authCaptureTransaction");
+            $transactionRequestType->setTransactionType("authOnlyTransaction");
             $transactionRequestType->setAmount($amount);
 
             // Set Hosted Form Options
