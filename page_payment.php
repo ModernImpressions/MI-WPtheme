@@ -26,9 +26,8 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
                     } elseif ($merchantEnv == "PRODUCTION") {
                         $paymentURL = 'https://accept.authorize.net/payment/payment';
                     } ?>
-                    }; ?>
-                    <form method="post" action="https://test.authorize.net/payment/payment"
-                        id="formAuthorizeNetTestPage" name="formAuthorizeNetTestPage">
+                    <form method="post" action="<?php echo $paymentURL; ?>" id="formAuthorizeNetTestPage"
+                        name="formAuthorizeNetTestPage">
                         <input type="hidden" name="token" value="<?php echo $paymentToken; ?>" />Redirect- Continue to
                         Authorize.net to Payment Page
                         <button id="btnContinue">Continue to next page</button>
