@@ -206,11 +206,11 @@ class authorizenet_Settings_Page
             }
             if (($response != null) && ($response->getMessages()->getResultCode() == "Ok")) {
                 $token = $response->getToken();
-                echo "SUCCESS :  Token : " . $token . "\n";
+                //echo "SUCCESS :  Token : " . $token . "\n";
             } else {
-                echo "ERROR :  Failed to get hosted payment page token \n";
-                $errorMessages = $response->getMessages()->getMessage();
-                echo "RESPONSE : " . $errorMessages[0]->getCode() . "\n" . "DESCRIPTION : " . $errorMessages[0]->getText() . "\n";
+                //echo "ERROR :  Failed to get hosted payment page token \n";
+                //$errorMessages = $response->getMessages()->getMessage();
+                //echo "RESPONSE : " . $errorMessages[0]->getCode() . "\n" . "DESCRIPTION : " . $errorMessages[0]->getText() . "\n";
             }
             return $token;
         }
