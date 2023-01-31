@@ -222,8 +222,11 @@ class authorizenet_Settings_Page
 
             //execute request
             $controller = new AnetController\GetHostedPaymentPageController($request);
-            $response = $controller->executeWithApiResponse(\net\authorize\api\constants\ANetEnvironment::$aNetENV);
-
+            if ($aNetENV == 'SANDBOX') {
+                $response = $controller->executeWithApiResponse(\net\authorize\api\constants\ANetEnvironment::SANDBOX);
+            } elseif ($aNetENV == 'PRODUCTION') {
+                $response = $controller->executeWithApiResponse(\net\authorize\api\constants\ANetEnvironment::PRODUCTION);
+            }
             if (($response != null) && ($response->getMessages()->getResultCode() == "Ok")) {
                 $token = $response->getToken();
             } else {
