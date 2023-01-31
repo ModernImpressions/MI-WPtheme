@@ -19,12 +19,13 @@ $merchantEnv = get_option('aNetENV');
         <div class="row">
             <div class="col-md-8">
                 <div class="original_content_area">
+                    <?php $paymentToken = getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, 12.50, $merchantEnv); ?>
                     <form method="post" action="https://test.authorize.net/payment/payment"
                         id="formAuthorizeNetTestPage" name="formAuthorizeNetTestPage">
-                        <input type="hidden" name="token"
-                            value="<?php getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, 12.50, $merchantEnv); ?>" />
-                        Redirect - Continue to Authorize.net to Payment Page
+                        <input type="hidden" name="token" value="<?php echo $paymentToken; ?>" />Redirect- Continue to
+                        Authorize.net to Payment Page
                         <button id="btnContinue">Continue to next page</button>
+                        <?php echo $paymentToken; ?>
                     </form>
                 </div>
             </div>
