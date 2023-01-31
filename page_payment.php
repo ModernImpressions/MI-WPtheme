@@ -6,7 +6,6 @@
 
 get_header();
 
-define("AUTHORIZENET_LOG_FILE", "phplog");
 //merchant credentials
 $merchantLoginID = get_option('MERCHANT_LOGIN_ID');
 $merchantTransactionKey = get_option('MERCHANT_TRANSACTION_KEY');
