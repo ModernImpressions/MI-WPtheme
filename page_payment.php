@@ -26,16 +26,23 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
                         $paymentURL = 'https://accept.authorize.net/payment/payment';
                     } ?>
                     <!-- Form to capture information to send to Authorize.net -->
-                    <form>
-
+                    <form method="post" action="">
+                        <label for="invoiceAmount">Invoice Amount</label>
+                        <input type="number" min="0.01" step="0.01" name="invoiceAmount" placeholder="0.00" />
+                        <button id="btnSubmit">Submit</button>
                     </form>
+                    <!-- Form to send to Authorize.net -->
+                    <?php if (isset($_POST['invoiceAmount'])) {
+                        $invoiceAmount = $_POST['invoiceAmount'];
+                    ?>
                     <form method="post" action="<?php echo $paymentURL; ?>" id="formAuthorizeNetTestPage"
                         name="formAuthorizeNetTestPage">
-                        <?php $paymentToken = getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, 12.50, $merchantEnv); ?>
+                        <?php $paymentToken = getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, $invoiceAmount, $merchantEnv); ?>
                         <input type="hidden" name="token" value="<?php echo $paymentToken; ?>" />Redirect- Continue to
                         Authorize.net to Payment Page
                         <button id="btnContinue">Continue to next page</button>
                     </form>
+                    <?php } ?>
                 </div>
             </div>
             <div class="col-md-4">
