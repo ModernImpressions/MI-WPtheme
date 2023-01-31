@@ -10,6 +10,7 @@ get_header();
 $merchantLoginID = get_option('MERCHANT_LOGIN_ID');
 $merchantTransactionKey = get_option('MERCHANT_TRANSACTION_KEY');
 $merchantEnv = get_option('aNetENV');
+$paymentURL = 'https://test.authorize.net/payment/payment' // Default to test environment;
 ?>
 
 <!-- Content Area
@@ -20,6 +21,12 @@ $merchantEnv = get_option('aNetENV');
             <div class="col-md-8">
                 <div class="original_content_area">
                     <?php $paymentToken = getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, 12.50, $merchantEnv); ?>
+                    <?php /** Set URL based on environment */ if ($merchantEnv == "SANDBOX") {
+                        $paymentURL = 'https://test.authorize.net/payment/payment';
+                    } elseif ($merchantEnv == "PRODUCTION") {
+                        $paymentURL = 'https://accept.authorize.net/payment/payment';
+                    } ?>
+                    }; ?>
                     <form method="post" action="https://test.authorize.net/payment/payment"
                         id="formAuthorizeNetTestPage" name="formAuthorizeNetTestPage">
                         <input type="hidden" name="token" value="<?php echo $paymentToken; ?>" />Redirect- Continue to
