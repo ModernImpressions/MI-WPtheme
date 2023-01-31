@@ -206,6 +206,7 @@ class authorizenet_Settings_Page
             }
             if (($response != null) && ($response->getMessages()->getResultCode() == "Ok")) {
                 $token = $response->getToken();
+                echo "SUCCESS :  Token : " . $token . "\n";
             } else {
                 echo "ERROR :  Failed to get hosted payment page token \n";
                 $errorMessages = $response->getMessages()->getMessage();
