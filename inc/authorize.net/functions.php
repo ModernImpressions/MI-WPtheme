@@ -169,7 +169,7 @@ class authorizenet_Settings_Page
             // Create a transaction
             $transactionRequestType = new AnetAPI\TransactionRequestType();
             $transactionRequestType->setTransactionType("authCaptureTransaction");
-            $transactionRequestType->setAmount(12.50);
+            $transactionRequestType->setAmount($amount);
 
             // Set Hosted Form Options
             $hostedPaymentButtonOptions = new AnetAPI\SettingType();
@@ -230,9 +230,11 @@ class authorizenet_Settings_Page
             if (($response != null) && ($response->getMessages()->getResultCode() == "Ok")) {
                 $token = $response->getToken();
             } else {
-                echo "ERROR :  Failed to get hosted payment page token\n";
+                echo "ERROR :  Failed to get hosted payment page token \n";
                 $errorMessages = $response->getMessages()->getMessage();
-                echo "RESPONSE : " . $errorMessages[0]->getCode() . "  " . $errorMessages[0]->getText() . "\n";
+                echo "RESPONSE : " . $errorMessages[0]->getCode() . "\n" . "DESCRIPTION : " . $errorMessages[0]->getText() . "\n";
+                echo "REQUEST : ";
+                print_r($request);
             }
             return $token;
         }
