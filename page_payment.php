@@ -25,7 +25,6 @@ $merchantEnv = get_option('aNetENV');
                         <input type="hidden" name="token" value="<?php echo $paymentToken; ?>" />Redirect- Continue to
                         Authorize.net to Payment Page
                         <button id="btnContinue">Continue to next page</button>
-                        <?php echo $paymentToken; ?>
                     </form>
                 </div>
             </div>
