@@ -30,17 +30,17 @@ class authorizenet_Settings_Page
 
     public function wph_settings_content()
     { ?>
-<div class="wrap">
-    <h1>Authorize.net Settings</h1>
-    <?php settings_errors(); ?>
-    <form method="POST" action="options.php">
-        <?php
+        <div class="wrap">
+            <h1>Authorize.net Settings</h1>
+            <?php settings_errors(); ?>
+            <form method="POST" action="options.php">
+                <?php
                 settings_fields('authorizenet');
                 do_settings_sections('authorizenet');
                 submit_button();
                 ?>
-    </form>
-</div> <?php
+            </form>
+        </div> <?php
             }
 
             public function wph_setup_sections()
@@ -142,8 +142,18 @@ class authorizenet_Settings_Page
         }
         new authorizenet_Settings_Page();
 
+        /** Function to get the Authorize.net form token, returns the token as a string
+         * @param string $merchantID - Authorize.net Merchant ID
+         * @param string $transactionKey - Authorize.net Transaction Key
+         * @param float $amount - Amount to charge
+         * @param string $aNetENV - Authorize.net Environment (SANDBOX or PRODUCTION)
+         * @return string $token - Authorize.net Form Token
+         *
+         */
         function getAnAcceptPaymentPage(string $merchantID, string $transactionKey, float $amount, string $aNetENV)
         {
+            // Setup the token variable
+            $token = '';
             if ($aNetENV == null || $aNetENV == '') {
                 $aNetENV = 'SANDBOX';
             }
@@ -213,5 +223,14 @@ class authorizenet_Settings_Page
             //execute request
             $controller = new AnetController\GetHostedPaymentPageController($request);
             $response = $controller->executeWithApiResponse(\net\authorize\api\constants\ANetEnvironment::$aNetENV);
+
+            if (($response != null) && ($response->getMessages()->getResultCode() == "Ok")) {
+                $token = $response->getToken();
+            } else {
+                echo "ERROR :  Failed to get hosted payment page token\n";
+                $errorMessages = $response->getMessages()->getMessage();
+                echo "RESPONSE : " . $errorMessages[0]->getCode() . "  " . $errorMessages[0]->getText() . "\n";
+            }
+            return $token;
         }
                 ?>
