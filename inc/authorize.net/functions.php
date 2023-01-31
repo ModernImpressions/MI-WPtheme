@@ -172,53 +172,30 @@ class authorizenet_Settings_Page
             $transactionRequestType->setAmount($amount);
 
             // Set Hosted Form Options
-            $hostedPaymentButtonOptions = new AnetAPI\SettingType();
-            $hostedPaymentButtonOptions->setSettingName("hostedPaymentButtonOptions");
-            $hostedPaymentButtonOptions->setSettingValue("{\"text\": \"Pay\"}");
+            $setting1 = new AnetAPI\SettingType();
+            $setting1->setSettingName("hostedPaymentButtonOptions");
+            $setting1->setSettingValue("{\"text\": \"Pay\"}");
 
-            $hostedPaymentReturnOptions = new AnetAPI\SettingType();
-            $hostedPaymentReturnOptions->setSettingName("hostedPaymentReturnOptions");
-            $hostedPaymentReturnOptions->setSettingValue("{\"showReceipt\": true, \"url\": \"https://www.modernimpressions.com/support/onlinepayments/return\", \"cancelUrl\": \"https://www.modernimpressions.com/support/onlinepayments/cancel\"}");
+            $setting2 = new AnetAPI\SettingType();
+            $setting2->setSettingName("hostedPaymentOrderOptions");
+            $setting2->setSettingValue("{\"show\": false}");
 
-            $hostedPaymentOrderOptions = new AnetAPI\SettingType();
-            $hostedPaymentOrderOptions->setSettingName("hostedPaymentOrderOptions");
-            $hostedPaymentOrderOptions->setSettingValue("{\"show\": false}");
-
-            $hostedPaymentBillingAddressOptions = new AnetAPI\SettingType();
-            $hostedPaymentBillingAddressOptions->setSettingName("hostedPaymentBillingAddressOptions");
-            $hostedPaymentBillingAddressOptions->setSettingValue("{\"show\": false, \"required\": false}");
-
-            $hostedPaymentShippingAddressOptions = new AnetAPI\SettingType();
-            $hostedPaymentShippingAddressOptions->setSettingName("hostedPaymentShippingAddressOptions");
-            $hostedPaymentShippingAddressOptions->setSettingValue("{\"show\": false, \"required\": false}");
-
-            $hostedPaymentSecurityOptions = new AnetAPI\SettingType();
-            $hostedPaymentSecurityOptions->setSettingName("hostedPaymentSecurityOptions");
-            $hostedPaymentSecurityOptions->setSettingValue("{\"captcha\": false}");
-
-            $hostedPaymentCustomerOptions = new AnetAPI\SettingType();
-            $hostedPaymentCustomerOptions->setSettingName("hostedPaymentCustomerOptions");
-            $hostedPaymentCustomerOptions->setSettingValue("{\"showEmail\": false, \"requiredEmail\": false, \"showPhoneNumber\": false, \"requiredPhoneNumber\": false}");
-
-            $hostedPaymentPaymentOptions = new AnetAPI\SettingType();
-            $hostedPaymentPaymentOptions->setSettingName("hostedPaymentPaymentOptions");
-            $hostedPaymentPaymentOptions->setSettingValue("{\"cardCodeRequired\": false, \"showCreditCard\": true, \"showBankAccount\": false}");
-
+            $setting3 = new AnetAPI\SettingType();
+            $setting3->setSettingName("hostedPaymentReturnOptions");
+            $setting3->setSettingValue(
+                "{\"url\": \"https://mysite.com/receipt\", \"cancelUrl\": \"https://mysite.com/cancel\", \"showReceipt\": true}"
+            );
 
             // Build transaction request
             $request = new AnetAPI\GetHostedPaymentPageRequest();
             $request->setMerchantAuthentication($merchantAuthentication);
             $request->setRefId($refId);
             $request->setTransactionRequest($transactionRequestType);
+
             // add the settings to the request
-            $request->addToHostedPaymentSettings($hostedPaymentButtonOptions);
-            $request->addToHostedPaymentSettings($hostedPaymentReturnOptions);
-            $request->addToHostedPaymentSettings($hostedPaymentOrderOptions);
-            $request->addToHostedPaymentSettings($hostedPaymentBillingAddressOptions);
-            $request->addToHostedPaymentSettings($hostedPaymentShippingAddressOptions);
-            $request->addToHostedPaymentSettings($hostedPaymentSecurityOptions);
-            $request->addToHostedPaymentSettings($hostedPaymentCustomerOptions);
-            $request->addToHostedPaymentSettings($hostedPaymentPaymentOptions);
+            $request->addToHostedPaymentSettings($setting1);
+            $request->addToHostedPaymentSettings($setting2);
+            $request->addToHostedPaymentSettings($setting3);
 
             //execute request
             $controller = new AnetController\GetHostedPaymentPageController($request);
@@ -233,8 +210,8 @@ class authorizenet_Settings_Page
                 echo "ERROR :  Failed to get hosted payment page token \n";
                 $errorMessages = $response->getMessages()->getMessage();
                 echo "RESPONSE : " . $errorMessages[0]->getCode() . "\n" . "DESCRIPTION : " . $errorMessages[0]->getText() . "\n";
-                echo "REQUEST : ";
-                print_r($request);
+                //echo "REQUEST : ";
+                //print_r($request);
             }
             return $token;
         }
