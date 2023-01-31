@@ -178,7 +178,7 @@ class authorizenet_Settings_Page
 
             $hostedPaymentReturnOptions = new AnetAPI\SettingType();
             $hostedPaymentReturnOptions->setSettingName("hostedPaymentReturnOptions");
-            $hostedPaymentReturnOptions->setSettingValue("{\"showReceipt\": true, \"url\": \"https://www.example.com/return\", \"cancelUrl\": \"https://www.example.com/cancel\"}");
+            $hostedPaymentReturnOptions->setSettingValue("{\"showReceipt\": true, \"url\": \"https://www.modernimpressions.com/support/onlinepayments/return\", \"cancelUrl\": \"https://www.modernimpressions.com/support/onlinepayments/cancel\"}");
 
             $hostedPaymentOrderOptions = new AnetAPI\SettingType();
             $hostedPaymentOrderOptions->setSettingName("hostedPaymentOrderOptions");
@@ -202,7 +202,7 @@ class authorizenet_Settings_Page
 
             $hostedPaymentPaymentOptions = new AnetAPI\SettingType();
             $hostedPaymentPaymentOptions->setSettingName("hostedPaymentPaymentOptions");
-            $hostedPaymentPaymentOptions->setSettingValue("{\"cardCodeRequired\": true, \"showCreditCard\": true, \"showBankAccount\": false}");
+            $hostedPaymentPaymentOptions->setSettingValue("{\"cardCodeRequired\": false, \"showCreditCard\": true, \"showBankAccount\": false}");
 
 
             // Build transaction request
