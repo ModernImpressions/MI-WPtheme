@@ -1,5 +1,5 @@
 <?php
-require_once('./vendor/autoload.php');
+require_once('./vendor/authorizenet/authorizenet/autoload.php');
 
 use net\authorize\api\contract\v1 as AnetAPI;
 use net\authorize\api\controller as AnetController;
