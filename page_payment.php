@@ -58,7 +58,7 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
                                 <figure>
                         </div>
                         <div class="col-md-6 col-xs-8">
-                            <h4 class="typo-h4">Credit & debit cards</h4>
+                            <h5 class="typo-h5">Credit & debit cards</h5>
                             <p>We accept Visa, Mastercard, American Express, Discover, JCB, and Diners Club.
                             </p>
                             <ul>
@@ -78,10 +78,16 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
                             </div>
                         </div>
                         <div class="col-md-6 col-xs-8">
-                            <h4 class="typo-h4">ACH payments</h4>
+                            <h5 class="typo-h5">ACH payments</h5>
                             <p>ACH payments are accepted.
                             </p>
                         </div>
+                    </div>
+                    <div class="row is-flex row-space">
+                        <h5 class="typo-h5">Contact Us</h5>
+                        <p>For any questions, please contact us at <a href="mailto:careteam@modernimpressions.com"></a>
+                            or
+                            call us at <a href="tel:1-704-597-7278">1-704-597-7278</a></p>
                     </div>
                 </section>
             </div>
