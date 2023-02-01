@@ -186,6 +186,26 @@ class authorizenet_Settings_Page
             $setting3->setSettingName("hostedPaymentReturnOptions");
             $setting3->setSettingValue("{\"showReceipt\": true, \"url\": \"$returnURL\", \"urlText\": \"Continue\", \"cancelUrl\": \"$cancelURL\", \"cancelUrlText\": \"Cancel\"}");
 
+            $setting4 = new AnetAPI\SettingType();
+            $setting4->setSettingName("hostedPaymentPaymentOptions");
+            $setting4->setSettingValue("{\"cardCodeRequired\": true, \"showCreditCard\": true, \"showBankAccount\": true}");
+
+            $setting5 = new AnetAPI\SettingType();
+            $setting5->setSettingName("hostedPaymentSecurityOptions");
+            $setting5->setSettingValue("{\"captcha\": true}");
+
+            $setting6 = new AnetAPI\SettingType();
+            $setting6->setSettingName("hostedPaymentBillingAddressOptions");
+            $setting6->setSettingValue("{\"show\": true, \"required\": true}");
+
+            $setting7 = new AnetAPI\SettingType();
+            $setting7->setSettingName("hostedPaymentShippingAddressOptions");
+            $setting7->setSettingValue("{\"show\": false, \"required\": false}");
+
+            $setting8 = new AnetAPI\SettingType();
+            $setting8->setSettingName("hostedPaymentCustomerOptions");
+            $setting8->setSettingValue("{\"showEmail\": true, \"requiredEmail\": true, \"showPhoneNumber\": true, \"requiredPhoneNumber\": true}");
+
             // Build transaction request
             $request = new AnetAPI\GetHostedPaymentPageRequest();
             $request->setMerchantAuthentication($merchantAuthentication);
@@ -196,6 +216,11 @@ class authorizenet_Settings_Page
             $request->addToHostedPaymentSettings($setting1);
             $request->addToHostedPaymentSettings($setting2);
             $request->addToHostedPaymentSettings($setting3);
+            $request->addToHostedPaymentSettings($setting4);
+            $request->addToHostedPaymentSettings($setting5);
+            $request->addToHostedPaymentSettings($setting6);
+            $request->addToHostedPaymentSettings($setting7);
+            $request->addToHostedPaymentSettings($setting8);
 
             //execute request
             $controller = new AnetController\GetHostedPaymentPageController($request);
