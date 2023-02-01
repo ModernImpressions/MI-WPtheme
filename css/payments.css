@@ -8,21 +8,21 @@
 	width: 70px;
 	height: 70px;
 	display: inline-block;
+	font-family: "Font Awesome 5 Duotone";
+	font-style: normal;
+	font-size: 5em;
 }
 
 .credit {
-	background: url("https://stripe.com/img/v3/pricing/payments/section-cards.svg")
-		no-repeat;
+	content: "\f19c";
 }
 
 .ach {
-	background: url("https://stripe.com/img/v3/pricing/payments/section-ach.svg")
-		no-repeat;
+	content: "\f09d";
 }
 
 .disputes {
-	background: url("https://stripe.com/img/v3/pricing/payments/section-disputes.svg")
-		no-repeat;
+	content: "";
 }
 
 .card-brands {
