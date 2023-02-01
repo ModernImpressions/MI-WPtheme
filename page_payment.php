@@ -21,7 +21,7 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
 <div id="full_page_area">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <div class="original_content_area">
                     <?php /** Set URL based on environment */ if ($merchantEnv == "SANDBOX") {
                         $paymentURL = 'https://test.authorize.net/payment/payment';
@@ -50,7 +50,7 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
                     <?php } ?>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <section class="container">
                     <div class="row is-flex row-space">
                         <div class="col-md-2 col-xs-12 small-none is-center is-right">
