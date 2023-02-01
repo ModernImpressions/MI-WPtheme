@@ -171,6 +171,7 @@ class authorizenet_Settings_Page
             $transactionRequestType = new AnetAPI\TransactionRequestType();
             $transactionRequestType->setTransactionType("authOnlyTransaction");
             $transactionRequestType->setAmount($amount);
+            $transactionRequestType->setOrder(new AnetAPI\OrderType(array("invoiceNumber" => $invoiceNumber)));
 
             // Set Hosted Form Options
             $setting1 = new AnetAPI\SettingType();
@@ -179,7 +180,7 @@ class authorizenet_Settings_Page
 
             $setting2 = new AnetAPI\SettingType();
             $setting2->setSettingName("hostedPaymentOrderOptions");
-            $setting2->setSettingValue("{\"show\": true \"orderInvoiceNumber\": \"$invoiceNumber\"}");
+            $setting2->setSettingValue("{\"show\": true, \"merchantName\": \"MODERN IMPRESSIONS OF CHARLOTTE INC.\"}");
 
             $setting3 = new AnetAPI\SettingType();
             $setting3->setSettingName("hostedPaymentReturnOptions");
