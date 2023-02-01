@@ -59,11 +59,7 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
                         </div>
                         <div class="col-md-6 col-xs-8">
                             <h4 class="typo-h4">Credit & debit cards</h4>
-                            <p>We charge a percentage-based fee each time you accept a credit or debit card payment. The
-                                price
-                                is the same for all major cards, including American Express. There’s no additional fee
-                                for
-                                international cards, failed charges, or refunds.
+                            <p>We accept Visa, Mastercard, American Express, Discover, JCB, and Diners Club.
                             </p>
                             <ul>
                                 <li class="card-brands visa"></li>
@@ -83,10 +79,7 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
                         </div>
                         <div class="col-md-6 col-xs-8">
                             <h4 class="typo-h4">ACH payments</h4>
-                            <p>ACH fees are capped at $5—payments above $625 cost $5. We also provide tools to <a
-                                    href="#">verify customers’ bank accounts</a> at no additional cost. We charge $4 for
-                                failed
-                                ACH payments.
+                            <p>ACH payments are accepted.
                             </p>
                         </div>
                     </div>
