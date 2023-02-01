@@ -143,7 +143,7 @@ class authorizenet_Settings_Page
          * @return string $token - Authorize.net Form Token
          *
          */
-        function getAnAcceptPaymentPage(string $merchantID, string $transactionKey, float $amount, string $aNetENV)
+        function getAnAcceptPaymentPage(string $merchantID, string $transactionKey, float $amount, string $invoiceNumber, string $aNetENV)
         {
             // Setup the token variable
             $token = '';
@@ -179,7 +179,7 @@ class authorizenet_Settings_Page
 
             $setting2 = new AnetAPI\SettingType();
             $setting2->setSettingName("hostedPaymentOrderOptions");
-            $setting2->setSettingValue("{\"show\": false}");
+            $setting2->setSettingValue("{\"show\": true \"orderInvoiceNumber\": \"$invoiceNumber\"}");
 
             $setting3 = new AnetAPI\SettingType();
             $setting3->setSettingName("hostedPaymentReturnOptions");
