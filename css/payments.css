@@ -10,7 +10,8 @@
 	display: inline-block;
 	font-family: "Font Awesome 5 Pro";
 	font-style: normal;
-	font-size: 5em;
+	font-size: 4em;
+	margin-top: 60%;
 }
 
 .credit::before {
