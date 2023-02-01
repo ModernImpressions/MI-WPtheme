@@ -85,7 +85,8 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
                     </div>
                     <div class="row is-flex row-space">
                         <h5 class="typo-h5">Contact Us</h5>
-                        <p>For any questions, please contact us at <a href="mailto:careteam@modernimpressions.com"></a>
+                        <p>For any questions, please contact us at <a
+                                href="mailto:careteam@modernimpressions.com">careteam@modernimpressions.com</a>
                             or
                             call us at <a href="tel:1-704-597-7278">1-704-597-7278</a></p>
                     </div>
