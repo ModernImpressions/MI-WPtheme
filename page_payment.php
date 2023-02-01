@@ -58,7 +58,7 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
                                 <figure>
                         </div>
                         <div class="col-md-6 col-xs-8">
-                            <h3 class="typo-h3">Credit & debit cards</h3>
+                            <h4 class="typo-h4">Credit & debit cards</h4>
                             <p>We charge a percentage-based fee each time you accept a credit or debit card payment. The
                                 price
                                 is the same for all major cards, including American Express. There’s no additional fee
@@ -82,7 +82,7 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
                             </div>
                         </div>
                         <div class="col-md-6 col-xs-8">
-                            <h3 class="typo-h3">ACH payments</h3>
+                            <h4 class="typo-h4">ACH payments</h4>
                             <p>ACH fees are capped at $5—payments above $625 cost $5. We also provide tools to <a
                                     href="#">verify customers’ bank accounts</a> at no additional cost. We charge $4 for
                                 failed
