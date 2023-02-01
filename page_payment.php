@@ -6,6 +6,9 @@
 
 get_header();
 
+//include the payments css
+wp_enqueue_style('payments-css', get_template_directory_uri() . '/css/payments.css');
+
 //merchant credentials
 $merchantLoginID = get_option('MERCHANT_LOGIN_ID');
 $merchantTransactionKey = get_option('MERCHANT_TRANSACTION_KEY');
@@ -50,8 +53,7 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
                 </div>
                 <div class="col-md-6 col-xs-8">
                     <h3 class="typo-h3">ACH payments</h3>
-                    <p>ACH fees are capped at $5—payments above $625 cost $5. We also provide tools to <a
-                            href="#">verify customers’ bank accounts</a> at no additional cost. We charge $4 for failed
+                    <p>ACH fees are capped at $5—payments above $625 cost $5. We also provide tools to <a href="#">verify customers’ bank accounts</a> at no additional cost. We charge $4 for failed
                         ACH payments.
                     </p>
                 </div>
@@ -70,23 +72,22 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
                     } ?>
                     <!-- Form to capture information to send to Authorize.net -->
                     <?php if (!isset($_POST['invoiceAmount'])) { ?>
-                    <form method="post" action="">
-                        <label for="invoiceAmount">Invoice Amount</label>
-                        <input type="number" min="0.01" step="0.01" name="invoiceAmount" placeholder="0.00" />
-                        <button id="btnSubmit">Submit</button>
-                    </form>
+                        <form method="post" action="">
+                            <label for="invoiceAmount">Invoice Amount</label>
+                            <input type="number" min="0.01" step="0.01" name="invoiceAmount" placeholder="0.00" />
+                            <button id="btnSubmit">Submit</button>
+                        </form>
                     <?php } ?>
                     <!-- Form to send to Authorize.net -->
                     <?php if (isset($_POST['invoiceAmount'])) {
                         $invoiceAmount = $_POST['invoiceAmount'];
                     ?>
-                    <form method="post" action="<?php echo $paymentURL; ?>" id="formAuthorizeNetTestPage"
-                        name="formAuthorizeNetTestPage">
-                        <?php $paymentToken = getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, $invoiceAmount, $merchantEnv); ?>
-                        <input type="hidden" name="token" value="<?php echo $paymentToken; ?>" />Redirect- Continue to
-                        Authorize.net to Payment Page
-                        <button id="btnContinue">Continue to next page</button>
-                    </form>
+                        <form method="post" action="<?php echo $paymentURL; ?>" id="formAuthorizeNetTestPage" name="formAuthorizeNetTestPage">
+                            <?php $paymentToken = getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, $invoiceAmount, $merchantEnv); ?>
+                            <input type="hidden" name="token" value="<?php echo $paymentToken; ?>" />Redirect- Continue to
+                            Authorize.net to Payment Page
+                            <button id="btnContinue">Continue to next page</button>
+                        </form>
                     <?php } ?>
                 </div>
             </div>
