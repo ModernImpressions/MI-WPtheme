@@ -8,17 +8,17 @@
 	width: 70px;
 	height: 70px;
 	display: inline-block;
-	font-family: "Font Awesome 5 Duotone";
+	font-family: "Font Awesome 5 Pro";
 	font-style: normal;
 	font-size: 5em;
 }
 
-.credit {
-	content: "\f19c";
+.credit::before {
+	content: "\f09d";
 }
 
-.ach {
-	content: "\f09d";
+.ach::before {
+	content: "\f19c";
 }
 
 .disputes {
