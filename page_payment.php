@@ -57,7 +57,7 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
                             <figure class="icon-for-section credit">
                                 <figure>
                         </div>
-                        <div class="col-md-6 col-xs-8">
+                        <div class="col-md-10 col-xs-8">
                             <h5 class="typo-h5">Credit & debit cards</h5>
                             <p>We accept Visa, Mastercard, American Express, Discover, JCB, and Diners Club.
                             </p>
@@ -77,7 +77,7 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
                                 <figure class="icon-for-section ach"></figure>
                             </div>
                         </div>
-                        <div class="col-md-6 col-xs-8">
+                        <div class="col-md-10 col-xs-8">
                             <h5 class="typo-h5">ACH payments</h5>
                             <p>ACH payments are accepted.
                             </p>
