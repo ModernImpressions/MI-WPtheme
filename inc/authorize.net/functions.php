@@ -217,10 +217,10 @@ class authorizenet_Settings_Page
             $request->addToHostedPaymentSettings($setting2);
             $request->addToHostedPaymentSettings($setting3);
             $request->addToHostedPaymentSettings($setting4);
-            $request->addToHostedPaymentSettings($setting5);
-            $request->addToHostedPaymentSettings($setting6);
-            $request->addToHostedPaymentSettings($setting7);
-            $request->addToHostedPaymentSettings($setting8);
+            //$request->addToHostedPaymentSettings($setting5);
+            //$request->addToHostedPaymentSettings($setting6);
+            //$request->addToHostedPaymentSettings($setting7);
+            //$request->addToHostedPaymentSettings($setting8);
 
             //execute request
             $controller = new AnetController\GetHostedPaymentPageController($request);
