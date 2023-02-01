@@ -38,7 +38,7 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
                         <li class="card-brands american-express"></li>
                         <li class="card-brands discover"></li>
                         <li class="card-brands jcb"></li>
-                        <li class="card-brands dinners"></li>
+                        <li class="card-brands diners-club"></li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-sx-3 is-center price-column">
