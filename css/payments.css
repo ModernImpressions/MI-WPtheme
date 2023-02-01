@@ -30,7 +30,7 @@
 	height: 25px;
 	font-family: "Font Awesome 5 Brands";
 	font-style: normal;
-	background-size: normal;
+	font-size: 2.5em;
 }
 
 /* Small icons for credit section */
@@ -38,23 +38,23 @@
 	width: 44px;
 	content: "\f1f0";
 }
-.marter-card {
+.marter-card::before {
 	width: 41px;
-	background-position: -72px -1px;
+	content: "\f1f1";
 }
-.american-express {
+.american-express::before {
 	width: 52px;
-	background-position: -139px -1px;
+	content: "\f1f3";
 }
-.discover {
+.discover::before {
 	width: 56px;
-	background-position: -275px -1px;
+	content: "\f1f2";
 }
-.jcb {
+.jcb::before {
 	width: 28px;
-	background-position: -358px -1px;
+	content: "\f24b";
 }
-.dinners {
+.diners-club::before {
 	width: 29px;
-	background-position: -218px -1px;
+	content: "\f24c";
 }
