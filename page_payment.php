@@ -54,7 +54,8 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
                 <section class="container">
                     <div class="row is-flex row-space">
                         <div class="col-md-2 col-xs-12 small-none is-center is-right">
-                            <i class="fa-duotone fa-credit-card-front"></i>
+                            <figure class="icon-for-section credit">
+                                <figure>
                         </div>
                         <div class="col-md-10 col-xs-8">
                             <h5 class="typo-h5">Credit & debit cards</h5>
@@ -73,7 +74,7 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
                     <div class="row is-flex row-space">
                         <div class="col-md-2 col-xs-12 small-none is-center is-right">
                             <div>
-                                <i class="fa-duotone fa-building-columns"></i>
+                                <figure class="icon-for-section ach"></figure>
                             </div>
                         </div>
                         <div class="col-md-10 col-xs-8">
