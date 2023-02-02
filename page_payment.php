@@ -13,7 +13,9 @@ wp_enqueue_style('payments-css', get_template_directory_uri() . '/css/payments.c
 $merchantLoginID = get_option('MERCHANT_LOGIN_ID');
 $merchantTransactionKey = get_option('MERCHANT_TRANSACTION_KEY');
 $merchantEnv = get_option('aNetENV');
-$paymentURL = 'https://test.authorize.net/payment/payment' // Default to test environment;
+$paymentURL = 'https://test.authorize.net/payment/payment'; // Default to test environment
+//get this wordpress website url without the http://
+$thisDomainName = str_replace('http://', '', get_site_url());
 ?>
 
 <!-- Content Area
@@ -23,13 +25,13 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
         <div class="row">
             <div class="col-md-7">
                 <div class="original_content_area">
-                    <h1>Online Payment Form</h1>
+                    <h2>Online Payment Form</h2>
                     <br />
                     <p>Welcome to our Online Payments portal. Please provide the invoice information below, you will
                         be redirected to Authorize.net to complete the payment. Modern Impressions does not collect
                         payment information on our site.</p>
                     <br />
-                    <p>You can pay online at <a href="<?php echo get_site_url() ?>">modernimpressions.com</a>
+                    <p>You can pay online at <a href="<?php echo get_site_url(); ?>"><?php echo $thisDomainName; ?></a>
                         with confidence. We have partnered with <a href="https://www.authorize.net">Authorize.Net</a>, a
                         leading payment gateway since
                         1996, to accept credit cards and electronic check payments safely and securely for our
@@ -86,7 +88,7 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
                     For additional information regarding the privacy of your sensitive cardholder data, please read the
                     <a href="https://www.authorize.net/company/privacy/">Authorize.Net Privacy Policy</a>.
                     </p>
-                    <p><a href="<?php echo get_site_url() ?>">modernimpressions.com</a> is registered with the
+                    <p><a href="<?php echo get_site_url(); ?>"><?php echo $thisDomainName; ?></a> is registered with the
                         Authorize.Net Verified Merchant Seal program.</p>
                     <!-- Authorize.Net Seal -->
                     <div>PLACEHOLDER FOR SEAL CODE</div>
