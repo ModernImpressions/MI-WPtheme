@@ -121,25 +121,15 @@ class authorizenet_Settings_Page
                     case 'select':
                     case 'multiselect':
                         if (!empty($field['options']) && is_array($field['options'])) {
-                            $attr = '';
-                            $options = '';
+                            $attributes = '';
+                            $options_markup = '';
                             foreach ($field['options'] as $key => $label) {
-                                $options .= sprintf(
-                                    '<option value="%s" %s>%s</option>',
-                                    $key,
-                                    selected($value, $key, false),
-                                    $label
-                                );
+                                $options_markup .= sprintf('<option value="%s" %s>%s</option>', $key, selected($value, $key, false), $label);
                             }
                             if ($field['type'] === 'multiselect') {
-                                $attr = ' multiple="multiple" ';
+                                $attributes = ' multiple="multiple" style="height: 100px;" ';
                             }
-                            printf(
-                                '<select name="%1$s" id="%1$s" %2$s>%3$s</select>',
-                                $field['id'],
-                                $attr,
-                                $options
-                            );
+                            printf('<select name="%1$s" id="%1$s" %2$s>%3$s</select>', $field['id'], $attributes, $options_markup);
                         }
                         break;
                     case 'textarea':
