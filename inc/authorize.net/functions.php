@@ -81,7 +81,7 @@ class authorizenet_Settings_Page
                     array(
                         'label' => 'Verified Merchant Seal Code',
                         'id' => 'MERCHANT_SEAL_CODE',
-                        'type' => 'text',
+                        'type' => 'textarea',
                         'section' => 'authorizenet_section',
                         'desc' => 'Paste the code from the Authorize.net account here.',
                     ),
@@ -141,6 +141,14 @@ class authorizenet_Settings_Page
                                 $options
                             );
                         }
+                        break;
+                    case 'textarea':
+                        printf(
+                            '<textarea name="%1$s" id="%1$s" placeholder="%2$s" rows="15" cols="50">%3$s</textarea>',
+                            $field['id'],
+                            $placeholder,
+                            $value
+                        );
                         break;
                     default:
                         printf(
