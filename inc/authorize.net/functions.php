@@ -127,7 +127,7 @@ class authorizenet_Settings_Page
                                 $options_markup .= sprintf('<option value="%s" %s>%s</option>', $key, selected($value, $key, false), $label);
                             }
                             if ($field['type'] === 'multiselect') {
-                                $attributes = ' multiple="multiple" style="height: 100px;" ';
+                                $attributes = ' multiple style="height: 100px;" ';
                             }
                             printf('<select name="%1$s" id="%1$s" %2$s>%3$s</select>', $field['id'], $attributes, $options_markup);
                         }
