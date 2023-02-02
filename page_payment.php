@@ -13,9 +13,116 @@ wp_enqueue_style('payments-css', get_template_directory_uri() . '/css/payments.c
 $merchantLoginID = get_option('MERCHANT_LOGIN_ID');
 $merchantTransactionKey = get_option('MERCHANT_TRANSACTION_KEY');
 $merchantEnv = get_option('aNetENV');
+$merchantSealCode = get_option('MERCHANT_SEAL_CODE');
+$merchantAcceptedPaymentMethods = get_option('MERCHANT_ACCEPTED_METHODS');
 $paymentURL = 'https://test.authorize.net/payment/payment'; // Default to test environment
+
 //get this wordpress website url without the http:// or https:// or http://www. or https://www.
 $thisDomainName = preg_replace('^https?://(?:www.)?^', '', get_site_url());
+
+// process the accepted payment methods array, for each set a variable to true
+foreach ($merchantAcceptedPaymentMethods as $method) {
+    if ($method == 'visa') {
+        $visa = true;
+    }
+    if ($method == 'mastercard') {
+        $mastercard = true;
+    }
+    if ($method == 'amex') {
+        $amex = true;
+    }
+    if ($method == 'discover') {
+        $discover = true;
+    }
+    if ($method == 'diners') {
+        $diners = true;
+    }
+    if ($method == 'jcb') {
+        $jcb = true;
+    }
+    if ($method == 'paypal') {
+        $paypal = true;
+    }
+    if ($method == 'applepay') {
+        $applepay = true;
+    }
+    if ($method == 'ach') {
+        $bankAccount = true;
+    }
+}
+// assemble the accepted payment methods array based on the variables set above
+$acceptedPaymentMethods = array();
+if ($visa) {
+    array_push($acceptedPaymentMethods, 'Visa');
+}
+if ($mastercard) {
+    array_push($acceptedPaymentMethods, 'MasterCard');
+}
+if ($amex) {
+    array_push($acceptedPaymentMethods, 'American Express');
+}
+if ($discover) {
+    array_push($acceptedPaymentMethods, 'Discover');
+}
+if ($diners) {
+    array_push($acceptedPaymentMethods, 'Diners Club');
+}
+if ($jcb) {
+    array_push($acceptedPaymentMethods, 'JCB');
+}
+if ($paypal) {
+    array_push($acceptedPaymentMethods, 'PayPal');
+}
+if ($applepay) {
+    array_push($acceptedPaymentMethods, 'ApplePay');
+}
+if ($bankAccount) {
+    array_push($acceptedPaymentMethods, 'ACH');
+}
+// convert the accepted payment methods array to a string with commas
+$acceptedPaymentMethods = implode(', ', $acceptedPaymentMethods);
+// assemble the accepted credit cards array based on the variables set above
+$acceptedCreditCardsArray = array();
+if ($visa) {
+    array_push($acceptedCreditCardsArray, 'Visa');
+}
+if ($mastercard) {
+    array_push($acceptedCreditCardsArray, 'MasterCard');
+}
+if ($amex) {
+    array_push($acceptedCreditCardsArray, 'American Express');
+}
+if ($discover) {
+    array_push($acceptedCreditCardsArray, 'Discover');
+}
+if ($diners) {
+    array_push($acceptedCreditCardsArray, 'Diners Club');
+}
+if ($jcb) {
+    array_push($acceptedCreditCardsArray, 'JCB');
+}
+// for the logos, set an array of the accepted credit cards with lower case names and no spaces
+$acceptedCreditCardsLogos = array();
+if ($visa) {
+    array_push($acceptedCreditCardsLogos, 'visa');
+}
+if ($mastercard) {
+    array_push($acceptedCreditCardsLogos, 'mastercard');
+}
+if ($amex) {
+    array_push($acceptedCreditCardsLogos, 'amex');
+}
+if ($discover) {
+    array_push($acceptedCreditCardsLogos, 'discover');
+}
+if ($diners) {
+    array_push($acceptedCreditCardsLogos, 'diners');
+}
+if ($jcb) {
+    array_push($acceptedCreditCardsLogos, 'jcb');
+}
+// convert the accepted credit cards array to a string with commas and an 'and' before the last item
+$acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', ', array_slice($acceptedCreditCardsArray, 0, -1))), array_slice($acceptedCreditCardsArray, -1)), 'strlen'));
 ?>
 
 <!-- Content Area
@@ -90,10 +197,12 @@ $thisDomainName = preg_replace('^https?://(?:www.)?^', '', get_site_url());
                         <a href="https://www.authorize.net/company/privacy/">Authorize.Net Privacy Policy</a>.
                     </p>
                     </p>
+                    <?php if (isset($merchantSealCode)) { ?>
                     <p><a href="<?php echo get_site_url(); ?>"><?php echo $thisDomainName; ?></a> is registered with the
                         Authorize.Net Verified Merchant Seal program.</p>
                     <!-- Authorize.Net Seal -->
-                    <div>PLACEHOLDER FOR SEAL CODE</div>
+                    <div><?php echo $merchantSealCode; ?></div>
+                    <?php } ?>
                 </div>
             </div>
             <div class="col-md-5">
@@ -105,15 +214,12 @@ $thisDomainName = preg_replace('^https?://(?:www.)?^', '', get_site_url());
                         </div>
                         <div class="col-md-10 col-xs-8">
                             <h5 class="typo-h5">Credit & debit cards</h5>
-                            <p>We accept Visa, Mastercard, American Express, Discover, JCB, and Diners Club.
+                            <p>We accept <?php echo $acceptedCreditCards; ?>.
                             </p>
                             <ul>
-                                <li class="card-brands visa"></li>
-                                <li class="card-brands marter-card"></li>
-                                <li class="card-brands american-express"></li>
-                                <li class="card-brands discover"></li>
-                                <li class="card-brands jcb"></li>
-                                <li class="card-brands diners-club"></li>
+                                <?php foreach ($acceptedCreditCardsLogos as $creditCard) { ?>
+                                <li class="card-brands <?php echo $creditCard; ?>"></li>
+                                <?php } ?>
                             </ul>
                         </div>
                     </div>
