@@ -15,6 +15,8 @@ $merchantTransactionKey = get_option('MERCHANT_TRANSACTION_KEY');
 $merchantEnv = get_option('aNetENV');
 $merchantSealCode = get_option('MERCHANT_SEAL_CODE');
 $merchantAcceptedPaymentMethods = get_option('MERCHANT_ACCEPTED_METHODS');
+//convert the accepted payment methods string to an array
+
 $paymentURL = 'https://test.authorize.net/payment/payment'; // Default to test environment
 
 //get this wordpress website url without the http:// or https:// or http://www. or https://www.
