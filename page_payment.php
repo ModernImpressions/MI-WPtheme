@@ -22,7 +22,7 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
     <div class="container">
         <div class="row">
             <div class="col-md-7">
-                < class="original_content_area">
+                <div class="original_content_area">
                     <h1>Online Payment Form</h1>
                     <br />
                     <p>Welcome to our Online Payments portal. Please provide the invoice information below, you will
@@ -90,52 +90,52 @@ $paymentURL = 'https://test.authorize.net/payment/payment' // Default to test en
                         Authorize.Net Verified Merchant Seal program.</p>
                     <!-- Authorize.Net Seal -->
                     <div>PLACEHOLDER FOR SEAL CODE</div>
-            </div>
-        </div>
-        <div class="col-md-5">
-            <section class="container">
-                <div class="row is-flex row-space">
-                    <div class="col-md-2 col-xs-12 small-none is-center is-right">
-                        <figure class="icon-for-section credit">
-                        </figure>
-                    </div>
-                    <div class="col-md-10 col-xs-8">
-                        <h5 class="typo-h5">Credit & debit cards</h5>
-                        <p>We accept Visa, Mastercard, American Express, Discover, JCB, and Diners Club.
-                        </p>
-                        <ul>
-                            <li class="card-brands visa"></li>
-                            <li class="card-brands marter-card"></li>
-                            <li class="card-brands american-express"></li>
-                            <li class="card-brands discover"></li>
-                            <li class="card-brands jcb"></li>
-                            <li class="card-brands diners-club"></li>
-                        </ul>
-                    </div>
                 </div>
-                <div class="row is-flex row-space">
-                    <div class="col-md-2 col-xs-12 small-none is-center is-right">
-                        <div>
-                            <figure class="icon-for-section ach"></figure>
+            </div>
+            <div class="col-md-5">
+                <section class="container">
+                    <div class="row is-flex row-space">
+                        <div class="col-md-2 col-xs-12 small-none is-center is-right">
+                            <figure class="icon-for-section credit">
+                            </figure>
+                        </div>
+                        <div class="col-md-10 col-xs-8">
+                            <h5 class="typo-h5">Credit & debit cards</h5>
+                            <p>We accept Visa, Mastercard, American Express, Discover, JCB, and Diners Club.
+                            </p>
+                            <ul>
+                                <li class="card-brands visa"></li>
+                                <li class="card-brands marter-card"></li>
+                                <li class="card-brands american-express"></li>
+                                <li class="card-brands discover"></li>
+                                <li class="card-brands jcb"></li>
+                                <li class="card-brands diners-club"></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-md-10 col-xs-8">
-                        <h5 class="typo-h5">ACH payments</h5>
-                        <p>ACH payments are accepted.
-                        </p>
+                    <div class="row is-flex row-space">
+                        <div class="col-md-2 col-xs-12 small-none is-center is-right">
+                            <div>
+                                <figure class="icon-for-section ach"></figure>
+                            </div>
+                        </div>
+                        <div class="col-md-10 col-xs-8">
+                            <h5 class="typo-h5">ACH payments</h5>
+                            <p>ACH payments are accepted.
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="row is-flex row-space">
-                    <h5 class="typo-h5">Contact Us</h5>
-                    <p>For any questions, please contact us at <a
-                            href="mailto:careteam@modernimpressions.com">careteam@modernimpressions.com</a>
-                        or
-                        call us at <a href="tel:1-704-597-7278">1-704-597-7278</a></p>
-                </div>
-            </section>
+                    <div class="row is-flex row-space">
+                        <h5 class="typo-h5">Contact Us</h5>
+                        <p>For any questions, please contact us at <a
+                                href="mailto:careteam@modernimpressions.com">careteam@modernimpressions.com</a>
+                            or
+                            call us at <a href="tel:1-704-597-7278">1-704-597-7278</a></p>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
-</div>
 </div>
 
 
