@@ -6,7 +6,7 @@ use net\authorize\api\controller as AnetController;
 
 define("AUTHORIZENET_LOG_FILE", "phplog");
 
-// Settings Page: Authorize.net
+/// Settings Page: Authorize.net
 // Retrieving values: get_option( 'your_field_id' )
 class authorizenet_Settings_Page
 {
@@ -76,7 +76,6 @@ class authorizenet_Settings_Page
                         ),
                         'desc' => 'Set to Production for Live sites',
                         'placeholder' => 'SANDBOX',
-                        'default' => 'SANDBOX',
                     ),
                     array(
                         'label' => 'Verified Merchant Seal Code',
@@ -102,6 +101,7 @@ class authorizenet_Settings_Page
                             'visa' => 'Visa',
                         ),
                         'desc' => 'Check all methods that are accepted on the Authorize.net account, this will show the appropriate badges on the site.',
+                        'placeholder' => 'Please select at least 1 Method',
                     ),
                 );
                 foreach ($fields as $field) {
@@ -121,20 +121,30 @@ class authorizenet_Settings_Page
                     case 'select':
                     case 'multiselect':
                         if (!empty($field['options']) && is_array($field['options'])) {
-                            $attributes = '';
-                            $options_markup = '';
+                            $attr = '';
+                            $options = '';
                             foreach ($field['options'] as $key => $label) {
-                                $options_markup .= sprintf('<option value="%s" %s>%s</option>', $key, selected($value, $key, false), $label);
+                                $options .= sprintf(
+                                    '<option value="%s" %s>%s</option>',
+                                    $key,
+                                    selected($value, $key, false),
+                                    $label
+                                );
                             }
                             if ($field['type'] === 'multiselect') {
-                                $attributes = ' multiple style="height: 100px;" ';
+                                $attr = ' multiple="multiple" ';
                             }
-                            printf('<select name="%1$s" id="%1$s" %2$s>%3$s</select>', $field['id'], $attributes, $options_markup);
+                            printf(
+                                '<select name="%1$s" id="%1$s" %2$s>%3$s</select>',
+                                $field['id'],
+                                $attr,
+                                $options
+                            );
                         }
                         break;
                     case 'textarea':
                         printf(
-                            '<textarea name="%1$s" id="%1$s" placeholder="%2$s" rows="15" cols="50">%3$s</textarea>',
+                            '<textarea name="%1$s" id="%1$s" placeholder="%2$s" rows="5" cols="50">%3$s</textarea>',
                             $field['id'],
                             $placeholder,
                             $value
