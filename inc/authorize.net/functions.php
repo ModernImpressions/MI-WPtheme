@@ -30,17 +30,17 @@ class authorizenet_Settings_Page
 
     public function wph_settings_content()
     { ?>
-        <div class="wrap">
-            <h1>Authorize.net Settings</h1>
-            <?php settings_errors(); ?>
-            <form method="POST" action="options.php">
-                <?php
+<div class="wrap">
+    <h1>Authorize.net Settings</h1>
+    <?php settings_errors(); ?>
+    <form method="POST" action="options.php">
+        <?php
                 settings_fields('authorizenet');
                 do_settings_sections('authorizenet');
                 submit_button();
                 ?>
-            </form>
-        </div> <?php
+    </form>
+</div> <?php
             }
 
             public function wph_setup_sections()
@@ -77,6 +77,31 @@ class authorizenet_Settings_Page
                         'desc' => 'Set to Production for Live sites',
                         'placeholder' => 'SANDBOX',
                         'default' => 'SANDBOX',
+                    ),
+                    array(
+                        'label' => 'Verified Merchant Seal Code',
+                        'id' => 'MERCHANT_SEAL_CODE',
+                        'type' => 'text',
+                        'section' => 'authorizenet_section',
+                        'desc' => 'Paste the code from the Authorize.net account here.',
+                    ),
+                    array(
+                        'label' => 'Accepted Payment Methods',
+                        'id' => 'MERCHANT_ACCEPTED_METHODS',
+                        'type' => 'multiselect',
+                        'section' => 'authorizenet_section',
+                        'options' => array(
+                            'visa' => 'Visa',
+                            'mastercard' => 'MasterCard',
+                            'amex' => 'AmericanExpress',
+                            'discover' => 'Discover',
+                            'jcb' => 'JCB',
+                            'diners' => 'Diners Club',
+                            'paypal' => 'PayPal',
+                            'ach' => 'ACH',
+                            'applepay' => 'ApplePay',
+                        ),
+                        'desc' => 'Check all methods that are accepted on the Authorize.net account, this will show the appropriate badges on the site.',
                     ),
                 );
                 foreach ($fields as $field) {
