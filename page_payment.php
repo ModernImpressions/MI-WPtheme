@@ -85,8 +85,10 @@ $thisDomainName = preg_replace('^https?://(?:www.)?^', '', get_site_url());
                         <li>Compliance with the Payment Card Industry Data Security Standard (PCI DSS).</li>
                     </ul>
                     <br />
-                    For additional information regarding the privacy of your sensitive cardholder data, please read the
-                    <a href="https://www.authorize.net/company/privacy/">Authorize.Net Privacy Policy</a>.
+                    <p>For additional information regarding the privacy of your sensitive cardholder data, please read
+                        the
+                        <a href="https://www.authorize.net/company/privacy/">Authorize.Net Privacy Policy</a>.
+                    </p>
                     </p>
                     <p><a href="<?php echo get_site_url(); ?>"><?php echo $thisDomainName; ?></a> is registered with the
                         Authorize.Net Verified Merchant Seal program.</p>
