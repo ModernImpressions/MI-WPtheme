@@ -39,11 +39,11 @@
 	width: 44px;
 	content: "\f1f0";
 }
-.marter-card::before {
+.mastercard::before {
 	width: 41px;
 	content: "\f1f1";
 }
-.american-express::before {
+.amex::before {
 	width: 52px;
 	content: "\f1f3";
 }
@@ -55,7 +55,7 @@
 	width: 28px;
 	content: "\f24b";
 }
-.diners-club::before {
+.diners::before {
 	width: 29px;
 	content: "\f24c";
 }
