@@ -123,6 +123,11 @@ if ($jcb) {
 }
 // convert the accepted credit cards array to a string with commas and an 'and' before the last item
 $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', ', array_slice($acceptedCreditCardsArray, 0, -1))), array_slice($acceptedCreditCardsArray, -1)), 'strlen'));
+
+//if any of the credit cards are accepted, set the cc variable to true
+if ($visa || $mastercard || $amex || $discover || $diners || $jcb) {
+    $cc = true;
+}
 ?>
 
 <!-- Content Area
@@ -197,7 +202,8 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                         <a href="https://www.authorize.net/company/privacy/">Authorize.Net Privacy Policy</a>.
                     </p>
                     </p>
-                    <?php if (isset($merchantSealCode)) { ?>
+                    <?php if (isset($merchantSealCode) || $merchantSealCode != NULL || $merchantSealCode != "") { //variable is set and isn't null or blank
+                    ?>
                     <p><a href="<?php echo get_site_url(); ?>"><?php echo $thisDomainName; ?></a> is registered with the
                         Authorize.Net Verified Merchant Seal program.</p>
                     <!-- Authorize.Net Seal -->
@@ -207,6 +213,7 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
             </div>
             <div class="col-md-5">
                 <section class="container">
+                    <?php if ($cc == true) { ?>
                     <div class="row is-flex row-space">
                         <div class="col-md-2 col-xs-12 small-none is-center is-right">
                             <figure class="icon-for-section credit">
@@ -223,6 +230,8 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                             </ul>
                         </div>
                     </div>
+                    <?php } ?>
+                    <?php if ($ach == true) { ?>
                     <div class="row is-flex row-space">
                         <div class="col-md-2 col-xs-12 small-none is-center is-right">
                             <div>
@@ -235,6 +244,7 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                             </p>
                         </div>
                     </div>
+                    <?php } ?>
                     <div class="row is-flex row-space">
                         <h5 class="typo-h5">Contact Us</h5>
                         <p>For any questions, please contact us at <a
