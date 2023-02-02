@@ -14,8 +14,8 @@ $merchantLoginID = get_option('MERCHANT_LOGIN_ID');
 $merchantTransactionKey = get_option('MERCHANT_TRANSACTION_KEY');
 $merchantEnv = get_option('aNetENV');
 $paymentURL = 'https://test.authorize.net/payment/payment'; // Default to test environment
-//get this wordpress website url without the http://
-$thisDomainName = str_replace('http://', '', get_site_url());
+//get this wordpress website url without the http:// or https:// or http://www. or https://www.
+$thisDomainName = preg_replace('^https?://(?:www.)?#', '', get_site_url());
 ?>
 
 <!-- Content Area
