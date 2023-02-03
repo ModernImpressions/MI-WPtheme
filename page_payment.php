@@ -15,6 +15,10 @@ $merchantTransactionKey = get_option('MERCHANT_TRANSACTION_KEY');
 $merchantEnv = get_option('aNetENV');
 $merchantSealCode = get_option('MERCHANT_SEAL_CODE');
 $merchantAcceptedPaymentMethods = array();
+$acceptedPaymentMethods = array();
+$acceptedCreditCardsArray = array();
+$acceptedCreditCardsLogos = array();
+$acceptedDigitalGatewaysLogos = array();
 //convert the accepted payment method booleans to an array
 if (get_option('MERCHANT_ACCEPT_VISA') == 'true') {
     array_push($merchantAcceptedPaymentMethods, 'visa');
@@ -54,123 +58,83 @@ $thisDomainName = preg_replace('^https?://(?:www.)?^', '', get_site_url());
 foreach ($merchantAcceptedPaymentMethods as $method) {
     if ($method == 'visa') {
         $visa = true;
+        array_push($acceptedPaymentMethods, 'Visa');
+        array_push($acceptedCreditCardsArray, 'Visa');
+        array_push($acceptedCreditCardsLogos, 'visa');
+        if ($cc != true) {
+            $cc = true;
+        }
     }
     if ($method == 'mastercard') {
         $mastercard = true;
+        array_push($acceptedPaymentMethods, 'MasterCard');
+        array_push($acceptedCreditCardsArray, 'MasterCard');
+        array_push($acceptedCreditCardsLogos, 'mastercard');
+        if ($cc != true) {
+            $cc = true;
+        }
     }
     if ($method == 'amex') {
         $amex = true;
+        array_push($acceptedPaymentMethods, 'American Express');
+        array_push($acceptedCreditCardsArray, 'American Express');
+        array_push($acceptedCreditCardsLogos, 'amex');
+        if ($cc != true) {
+            $cc = true;
+        }
     }
     if ($method == 'discover') {
         $discover = true;
+        array_push($acceptedPaymentMethods, 'Discover');
+        array_push($acceptedCreditCardsArray, 'Discover');
+        array_push($acceptedCreditCardsLogos, 'discover');
+        if ($cc != true) {
+            $cc = true;
+        }
     }
     if ($method == 'diners') {
         $diners = true;
+        array_push($acceptedPaymentMethods, 'Diners Club');
+        array_push($acceptedCreditCardsArray, 'Diners Club');
+        array_push($acceptedCreditCardsLogos, 'diners');
+        if ($cc != true) {
+            $cc = true;
+        }
     }
     if ($method == 'jcb') {
         $jcb = true;
+        array_push($acceptedPaymentMethods, 'JCB');
+        array_push($acceptedCreditCardsArray, 'JCB');
+        array_push($acceptedCreditCardsLogos, 'jcb');
+        if ($cc != true) {
+            $cc = true;
+        }
     }
     if ($method == 'paypal') {
         $paypal = true;
+        array_push($acceptedPaymentMethods, 'PayPal');
+        array_push($acceptedDigitalGatewaysLogos, 'paypal');
+        if ($digital != true) {
+            $digital = true;
+        }
     }
     if ($method == 'applepay') {
         $applepay = true;
+        array_push($acceptedPaymentMethods, 'ApplePay');
+        array_push($acceptedDigitalGatewaysLogos, 'applepay');
+        if ($digital != true) {
+            $digital = true;
+        }
     }
     if ($method == 'ach') {
         $bankAccount = true;
+        array_push($acceptedPaymentMethods, 'ACH');
     }
-}
-// assemble the accepted payment methods array based on the variables set above
-$acceptedPaymentMethods = array();
-if ($visa) {
-    array_push($acceptedPaymentMethods, 'Visa');
-}
-if ($mastercard) {
-    array_push($acceptedPaymentMethods, 'MasterCard');
-}
-if ($amex) {
-    array_push($acceptedPaymentMethods, 'American Express');
-}
-if ($discover) {
-    array_push($acceptedPaymentMethods, 'Discover');
-}
-if ($diners) {
-    array_push($acceptedPaymentMethods, 'Diners Club');
-}
-if ($jcb) {
-    array_push($acceptedPaymentMethods, 'JCB');
-}
-if ($paypal) {
-    array_push($acceptedPaymentMethods, 'PayPal');
-}
-if ($applepay) {
-    array_push($acceptedPaymentMethods, 'ApplePay');
-}
-if ($bankAccount) {
-    array_push($acceptedPaymentMethods, 'ACH');
 }
 // convert the accepted payment methods array to a string with commas
 $acceptedPaymentMethods = implode(', ', $acceptedPaymentMethods);
-// assemble the accepted credit cards array based on the variables set above
-$acceptedCreditCardsArray = array();
-if ($visa) {
-    array_push($acceptedCreditCardsArray, 'Visa');
-}
-if ($mastercard) {
-    array_push($acceptedCreditCardsArray, 'MasterCard');
-}
-if ($amex) {
-    array_push($acceptedCreditCardsArray, 'American Express');
-}
-if ($discover) {
-    array_push($acceptedCreditCardsArray, 'Discover');
-}
-if ($diners) {
-    array_push($acceptedCreditCardsArray, 'Diners Club');
-}
-if ($jcb) {
-    array_push($acceptedCreditCardsArray, 'JCB');
-}
-// for the logos, set an array of the accepted credit cards with lower case names and no spaces
-$acceptedCreditCardsLogos = array();
-if ($visa) {
-    array_push($acceptedCreditCardsLogos, 'visa');
-}
-if ($mastercard) {
-    array_push($acceptedCreditCardsLogos, 'mastercard');
-}
-if ($amex) {
-    array_push($acceptedCreditCardsLogos, 'amex');
-}
-if ($discover) {
-    array_push($acceptedCreditCardsLogos, 'discover');
-}
-if ($diners) {
-    array_push($acceptedCreditCardsLogos, 'diners');
-}
-if ($jcb) {
-    array_push($acceptedCreditCardsLogos, 'jcb');
-}
 // convert the accepted credit cards array to a string with commas and an 'and' before the last item
 $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', ', array_slice($acceptedCreditCardsArray, 0, -1))), array_slice($acceptedCreditCardsArray, -1)), 'strlen'));
-
-//if any of the credit cards are accepted, set the cc variable to true
-if ($visa || $mastercard || $amex || $discover || $diners || $jcb) {
-    $cc = true;
-}
-// for the logos, set an array of the accepted digital gateways with lower case names and no spaces
-$acceptedDigitalGatewaysLogos = array();
-if ($paypal) {
-    array_push($acceptedDigitalGatewaysLogos, 'paypal');
-}
-if ($applepay) {
-    array_push($acceptedDigitalGatewaysLogos, 'applepay');
-}
-
-//if any digital gateways are accepted, set the digital variable to true
-if ($paypal || $applepay) {
-    $digital = true;
-}
 ?>
 
 <!-- Content Area
