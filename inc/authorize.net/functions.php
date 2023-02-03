@@ -30,17 +30,17 @@ class authorizenet_Settings_Page
 
     public function wph_settings_content()
     { ?>
-<div class="wrap">
-    <h1>Authorize.net Settings</h1>
-    <?php settings_errors(); ?>
-    <form method="POST" action="options.php">
-        <?php
+        <div class="wrap">
+            <h1>Authorize.net Settings</h1>
+            <?php settings_errors(); ?>
+            <form method="POST" action="options.php">
+                <?php
                 settings_fields('authorizenet');
                 do_settings_sections('authorizenet');
                 submit_button();
                 ?>
-    </form>
-</div> <?php
+            </form>
+        </div> <?php
             }
 
             public function wph_setup_sections()
@@ -288,7 +288,13 @@ class authorizenet_Settings_Page
             $transactionRequestType = new AnetAPI\TransactionRequestType();
             $transactionRequestType->setTransactionType("authOnlyTransaction");
             $transactionRequestType->setAmount($amount);
-            $transactionRequestType->setOrder(new AnetAPI\OrderType(array("invoiceNumber" => $invoiceNumber)));
+
+            // Create an Order
+            $order = new AnetAPI\OrderType();
+            $order->setInvoiceNumber($invoiceNumber);
+
+            // Add the Order to the transaction
+            $transactionRequestType->setOrder($order);
 
             // Set Hosted Form Options
             $hostedPaymentButtonOptions = new AnetAPI\SettingType();
