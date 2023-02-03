@@ -225,11 +225,11 @@ class authorizenet_Settings_Page
         new authorizenet_Settings_Page();
 
         // if the Payment Return page doesn't exist, create it
-        if (!get_page_by_path(get_site_url() . '/support/payments/return')) {
+        if (!get_page_by_path('support/payments/return')) {
             $page = array(
                 'post_title' => 'Payment Complete',
                 'post_name' => 'return',
-                'post_parent' => get_page_by_path(get_site_url() . '/support/payments')->ID,
+                'post_parent' => get_page_by_path('support/payments')->ID,
                 'post_content' => 'This is the return page for Authorize.net payments.',
                 'post_status' => 'publish',
                 'post_author' => 1,
@@ -238,12 +238,12 @@ class authorizenet_Settings_Page
             wp_insert_post($page);
         }
 
-        // if the Payment Canceled page doesn't exist, create it
-        if (!get_page_by_path(get_site_url() . '/support/payments/cancel')) {
+        // if the Payment Cancelled page doesn't exist, create it
+        if (!get_page_by_path('support/payments/cancel')) {
             $page = array(
                 'post_title' => 'Payment Cancelled',
                 'post_name' => 'cancel',
-                'post_parent' => get_page_by_path(get_site_url() . '/support/payments')->ID,
+                'post_parent' => get_page_by_path('support/payments')->ID,
                 'post_content' => 'This is the cancel page for Authorize.net payments.',
                 'post_status' => 'publish',
                 'post_author' => 1,
