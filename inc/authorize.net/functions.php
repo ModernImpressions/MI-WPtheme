@@ -1,4 +1,22 @@
 <?php
+
+/**
+ * Authorize.net Functions
+ *
+ * @package     Authorize.net
+ * @subpackage  Functions
+ * @author      Patrick Barnhardt
+ * @license     GPL-2.0+
+ * @link
+ * @since       1.0.0
+ * @version     1.0.0
+ *
+ */
+
+// Exit if accessed directly
+if (!defined('ABSPATH')) exit;
+
+// Load Authorize.net API
 require_once(get_template_directory() . '/vendor/authorizenet/authorizenet/autoload.php');
 
 use net\authorize\api\contract\v1 as AnetAPI;
@@ -357,9 +375,8 @@ class authorizenet_Settings_Page
                 //echo "SUCCESS :  Token : " . $token . "\n";
             } else {
                 //echo "ERROR :  Failed to get hosted payment page token \n";
-                //$errorMessages = $response->getMessages()->getMessage();
-                //echo "RESPONSE : " . $errorMessages[0]->getCode() . "\n" . "DESCRIPTION : " . $errorMessages[0]->getText() . "\n";
+                $errorMessages = $response->getMessages()->getMessage();
+                error_log("ERROR :  Failed to get hosted payment page token -  RESPONSE : " . $errorMessages[0]->getCode() . " - " . "DESCRIPTION : " . $errorMessages[0]->getText() . "\n");
             }
             return $token;
         }
-                ?>
