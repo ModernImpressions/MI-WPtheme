@@ -239,9 +239,35 @@ class authorizenet_Settings_Page
 
             // Set the Return URL - This is where the user will be redirected to after payment, using the WordPress site URL
             $returnURL = get_site_url() . '/support/payments/return';
+            // if the page doesn't exist, create it
+            if (!get_page_by_path('support/payments/return')) {
+                $page = array(
+                    'post_title' => 'Payment Complete',
+                    'post_name' => 'return',
+                    'post_parent' => get_page_by_path('support/payments')->ID,
+                    'post_content' => 'This is the return page for Authorize.net payments.',
+                    'post_status' => 'publish',
+                    'post_author' => 1,
+                    'post_type' => 'page',
+                );
+                wp_insert_post($page);
+            }
 
             // Set the Cancel URL
             $cancelURL = get_site_url() . '/support/payments/cancel';
+            // if the page doesn't exist, create it
+            if (!get_page_by_path('support/payments/cancel')) {
+                $page = array(
+                    'post_title' => 'Payment Cancelled',
+                    'post_name' => 'cancel',
+                    'post_parent' => get_page_by_path('support/payments')->ID,
+                    'post_content' => 'This is the cancel page for Authorize.net payments.',
+                    'post_status' => 'publish',
+                    'post_author' => 1,
+                    'post_type' => 'page',
+                );
+                wp_insert_post($page);
+            }
 
             // Set the Authorize.net environment
             if ($aNetENV == null || $aNetENV == '') {
