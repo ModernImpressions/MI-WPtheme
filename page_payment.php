@@ -19,33 +19,33 @@ $acceptedPaymentMethods = array();
 $acceptedCreditCardsArray = array();
 $acceptedCreditCardsLogos = array();
 $acceptedDigitalGatewaysLogos = array();
-//convert the accepted payment method booleans to an array
-if (get_option('MERCHANT_ACCEPT_VISA') == 'true') {
-    array_push($merchantAcceptedPaymentMethods, 'visa');
+//convert the accepted payment method to an array if it is not empty false or 0
+if (get_option('MERCHANT_ACCEPT_VISA') == 'true' || get_option('MERCHANT_ACCEPT_VISA') == 1 || get_option('MERCHANT_ACCEPT_VISA') == '1') {
+    $merchantAcceptedPaymentMethods[] = 'visa';
 }
-if (get_option('MERCHANT_ACCEPT_MASTERCARD') == 'true') {
-    array_push($merchantAcceptedPaymentMethods, 'mastercard');
+if (get_option('MERCHANT_ACCEPT_MASTERCARD') == 'true' || get_option('MERCHANT_ACCEPT_MASTERCARD') == 1 || get_option('MERCHANT_ACCEPT_MASTERCARD') == '1') {
+    $merchantAcceptedPaymentMethods[] = 'mastercard';
 }
-if (get_option('MERCHANT_ACCEPT_AMEX') == 'true') {
-    array_push($merchantAcceptedPaymentMethods, 'amex');
+if (get_option('MERCHANT_ACCEPT_AMEX') == 'true' || get_option('MERCHANT_ACCEPT_AMEX') == 1 || get_option('MERCHANT_ACCEPT_AMEX') == '1') {
+    $merchantAcceptedPaymentMethods[] = 'amex';
 }
-if (get_option('MERCHANT_ACCEPT_DISCOVER') == 'true') {
-    array_push($merchantAcceptedPaymentMethods, 'discover');
+if (get_option('MERCHANT_ACCEPT_DISCOVER') == 'true' || get_option('MERCHANT_ACCEPT_DISCOVER') == 1 || get_option('MERCHANT_ACCEPT_DISCOVER') == '1') {
+    $merchantAcceptedPaymentMethods[] = 'discover';
 }
-if (get_option('MERCHANT_ACCEPT_DINERS') == 'true') {
-    array_push($merchantAcceptedPaymentMethods, 'diners');
+if (get_option('MERCHANT_ACCEPT_DINERS') == 'true' || get_option('MERCHANT_ACCEPT_DINERS') == 1 || get_option('MERCHANT_ACCEPT_DINERS') == '1') {
+    $merchantAcceptedPaymentMethods[] = 'diners';
 }
-if (get_option('MERCHANT_ACCEPT_JCB') == 'true') {
-    array_push($merchantAcceptedPaymentMethods, 'jcb');
+if (get_option('MERCHANT_ACCEPT_JCB') == 'true' || get_option('MERCHANT_ACCEPT_JCB') == 1 || get_option('MERCHANT_ACCEPT_JCB') == '1') {
+    $merchantAcceptedPaymentMethods[] = 'jcb';
 }
-if (get_option('MERCHANT_ACCEPT_PAYPAL') == 'true') {
-    array_push($merchantAcceptedPaymentMethods, 'paypal');
+if (get_option('MERCHANT_ACCEPT_PAYPAL') == 'true' || get_option('MERCHANT_ACCEPT_PAYPAL') == 1 || get_option('MERCHANT_ACCEPT_PAYPAL') == '1') {
+    $merchantAcceptedPaymentMethods[] = 'paypal';
 }
-if (get_option('MERCHANT_ACCEPT_APPLEPAY') == 'true') {
-    array_push($merchantAcceptedPaymentMethods, 'applepay');
+if (get_option('MERCHANT_ACCEPT_APPLEPAY') == 'true' || get_option('MERCHANT_ACCEPT_APPLEPAY') == 1 || get_option('MERCHANT_ACCEPT_APPLEPAY') == '1') {
+    $merchantAcceptedPaymentMethods[] = 'applepay';
 }
-if (get_option('MERCHANT_ACCEPT_ACH') == 'true') {
-    array_push($merchantAcceptedPaymentMethods, 'ach');
+if (get_option('MERCHANT_ACCEPT_ACH') == 'true' || get_option('MERCHANT_ACCEPT_ACH') == 1 || get_option('MERCHANT_ACCEPT_ACH') == '1') {
+    $merchantAcceptedPaymentMethods[] = 'ach';
 }
 
 //initialize the payment URL
@@ -58,77 +58,77 @@ $thisDomainName = preg_replace('^https?://(?:www.)?^', '', get_site_url());
 foreach ($merchantAcceptedPaymentMethods as $method) {
     if ($method == 'visa') {
         $visa = true;
-        array_push($acceptedPaymentMethods, 'Visa');
-        array_push($acceptedCreditCardsArray, 'Visa');
-        array_push($acceptedCreditCardsLogos, 'visa');
+        $acceptedPaymentMethods[] = 'Visa';
+        $acceptedCreditCardsArray[] = 'Visa';
+        $acceptedCreditCardsLogos[] = 'visa';
         if ($cc != true) {
             $cc = true;
         }
     }
     if ($method == 'mastercard') {
         $mastercard = true;
-        array_push($acceptedPaymentMethods, 'MasterCard');
-        array_push($acceptedCreditCardsArray, 'MasterCard');
-        array_push($acceptedCreditCardsLogos, 'mastercard');
+        $acceptedPaymentMethods[] = 'MasterCard';
+        $acceptedCreditCardsArray[] = 'MasterCard';
+        $acceptedCreditCardsLogos[] = 'mastercard';
         if ($cc != true) {
             $cc = true;
         }
     }
     if ($method == 'amex') {
         $amex = true;
-        array_push($acceptedPaymentMethods, 'American Express');
-        array_push($acceptedCreditCardsArray, 'American Express');
-        array_push($acceptedCreditCardsLogos, 'amex');
+        $acceptedPaymentMethods[] = 'American Express';
+        $acceptedCreditCardsArray[] = 'American Express';
+        $acceptedCreditCardsLogos[] = 'amex';
         if ($cc != true) {
             $cc = true;
         }
     }
     if ($method == 'discover') {
         $discover = true;
-        array_push($acceptedPaymentMethods, 'Discover');
-        array_push($acceptedCreditCardsArray, 'Discover');
-        array_push($acceptedCreditCardsLogos, 'discover');
+        $acceptedPaymentMethods[] = 'Discover';
+        $acceptedCreditCardsArray[] = 'Discover';
+        $acceptedCreditCardsLogos[] = 'discover';
         if ($cc != true) {
             $cc = true;
         }
     }
     if ($method == 'diners') {
         $diners = true;
-        array_push($acceptedPaymentMethods, 'Diners Club');
-        array_push($acceptedCreditCardsArray, 'Diners Club');
-        array_push($acceptedCreditCardsLogos, 'diners');
+        $acceptedPaymentMethods[] = 'Diners Club';
+        $acceptedCreditCardsArray[] = 'Diners Club';
+        $acceptedCreditCardsLogos[] = 'diners';
         if ($cc != true) {
             $cc = true;
         }
     }
     if ($method == 'jcb') {
         $jcb = true;
-        array_push($acceptedPaymentMethods, 'JCB');
-        array_push($acceptedCreditCardsArray, 'JCB');
-        array_push($acceptedCreditCardsLogos, 'jcb');
+        $acceptedPaymentMethods[] = 'JCB';
+        $acceptedCreditCardsArray[] = 'JCB';
+        $acceptedCreditCardsLogos[] = 'jcb';
         if ($cc != true) {
             $cc = true;
         }
     }
     if ($method == 'paypal') {
         $paypal = true;
-        array_push($acceptedPaymentMethods, 'PayPal');
-        array_push($acceptedDigitalGatewaysLogos, 'paypal');
+        $acceptedPaymentMethods[] = 'PayPal';
+        $acceptedDigitalGatewaysLogos[] = 'paypal';
         if ($digital != true) {
             $digital = true;
         }
     }
     if ($method == 'applepay') {
         $applepay = true;
-        array_push($acceptedPaymentMethods, 'ApplePay');
-        array_push($acceptedDigitalGatewaysLogos, 'applepay');
+        $acceptedPaymentMethods[] = 'ApplePay';
+        $acceptedDigitalGatewaysLogos[] = 'applepay';
         if ($digital != true) {
             $digital = true;
         }
     }
     if ($method == 'ach') {
         $bankAccount = true;
-        array_push($acceptedPaymentMethods, 'ACH');
+        $acceptedPaymentMethods[] = 'ACH';
     }
 }
 // convert the accepted payment methods array to a string with commas
@@ -165,32 +165,34 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                     <?php
                     //Check if the invoiceAmount and invoiceNumber are set in $_POST
                     if (!isset($_POST['invoiceNumber'], $_POST['invoiceAmount'])) { ?>
-                        <form method="post" action="">
-                            <h3>Invoice Retrieval Form</h3>
-                            <p>Enter the invoice number you wish to pay.</p>
-                            <label for="invoiceNumber">Invoice Number*</label>
-                            <input type="text" name="invoiceNumber" placeholder=" " required />
-                            <p>Enter the amount of the invoice you wish to pay.</p>
-                            <label for="invoiceAmount">Invoice Amount*</label>
-                            <input type="number" min="0.01" step="0.01" name="invoiceAmount" placeholder="0.00" required />
-                            <button id="btnSubmit">Submit</button>
-                        </form>
+                    <form method="post" action="">
+                        <h3>Invoice Retrieval Form</h3>
+                        <p>Enter the invoice number you wish to pay.</p>
+                        <label for="invoiceNumber">Invoice Number*</label>
+                        <input type="text" name="invoiceNumber" placeholder=" " required />
+                        <p>Enter the amount of the invoice you wish to pay.</p>
+                        <label for="invoiceAmount">Invoice Amount*</label>
+                        <input type="number" min="0.01" step="0.01" name="invoiceAmount" placeholder="0.00" required />
+                        <button id="btnSubmit">Submit</button>
+                    </form>
                     <?php } ?>
                     <!-- Form to send to Authorize.net -->
                     <?php if (isset($_POST['invoiceNumber'], $_POST['invoiceAmount'])) {
                         $invoiceAmount = $_POST['invoiceAmount'];
                         $invoiceNumber = $_POST['invoiceNumber'];
                     ?>
-                        <form method="post" action="<?php echo $paymentURL; ?>" id="formAuthorizeNetTestPage" name="formAuthorizeNetTestPage">
-                            <?php $paymentToken = getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, $invoiceAmount, $invoiceNumber, $merchantEnv); ?>
-                            <input type="hidden" name="token" value="<?php echo $paymentToken; ?>" />Redirect- Continue to
-                            Authorize.net to Payment Page
-                            <button id="btnContinue">Continue to next page</button>
-                        </form>
+                    <form method="post" action="<?php echo $paymentURL; ?>" id="formAuthorizeNetTestPage"
+                        name="formAuthorizeNetTestPage">
+                        <?php $paymentToken = getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, $invoiceAmount, $invoiceNumber, $merchantEnv); ?>
+                        <input type="hidden" name="token" value="<?php echo $paymentToken; ?>" />Redirect- Continue to
+                        Authorize.net to Payment Page
+                        <button id="btnContinue">Continue to next page</button>
+                    </form>
                     <?php } ?>
                     <hr />
                     <p>The Authorize.Net Payment Gateway manages the complex routing of sensitive customer information
-                        through the electronic check and credit card processing networks. See an <a href="https://www.authorize.net/resources/howitworksdiagram/">online payments diagram</a> to
+                        through the electronic check and credit card processing networks. See an <a
+                            href="https://www.authorize.net/resources/howitworksdiagram/">online payments diagram</a> to
                         see how it works.</p>
                     <p>The company adheres to strict industry standards for payment processing, including:
                         <br />
@@ -209,113 +211,76 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                     </p>
                     <?php if (isset($merchantSealCode) || $merchantSealCode != NULL || $merchantSealCode != "") { //variable is set and isn't null or blank
                     ?>
-                        <p><a href="<?php echo get_site_url(); ?>"><?php echo $thisDomainName; ?></a> is registered with the
-                            Authorize.Net Verified Merchant Seal program.</p>
-                        <!-- Authorize.Net Seal -->
-                        <div><?php echo $merchantSealCode; ?></div>
+                    <p><a href="<?php echo get_site_url(); ?>"><?php echo $thisDomainName; ?></a> is registered with the
+                        Authorize.Net Verified Merchant Seal program.</p>
+                    <!-- Authorize.Net Seal -->
+                    <div><?php echo $merchantSealCode; ?></div>
                     <?php } ?>
                 </div>
             </div>
             <div class="col-md-5">
                 <section class="container">
                     <?php if ($cc == true) { ?>
-                        <div class="row is-flex row-space">
-                            <div class="col-md-2 col-xs-12 small-none is-center is-right">
-                                <figure class="icon-for-section credit">
-                                </figure>
-                            </div>
-                            <div class="col-md-10 col-xs-8">
-                                <h5 class="typo-h5">Credit & debit cards</h5>
-                                <p>We accept <?php echo $acceptedCreditCards; ?>.
-                                </p>
-                                <ul>
-                                    <?php foreach ($acceptedCreditCardsLogos as $creditCard) { ?>
-                                        <li class="card-brands <?php echo $creditCard; ?>"></li>
-                                    <?php } ?>
-                                </ul>
-                            </div>
+                    <div class="row is-flex row-space">
+                        <div class="col-md-2 col-xs-12 small-none is-center is-right">
+                            <figure class="icon-for-section credit">
+                            </figure>
                         </div>
+                        <div class="col-md-10 col-xs-8">
+                            <h5 class="typo-h5">Credit & debit cards</h5>
+                            <p>We accept <?php echo $acceptedCreditCards; ?>.
+                            </p>
+                            <ul>
+                                <?php foreach ($acceptedCreditCardsLogos as $creditCard) { ?>
+                                <li class="card-brands <?php echo $creditCard; ?>"></li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                    </div>
                     <?php } ?>
-                    <?php if ($ach == true) { ?>
-                        <div class="row is-flex row-space">
-                            <div class="col-md-2 col-xs-12 small-none is-center is-right">
-                                <div>
-                                    <figure class="icon-for-section ach"></figure>
-                                </div>
-                            </div>
-                            <div class="col-md-10 col-xs-8">
-                                <h5 class="typo-h5">ACH payments</h5>
-                                <p>ACH payments are accepted.
-                                </p>
+                    <?php if ($bankAccount == true) { ?>
+                    <div class="row is-flex row-space">
+                        <div class="col-md-2 col-xs-12 small-none is-center is-right">
+                            <div>
+                                <figure class="icon-for-section ach"></figure>
                             </div>
                         </div>
+                        <div class="col-md-10 col-xs-8">
+                            <h5 class="typo-h5">ACH payments</h5>
+                            <p>ACH payments are accepted.
+                            </p>
+                        </div>
+                    </div>
                     <?php } ?>
                     <?php if ($digital == true) { ?>
-                        <div class="row is-flex row-space">
-                            <div class="col-md-2 col-xs-12 small-none is-center is-right">
-                                <div>
-                                    <figure class="icon-for-section digital"></figure>
-                                </div>
-                            </div>
-                            <div class="col-md-10 col-xs-8">
-                                <h5 class="typo-h5">Digital payments</h5>
-                                <p>Digital Gateway payments are accepted.
-                                </p>
-                                <ul>
-                                    <?php foreach ($acceptedDigitalGatewaysLogos as $digitalGateway) { ?>
-                                        <li class="card-brands <?php echo $digitalGateway; ?>"></li>
-                                    <?php } ?>
-                                </ul>
+                    <div class="row is-flex row-space">
+                        <div class="col-md-2 col-xs-12 small-none is-center is-right">
+                            <div>
+                                <figure class="icon-for-section digital"></figure>
                             </div>
                         </div>
+                        <div class="col-md-10 col-xs-8">
+                            <h5 class="typo-h5">Digital payments</h5>
+                            <p>Digital Gateway payments are accepted.
+                            </p>
+                            <ul>
+                                <?php foreach ($acceptedDigitalGatewaysLogos as $digitalGateway) { ?>
+                                <li class="card-brands <?php echo $digitalGateway; ?>"></li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                    </div>
                     <?php } ?>
                     <div class="row is-flex row-space">
                         <h5 class="typo-h5">Contact Us</h5>
-                        <p>For any questions, please contact us at <a href="mailto:careteam@modernimpressions.com">careteam@modernimpressions.com</a>
+                        <p>For any questions, please contact us at <a
+                                href="mailto:careteam@modernimpressions.com">careteam@modernimpressions.com</a>
                             or
                             call us at <a href="tel:1-704-597-7278">1-704-597-7278</a></p>
                     </div>
                 </section>
             </div>
         </div>
-        <?php
-        //debug variables and arrays
-        echo '<pre>';
-        print_r($acceptedCreditCardsLogos);
-        echo '</pre>';
-
-        echo '<pre>';
-        print_r($acceptedDigitalGatewaysLogos);
-        echo '</pre>';
-
-        echo '<pre>';
-        print_r($acceptedCreditCards);
-        echo '</pre>';
-
-        echo '<pre>';
-        print_r($acceptedCreditCardsArray);
-        echo '</pre>';
-
-        echo '<pre>';
-        print_r($acceptedDigitalGateways);
-        echo '</pre>';
-
-        echo '<pre>';
-        print_r($acceptedPaymentMethods);
-        echo '</pre>';
-
-        echo '<pre>';
-        print_r($cc);
-        echo '</pre>';
-
-        echo '<pre>';
-        print_r($ach);
-        echo '</pre>';
-
-        echo '<pre>';
-        print_r($digital);
-        echo '</pre>';
-        ?>
     </div>
 </div>
 
