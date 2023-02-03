@@ -171,8 +171,9 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                         <label for="invoiceNumber">Invoice Number*</label>
                         <input id="invoiceNumber" type="text" name="invoiceNumber" placeholder=" " required />
                         <p>Enter the amount of the invoice you wish to pay.</p>
-                        <label id="invoiceAmount" for="invoiceAmount">Invoice Amount*</label>
-                        <input type="number" min="0.01" step="0.01" name="invoiceAmount" placeholder="0.00" required />
+                        <label for="invoiceAmount">Invoice Amount*</label>
+                        <input id="invoiceAmount" type="number" min="0.01" step="0.01" name="invoiceAmount"
+                            placeholder="0.00" required />
                         <button id="btnSubmit">Submit</button>
                     </form>
                     <?php } ?>
