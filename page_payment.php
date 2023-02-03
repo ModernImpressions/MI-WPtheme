@@ -230,7 +230,7 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                             <h5 class="typo-h5">Credit & debit cards</h5>
                             <p>We accept <?php echo $acceptedCreditCards; ?>.
                             </p>
-                            <ul>
+                            <ul class="payment-methods-container">
                                 <?php foreach ($acceptedCreditCardsLogos as $creditCard) { ?>
                                 <li class="card-brands <?php echo $creditCard; ?>"></li>
                                 <?php } ?>
@@ -263,7 +263,7 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                             <h5 class="typo-h5">Digital payments</h5>
                             <p>Digital Gateway payments are accepted.
                             </p>
-                            <ul>
+                            <ul class="payment-methods-container">
                                 <?php foreach ($acceptedDigitalGatewaysLogos as $digitalGateway) { ?>
                                 <li class="card-brands <?php echo $digitalGateway; ?>"></li>
                                 <?php } ?>

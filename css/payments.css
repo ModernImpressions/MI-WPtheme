@@ -22,8 +22,19 @@
 	content: "\f19c";
 }
 
+.digital::before {
+	content: "\f645";
+}
+
 .disputes {
 	content: "";
+}
+
+.payment-methods-container {
+	display: inline-flex;
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .card-brands {
@@ -32,6 +43,8 @@
 	font-family: "Font Awesome 5 Brands";
 	font-style: normal;
 	font-size: 2.5em;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /* Small icons for credit section */
