@@ -30,17 +30,17 @@ class authorizenet_Settings_Page
 
     public function wph_settings_content()
     { ?>
-<div class="wrap">
-    <h1>Authorize.net Settings</h1>
-    <?php settings_errors(); ?>
-    <form method="POST" action="options.php">
-        <?php
+        <div class="wrap">
+            <h1>Authorize.net Settings</h1>
+            <?php settings_errors(); ?>
+            <form method="POST" action="options.php">
+                <?php
                 settings_fields('authorizenet');
                 do_settings_sections('authorizenet');
                 submit_button();
                 ?>
-    </form>
-</div> <?php
+            </form>
+        </div> <?php
             }
 
             public function wph_setup_sections()
@@ -87,23 +87,76 @@ class authorizenet_Settings_Page
                         'desc' => 'Paste the code from the Authorize.net account here.',
                     ),
                     array(
-                        'label' => 'Accepted Payment Methods',
-                        'id' => 'MERCHANT_ACCEPTED_METHODS',
-                        'type' => 'multiselect',
+                        'label' => 'ACH',
+                        'id' => 'MERCHANT_ACCEPT_ACH',
+                        'type' => 'checkbox',
                         'section' => 'authorizenet_section',
-                        'options' => array(
-                            'ach' => 'ACH',
-                            'amex' => 'AmericanExpress',
-                            'applepay' => 'ApplePay',
-                            'diners' => 'Diners Club',
-                            'discover' => 'Discover',
-                            'jcb' => 'JCB',
-                            'mastercard' => 'MasterCard',
-                            'paypal' => 'PayPal',
-                            'visa' => 'Visa',
-                        ),
-                        'desc' => 'Check all methods that are accepted on the Authorize.net account, this will show the appropriate badges on the site.',
-                        'placeholder' => 'Please select at least 1 Method',
+                        'desc' => 'Check this box if ACH is accepted on the Authorize.net account.',
+                        'default' => '0',
+                    ),
+                    array(
+                        'label' => 'American Express',
+                        'id' => 'MERCHANT_ACCEPT_AMEX',
+                        'type' => 'checkbox',
+                        'section' => 'authorizenet_section',
+                        'desc' => 'Check this box if American Express is accepted on the Authorize.net account.',
+                        'default' => '0',
+                    ),
+                    array(
+                        'label' => 'Apple Pay',
+                        'id' => 'MERCHANT_ACCEPT_APPLEPAY',
+                        'type' => 'checkbox',
+                        'section' => 'authorizenet_section',
+                        'desc' => 'Check this box if Apple Pay is accepted on the Authorize.net account.',
+                        'default' => '0',
+                    ),
+                    array(
+                        'label' => 'Diners Club',
+                        'id' => 'MERCHANT_ACCEPT_DINERS',
+                        'type' => 'checkbox',
+                        'section' => 'authorizenet_section',
+                        'desc' => 'Check this box if Diners Club is accepted on the Authorize.net account.',
+                        'default' => '0',
+                    ),
+                    array(
+                        'label' => 'Discover',
+                        'id' => 'MERCHANT_ACCEPT_DISCOVER',
+                        'type' => 'checkbox',
+                        'section' => 'authorizenet_section',
+                        'desc' => 'Check this box if Discover is accepted on the Authorize.net account.',
+                        'default' => '0',
+                    ),
+                    array(
+                        'label' => 'JCB',
+                        'id' => 'MERCHANT_ACCEPT_JCB',
+                        'type' => 'checkbox',
+                        'section' => 'authorizenet_section',
+                        'desc' => 'Check this box if JCB is accepted on the Authorize.net account.',
+                        'default' => '0',
+                    ),
+                    array(
+                        'label' => 'MasterCard',
+                        'id' => 'MERCHANT_ACCEPT_MASTERCARD',
+                        'type' => 'checkbox',
+                        'section' => 'authorizenet_section',
+                        'desc' => 'Check this box if MasterCard is accepted on the Authorize.net account.',
+                        'default' => '0',
+                    ),
+                    array(
+                        'label' => 'PayPal',
+                        'id' => 'MERCHANT_ACCEPT_PAYPAL',
+                        'type' => 'checkbox',
+                        'section' => 'authorizenet_section',
+                        'desc' => 'Check this box if PayPal is accepted on the Authorize.net account.',
+                        'default' => '0',
+                    ),
+                    array(
+                        'label' => 'Visa',
+                        'id' => 'MERCHANT_ACCEPT_VISA',
+                        'type' => 'checkbox',
+                        'section' => 'authorizenet_section',
+                        'desc' => 'Check this box if Visa is accepted on the Authorize.net account.',
+                        'default' => '0',
                     ),
                 );
                 foreach ($fields as $field) {
@@ -133,7 +186,7 @@ class authorizenet_Settings_Page
                         if (!empty($field['options']) && is_array($field['options'])) {
                             $options_markup = '';
                             foreach ($field['options'] as $key => $label) {
-                                $options_markup .= sprintf('<option value="%s" %s>%s</option>', $key, selected($value, $key, false), $label);
+                                $options_markup .= sprintf('<option value="%s" %s>%s</option>', $key, selected($value, $key, true), $label);
                             }
                             printf('<select name="%1$s[]" id="%1$s" multiple="multiple">%2$s</select>', $field['id'], $options_markup);
                         }
@@ -144,6 +197,13 @@ class authorizenet_Settings_Page
                             $field['id'],
                             $placeholder,
                             $value
+                        );
+                        break;
+                    case 'checkbox':
+                        printf(
+                            '<input name="%1$s" id="%1$s" type="checkbox" value="1" %2$s />',
+                            $field['id'],
+                            checked($value, 1, false)
                         );
                         break;
                     default:
@@ -187,8 +247,8 @@ class authorizenet_Settings_Page
             if ($aNetENV == null || $aNetENV == '') {
                 $aNetENV = 'SANDBOX';
             }
-            /* Create a merchantAuthenticationType object with authentication details
-       retrieved from the constants file */
+
+            // Create a merchantAuthenticationType object with authentication details retrieved from the constants file
             $merchantAuthentication = new AnetAPI\MerchantAuthenticationType();
             $merchantAuthentication->setName($merchantID);
             $merchantAuthentication->setTransactionKey($transactionKey);
@@ -203,21 +263,21 @@ class authorizenet_Settings_Page
             $transactionRequestType->setOrder(new AnetAPI\OrderType(array("invoiceNumber" => $invoiceNumber)));
 
             // Set Hosted Form Options
-            $setting1 = new AnetAPI\SettingType();
-            $setting1->setSettingName("hostedPaymentButtonOptions");
-            $setting1->setSettingValue("{\"text\": \"Pay\"}");
+            $hostedPaymentButtonOptions = new AnetAPI\SettingType();
+            $hostedPaymentButtonOptions->setSettingName("hostedPaymentButtonOptions");
+            $hostedPaymentButtonOptions->setSettingValue("{\"text\": \"Pay\"}");
 
-            $setting2 = new AnetAPI\SettingType();
-            $setting2->setSettingName("hostedPaymentOrderOptions");
-            $setting2->setSettingValue("{\"show\": true, \"merchantName\": \"MODERN IMPRESSIONS OF CHARLOTTE INC.\"}");
+            $hostedPaymentOrderOptions = new AnetAPI\SettingType();
+            $hostedPaymentOrderOptions->setSettingName("hostedPaymentOrderOptions");
+            $hostedPaymentOrderOptions->setSettingValue("{\"show\": true, \"merchantName\": \"MODERN IMPRESSIONS OF CHARLOTTE INC.\"}");
 
-            $setting3 = new AnetAPI\SettingType();
-            $setting3->setSettingName("hostedPaymentReturnOptions");
-            $setting3->setSettingValue("{\"showReceipt\": true, \"url\": \"$returnURL\", \"urlText\": \"Continue\", \"cancelUrl\": \"$cancelURL\", \"cancelUrlText\": \"Cancel\"}");
+            $hostedPaymentReturnOptions = new AnetAPI\SettingType();
+            $hostedPaymentReturnOptions->setSettingName("hostedPaymentReturnOptions");
+            $hostedPaymentReturnOptions->setSettingValue("{\"showReceipt\": true, \"url\": \"$returnURL\", \"urlText\": \"Continue\", \"cancelUrl\": \"$cancelURL\", \"cancelUrlText\": \"Cancel\"}");
 
-            $setting4 = new AnetAPI\SettingType();
-            $setting4->setSettingName("hostedPaymentPaymentOptions");
-            $setting4->setSettingValue("{\"cardCodeRequired\": true, \"showCreditCard\": true, \"showBankAccount\": true}");
+            $hostedPaymentPaymentOptions = new AnetAPI\SettingType();
+            $hostedPaymentPaymentOptions->setSettingName("hostedPaymentPaymentOptions");
+            $hostedPaymentPaymentOptions->setSettingValue("{\"cardCodeRequired\": true, \"showCreditCard\": true, \"showBankAccount\": true}");
 
             $setting5 = new AnetAPI\SettingType();
             $setting5->setSettingName("hostedPaymentSecurityOptions");
@@ -242,10 +302,10 @@ class authorizenet_Settings_Page
             $request->setTransactionRequest($transactionRequestType);
 
             // add the settings to the request
-            $request->addToHostedPaymentSettings($setting1);
-            $request->addToHostedPaymentSettings($setting2);
-            $request->addToHostedPaymentSettings($setting3);
-            $request->addToHostedPaymentSettings($setting4);
+            $request->addToHostedPaymentSettings($hostedPaymentButtonOptions);
+            $request->addToHostedPaymentSettings($hostedPaymentOrderOptions);
+            $request->addToHostedPaymentSettings($hostedPaymentReturnOptions);
+            $request->addToHostedPaymentSettings($hostedPaymentPaymentOptions);
             //$request->addToHostedPaymentSettings($setting5);
             //$request->addToHostedPaymentSettings($setting6);
             //$request->addToHostedPaymentSettings($setting7);

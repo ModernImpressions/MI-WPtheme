@@ -14,9 +14,37 @@ $merchantLoginID = get_option('MERCHANT_LOGIN_ID');
 $merchantTransactionKey = get_option('MERCHANT_TRANSACTION_KEY');
 $merchantEnv = get_option('aNetENV');
 $merchantSealCode = get_option('MERCHANT_SEAL_CODE');
-$merchantAcceptedPaymentMethods = get_option('MERCHANT_ACCEPTED_METHODS');
-//convert the accepted payment methods string to an array
+$merchantAcceptedPaymentMethods = array();
+//convert the accepted payment method booleans to an array
+if (get_option('MERCHANT_ACCEPT_VISA') == 'true') {
+    array_push($merchantAcceptedPaymentMethods, 'visa');
+}
+if (get_option('MERCHANT_ACCEPT_MASTERCARD') == 'true') {
+    array_push($merchantAcceptedPaymentMethods, 'mastercard');
+}
+if (get_option('MERCHANT_ACCEPT_AMEX') == 'true') {
+    array_push($merchantAcceptedPaymentMethods, 'amex');
+}
+if (get_option('MERCHANT_ACCEPT_DISCOVER') == 'true') {
+    array_push($merchantAcceptedPaymentMethods, 'discover');
+}
+if (get_option('MERCHANT_ACCEPT_DINERS') == 'true') {
+    array_push($merchantAcceptedPaymentMethods, 'diners');
+}
+if (get_option('MERCHANT_ACCEPT_JCB') == 'true') {
+    array_push($merchantAcceptedPaymentMethods, 'jcb');
+}
+if (get_option('MERCHANT_ACCEPT_PAYPAL') == 'true') {
+    array_push($merchantAcceptedPaymentMethods, 'paypal');
+}
+if (get_option('MERCHANT_ACCEPT_APPLEPAY') == 'true') {
+    array_push($merchantAcceptedPaymentMethods, 'applepay');
+}
+if (get_option('MERCHANT_ACCEPT_ACH') == 'true') {
+    array_push($merchantAcceptedPaymentMethods, 'ach');
+}
 
+//initialize the payment URL
 $paymentURL = 'https://test.authorize.net/payment/payment'; // Default to test environment
 
 //get this wordpress website url without the http:// or https:// or http://www. or https://www.
@@ -129,6 +157,19 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
 //if any of the credit cards are accepted, set the cc variable to true
 if ($visa || $mastercard || $amex || $discover || $diners || $jcb) {
     $cc = true;
+}
+// for the logos, set an array of the accepted digital gateways with lower case names and no spaces
+$acceptedDigitalGatewaysLogos = array();
+if ($paypal) {
+    array_push($acceptedDigitalGatewaysLogos, 'paypal');
+}
+if ($applepay) {
+    array_push($acceptedDigitalGatewaysLogos, 'applepay');
+}
+
+//if any digital gateways are accepted, set the digital variable to true
+if ($paypal || $applepay) {
+    $digital = true;
 }
 ?>
 
@@ -244,6 +285,25 @@ if ($visa || $mastercard || $amex || $discover || $diners || $jcb) {
                             <h5 class="typo-h5">ACH payments</h5>
                             <p>ACH payments are accepted.
                             </p>
+                        </div>
+                    </div>
+                    <?php } ?>
+                    <?php if ($digital == true) { ?>
+                    <div class="row is-flex row-space">
+                        <div class="col-md-2 col-xs-12 small-none is-center is-right">
+                            <div>
+                                <figure class="icon-for-section digital"></figure>
+                            </div>
+                        </div>
+                        <div class="col-md-10 col-xs-8">
+                            <h5 class="typo-h5">Digital payments</h5>
+                            <p>Digital Gateway payments are accepted.
+                            </p>
+                            <ul>
+                                <?php foreach ($acceptedDigitalGatewaysLogos as $digitalGateway) { ?>
+                                <li class="card-brands <?php echo $digitalGateway; ?>"></li>
+                                <?php } ?>
+                            </ul>
                         </div>
                     </div>
                     <?php } ?>

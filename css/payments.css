@@ -59,3 +59,11 @@
 	width: 29px;
 	content: "\f24c";
 }
+.paypal::before {
+	width: 40px;
+	content: "\f1ed";
+}
+.applepay::before {
+	width: 40px;
+	content: "\f415";
+}
