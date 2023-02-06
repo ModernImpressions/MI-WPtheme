@@ -157,7 +157,7 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
             <div class="col-md-7">
                 <div class="original_content_area">
                     <?php //Determine if the current page is the payment page, the canceled page or the return page.
-                    if (is_page('payment')) { ?>
+                    if (is_page('payments')) { ?>
                         <h2>Online Payment Form</h2>
                         <br />
                         <p>Welcome to our Online Payments portal. Please provide the invoice information below, you will
