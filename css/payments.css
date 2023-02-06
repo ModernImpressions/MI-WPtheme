@@ -169,7 +169,8 @@
 	background: none;
 	font-family: inherit;
 }
-.cardSuccess {
+.cardSuccess,
+.cardError {
 	position: relative;
 	top: -50px;
 	width: 100px;
@@ -179,6 +180,10 @@
 	border: 5px solid transparent;
 	margin-left: auto;
 	margin-right: auto;
+	font-family: "Font Awesome 5 Pro";
+}
+.cardError {
+	background-color: #e74c3c;
 }
 .cardSuccess i {
 	color: #fff;
