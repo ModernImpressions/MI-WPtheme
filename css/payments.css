@@ -13,8 +13,14 @@
 .amountField:before {
 	content: "$";
 	text-align: center;
-	position: relative;
-	left: 35px;
+	position: absolute;
+	font-size: 1em;
+	padding-top: 1.8%;
+	padding-left: 0.3%;
+}
+
+.amountField::placeholder::before {
+	color: var(--secondary-text-color);
 }
 
 /* Chrome, Safari, Edge, Opera */
