@@ -1,7 +1,12 @@
 <?php
 
 /**
- * Template Name: Payment Form - Authorize.net
+ * Template Name: Payment Pages - Authorize.net
+ *
+ * This template is used to display the payment, completed, and canceled pages for Authorize.net
+ * @package WordPress
+ * @subpackage MI-Theme
+ * @author Patrick Barnhardt
  */
 
 get_header();
@@ -236,6 +241,19 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                         <?php } ?>
                     <?php } elseif (is_page('return')) { ?>
                         <h2>Payment Complete</h2>
+                        <br />
+                        <div class="card">
+                            <span class="cardSuccess"><i class="pay-checkmark"></i></span>
+                            <h1 class="cardMsg">Payment Complete</h1>
+                            <h2 class="cardSubMsg">Thank you!</h2>
+                            <p> Your transaction has been completed, and a receipt for your payment
+                                has been emailed to you. Look for an email from Authorize.net</p>
+                            <br />
+                            <p>For your security, we do not store your payment information on our site.</p>
+                            <div class="cardTags">
+                                <span class="cardTag">completed</span>
+                            </div>
+                        </div>
                     <?php } elseif (is_page('cancel')) { ?>
                         <h2>Payment Cancelled</h2>
                     <?php } ?>
