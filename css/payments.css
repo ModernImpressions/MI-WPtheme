@@ -185,7 +185,8 @@
 .cardError {
 	background-color: #e74c3c;
 }
-.cardSuccess i {
+.cardSuccess i,
+.cardError i {
 	color: #fff;
 	line-height: 100px;
 	font-size: 45px;
