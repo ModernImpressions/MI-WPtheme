@@ -6,12 +6,15 @@
 #invoiceAmount {
 }
 
-#invoiceAmount::before {
+.amountField {
+	margin: 0 10px 0 0;
+}
+
+.amountField:before {
 	content: "$";
 	text-align: center;
 	position: relative;
 	left: 35px;
-	font-weight: bold;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -25,7 +28,8 @@
 	-moz-appearance: textfield;
 }
 
-#btnSubmit {
+#btnSubmit,
+#btnContinue {
 	background-color: #007f7b;
 	color: #ffffff;
 	font-size: 14px;
