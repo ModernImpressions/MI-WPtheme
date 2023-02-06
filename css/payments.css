@@ -108,6 +108,8 @@
 	display: flex;
 	width: 70%;
 	flex-flow: wrap;
+	padding: 0;
+	margin-bottom: 5%;
 }
 
 .card-brands {
