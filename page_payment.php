@@ -12,6 +12,7 @@ wp_enqueue_style('payments-css', get_template_directory_uri() . '/css/payments.c
 //merchant credentials
 $merchantLoginID = get_option('MERCHANT_LOGIN_ID');
 $merchantTransactionKey = get_option('MERCHANT_TRANSACTION_KEY');
+$merchantTransactionType = get_option('MERCHANT_TRANSACTION_TYPE');
 $merchantEnv = get_option('aNetENV');
 $merchantSealCode = get_option('MERCHANT_SEAL_CODE');
 $merchantAcceptedPaymentMethods = array();
@@ -46,6 +47,9 @@ if (get_option('MERCHANT_ACCEPT_APPLEPAY') == 'true' || get_option('MERCHANT_ACC
 }
 if (get_option('MERCHANT_ACCEPT_ACH') == 'true' || get_option('MERCHANT_ACCEPT_ACH') == 1 || get_option('MERCHANT_ACCEPT_ACH') == '1') {
     $merchantAcceptedPaymentMethods[] = 'ach';
+}
+if (get_option('MERCHANT_ACCEPT_GOOGLE') == 'true' || get_option('MERCHANT_ACCEPT_GOOGLE') == 1 || get_option('MERCHANT_ACCEPT_GOOGLE') == '1') {
+    $merchantAcceptedPaymentMethods[] = 'googlepay';
 }
 
 //initialize the payment URL
@@ -126,6 +130,14 @@ foreach ($merchantAcceptedPaymentMethods as $method) {
             $digital = true;
         }
     }
+    if ($method == 'googlepay') {
+        $googlepay = true;
+        $acceptedPaymentMethods[] = 'GooglePay';
+        $acceptedDigitalGatewaysLogos[] = 'googlepay';
+        if ($digital != true) {
+            $digital = true;
+        }
+    }
     if ($method == 'ach') {
         $bankAccount = true;
         $acceptedPaymentMethods[] = 'ACH';
@@ -165,43 +177,38 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                     <?php
                     //Check if the invoiceAmount and invoiceNumber are set in $_POST
                     if (!isset($_POST['invoiceNumber'], $_POST['invoiceAmount'])) { ?>
-                    <form method="post" action="">
-                        <h3>Invoice Retrieval Form</h3>
-                        <p>Enter the invoice number you wish to pay.</p>
-                        <label for="invoiceNumber">Invoice Number*</label>
-                        <input id="invoiceNumber" type="text" name="invoiceNumber" placeholder=" " required />
-                        <p>Enter the amount of the invoice you wish to pay.</p>
-                        <label for="invoiceAmount">Invoice Amount*</label>
-                        <div class="amountField"><input id="invoiceAmount" type="number" min="0.01" step="0.01"
-                                name="invoiceAmount" placeholder="0.00" pattern="[0-9.,]+" required /></div>
-                        <button id="btnSubmit">Submit</button>
-                    </form>
+                        <form method="post" action="">
+                            <h3>Invoice Retrieval Form</h3>
+                            <p>Enter the invoice number you wish to pay.</p>
+                            <label for="invoiceNumber">Invoice Number*</label>
+                            <input id="invoiceNumber" type="text" name="invoiceNumber" placeholder=" " required />
+                            <p>Enter the amount of the invoice you wish to pay.</p>
+                            <label for="invoiceAmount">Invoice Amount*</label>
+                            <div class="amountField"><input id="invoiceAmount" type="number" min="0.01" step="0.01" name="invoiceAmount" placeholder="0.00" pattern="[0-9.,]+" required /></div>
+                            <button id="btnSubmit">Submit</button>
+                        </form>
                     <?php } ?>
                     <!-- Form to send to Authorize.net -->
                     <?php if (isset($_POST['invoiceNumber'], $_POST['invoiceAmount'])) {
                         $invoiceAmount = $_POST['invoiceAmount'];
                         $invoiceNumber = $_POST['invoiceNumber'];
                     ?>
-                    <a href="https://www.authorize.net/"><img
-                            src="https://www.authorize.net/content/dam/anet-redesign/reseller/authorizenet-200x50.png"
-                            border="0" alt="Authorize.net Logo" width="200" height="50" /></a>
-                    <form method="post" action="<?php echo $paymentURL; ?>" id="formAuthorizeNetTestPage"
-                        name="formAuthorizeNetTestPage">
-                        <?php $paymentToken = getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, $invoiceAmount, $invoiceNumber, $merchantEnv); ?>
-                        <input type="hidden" name="token" value="<?php echo $paymentToken; ?>" />
-                        <p>Click the button below to be re-directed to our processing partner, Authorize.net to complete
-                            payment. You will be returned to our site when done.</p>
-                        <p>If you have issues with the page re-direct, you may need to allow pop-ups and browser
-                            re-directs for our site in your web browser.</p>
-                        <p>For your security, we do not store your payment information on our site.</p>
-                        <br />
-                        <button id="btnContinue">Continue to Authorize.net</button>
-                    </form>
+                        <a href="https://www.authorize.net/"><img src="https://www.authorize.net/content/dam/anet-redesign/reseller/authorizenet-200x50.png" border="0" alt="Authorize.net Logo" width="200" height="50" /></a>
+                        <form method="post" action="<?php echo $paymentURL; ?>" id="formAuthorizeNetTestPage" name="formAuthorizeNetTestPage">
+                            <?php $paymentToken = getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, $invoiceAmount, $invoiceNumber, $merchantEnv, $merchantTransactionType); ?>
+                            <input type="hidden" name="token" value="<?php echo $paymentToken; ?>" />
+                            <p>Click the button below to be re-directed to our processing partner, Authorize.net to complete
+                                payment. You will be returned to our site when done.</p>
+                            <p>If you have issues with the page re-direct, you may need to allow pop-ups and browser
+                                re-directs for our site in your web browser.</p>
+                            <p>For your security, we do not store your payment information on our site.</p>
+                            <br />
+                            <button id="btnContinue">Continue to Authorize.net</button>
+                        </form>
                     <?php } ?>
                     <hr />
                     <p>The Authorize.Net Payment Gateway manages the complex routing of sensitive customer information
-                        through the electronic check and credit card processing networks. See an <a
-                            href="https://www.authorize.net/resources/howitworksdiagram/">online payments diagram</a> to
+                        through the electronic check and credit card processing networks. See an <a href="https://www.authorize.net/resources/howitworksdiagram/">online payments diagram</a> to
                         see how it works.</p>
                     <p>The company adheres to strict industry standards for payment processing, including:
                         <br />
@@ -220,70 +227,69 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                     </p>
                     <?php if (isset($merchantSealCode) && $merchantSealCode != NULL || $merchantSealCode != "") { //variable is set and isn't null or blank
                     ?>
-                    <p><a href="<?php echo get_site_url(); ?>"><?php echo $thisDomainName; ?></a> is registered with the
-                        Authorize.Net Verified Merchant Seal program.</p>
-                    <!-- Authorize.Net Seal -->
-                    <div><?php echo $merchantSealCode; ?></div>
+                        <p><a href="<?php echo get_site_url(); ?>"><?php echo $thisDomainName; ?></a> is registered with the
+                            Authorize.Net Verified Merchant Seal program.</p>
+                        <!-- Authorize.Net Seal -->
+                        <div><?php echo $merchantSealCode; ?></div>
                     <?php } ?>
                 </div>
             </div>
             <div class="col-md-5">
                 <section class="container">
                     <?php if ($cc == true) { ?>
-                    <div class="row is-flex row-space">
-                        <div class="col-md-2 col-xs-12 small-none is-center is-right">
-                            <figure class="icon-for-section credit">
-                            </figure>
+                        <div class="row is-flex row-space">
+                            <div class="col-md-2 col-xs-12 small-none is-center is-right">
+                                <figure class="icon-for-section credit">
+                                </figure>
+                            </div>
+                            <div class="col-md-10 col-xs-8">
+                                <h5 class="typo-h5">Credit & debit cards</h5>
+                                <p>We accept <?php echo $acceptedCreditCards; ?>.
+                                </p>
+                                <ul class="payment-methods-container">
+                                    <?php foreach ($acceptedCreditCardsLogos as $creditCard) { ?>
+                                        <li class="card-brands <?php echo $creditCard; ?>"></li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="col-md-10 col-xs-8">
-                            <h5 class="typo-h5">Credit & debit cards</h5>
-                            <p>We accept <?php echo $acceptedCreditCards; ?>.
-                            </p>
-                            <ul class="payment-methods-container">
-                                <?php foreach ($acceptedCreditCardsLogos as $creditCard) { ?>
-                                <li class="card-brands <?php echo $creditCard; ?>"></li>
-                                <?php } ?>
-                            </ul>
-                        </div>
-                    </div>
                     <?php } ?>
                     <?php if ($bankAccount == true) { ?>
-                    <div class="row is-flex row-space">
-                        <div class="col-md-2 col-xs-12 small-none is-center is-right">
-                            <div>
-                                <figure class="icon-for-section ach"></figure>
+                        <div class="row is-flex row-space">
+                            <div class="col-md-2 col-xs-12 small-none is-center is-right">
+                                <div>
+                                    <figure class="icon-for-section ach"></figure>
+                                </div>
+                            </div>
+                            <div class="col-md-10 col-xs-8">
+                                <h5 class="typo-h5">ACH payments</h5>
+                                <p>ACH payments are accepted.
+                                </p>
                             </div>
                         </div>
-                        <div class="col-md-10 col-xs-8">
-                            <h5 class="typo-h5">ACH payments</h5>
-                            <p>ACH payments are accepted.
-                            </p>
-                        </div>
-                    </div>
                     <?php } ?>
                     <?php if ($digital == true) { ?>
-                    <div class="row is-flex row-space">
-                        <div class="col-md-2 col-xs-12 small-none is-center is-right">
-                            <div>
-                                <figure class="icon-for-section digital"></figure>
+                        <div class="row is-flex row-space">
+                            <div class="col-md-2 col-xs-12 small-none is-center is-right">
+                                <div>
+                                    <figure class="icon-for-section digital"></figure>
+                                </div>
+                            </div>
+                            <div class="col-md-10 col-xs-8">
+                                <h5 class="typo-h5">Digital payments</h5>
+                                <p>Digital Gateway payments are accepted.
+                                </p>
+                                <ul class="payment-methods-container">
+                                    <?php foreach ($acceptedDigitalGatewaysLogos as $digitalGateway) { ?>
+                                        <li class="card-brands <?php echo $digitalGateway; ?>"></li>
+                                    <?php } ?>
+                                </ul>
                             </div>
                         </div>
-                        <div class="col-md-10 col-xs-8">
-                            <h5 class="typo-h5">Digital payments</h5>
-                            <p>Digital Gateway payments are accepted.
-                            </p>
-                            <ul class="payment-methods-container">
-                                <?php foreach ($acceptedDigitalGatewaysLogos as $digitalGateway) { ?>
-                                <li class="card-brands <?php echo $digitalGateway; ?>"></li>
-                                <?php } ?>
-                            </ul>
-                        </div>
-                    </div>
                     <?php } ?>
                     <div class="row is-flex row-space">
                         <h5 class="typo-h5">Contact Us</h5>
-                        <p>For any questions, please contact us at <a
-                                href="mailto:careteam@modernimpressions.com">careteam@modernimpressions.com</a>
+                        <p>For any questions, please contact us at <a href="mailto:careteam@modernimpressions.com">careteam@modernimpressions.com</a>
                             or
                             call us at <a href="tel:1-704-597-7278">1-704-597-7278</a></p>
                     </div>

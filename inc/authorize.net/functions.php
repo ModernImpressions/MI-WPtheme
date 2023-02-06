@@ -86,6 +86,18 @@ class authorizenet_Settings_Page
                         'required' => 'required',
                     ),
                     array(
+                        'label' => 'Transaction Type',
+                        'id' => 'MERCHANT_TRANSACTION_TYPE',
+                        'type' => 'select',
+                        'section' => 'authorizenet_section',
+                        'options' => array(
+                            'authOnlyTransaction' => 'Authorization Only',
+                            'authCaptureTransaction' => 'Authorization and Capture',
+                        ),
+                        'desc' => 'Set to how you want to process the transaction <a href="https://account.authorize.net/helpCP/Tools/Virtual_Terminal/Transaction_Types.htm" target="_blank">Learn More</a>. Settings not currently available here would need additional development, and some would not be applicable to the current use-case.',
+                        'placeholder' => 'authOnlyTransaction',
+                    ),
+                    array(
                         'label' => 'Environment',
                         'id' => 'aNetENV',
                         'type' => 'select',
@@ -142,6 +154,14 @@ class authorizenet_Settings_Page
                         'type' => 'checkbox',
                         'section' => 'authorizenet_section',
                         'desc' => 'Check this box if Discover is accepted on the Authorize.net account.',
+                        'default' => '0',
+                    ),
+                    array(
+                        'label' => 'Android Pay (Google Pay)',
+                        'id' => 'MERCHANT_ACCEPT_GOOGLE',
+                        'type' => 'checkbox',
+                        'section' => 'authorizenet_section',
+                        'desc' => 'Check this box if Google Pay is accepted on the Authorize.net account.',
                         'default' => '0',
                     ),
                     array(
@@ -278,7 +298,7 @@ class authorizenet_Settings_Page
          * @return string $token - Authorize.net Form Token
          *
          */
-        function getAnAcceptPaymentPage(string $merchantID, string $transactionKey, float $amount, string $invoiceNumber, string $aNetENV)
+        function getAnAcceptPaymentPage(string $merchantID, string $transactionKey, float $amount, string $invoiceNumber, string $aNetENV, string $transactionType)
         {
             // Setup the token variable
             $token = '';
@@ -304,7 +324,7 @@ class authorizenet_Settings_Page
 
             // Create a transaction
             $transactionRequestType = new AnetAPI\TransactionRequestType();
-            $transactionRequestType->setTransactionType("authOnlyTransaction");
+            $transactionRequestType->setTransactionType($transactionType);
             $transactionRequestType->setAmount($amount);
 
             // Create an Order

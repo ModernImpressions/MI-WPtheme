@@ -154,3 +154,7 @@
 	width: 40px;
 	content: "\f415";
 }
+.googlepay::before {
+	width: 40px;
+	content: "\e079";
+}
