@@ -1,11 +1,4 @@
 /** @format */
-
-#invoiceNumber {
-}
-
-#invoiceAmount {
-}
-
 .amountField {
 	margin: 0 10px 0 0;
 }
@@ -32,6 +25,8 @@
 /* Firefox */
 #invoiceAmount {
 	-moz-appearance: textfield;
+	-webkit-appearance: textfield;
+	appearance: textfield;
 }
 
 #btnSubmit,
