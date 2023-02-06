@@ -156,81 +156,88 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
         <div class="row">
             <div class="col-md-7">
                 <div class="original_content_area">
-                    <h2>Online Payment Form</h2>
-                    <br />
-                    <p>Welcome to our Online Payments portal. Please provide the invoice information below, you will
-                        be redirected to Authorize.net to complete the payment. Modern Impressions does not collect
-                        payment information on our site.</p>
-                    <br />
-                    <p>You can pay online at <a href="<?php echo get_site_url(); ?>"><?php echo $thisDomainName; ?></a>
-                        with confidence. We have partnered with <a href="https://www.authorize.net">Authorize.Net</a>, a
-                        leading payment gateway since
-                        1996, to accept credit cards and electronic check payments safely and securely for our
-                        customers.</p>
-                    <hr />
-                    <?php /** Set URL based on environment */ if ($merchantEnv == "SANDBOX") {
-                        $paymentURL = 'https://test.authorize.net/payment/payment';
-                    } elseif ($merchantEnv == "PRODUCTION") {
-                        $paymentURL = 'https://accept.authorize.net/payment/payment';
-                    } ?>
-                    <!-- Form to capture information to send to Authorize.net -->
-                    <?php
-                    //Check if the invoiceAmount and invoiceNumber are set in $_POST
-                    if (!isset($_POST['invoiceNumber'], $_POST['invoiceAmount'])) { ?>
-                        <form method="post" action="">
-                            <h3>Invoice Retrieval Form</h3>
-                            <p>Enter the invoice number you wish to pay.</p>
-                            <label for="invoiceNumber">Invoice Number*</label>
-                            <input id="invoiceNumber" type="text" name="invoiceNumber" placeholder=" " required />
-                            <p>Enter the amount of the invoice you wish to pay.</p>
-                            <label for="invoiceAmount">Invoice Amount*</label>
-                            <div class="amountField"><input id="invoiceAmount" type="number" min="0.01" step="0.01" name="invoiceAmount" placeholder="0.00" pattern="[0-9.,]+" required /></div>
-                            <button id="btnSubmit">Submit</button>
-                        </form>
-                    <?php } ?>
-                    <!-- Form to send to Authorize.net -->
-                    <?php if (isset($_POST['invoiceNumber'], $_POST['invoiceAmount'])) {
-                        $invoiceAmount = $_POST['invoiceAmount'];
-                        $invoiceNumber = $_POST['invoiceNumber'];
-                    ?>
-                        <a href="https://www.authorize.net/"><img src="https://www.authorize.net/content/dam/anet-redesign/reseller/authorizenet-200x50.png" border="0" alt="Authorize.net Logo" width="200" height="50" /></a>
-                        <form method="post" action="<?php echo $paymentURL; ?>" id="formAuthorizeNetTestPage" name="formAuthorizeNetTestPage">
-                            <?php $paymentToken = getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, $invoiceAmount, $invoiceNumber, $merchantEnv, $merchantTransactionType); ?>
-                            <input type="hidden" name="token" value="<?php echo $paymentToken; ?>" />
-                            <p>Click the button below to be re-directed to our processing partner, Authorize.net to complete
-                                payment. You will be returned to our site when done.</p>
-                            <p>If you have issues with the page re-direct, you may need to allow pop-ups and browser
-                                re-directs for our site in your web browser.</p>
-                            <p>For your security, we do not store your payment information on our site.</p>
-                            <br />
-                            <button id="btnContinue">Continue to Authorize.net</button>
-                        </form>
-                    <?php } ?>
-                    <hr />
-                    <p>The Authorize.Net Payment Gateway manages the complex routing of sensitive customer information
-                        through the electronic check and credit card processing networks. See an <a href="https://www.authorize.net/resources/howitworksdiagram/">online payments diagram</a> to
-                        see how it works.</p>
-                    <p>The company adheres to strict industry standards for payment processing, including:
+                    <?php //Determine if the current page is the payment page, the canceled page or the return page.
+                    if (is_page('payment')) { ?>
+                        <h2>Online Payment Form</h2>
                         <br />
-                    <ul>
-                        <li>128-bit Secure Sockets Layer (SSL) technology for secure Internet Protocol (IP)
-                            transactions.</li>
-                        <li>Industry leading encryption hardware and software methods and security protocols to protect
-                            customer information.</li>
-                        <li>Compliance with the Payment Card Industry Data Security Standard (PCI DSS).</li>
-                    </ul>
-                    <br />
-                    <p>For additional information regarding the privacy of your sensitive cardholder data, please read
-                        the
-                        <a href="https://www.authorize.net/company/privacy/">Authorize.Net Privacy Policy</a>.
-                    </p>
-                    </p>
-                    <?php if (isset($merchantSealCode) && $merchantSealCode != NULL || $merchantSealCode != "") { //variable is set and isn't null or blank
-                    ?>
-                        <p><a href="<?php echo get_site_url(); ?>"><?php echo $thisDomainName; ?></a> is registered with the
-                            Authorize.Net Verified Merchant Seal program.</p>
-                        <!-- Authorize.Net Seal -->
-                        <div><?php echo $merchantSealCode; ?></div>
+                        <p>Welcome to our Online Payments portal. Please provide the invoice information below, you will
+                            be redirected to Authorize.net to complete the payment. Modern Impressions does not collect
+                            payment information on our site.</p>
+                        <br />
+                        <p>You can pay online at <a href="<?php echo get_site_url(); ?>"><?php echo $thisDomainName; ?></a>
+                            with confidence. We have partnered with <a href="https://www.authorize.net">Authorize.Net</a>, a
+                            leading payment gateway since
+                            1996, to accept credit cards and electronic check payments safely and securely for our
+                            customers.</p>
+                        <hr />
+                        <?php /** Set URL based on environment */ if ($merchantEnv == "SANDBOX") {
+                            $paymentURL = 'https://test.authorize.net/payment/payment';
+                        } elseif ($merchantEnv == "PRODUCTION") {
+                            $paymentURL = 'https://accept.authorize.net/payment/payment';
+                        } ?>
+                        <!-- Form to capture information to send to Authorize.net -->
+                        <?php
+                        //Check if the invoiceAmount and invoiceNumber are set in $_POST
+                        if (!isset($_POST['invoiceNumber'], $_POST['invoiceAmount'])) { ?>
+                            <form method="post" action="">
+                                <h3>Invoice Retrieval Form</h3>
+                                <p>Enter the invoice number you wish to pay.</p>
+                                <label for="invoiceNumber">Invoice Number*</label>
+                                <input id="invoiceNumber" type="text" name="invoiceNumber" placeholder=" " required />
+                                <p>Enter the amount of the invoice you wish to pay.</p>
+                                <label for="invoiceAmount">Invoice Amount*</label>
+                                <div class="amountField"><input id="invoiceAmount" type="number" min="0.01" step="0.01" name="invoiceAmount" placeholder="0.00" pattern="[0-9.,]+" required /></div>
+                                <button id="btnSubmit">Submit</button>
+                            </form>
+                        <?php } ?>
+                        <!-- Form to send to Authorize.net -->
+                        <?php if (isset($_POST['invoiceNumber'], $_POST['invoiceAmount'])) {
+                            $invoiceAmount = $_POST['invoiceAmount'];
+                            $invoiceNumber = $_POST['invoiceNumber'];
+                        ?>
+                            <a href="https://www.authorize.net/"><img src="https://www.authorize.net/content/dam/anet-redesign/reseller/authorizenet-200x50.png" border="0" alt="Authorize.net Logo" width="200" height="50" /></a>
+                            <form method="post" action="<?php echo $paymentURL; ?>" id="formAuthorizeNetTestPage" name="formAuthorizeNetTestPage">
+                                <?php $paymentToken = getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, $invoiceAmount, $invoiceNumber, $merchantEnv, $merchantTransactionType); ?>
+                                <input type="hidden" name="token" value="<?php echo $paymentToken; ?>" />
+                                <p>Click the button below to be re-directed to our processing partner, Authorize.net to complete
+                                    payment. You will be returned to our site when done.</p>
+                                <p>If you have issues with the page re-direct, you may need to allow pop-ups and browser
+                                    re-directs for our site in your web browser.</p>
+                                <p>For your security, we do not store your payment information on our site.</p>
+                                <br />
+                                <button id="btnContinue">Continue to Authorize.net</button>
+                            </form>
+                        <?php } ?>
+                        <hr />
+                        <p>The Authorize.Net Payment Gateway manages the complex routing of sensitive customer information
+                            through the electronic check and credit card processing networks. See an <a href="https://www.authorize.net/resources/howitworksdiagram/">online payments diagram</a> to
+                            see how it works.</p>
+                        <p>The company adheres to strict industry standards for payment processing, including:
+                            <br />
+                        <ul>
+                            <li>128-bit Secure Sockets Layer (SSL) technology for secure Internet Protocol (IP)
+                                transactions.</li>
+                            <li>Industry leading encryption hardware and software methods and security protocols to protect
+                                customer information.</li>
+                            <li>Compliance with the Payment Card Industry Data Security Standard (PCI DSS).</li>
+                        </ul>
+                        <br />
+                        <p>For additional information regarding the privacy of your sensitive cardholder data, please read
+                            the
+                            <a href="https://www.authorize.net/company/privacy/">Authorize.Net Privacy Policy</a>.
+                        </p>
+                        </p>
+                        <?php if (isset($merchantSealCode) && $merchantSealCode != NULL || $merchantSealCode != "") { //variable is set and isn't null or blank
+                        ?>
+                            <p><a href="<?php echo get_site_url(); ?>"><?php echo $thisDomainName; ?></a> is registered with the
+                                Authorize.Net Verified Merchant Seal program.</p>
+                            <!-- Authorize.Net Seal -->
+                            <div><?php echo $merchantSealCode; ?></div>
+                        <?php } ?>
+                    <?php } elseif (is_page('return')) { ?>
+                        <h2>Payment Complete</h2>
+                    <?php } elseif (is_page('cancel')) { ?>
+                        <h2>Payment Cancelled</h2>
                     <?php } ?>
                 </div>
             </div>
