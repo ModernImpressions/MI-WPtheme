@@ -404,6 +404,7 @@
 	background-color: rgba(0, 0, 0, 0.7);
 	opacity: 1;
 	transition: background-color 0.2s linear;
+	font-family: inherit;
 }
 
 #owl-slider-item .owl-controls .owl-buttons div:hover {
