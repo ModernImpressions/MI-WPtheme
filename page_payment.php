@@ -270,7 +270,7 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                         <h2>Payment Cancelled</h2>
                         <br />
                         <div class="card">
-                            <span class="cardError"><i class="fa-solid fa-x"></i></span>
+                            <span class="cardError"><i class="fa-solid fa-times"></i></span>
                             <h1 class="cardMsg">Payment Canceled</h1>
                             <h2 class="cardSubMsg">Thank you.</h2>
                             <p> Your transaction has been canceled, and you have not been charged.</p>
