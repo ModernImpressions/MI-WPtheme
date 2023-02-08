@@ -292,6 +292,7 @@
 	display: inline-block;
 	zoom: 1;
 	*display: inline;
+	font-family: "Font Awesome 5 Pro";
 	/*IE7 life-saver */
 	margin: 5px;
 	padding: 3px 10px;
