@@ -6,6 +6,7 @@
  * @format
  */
 var app = new Vue({
+	websiteURL: websiteURL,
 	el: "#app",
 	template: "#app-template",
 	data: function () {
@@ -186,6 +187,10 @@ var app = new Vue({
 					id: "pay_invoice",
 					tagline: "Pay Invoice",
 					title: "I need to pay an invoice...",
+					type: FlowForm.QuestionType.MultipleChoice,
+					multiple: false,
+					required: true,
+					helpTextShow: false,
 					description:
 						"You'll need your invoice number and total handy, but you can ",
 					descriptionLink: [
