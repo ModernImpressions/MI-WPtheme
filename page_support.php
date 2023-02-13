@@ -15,7 +15,6 @@ get_header('support'); ?>
  * @format
  */
 var app = new Vue({
-    websiteURL = <?php echo get_site_url(); ?>,
     el: "#app",
     template: "#app-template",
     data: function() {
@@ -100,7 +99,7 @@ var app = new Vue({
                     description: "If you wish to update the contact information you can do so here: ",
                     descriptionLink: [
                         new FlowForm.LinkOption({
-                            url: websiteURL + "/support/change-contact-information/",
+                            url: "<?php echo get_site_url(); ?>/support/change-contact-information/",
                             text: " Change Contact Infomation",
                             target: "_self",
                         }),
@@ -126,7 +125,7 @@ var app = new Vue({
                     description: "You'll need your device information handy, but you can ",
                     descriptionLink: [
                         new FlowForm.LinkOption({
-                            url: websiteURL + "/support/order-supplies/",
+                            url: "<?php echo get_site_url(); ?>/support/order-supplies/",
                             text: "place a supply order.",
                             target: "_self",
                         }),
@@ -144,7 +143,7 @@ var app = new Vue({
                     description: "We're here to help, just ",
                     descriptionLink: [
                         new FlowForm.LinkOption({
-                            url: websiteURL + "/support/place-a-service-call/",
+                            url: "<?php echo get_site_url(); ?>/support/place-a-service-call/",
                             text: "Submit a Service Call",
                             target: "_self",
                         }),
@@ -162,7 +161,7 @@ var app = new Vue({
                     description: "You'll need your device information handy, but you can ",
                     descriptionLink: [
                         new FlowForm.LinkOption({
-                            url: websiteURL + "/support/meter-reading/",
+                            url: "<?php echo get_site_url(); ?>/support/meter-reading/",
                             text: "Submit a Meter Reading",
                             target: "_self",
                         }),
@@ -180,7 +179,7 @@ var app = new Vue({
                     description: "If you have other changes to make, please call our office 1-800-840-2554 or ",
                     descriptionLink: [
                         new FlowForm.LinkOption({
-                            url: websiteURL + "/contact/",
+                            url: "<?php echo get_site_url(); ?>/contact/",
                             text: "Contact Us",
                             target: "_self",
                         }),
@@ -198,7 +197,7 @@ var app = new Vue({
                     description: "You'll need your invoice number and total handy, but you can ",
                     descriptionLink: [
                         new FlowForm.LinkOption({
-                            url: websiteURL + "/support/payments/",
+                            url: "<?php echo get_site_url(); ?>/support/payments/",
                             text: "Pay an Invoice",
                             target: "_self",
                         }),
