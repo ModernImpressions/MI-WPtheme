@@ -22,6 +22,9 @@ get_header('support'); ?>
                     <p style="text-align: center;"><?php echo do_shortcode('[basepress-search kb="help-docs"]'); ?></p>
                     <hr />
                     <div id="app"></div>
+                    <script type="text/javascript">
+                    var websiteUrl = "<?php echo get_site_url(); ?>";
+                    </script>
                     <script type="x-template" id="app-template">
                         <flow-form ref="flowform" v-on:complete="onComplete" v-bind:questions="questions" v-bind:language="language" v-bind:progressbar="false" v-bind:navigation="false">
                                     <!-- Custom content for the Complete/Submit screen slots in the FlowForm component -->
