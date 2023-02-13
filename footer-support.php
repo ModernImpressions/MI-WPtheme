@@ -116,7 +116,7 @@ var app = new Vue({
                     description: "Find solutions to common problems in our",
                     descriptionLink: [
                         new FlowForm.LinkOption({
-                            url: websiteURL + "/docs/",
+                            url: "<?php echo get_site_url(); ?>/docs/",
                             text: " Support Docs",
                             target: "_self",
                         }),
