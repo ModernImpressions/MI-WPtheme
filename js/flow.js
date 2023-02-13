@@ -7,7 +7,6 @@
  */
 var app = new Vue({
 	// get the website URL from the HTML
-	websiteURL: document.getElementById("websiteURL").value,
 	el: "#app",
 	template: "#app-template",
 	data: function () {
