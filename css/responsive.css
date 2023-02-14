@@ -121,7 +121,7 @@
 	}
 
 	#brand_area .child_logo:first-child {
-		margin-left: 0;
+		margin-left: auto;
 	}
 }
 
