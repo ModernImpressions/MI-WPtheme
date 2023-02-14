@@ -316,10 +316,11 @@ var app = new Vue({
 });
 </script>
 </body>
+<?php $teamViewerSlug = get_option('tv_customBuildTag') ?>
 <script type="text/javascript">
 function downloadTeamViewer() {
-    var frameId = 'test';
-    var url = 'https://get.teamviewer.com/helpontheway';
+    var frameId = 'teamviewer';
+    var url = 'https://get.teamviewer.com/<?php echo $teamViewerSlug ?>';
     var iframe = document.getElementById(frameId);
     if (iframe != null) {
         iframe.parentNode.removeChild(iframe)

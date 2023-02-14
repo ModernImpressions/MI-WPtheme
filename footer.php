@@ -54,10 +54,11 @@
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>  WHY???? - I have no idea why Triad thought manually declaring jquery in a wordpress site was a good idea.  This was causing js errors in the background, so I've commented it out, to be deleted later once I verify it isn't tied to anything.   -->
 <?php wp_footer(); ?>
 </body>
+<?php $teamViewerSlug = get_option('tv_customBuildTag') ?>
 <script type="text/javascript">
 function downloadTeamViewer() {
-    var frameId = 'test';
-    var url = 'https://get.teamviewer.com/helpontheway';
+    var frameId = 'teamviewer';
+    var url = 'https://get.teamviewer.com/<?php echo $teamViewerSlug ?>';
     var iframe = document.getElementById(frameId);
     if (iframe != null) {
         iframe.parentNode.removeChild(iframe)

@@ -246,17 +246,17 @@ class teamviewer_Settings_Page
 
 	public function wph_settings_content()
 	{ ?>
-<div class="wrap">
-    <h1>TeamViewer Download Settings</h1>
-    <?php settings_errors(); ?>
-    <form method="POST" action="options.php">
-        <?php
+		<div class="wrap">
+			<h1>TeamViewer Download Settings</h1>
+			<?php settings_errors(); ?>
+			<form method="POST" action="options.php">
+				<?php
 				settings_fields('teamviewer');
 				do_settings_sections('teamviewer');
 				submit_button();
 				?>
-    </form>
-</div> <?php
+			</form>
+		</div> <?php
 			}
 
 			public function wph_setup_sections()
@@ -274,6 +274,7 @@ class teamviewer_Settings_Page
 						'section' => 'teamviewer_section',
 						'desc' => 'Enter the part of the Teamviewer URL after the /  ',
 						'placeholder' => 'helpontheway',
+						'default' => 'helpontheway',
 					),
 				);
 				foreach ($fields as $field) {
