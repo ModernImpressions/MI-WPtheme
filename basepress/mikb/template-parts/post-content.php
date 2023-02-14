@@ -29,8 +29,9 @@ $bpkb_section = basepress_sections();
                 <div><i class="fas fa-calendar-day"></i><?php echo " Created: "; ?><?php echo $bpkb_post_date ?></div>
                 <?php if ($bpkb_post_date == $bpkb_updated_date) { ?>
                 <?php } else { ?>
-                    <div><i class="fas fa-calendar-edit"></i><?php echo "  Last Update: "; ?><?php echo $bpkb_updated_date ?>
-                    </div>
+                <div><i
+                        class="fas fa-calendar-edit"></i><?php echo "  Last Update: "; ?><?php echo $bpkb_updated_date ?>
+                </div>
                 <?php } ?>
             </span>
         </div>
@@ -42,15 +43,15 @@ $bpkb_section = basepress_sections();
     <div class="post-content row">
         <div class="content col introduction">
             <?php if (empty($bpkb_post_introduction) != true) { ?>
-                <h4 id="preface">Introduction</h4>
-                <p><?php echo $bpkb_post_introduction ?></p>
+            <h4 id="preface">Introduction</h4>
+            <p><?php echo $bpkb_post_introduction ?></p>
             <?php } ?>
             <?php if (empty($bpkb_post_introduction) != true) { ?>
-                <hr />
+            <hr />
             <?php } ?>
         </div>
     </div>
-    <div class="post-content row">
+    <div class="post-content row kb-article-tc-sort">
         <div class="content col">
             <?php the_content(); ?>
         </div>
@@ -65,7 +66,7 @@ $bpkb_section = basepress_sections();
     //Articles tag list
     if (basepress_article_has_tags()) :
     ?>
-        <p><?php basepress_tag_list_title();
+    <p><?php basepress_tag_list_title();
             basepress_article_tags(); ?></p>
 
     <?php endif; ?>
