@@ -24,8 +24,8 @@ function stop_heartbeat() {
 function call_flowscripts()
 {
 	wp_register_style('vue-flow', 'https://unpkg.com/@ditdot-dev/vue-flow-form@1.1.2/dist/vue-flow-form.min.css', array(), '1.1.2', 'all');
-	wp_register_style('flow', get_template_directory_uri() . '/css/flow.css', array(), '1.0.0', 'all');
-	wp_register_style('flow-custom', get_template_directory_uri() . '/css/vue-flow-custom.css', array(), '1.0.0', 'all');
+	wp_register_style('flow', get_template_directory_uri() . '/css/flow.min.css', array(), '1.0.0', 'all');
+	wp_register_style('flow-custom', get_template_directory_uri() . '/css/vue-flow-custom.min.css', array(), '1.0.0', 'all');
 
 	wp_enqueue_style('flow');
 	wp_enqueue_style('flow-custom');
@@ -201,7 +201,7 @@ add_action('after_setup_theme', 'add_woocommerce_support');
 
 function add_catalog_styles()
 {
-	wp_register_style('store_overrides', get_template_directory_uri() . '/css/store.css', array(), '1.0.0', 'all');
+	wp_register_style('store_overrides', get_template_directory_uri() . '/css/store.min.css', array(), '1.0.0', 'all');
 	wp_enqueue_style('store_overrides');
 }
 add_action('woocommerce_before_main_content', 'add_catalog_styles');
