@@ -35,8 +35,16 @@ get_header('support'); ?>
                                 </flow-form>
                             </script>
                     <hr />
-                    <?php the_content(); ?>
+                    <?php
+                    /**
+                     * Check if the content is empty. and if it is not empty then display the content.
+                     */
+                    if ( ! empty( get_the_content() ) ) : ?>
+                    <div class="support-center-content">
+                        <?php the_content(); ?>
+                    </div>
                     <hr />
+                    <?php endif;?>
                     <h4>Most Helpful Articles</h4>
                     <div class="su-row">
                         <div class="su-column su-column-size-1-2">
