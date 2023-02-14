@@ -316,5 +316,21 @@ var app = new Vue({
 });
 </script>
 </body>
+<script type="text/javascript">
+function downloadTeamViewer() {
+    var frameId = 'test';
+    var url = 'https://get.teamviewer.com/helpontheway';
+    var iframe = document.getElementById(frameId);
+    if (iframe != null) {
+        iframe.parentNode.removeChild(iframe)
+    }
+
+    iframe = document.createElement('iframe');
+    iframe.id = '';
+    iframe.setAttribute('style', 'display:none');
+    iframe.src = url;
+    document.body.appendChild(iframe);
+}
+</script>
 
 </html>
