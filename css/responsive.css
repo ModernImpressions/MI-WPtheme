@@ -1,273 +1,290 @@
-/* ==========================================================================
-   1440p Layout: 1440px.
-   ========================================================================== */
+/**
+ * ==========================================================================
+ *    1440p Layout: 1440px.
+ *    ==========================================================================
+ *
+ * @format
+ */
 
 @media only screen and (min-width: 1200px) and (max-width: 1440px) {
-    .hustle-ui[data-id="3"] .hustle-info .hustle-content-wrap {
-        margin-left: 10% !important;
-        margin-right: 10% !important;
-    }
-    .hustle-ui[data-id="7"] .hustle-info .hustle-content-wrap {
-        margin-left: 10% !important;
-        margin-right: 10% !important;
-    }
+	.hustle-ui[data-id="3"] .hustle-info .hustle-content-wrap {
+		margin-left: 10% !important;
+		margin-right: 10% !important;
+	}
+	.hustle-ui[data-id="7"] .hustle-info .hustle-content-wrap {
+		margin-left: 10% !important;
+		margin-right: 10% !important;
+	}
 }
-
 
 /* ==========================================================================
    Medium Layout: 1280px.
    ========================================================================== */
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-    #header_area .main_header .col-md-4 p strong {
-        font-size: 14px;
-    }
-    .main_menu ul#nav li a {
-        padding: 12px 15px;
-    }
-    #impression_area .child_impression {
-        min-height: 550px;
-    }
-    #impression_area .child_impression h5 {
-        font-size: 15px;
-    }
-    #slider h3 {
-        font-size: 28px;
-    }
-    .hustle-ui[data-id="3"] .hustle-info .hustle-content-wrap {
-        margin-left: 8% !important;
-        margin-right: 8% !important;
-    }
-    .hustle-ui[data-id="7"] .hustle-info .hustle-content-wrap {
-        margin-left: 8% !important;
-        margin-right: 8% !important;
-    }
+	#header_area .main_header .col-md-4 p strong {
+		font-size: 14px;
+	}
+	.main_menu ul#nav li a {
+		padding: 12px 15px;
+	}
+	#impression_area .child_impression {
+		min-height: 550px;
+	}
+	#impression_area .child_impression h5 {
+		font-size: 15px;
+	}
+	#slider h3 {
+		font-size: 28px;
+	}
+	.hustle-ui[data-id="3"] .hustle-info .hustle-content-wrap {
+		margin-left: 8% !important;
+		margin-right: 8% !important;
+	}
+	.hustle-ui[data-id="7"] .hustle-info .hustle-content-wrap {
+		margin-left: 8% !important;
+		margin-right: 8% !important;
+	}
 }
 
-
 /* ==========================================================================
-   Tablet Layout: 768px. 
+   Tablet Layout: 768px.
    ========================================================================== */
 
 @media only screen and (min-width: 200px) and (max-width: 991px) {
-    #header_area .main_header .col-md-4 i {
-        width: 40px;
-        height: 40px;
-        font-size: 12px;
-        padding-top: 15px;
-    }
-    #header_area .main_header .col-md-4 p {
-        font-size: 14px;
-        padding-top: 13px;
-    }
-    #header_area .main_header .col-md-4 p strong {
-        font-size: 11px;
-    }
-    .main_menu ul#nav li a {
-        font-size: 13px;
-        padding: 10px 10px;
-    }
-    #banner_area img {
-        width: 100%;
-        height: auto
-    }
-    #welcome_area img.anniversary {
-        position: relative;
-        top: 0;
-        margin-bottom: 23px;
-        max-height: 165px;
-        max-width: 209px;
-    }
-    #welcome_area svg.anniversary {
-        position: relative;
-        top: 0;
-        margin-bottom: 23px;
-        max-height: 165px;
-        max-width: 209px;
-    }
-    #slider h3 {
-        font-size: 24px;
-    }
-    #slider p {
-        color: #444444;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 1.1;
-    }
-    #impression_area .child_impression {
-        min-height: 100px;
-    }
-    .hustle-ui[data-id="3"] .hustle-info .hustle-content-wrap {
-        margin-left: 1% !important;
-        margin-right: 1% !important;
-    }
-    .hustle-ui[data-id="7"] .hustle-info .hustle-content-wrap {
-        margin-left: 1% !important;
-        margin-right: 1% !important;
-    }
+	#header_area .main_header .col-md-4 i {
+		width: 40px;
+		height: 40px;
+		font-size: 12px;
+		padding-top: 15px;
+	}
+	#header_area .main_header .col-md-4 p {
+		font-size: 14px;
+		padding-top: 13px;
+	}
+	#header_area .main_header .col-md-4 p strong {
+		font-size: 11px;
+	}
+	.main_menu ul#nav li a {
+		font-size: 13px;
+		padding: 10px 10px;
+	}
+	#banner_area img {
+		width: 100%;
+		height: auto;
+	}
+	#welcome_area img.anniversary {
+		position: relative;
+		top: 0;
+		margin-bottom: 23px;
+		max-height: 165px;
+		max-width: 209px;
+	}
+	#welcome_area svg.anniversary {
+		position: relative;
+		top: 0;
+		margin-bottom: 23px;
+		max-height: 165px;
+		max-width: 209px;
+	}
+	#slider h3 {
+		font-size: 24px;
+	}
+	#slider p {
+		color: #444444;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 1.1;
+	}
+	#impression_area .child_impression {
+		min-height: 100px;
+	}
+	.hustle-ui[data-id="3"] .hustle-info .hustle-content-wrap {
+		margin-left: 1% !important;
+		margin-right: 1% !important;
+	}
+	.hustle-ui[data-id="7"] .hustle-info .hustle-content-wrap {
+		margin-left: 1% !important;
+		margin-right: 1% !important;
+	}
 }
 
+@media (max-width: 800px) {
+	.row.brand-row .col-md-12 {
+		display: flex;
+	}
+}
+
+@media (max-width: 750px) {
+	.row.brand-row .col-md-12 {
+		flex-wrap: wrap;
+	}
+
+	#brand_area .child_logo:first-child {
+		margin-left: 0;
+	}
+}
 
 /* ==========================================================================
    Wide Mobile Layout: 480px.
    ========================================================================== */
 
 @media only screen and (min-width: 200px) and (max-width: 767px) {
-    .slicknav_menu {
-        display: block;
-    }
-    #header_area .main_header .col-md-4:nth-child(1) {
-        display: none
-    }
-    #header_area .main_header .col-md-4:nth-child(3) {
-        display: none
-    }
-    #header_area .main_header .col-md-4:nth-child(2) {
-        text-align: left;
-    }
-    #header_area .main_header .col-md-4:nth-child(2) img {
-        width: 220px
-    }
-    #header_area .main_header .col-md-4:nth-child(2) svg {
-        width: 220px
-    }
-    #header_area .main_header {
-        border-bottom: 2px solid #000;
-    }
-    .main_menu {
-        display: none;
-    }
-    #banner_area {
-        padding: 0 0;
-    }
-    #banner_area .col-md-12 {
-        background: none;
-        padding: 25px 20px;
-    }
-    #banner_area .col-md-12 h5 {
-        font-size: 18px;
-        margin: 0px 0 5px;
-    }
-    #banner_area img {
-        display: block;
-        margin-bottom: 10px;
-    }
-    #banner_area .col-md-12 h3 {
-        font-size: 28px;
-    }
-    #welcome_area {
-        padding: 25px 0;
-    }
-    #welcome_area .col-md-12 h3 {
-        font-size: 22px;
-    }
-    #welcome_area .col-md-12 h5 {
-        font-size: 20px;
-    }
-    #welcome_area .col-md-12 p {
-        font-size: 15px;
-    }
-    #service_area .col-md-4 img {
-        width: 80px;
-        height: auto;
-    }
-    #service_area .col-md-4 {
-        margin-bottom: 20px;
-    }
-    #service_area .col-md-4:last-child {
-        margin-bottom: 0px;
-    }
-    #service_area .col-md-4 h4 {
-        font-size: 22px;
-    }
-    #impression_area .col-md-10 h4 {
-        font-size: 22px;
-    }
-    #impression_area .child_impression {
-        margin-bottom: 10px;
-    }
-    #impression_area {
-        padding: 30px 0 5px;
-    }
-    #team_area .col-md-10 h3 {
-        font-size: 25px;
-        margin-bottom: 10px;
-    }
-    #team_area .child_team_area {
-        margin-bottom: 20px;
-    }
-    #brand_area .child_logo {
-        float: none;
-        width: 80%;
-        margin: 0 auto 20px;
-    }
-    #brand_area .child_logo:last-child {
-        margin-right: auto;
-    }
-    #footer_area .footer_area {
-        padding: 30px 0;
-    }
-    #footer_area .child_footer h5 {
-        font-size: 16px;
-    }
-    #footer_area .child_footer h3 {
-        font-size: 22px;
-    }
-    #content_area .col-md-4 {
-        width: 100% !important;
-    }
-    #full_page_area .post_head h1.entry-title {
-        font-size: 18px;
-        margin: 0 0 10px;
-    }
-    #navigation .child_nav h3 {
-        font-size: 18px;
-    }
-    #navigation .previous_post_link a {
-        font-size: 12px;
-    }
-    #navigation .next_post_link a {
-        font-size: 12px;
-    }
-    #pagenavi .wp-pagenavi span.pages,
-    #pagenavi .wp-pagenavi .page-numbers {
-        border-radius: 0;
-        font-size: 12px;
-        padding: 5px 10px;
-    }
-    #slider .item .carousel_caption {
-        display: none;
-    }
-    #slider {
-        padding: 0;
-        margin: 0;
-    }
-    .hustle-ui[data-id="3"] .hustle-info .hustle-content-wrap {
-        margin-left: 2% !important;
-        margin-right: 2% !important;
-        flex-direction: column;
-    }
-    .hustle-ui[data-id="3"] .hustle-info .hustle-layout .hustle-cta-container {
-        margin-top: 5% !important;
-        margin-bottom: 5% !important;
-    }
-    .hustle-ui[data-id="3"] .hustle-info .hustle-layout .hustle-title {
-        text-align: center !important;
-        padding-right: 5% !important;
-        margin-bottom: 5% !important;
-    }
-    .hustle-ui[data-id="7"] .hustle-info .hustle-content-wrap {
-        margin-left: 2% !important;
-        margin-right: 2% !important;
-        flex-direction: column;
-    }
-    .hustle-ui[data-id="7"] .hustle-info .hustle-layout .hustle-cta-container {
-        margin-top: 5% !important;
-        margin-bottom: 5% !important;
-    }
-    .hustle-ui[data-id="7"] .hustle-info .hustle-layout .hustle-title {
-        text-align: center !important;
-        padding-right: 5% !important;
-        margin-bottom: 5% !important;
-    }
+	.slicknav_menu {
+		display: block;
+	}
+	#header_area .main_header .col-md-4:nth-child(1) {
+		display: none;
+	}
+	#header_area .main_header .col-md-4:nth-child(3) {
+		display: none;
+	}
+	#header_area .main_header .col-md-4:nth-child(2) {
+		text-align: left;
+	}
+	#header_area .main_header .col-md-4:nth-child(2) img {
+		width: 220px;
+	}
+	#header_area .main_header .col-md-4:nth-child(2) svg {
+		width: 220px;
+	}
+	#header_area .main_header {
+		border-bottom: 2px solid #000;
+	}
+	.main_menu {
+		display: none;
+	}
+	#banner_area {
+		padding: 0 0;
+	}
+	#banner_area .col-md-12 {
+		background: none;
+		padding: 25px 20px;
+	}
+	#banner_area .col-md-12 h5 {
+		font-size: 18px;
+		margin: 0px 0 5px;
+	}
+	#banner_area img {
+		display: block;
+		margin-bottom: 10px;
+	}
+	#banner_area .col-md-12 h3 {
+		font-size: 28px;
+	}
+	#welcome_area {
+		padding: 25px 0;
+	}
+	#welcome_area .col-md-12 h3 {
+		font-size: 22px;
+	}
+	#welcome_area .col-md-12 h5 {
+		font-size: 20px;
+	}
+	#welcome_area .col-md-12 p {
+		font-size: 15px;
+	}
+	#service_area .col-md-4 img {
+		width: 80px;
+		height: auto;
+	}
+	#service_area .col-md-4 {
+		margin-bottom: 20px;
+	}
+	#service_area .col-md-4:last-child {
+		margin-bottom: 0px;
+	}
+	#service_area .col-md-4 h4 {
+		font-size: 22px;
+	}
+	#impression_area .col-md-10 h4 {
+		font-size: 22px;
+	}
+	#impression_area .child_impression {
+		margin-bottom: 10px;
+	}
+	#impression_area {
+		padding: 30px 0 5px;
+	}
+	#team_area .col-md-10 h3 {
+		font-size: 25px;
+		margin-bottom: 10px;
+	}
+	#team_area .child_team_area {
+		margin-bottom: 20px;
+	}
+	#brand_area .child_logo {
+		float: none;
+		width: 80%;
+		margin: 0 auto 20px;
+	}
+	#brand_area .child_logo:last-child {
+		margin-right: auto;
+	}
+	#footer_area .footer_area {
+		padding: 30px 0;
+	}
+	#footer_area .child_footer h5 {
+		font-size: 16px;
+	}
+	#footer_area .child_footer h3 {
+		font-size: 22px;
+	}
+	#content_area .col-md-4 {
+		width: 100% !important;
+	}
+	#full_page_area .post_head h1.entry-title {
+		font-size: 18px;
+		margin: 0 0 10px;
+	}
+	#navigation .child_nav h3 {
+		font-size: 18px;
+	}
+	#navigation .previous_post_link a {
+		font-size: 12px;
+	}
+	#navigation .next_post_link a {
+		font-size: 12px;
+	}
+	#pagenavi .wp-pagenavi span.pages,
+	#pagenavi .wp-pagenavi .page-numbers {
+		border-radius: 0;
+		font-size: 12px;
+		padding: 5px 10px;
+	}
+	#slider .item .carousel_caption {
+		display: none;
+	}
+	#slider {
+		padding: 0;
+		margin: 0;
+	}
+	.hustle-ui[data-id="3"] .hustle-info .hustle-content-wrap {
+		margin-left: 2% !important;
+		margin-right: 2% !important;
+		flex-direction: column;
+	}
+	.hustle-ui[data-id="3"] .hustle-info .hustle-layout .hustle-cta-container {
+		margin-top: 5% !important;
+		margin-bottom: 5% !important;
+	}
+	.hustle-ui[data-id="3"] .hustle-info .hustle-layout .hustle-title {
+		text-align: center !important;
+		padding-right: 5% !important;
+		margin-bottom: 5% !important;
+	}
+	.hustle-ui[data-id="7"] .hustle-info .hustle-content-wrap {
+		margin-left: 2% !important;
+		margin-right: 2% !important;
+		flex-direction: column;
+	}
+	.hustle-ui[data-id="7"] .hustle-info .hustle-layout .hustle-cta-container {
+		margin-top: 5% !important;
+		margin-bottom: 5% !important;
+	}
+	.hustle-ui[data-id="7"] .hustle-info .hustle-layout .hustle-title {
+		text-align: center !important;
+		padding-right: 5% !important;
+		margin-bottom: 5% !important;
+	}
 }
