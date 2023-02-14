@@ -221,3 +221,89 @@ function hide_empty_categories($hide_empty)
  * Allows the use of shortcuts in widgets.
  */
 add_filter('widget_text', 'do_shortcode');
+
+// Settings Page: TeamViewer
+// Retrieving values: get_option( 'your_field_id' )
+class teamviewer_Settings_Page
+{
+
+	public function __construct()
+	{
+		add_action('admin_menu', array($this, 'wph_create_settings'));
+		add_action('admin_init', array($this, 'wph_setup_sections'));
+		add_action('admin_init', array($this, 'wph_setup_fields'));
+	}
+
+	public function wph_create_settings()
+	{
+		$page_title = 'TeamViewer Download Settings';
+		$menu_title = 'TeamViewer';
+		$capability = 'manage_options';
+		$slug = 'teamviewer';
+		$callback = array($this, 'wph_settings_content');
+		add_options_page($page_title, $menu_title, $capability, $slug, $callback);
+	}
+
+	public function wph_settings_content()
+	{ ?>
+<div class="wrap">
+    <h1>TeamViewer Download Settings</h1>
+    <?php settings_errors(); ?>
+    <form method="POST" action="options.php">
+        <?php
+				settings_fields('teamviewer');
+				do_settings_sections('teamviewer');
+				submit_button();
+				?>
+    </form>
+</div> <?php
+			}
+
+			public function wph_setup_sections()
+			{
+				add_settings_section('teamviewer_section', 'Settings to allow the QuickSupport download', array(), 'teamviewer');
+			}
+
+			public function wph_setup_fields()
+			{
+				$fields = array(
+					array(
+						'label' => 'Custom Build Tag',
+						'id' => 'tv_customBuildTag',
+						'type' => 'text',
+						'section' => 'teamviewer_section',
+						'desc' => 'Enter the part of the Teamviewer URL after the /  ',
+						'placeholder' => 'helpontheway',
+					),
+				);
+				foreach ($fields as $field) {
+					add_settings_field($field['id'], $field['label'], array($this, 'wph_field_callback'), 'teamviewer', $field['section'], $field);
+					register_setting('teamviewer', $field['id']);
+				}
+			}
+
+			public function wph_field_callback($field)
+			{
+				$value = get_option($field['id']);
+				$placeholder = '';
+				if (isset($field['placeholder'])) {
+					$placeholder = $field['placeholder'];
+				}
+				switch ($field['type']) {
+					default:
+						printf(
+							'<input name="%1$s" id="%1$s" type="%2$s" placeholder="%3$s" value="%4$s" />',
+							$field['id'],
+							$field['type'],
+							$placeholder,
+							$value
+						);
+				}
+				if (isset($field['desc'])) {
+					if ($desc = $field['desc']) {
+						printf('<p class="description">%s </p>', $desc);
+					}
+				}
+			}
+		}
+		new teamviewer_Settings_Page();
