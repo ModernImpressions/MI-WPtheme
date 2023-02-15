@@ -137,6 +137,8 @@ get_header('support'); ?>
 
                         <?php } ?>
                     </div>
+                    <p><?php //for debugging the HTTP_USER_AGENT
+                        echo $_SERVER['HTTP_USER_AGENT']; ?></p>
                 </div>
             </div>
         </div>
