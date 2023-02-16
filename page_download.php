@@ -53,6 +53,18 @@ if (preg_match('/MSIE/i', $userAgent) && !preg_match('/Opera/i', $userAgent)) {
 } else {
     $browser = 'Other';
 }
+// End of script to detect the browser and OS and provide the correct prompts on where to find the downloaded file.
+// Depending on the OS, the download will either be for TeamViewer or Chrome Remote Desktop
+$teamViewerSlug = get_option('tv_customBuildTag');
+if ($os == 'Windows' || $os == 'Mac') {
+    $download = 'https://get.teamviewer.com/' . $teamViewerSlug;
+} elseif ($os == 'Linux' || $os == 'Unix' || $os == 'Chrome OS') {
+    $download = 'https://remotedesktop.google.com/';
+} elseif ($os == 'iPhone' || $os == 'iPad' || $os == 'Android') {
+    $download = null;
+} else {
+    $download = 'unknown';
+}
 
 get_header('support'); ?>
 
