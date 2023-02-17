@@ -9,6 +9,8 @@
  * This is the template for the Remote Support Download Page, this page is used to download the remote support software and should detect the browser and OS and provide the correct prompts on where to find the downloaded file.
  */
 define('DONOTCACHEPAGE', true);
+//load composer
+require_once __DIR__ . '/vendor/autoload.php';
 $cache = new \MatthiasMullie\Scrapbook\Psr16\SimpleCache($doctrineFileCache); // or maybe any other PSR-16 compatible caches
 $logger = new \Monolog\Logger('name'); // or maybe any other PSR-3 compatible logger
 $browscap = new \BrowscapPHP\Browscap($cache, $logger);
