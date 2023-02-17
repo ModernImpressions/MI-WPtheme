@@ -11,6 +11,13 @@
 define('DONOTCACHEPAGE', true);
 //load composer
 require_once __DIR__ . '/vendor/autoload.php';
+//load cache
+//create cache directory if it doesn't exist
+if (!file_exists($cacheDir)) {
+    mkdir($cacheDir, 0777, true);
+}
+$cacheDir = __DIR__ . '/cache';
+// load browscap
 $fileCache = new \League\Flysystem\Local\LocalFilesystemAdapter($cacheDir);
 $filesystem = new \League\Flysystem\Filesystem($fileCache);
 $cache = new \MatthiasMullie\Scrapbook\Psr16\SimpleCache(new \MatthiasMullie\Scrapbook\Adapters\Flysystem($filesystem)); // or maybe any other PSR-16 compatible caches
