@@ -8,7 +8,7 @@
  *
  * This is the template for the Remote Support Download Page, this page is used to download the remote support software and should detect the browser and OS and provide the correct prompts on where to find the downloaded file.
  */
-
+define('DONOTCACHEPAGE', true);
 // Script to detect the browser and OS and provide the correct prompts on where to find the downloaded file.
 // Put user agent string into $browser variable
 $userAgent = $_SERVER['HTTP_USER_AGENT'];
