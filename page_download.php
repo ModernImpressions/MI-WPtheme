@@ -9,10 +9,13 @@
  * This is the template for the Remote Support Download Page, this page is used to download the remote support software and should detect the browser and OS and provide the correct prompts on where to find the downloaded file.
  */
 define('DONOTCACHEPAGE', true);
+$cache = new \MatthiasMullie\Scrapbook\Psr16\SimpleCache($doctrineFileCache); // or maybe any other PSR-16 compatible caches
+$logger = new \Monolog\Logger('name'); // or maybe any other PSR-3 compatible logger
+$browscap = new \BrowscapPHP\Browscap($cache, $logger);
 // Script to detect the browser and OS and provide the correct prompts on where to find the downloaded file.
 // Put user agent string into $browser variable
 $userAgent = $_SERVER['HTTP_USER_AGENT'];
-$agent = get_browser($userAgent, false);
+$agent = $browscap->getBrowser();
 // Get the browser name
 $browser = $agent->browser;
 // Get the OS name
