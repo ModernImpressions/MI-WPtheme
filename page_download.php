@@ -40,7 +40,7 @@ if (preg_match('/windows|win/i', $os)) {
     $os = 'iPad';
 } elseif (preg_match('/Android/i', $os)) {
     $os = 'Android';
-} elseif (preg_match('/CrOS|Chrome OS/i', $os)) {
+} elseif (preg_match('/CrOS|Chrome OS|Chrome/i', $os)) {
     $os = 'Chrome OS';
 } else {
     $os = 'Other';
@@ -48,6 +48,8 @@ if (preg_match('/windows|win/i', $os)) {
 // Detect the browser
 if (preg_match('/MSIE/i', $userAgent) && !preg_match('/Opera/i', $userAgent)) {
     $browser = 'Internet Explorer';
+} elseif (preg_match('/Edge/i', $userAgent)) {
+    $browser = 'Edge';
 } elseif (preg_match('/Firefox/i', $userAgent)) {
     $browser = 'Firefox';
 } elseif (preg_match('/Chrome/i', $userAgent)) {
@@ -89,76 +91,76 @@ get_header('support'); ?>
                     <h2 class="title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
                     <div class="content">
                         <?php if ($os == 'Windows' || $os == 'Mac') { ?>
-                        <h3>Downloading TeamViewer for <?php echo $os; ?></h3>
-                        <p><strong>Done downloading? Next...</strong></p>
-                        <?php if ($browser == 'Chrome') { ?>
-                        <ol>
-                            <li>Your download should appear in the lower left corner of your screen.</li>
-                            <li>Click the download to open it.</li>
-                            <?php if ($os == 'Windows') { ?>
-                            <li>Windows may ask if you want to allow this program to make changes to your computer -
-                                Click <strong>Yes.</strong></li>
-                            <?php } elseif ($os == 'Mac') { ?>
-                            <li>The file may download as a <strong>.Zip</strong> file. If so, running it will create a
-                                new folder of the same name.</li>
-                            <li>Open the <strong>TeamViewer</strong> application in the folder.</li>
+                            <h3>Downloading TeamViewer for <?php echo $os; ?></h3>
+                            <p><strong>Done downloading? Next...</strong></p>
+                            <?php if ($browser == 'Chrome') { ?>
+                                <ol>
+                                    <li>Your download should appear in the lower left corner of your screen.</li>
+                                    <li>Click the download to open it.</li>
+                                    <?php if ($os == 'Windows') { ?>
+                                        <li>Windows may ask if you want to allow this program to make changes to your computer -
+                                            Click <strong>Yes.</strong></li>
+                                    <?php } elseif ($os == 'Mac') { ?>
+                                        <li>The file may download as a <strong>.Zip</strong> file. If so, running it will create a
+                                            new folder of the same name.</li>
+                                        <li>Open the <strong>TeamViewer</strong> application in the folder.</li>
+                                    <?php } ?>
+                                    <li>Accept the EULA and DPA.</li>
+                                    <li>The <strong>Session Code</strong> and other user information will populate
+                                        automatically.</li>
+                                    <li>Provide the <strong>Session Code</strong> to the remote technician.</li>
+                                </ol>
+                            <?php } elseif ($browser == 'Firefox') { ?>
+                                <ol>
+                                    <li>Click the downloads icon in the upper right corner of your browser.</li>
+                                    <li>Click the download to open it.</li>
+                                    <?php if ($os == 'Windows') { ?>
+                                        <li>Windows may ask if you want to allow this program to make changes to your computer -
+                                            Click <strong>Yes.</strong></li>
+                                    <?php } elseif ($os == 'Mac') { ?>
+                                        <li>The file may download as a <strong>.Zip</strong> file. If so, running it will create a
+                                            new folder of the same name.</li>
+                                        <li>Open the <strong>TeamViewer</strong> application in the folder.</li>
+                                    <?php } ?>
+                                    <li>Accept the EULA and DPA.</li>
+                                    <li>The <strong>Session Code</strong> and other user information will populate
+                                        automatically.</li>
+                                    <li>Provide the <strong>Session Code</strong> to the remote technician.</li>
+                                </ol>
+                            <?php } elseif ($browser == 'Safari') { ?>
+                                <ol>
+                                    <li>Click the downloads icon in the upper right corner of your browser.</li>
+                                    <li>Click the download to open it.</li>
+                                    <?php if ($os == 'Windows') { ?>
+                                        <li>Windows may ask if you want to allow this program to make changes to your computer -
+                                            Click <strong>Yes.</strong></li>
+                                    <?php } elseif ($os == 'Mac') { ?>
+                                        <li>The file may download as a <strong>.Zip</strong> file. If so, running it will create a
+                                            new folder of the same name.</li>
+                                        <li>Open the <strong>TeamViewer</strong> application in the folder.</li>
+                                    <?php } ?>
+                                    <li>Accept the EULA and DPA.</li>
+                                    <li>The <strong>Session Code</strong> and other user information will populate
+                                        automatically.</li>
+                                    <li>Provide the <strong>Session Code</strong> to the remote technician.</li>
+                                </ol>
+                            <?php } elseif ($browser == 'Other') { ?>
+                                <ol>
+                                    <li>Click the download to open it.</li>
+                                    <?php if ($os == 'Windows') { ?>
+                                        <li>Windows may ask if you want to allow this program to make changes to your computer -
+                                            Click <strong>Yes.</strong></li>
+                                    <?php } elseif ($os == 'Mac') { ?>
+                                        <li>The file may download as a <strong>.Zip</strong> file. If so, running it will create a
+                                            new folder of the same name.</li>
+                                        <li>Open the <strong>TeamViewer</strong> application in the folder.</li>
+                                    <?php } ?>
+                                    <li>Accept the EULA and DPA.</li>
+                                    <li>The <strong>Session Code</strong> and other user information will populate
+                                        automatically.</li>
+                                    <li>Provide the <strong>Session Code</strong> to the remote technician.</li>
+                                </ol>
                             <?php } ?>
-                            <li>Accept the EULA and DPA.</li>
-                            <li>The <strong>Session Code</strong> and other user information will populate
-                                automatically.</li>
-                            <li>Provide the <strong>Session Code</strong> to the remote technician.</li>
-                        </ol>
-                        <?php } elseif ($browser == 'Firefox') { ?>
-                        <ol>
-                            <li>Click the downloads icon in the upper right corner of your browser.</li>
-                            <li>Click the download to open it.</li>
-                            <?php if ($os == 'Windows') { ?>
-                            <li>Windows may ask if you want to allow this program to make changes to your computer -
-                                Click <strong>Yes.</strong></li>
-                            <?php } elseif ($os == 'Mac') { ?>
-                            <li>The file may download as a <strong>.Zip</strong> file. If so, running it will create a
-                                new folder of the same name.</li>
-                            <li>Open the <strong>TeamViewer</strong> application in the folder.</li>
-                            <?php } ?>
-                            <li>Accept the EULA and DPA.</li>
-                            <li>The <strong>Session Code</strong> and other user information will populate
-                                automatically.</li>
-                            <li>Provide the <strong>Session Code</strong> to the remote technician.</li>
-                        </ol>
-                        <?php } elseif ($browser == 'Safari') { ?>
-                        <ol>
-                            <li>Click the downloads icon in the upper right corner of your browser.</li>
-                            <li>Click the download to open it.</li>
-                            <?php if ($os == 'Windows') { ?>
-                            <li>Windows may ask if you want to allow this program to make changes to your computer -
-                                Click <strong>Yes.</strong></li>
-                            <?php } elseif ($os == 'Mac') { ?>
-                            <li>The file may download as a <strong>.Zip</strong> file. If so, running it will create a
-                                new folder of the same name.</li>
-                            <li>Open the <strong>TeamViewer</strong> application in the folder.</li>
-                            <?php } ?>
-                            <li>Accept the EULA and DPA.</li>
-                            <li>The <strong>Session Code</strong> and other user information will populate
-                                automatically.</li>
-                            <li>Provide the <strong>Session Code</strong> to the remote technician.</li>
-                        </ol>
-                        <?php } elseif ($browser == 'Other') { ?>
-                        <ol>
-                            <li>Click the download to open it.</li>
-                            <?php if ($os == 'Windows') { ?>
-                            <li>Windows may ask if you want to allow this program to make changes to your computer -
-                                Click <strong>Yes.</strong></li>
-                            <?php } elseif ($os == 'Mac') { ?>
-                            <li>The file may download as a <strong>.Zip</strong> file. If so, running it will create a
-                                new folder of the same name.</li>
-                            <li>Open the <strong>TeamViewer</strong> application in the folder.</li>
-                            <?php } ?>
-                            <li>Accept the EULA and DPA.</li>
-                            <li>The <strong>Session Code</strong> and other user information will populate
-                                automatically.</li>
-                            <li>Provide the <strong>Session Code</strong> to the remote technician.</li>
-                        </ol>
-                        <?php } ?>
                         <?php } elseif ($os == 'Linux' || $os == 'Unix') { ?>
 
                         <?php } elseif ($os == 'iPhone' || $os == 'iPad' || $os == 'Android') { ?>
