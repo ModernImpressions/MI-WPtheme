@@ -46,19 +46,19 @@ if (preg_match('/windows|win/i', $os)) {
     $os = 'Other';
 }
 // Detect the browser
-if (preg_match('/MSIE/i', $userAgent) && !preg_match('/Opera/i', $userAgent)) {
+if (preg_match('/MSIE/i', $browser) && !preg_match('/Opera/i', $browser)) {
     $browser = 'Internet Explorer';
-} elseif (preg_match('/Edge/i', $userAgent)) {
+} elseif (preg_match('/Edge/i', $browser)) {
     $browser = 'Edge';
-} elseif (preg_match('/Firefox/i', $userAgent)) {
+} elseif (preg_match('/Firefox/i', $browser)) {
     $browser = 'Firefox';
-} elseif (preg_match('/Chrome/i', $userAgent)) {
+} elseif (preg_match('/Chrome/i', $browser)) {
     $browser = 'Chrome';
-} elseif (preg_match('/Safari/i', $userAgent)) {
+} elseif (preg_match('/Safari/i', $browser)) {
     $browser = 'Safari';
-} elseif (preg_match('/Opera/i', $userAgent)) {
+} elseif (preg_match('/Opera/i', $browser)) {
     $browser = 'Opera';
-} elseif (preg_match('/Netscape/i', $userAgent)) {
+} elseif (preg_match('/Netscape/i', $browser)) {
     $browser = 'Netscape';
 } else {
     $browser = 'Other';
