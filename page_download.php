@@ -12,7 +12,7 @@ define('DONOTCACHEPAGE', true);
 //load composer
 require_once __DIR__ . '/vendor/autoload.php';
 //load cache
-$cacheDir = __DIR__ . '/vendor/BrowscapPHP/resources/';
+$cacheDir = __DIR__ . '/vendor/browscap/browscap-php/resources';
 // load browscap
 $fileCache = new \League\Flysystem\Local\LocalFilesystemAdapter($cacheDir);
 $filesystem = new \League\Flysystem\Filesystem($fileCache);
