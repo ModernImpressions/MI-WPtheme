@@ -25,3 +25,4 @@ node_modules/
 
 # ignore cache directories and files
 *.cache
+cache/
