@@ -11,7 +11,9 @@
 define('DONOTCACHEPAGE', true);
 //load composer
 require_once __DIR__ . '/vendor/autoload.php';
-$cache = new \MatthiasMullie\Scrapbook\Psr16\SimpleCache($doctrineFileCache); // or maybe any other PSR-16 compatible caches
+$fileCache = new \League\Flysystem\Local\LocalFilesystemAdapter($cacheDir);
+$filesystem = new \League\Flysystem\Filesystem($fileCache);
+$cache = new \MatthiasMullie\Scrapbook\Psr16\SimpleCache(new \MatthiasMullie\Scrapbook\Adapters\Flysystem($filesystem)); // or maybe any other PSR-16 compatible caches
 $logger = new \Monolog\Logger('name'); // or maybe any other PSR-3 compatible logger
 $browscap = new \BrowscapPHP\Browscap($cache, $logger);
 // Script to detect the browser and OS and provide the correct prompts on where to find the downloaded file.
