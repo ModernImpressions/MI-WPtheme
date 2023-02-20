@@ -2467,13 +2467,3 @@ blockquote.customer-blockquote:after {
 .download-instructions-list li:last-child {
 	margin-bottom: 0;
 }
-.download-instructions-list li:before {
-	content: "";
-	display: inline-block;
-	width: 10px;
-	height: 10px;
-	background: #007f7b;
-	border-radius: 50%;
-	margin-right: 10px;
-	font-weight: bold;
-}
