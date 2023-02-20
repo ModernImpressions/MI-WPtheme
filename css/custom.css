@@ -2453,3 +2453,27 @@ blockquote.customer-blockquote:after {
 	padding-bottom: 30px;
 	overflow: hidden;
 }
+
+/* ==========================================================================
+   Support/Download Area
+========================================================================== */
+.download-instructions-list {
+	list-style: decimal;
+	margin-left: 20px;
+}
+.download-instructions-list li {
+	margin-bottom: 10px;
+}
+.download-instructions-list li:last-child {
+	margin-bottom: 0;
+}
+.download-instructions-list li:before {
+	content: "";
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background: #007f7b;
+	border-radius: 50%;
+	margin-right: 10px;
+	font-weight: bold;
+}
