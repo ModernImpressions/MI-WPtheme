@@ -226,6 +226,24 @@ get_header('support'); ?>
                         <p>We may be able to verbally guide you on your issue with your device, ask your support
                             technician.</p>
                         <?php } elseif ($os == 'Chrome OS') { ?>
+                        <script type="text/javascript">
+                        function noTeamViewer() {
+                            // We don't have a TeamViewer for Chrome OS, well show a message and redirect to Chrome Remote Desktop instead.
+                            var r = confirm(
+                                "Sorry, our TeamViewer is not available for Chrome OS. You can try to use Chrome Remote Desktop instead."
+                            );
+                            if (r == true) {
+                                window.location.href = "https://remotedesktop.google.com/";
+                            }
+                        }
+                        </script>
+                        <noscript>
+                            <div class="alert alert-danger" role="alert">
+                                <p><strong>JavaScript is disabled!</strong> This page requires JavaScript to function
+                                    properly.
+                                    Please enable JavaScript in your browser settings.</p>
+                            </div>
+                        </noscript>
                         <h3>TeamViewer for <?php echo $os; ?> is not available</h3>
                         <p>Sorry, our TeamViewer is not available for <?php echo $os; ?>. You can try to use Chrome
                             Remote
@@ -256,7 +274,14 @@ get_header('support'); ?>
                             <p>If your download didn't start or you need to manually download, click one of the options
                                 below.</p>
                             <ul>
-                                <li><a onclick="downloadTeamViewer()">TeamViewer</a> *Windows/Mac Support</li>
+                                <li><?php if ($os == 'Chrome OS') { ?>
+                                    <a onclick="noTeamViewer()">TeamViewer</a>
+                                    <?php } elseif ($os == 'Other') { ?>Visit the <a
+                                        href="https://get.teamviewer.com/<?php echo $teamViewerSlug ?>">TeamViewer</a>
+                                    page to see if your device supports the
+                                    program.<?php } elseif ($os == 'Windows' || $os == 'Mac') { ?><a
+                                        onclick="downloadTeamViewer()">TeamViewer</a><?php } ?> *Windows/Mac Support
+                                </li>
                                 <li><a href="https://remotedesktop.google.com/">Chrome Remote Desktop</a>
                                     *ChromeOS/Windows/Mac/Linux</li>
                             </ul>
