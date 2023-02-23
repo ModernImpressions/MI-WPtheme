@@ -19,6 +19,30 @@ $cacheDir = __DIR__ . '/vendor/browscap/browscap-php/resources';
 if (count(glob($cacheDir . "/*.cache")) === 0) {
     // check that the browscap.ini file exists
     if (file_exists($cacheDir . '/browscap.ini')) {
+        //run command to update the cache
+        $command = 'php ' . __DIR__ . '/vendor/bin/browscap-php browscap:convert';
+        $output = shell_exec($command);
+        // log the output to php error log
+        error_log($output);
+    } else {
+        // if the browscap.ini file does not exist, log an error to the php error log
+        error_log('browscap.ini file does not exist');
+        // attempt to download the browscap.ini file
+        $command = 'php ' . __DIR__ . '/vendor/bin/browscap-php browscap:fetch';
+        $output = shell_exec($command);
+        // log the output to php error log
+        error_log($output);
+        // if the browscap.ini file exists, run the update script
+        if (file_exists($cacheDir . '/browscap.ini')) {
+            //run command to update the cache
+            $command = 'php ' . __DIR__ . '/vendor/bin/browscap-php browscap:convert';
+            $output = shell_exec($command);
+            // log the output to php error log
+            error_log($output);
+        } else {
+            // if the browscap.ini file does not exist, log an error to the php error log
+            error_log('browscap.ini file does not exist and could not be downloaded');
+        }
     }
 }
 // load browscap to detect the browser and OS
