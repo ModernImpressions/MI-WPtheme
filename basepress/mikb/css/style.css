@@ -2455,3 +2455,18 @@ button.bpress-btn:disabled:hover {
 		width: 25%;
 	}
 }
+
+/**
+ * 22.0 - Custom Responsive
+ */
+@media (max-width: 1270px) {
+	.kb-article-tc-sort {
+		flex-direction: column-reverse;
+	}
+}
+
+@media (min-width: 1271px) {
+	.kb-article-tc-sort {
+		flex-direction: row;
+	}
+}

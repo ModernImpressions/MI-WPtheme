@@ -22,3 +22,7 @@ node_modules/
 *.sql
 *.sqlite
 *.code-workspace
+
+# ignore cache directories and files
+*.cache
+cache/
