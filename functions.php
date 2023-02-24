@@ -308,3 +308,36 @@ class teamviewer_Settings_Page
 			}
 		}
 		new teamviewer_Settings_Page();
+
+		// check for the browscap cache and parse it if it exists, if not, try and retrieve it
+		$cacheDir = __DIR__ . '/vendor/browscap/browscap-php/resources';
+		// check the cache directory for files ending .cache, if there are none run the update script
+		if (count(glob($cacheDir . "/*.cache")) === 0) {
+			// check that the browscap.ini file exists
+			if (file_exists($cacheDir . '/browscap.ini')) {
+				//run command to update the cache
+				$command = 'php ' . __DIR__ . '/vendor/bin/browscap-php browscap:convert';
+				$output = shell_exec($command);
+				// log the output to php error log
+				error_log($output);
+			} else {
+				// if the browscap.ini file does not exist, log an error to the php error log
+				error_log('browscap.ini file does not exist');
+				// attempt to download the browscap.ini file
+				$command = 'php ' . __DIR__ . '/vendor/bin/browscap-php browscap:fetch';
+				$output = shell_exec($command);
+				// log the output to php error log
+				error_log($output);
+				// if the browscap.ini file exists, run the update script
+				if (file_exists($cacheDir . '/browscap.ini')) {
+					//run command to update the cache
+					$command = 'php ' . __DIR__ . '/vendor/bin/browscap-php browscap:convert';
+					$output = shell_exec($command);
+					// log the output to php error log
+					error_log($output);
+				} else {
+					// if the browscap.ini file does not exist, log an error to the php error log
+					error_log('browscap.ini file does not exist and could not be downloaded');
+				}
+			}
+		}
