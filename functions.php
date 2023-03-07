@@ -246,17 +246,17 @@ class teamviewer_Settings_Page
 
 	public function wph_settings_content()
 	{ ?>
-<div class="wrap">
-    <h1>TeamViewer Download Settings</h1>
-    <?php settings_errors(); ?>
-    <form method="POST" action="options.php">
-        <?php
+		<div class="wrap">
+			<h1>TeamViewer Download Settings</h1>
+			<?php settings_errors(); ?>
+			<form method="POST" action="options.php">
+				<?php
 				settings_fields('teamviewer');
 				do_settings_sections('teamviewer');
 				submit_button();
 				?>
-    </form>
-</div> <?php
+			</form>
+		</div> <?php
 			}
 
 			public function wph_setup_sections()
@@ -308,3 +308,15 @@ class teamviewer_Settings_Page
 			}
 		}
 		new teamviewer_Settings_Page();
+
+		//fix for ob_end_flush() error
+		/**
+		 * Proper ob_end_flush() for all levels
+		 *
+		 * This replaces the WordPress `wp_ob_end_flush_all()` function
+		 * with a replacement that doesn't cause PHP notices.
+		 */
+		remove_action('shutdown', 'wp_ob_end_flush_all', 1);
+		add_action('shutdown', function () {
+			while (@ob_end_flush());
+		});
