@@ -48,17 +48,17 @@ class authorizenet_Settings_Page
 
     public function wph_settings_content()
     { ?>
-<div class="wrap">
-    <h1>Authorize.net Settings</h1>
-    <?php settings_errors(); ?>
-    <form method="POST" action="options.php">
-        <?php
+        <div class="wrap">
+            <h1>Authorize.net Settings</h1>
+            <?php settings_errors(); ?>
+            <form method="POST" action="options.php">
+                <?php
                 settings_fields('authorizenet');
                 do_settings_sections('authorizenet');
                 submit_button();
                 ?>
-    </form>
-</div> <?php
+            </form>
+        </div> <?php
             }
 
             public function wph_setup_sections()
@@ -69,6 +69,14 @@ class authorizenet_Settings_Page
             public function wph_setup_fields()
             {
                 $fields = array(
+                    array(
+                        'label' => 'Enable Payment Gateway',
+                        'id' => 'ENABLE_PAYMENT_GATEWAY',
+                        'type' => 'checkbox',
+                        'section' => 'authorizenet_section',
+                        'desc' => 'Check this box to enable the payment system.',
+                        'default' => '0',
+                    ),
                     array(
                         'label' => 'Login ID',
                         'id' => 'MERCHANT_LOGIN_ID',
