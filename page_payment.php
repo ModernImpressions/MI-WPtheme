@@ -15,6 +15,7 @@ get_header();
 wp_enqueue_style('payments-css', get_template_directory_uri() . '/css/payments.css');
 
 //merchant credentials
+$gatewayEnabled = get_option('ENABLE_PAYMENT_GATEWAY');
 $merchantLoginID = get_option('MERCHANT_LOGIN_ID');
 $merchantTransactionKey = get_option('MERCHANT_TRANSACTION_KEY');
 $merchantTransactionType = get_option('MERCHANT_TRANSACTION_TYPE');
@@ -184,34 +185,42 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                         <?php
                         //Check if the invoiceAmount and invoiceNumber are set in $_POST
                         if (!isset($_POST['invoiceNumber'], $_POST['invoiceAmount'])) { ?>
-                            <form method="post" action="">
-                                <h3>Invoice Retrieval Form</h3>
-                                <p>Enter the invoice number you wish to pay.</p>
-                                <label for="invoiceNumber">Invoice Number*</label>
-                                <input id="invoiceNumber" type="text" name="invoiceNumber" placeholder=" " required />
-                                <p>Enter the amount of the invoice you wish to pay.</p>
-                                <label for="invoiceAmount">Invoice Amount*</label>
-                                <div class="amountField"><input id="invoiceAmount" type="number" min="0.01" step="0.01" name="invoiceAmount" placeholder="0.00" pattern="[0-9.,]+" required /></div>
-                                <button id="btnSubmit">Submit</button>
-                            </form>
+                            <?php if ($gatewayEnabled == '1') { ?>
+                                <form method="post" action="">
+                                    <h3>Invoice Retrieval Form</h3>
+                                    <p>Enter the invoice number you wish to pay.</p>
+                                    <label for="invoiceNumber">Invoice Number*</label>
+                                    <input id="invoiceNumber" type="text" name="invoiceNumber" placeholder=" " required />
+                                    <p>Enter the amount of the invoice you wish to pay.</p>
+                                    <label for="invoiceAmount">Invoice Amount*</label>
+                                    <div class="amountField"><input id="invoiceAmount" type="number" min="0.01" step="0.01" name="invoiceAmount" placeholder="0.00" pattern="[0-9.,]+" required /></div>
+                                    <button id="btnSubmit">Submit</button>
+                                </form>
+                            <?php } else { ?>
+                                <p>The payment gateway is currently disabled. Please contact the site administrator.</p>
+                            <?php } ?>
                         <?php } ?>
                         <!-- Form to send to Authorize.net -->
                         <?php if (isset($_POST['invoiceNumber'], $_POST['invoiceAmount'])) {
                             $invoiceAmount = $_POST['invoiceAmount'];
                             $invoiceNumber = $_POST['invoiceNumber'];
                         ?>
-                            <a href="https://www.authorize.net/"><img src="https://www.authorize.net/content/dam/anet-redesign/reseller/authorizenet-200x50.png" border="0" alt="Authorize.net Logo" width="200" height="50" /></a>
-                            <form method="post" action="<?php echo $paymentURL; ?>" id="formAuthorizeNetTestPage" name="formAuthorizeNetTestPage">
-                                <?php $paymentToken = getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, $invoiceAmount, $invoiceNumber, $merchantEnv, $merchantTransactionType); ?>
-                                <input type="hidden" name="token" value="<?php echo $paymentToken; ?>" />
-                                <p>Click the button below to be re-directed to our processing partner, Authorize.net to complete
-                                    payment. You will be returned to our site when done.</p>
-                                <p>If you have issues with the page re-direct, you may need to allow pop-ups and browser
-                                    re-directs for our site in your web browser.</p>
-                                <p>For your security, we do not store your payment information on our site.</p>
-                                <br />
-                                <button id="btnContinue">Continue to Authorize.net</button>
-                            </form>
+                            <a href="https://www.authorize.net/"><img src="https://www.authorize.net/content/dam/anet-redesign/reseller/authorizenet-200x50.png" alt="Authorize.net Logo" width="200" height="50" /></a>
+                            <?php if ($gatewayEnabled == '1') { ?>
+                                <form method="post" action="<?php echo $paymentURL; ?>" id="formAuthorizeNetTestPage" name="formAuthorizeNetTestPage">
+                                    <?php $paymentToken = getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, $invoiceAmount, $invoiceNumber, $merchantEnv, $merchantTransactionType); ?>
+                                    <input type="hidden" name="token" value="<?php echo $paymentToken; ?>" />
+                                    <p>Click the button below to be re-directed to our processing partner, Authorize.net to complete
+                                        payment. You will be returned to our site when done.</p>
+                                    <p>If you have issues with the page re-direct, you may need to allow pop-ups and browser
+                                        re-directs for our site in your web browser.</p>
+                                    <p>For your security, we do not store your payment information on our site.</p>
+                                    <br />
+                                    <button id="btnContinue">Continue to Authorize.net</button>
+                                </form>
+                            <?php } else { ?>
+                                <p>The payment gateway is currently disabled. Please contact the site administrator.</p>
+                            <?php } ?>
                         <?php } ?>
                         <hr />
                         <p>The Authorize.Net Payment Gateway manages the complex routing of sensitive customer information
