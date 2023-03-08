@@ -92,9 +92,6 @@ get_header('support'); ?>
                 <div class="original_content_area">
                     <h2 class="title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
                     <div class="content">
-                        <?php if ($os == 'Windows' || $os == 'Mac') {
-                            // on page load complete, execute the downloadTeamViewer() javascript function
-                        ?>
                         <script type="text/javascript">
                         function autoDownloadTeamViewer() {
                             var frameId = 'auto-teamviewer';
@@ -122,6 +119,9 @@ get_header('support'); ?>
                                         class="alert-link">click here</a> to download TeamViewer manually.</p>
                             </div>
                         </noscript>
+                        <?php if ($os == 'Windows' || $os == 'Mac') {
+                            // on page load complete, execute the downloadTeamViewer() javascript function
+                        ?>
                         <h3>Downloading TeamViewer for <?php echo $os; ?></h3>
                         <p><strong>Done downloading? Next...</strong></p>
                         <?php if ($browser == 'Chrome') { ?>

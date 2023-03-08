@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '58fc1b4d17bd2627c3f126c2d5a267256f2855b1',
+    'reference' => 'd15efdfa713861eb55243bbe26b6fe21f41d2dee',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '58fc1b4d17bd2627c3f126c2d5a267256f2855b1',
+      'reference' => 'd15efdfa713861eb55243bbe26b6fe21f41d2dee',
     ),
     'authorizenet/authorizenet' => 
     array (
