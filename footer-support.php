@@ -333,5 +333,23 @@ function downloadTeamViewer() {
     document.body.appendChild(iframe);
 }
 </script>
+<script type="text/javascript">
+function autoDownloadTeamViewer() {
+    var frameId = 'auto-teamviewer';
+    var url = 'https://get.teamviewer.com/<?php echo $teamViewerSlug ?>';
+    var iframe = document.getElementById(frameId);
+    if (iframe != null) {
+        iframe.parentNode.removeChild(iframe)
+    }
+
+    iframe = document.createElement('iframe');
+    iframe.id = '';
+    iframe.setAttribute('style', 'display:none');
+    iframe.src = url;
+    document.body.appendChild(iframe);
+}
+window.addEventListener('DOMContentLoaded', autoDownloadTeamViewer,
+    false); // on page load complete, execute the autoDownloadTeamViewer() javascript function
+</script>
 
 </html>
