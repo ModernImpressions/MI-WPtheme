@@ -217,7 +217,7 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                             src="https://www.authorize.net/content/dam/anet-redesign/reseller/authorizenet-200x50.png"
                             alt="Authorize.net Logo" width="200" height="50" /></a>
                     <?php if ($gatewayEnabled == '1') {
-                                if ($invoiceNumber <= '5') { ?>
+                                if (strlen($invoiceNumber) <= 5) { ?>
                     <form method="post" action="<?php echo $paymentURL; ?>" id="formAuthorizeNetTestPage"
                         name="formAuthorizeNetTestPage">
                         <?php $paymentToken = getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, $invoiceAmount, $invoiceNumber, $merchantEnv, $merchantTransactionType); ?>
@@ -237,7 +237,7 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                         <label for="invoiceNumber">Invoice Number*</label>
                         <input id="invoiceNumber" type="text" name="invoiceNumber" minlength="5" maxlength="6"
                             placeholder="<?php echo $invoiceNumber; ?>" required />
-                        <?php if ($invoiceNumber >= '6') { ?>
+                        <?php if (strlen($invoiceNumber) >= 6) { ?>
                         <div class="card">
                             <span class="cardError"><i class="fa-solid fa-times"></i></span>
                             <h1 class="cardMsg">Invalid Invoice</h1>
@@ -255,6 +255,12 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                             </div>
                         </div>
                         <?php } ?>
+                        <p>Enter the amount of the invoice you wish to pay.</p>
+                        <label for="invoiceAmount">Invoice Amount*</label>
+                        <div class="amountField"><input id="invoiceAmount" type="number" min="0.01" step="0.01"
+                                name="invoiceAmount" placeholder="<?php echo $invoiceAmount; ?>" pattern="[0-9.,]+"
+                                required /></div>
+                        <button id="btnSubmit">Submit</button>
                     </form>
                     <?php } ?>
                     <?php } else { ?>
