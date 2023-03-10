@@ -167,246 +167,233 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                 <div class="original_content_area">
                     <?php //Determine if the current page is the payment page, the canceled page or the return page.
                     if (is_page('payments')) { ?>
-                    <h2>Online Payment Form</h2>
-                    <br />
-                    <p>Welcome to our Online Payments portal. Please provide the invoice information below, you will
-                        be redirected to Authorize.net to complete the payment. Modern Impressions does not collect
-                        payment information on our site.</p>
-                    <br />
-                    <p>You can pay online at <a href="<?php echo get_site_url(); ?>"><?php echo $thisDomainName; ?></a>
-                        with confidence. We have partnered with <a href="https://www.authorize.net">Authorize.Net</a>, a
-                        leading payment gateway since
-                        1996, to accept credit cards and electronic check payments safely and securely for our
-                        customers.</p>
-                    <hr />
-                    <?php /** Set URL based on environment */ if ($merchantEnv == "SANDBOX") {
+                        <h2>Online Payment Form</h2>
+                        <br />
+                        <p>Welcome to our Online Payments portal. Please provide the invoice information below, you will
+                            be redirected to Authorize.net to complete the payment. Modern Impressions does not collect
+                            payment information on our site.</p>
+                        <br />
+                        <p>You can pay online at <a href="<?php echo get_site_url(); ?>"><?php echo $thisDomainName; ?></a>
+                            with confidence. We have partnered with <a href="https://www.authorize.net">Authorize.Net</a>, a
+                            leading payment gateway since
+                            1996, to accept credit cards and electronic check payments safely and securely for our
+                            customers.</p>
+                        <hr />
+                        <?php /** Set URL based on environment */ if ($merchantEnv == "SANDBOX") {
                             $paymentURL = 'https://test.authorize.net/payment/payment';
                         } elseif ($merchantEnv == "PRODUCTION") {
                             $paymentURL = 'https://accept.authorize.net/payment/payment';
                         } ?>
-                    <!-- Form to capture information to send to Authorize.net -->
-                    <?php
+                        <!-- Form to capture information to send to Authorize.net -->
+                        <?php
                         //Check if the invoiceAmount and invoiceNumber are set in $_POST
                         if (!isset($_POST['invoiceNumber'], $_POST['invoiceAmount'])) { ?>
-                    <a href="https://www.authorize.net/"><img
-                            src="https://www.authorize.net/content/dam/anet-redesign/reseller/authorizenet-200x50.png"
-                            alt="Authorize.net Logo" width="200" height="50" /></a>
-                    <?php if ($gatewayEnabled == '1') { ?>
-                    <form method="post" action="">
-                        <h3>Invoice Retrieval Form</h3>
-                        <p>Enter the invoice number you wish to pay.</p>
-                        <label for="invoiceNumber">Invoice Number*</label>
-                        <input id="invoiceNumber" type="text" name="invoiceNumber" minlength="5" maxlength="6"
-                            placeholder=" " required />
-                        <p>Enter the amount of the invoice you wish to pay.</p>
-                        <label for="invoiceAmount">Invoice Amount*</label>
-                        <div class="amountField"><input id="invoiceAmount" type="number" min="0.01" step="0.01"
-                                name="invoiceAmount" placeholder="0.00" pattern="[0-9.,]+" required /></div>
-                        <button id="btnSubmit">Submit</button>
-                    </form>
-                    <?php } else { ?>
-                    <p>The payment gateway is currently disabled. Please contact the site administrator.</p>
-                    <?php } ?>
-                    <?php } ?>
-                    <!-- Form to send to Authorize.net -->
-                    <?php if (isset($_POST['invoiceNumber'], $_POST['invoiceAmount'])) {
+                            <a href="https://www.authorize.net/"><img src="https://www.authorize.net/content/dam/anet-redesign/reseller/authorizenet-200x50.png" alt="Authorize.net Logo" width="200" height="50" /></a>
+                            <?php if ($gatewayEnabled == '1') { ?>
+                                <form method="post" action="">
+                                    <h3>Invoice Retrieval Form</h3>
+                                    <p>Enter the invoice number you wish to pay.</p>
+                                    <label for="invoiceNumber">Invoice Number*</label>
+                                    <input id="invoiceNumber" type="text" name="invoiceNumber" minlength="5" maxlength="6" placeholder=" " required />
+                                    <p>Enter the amount of the invoice you wish to pay.</p>
+                                    <label for="invoiceAmount">Invoice Amount*</label>
+                                    <div class="amountField"><input id="invoiceAmount" type="number" min="0.01" step="0.01" name="invoiceAmount" placeholder="0.00" pattern="[0-9.,]+" required /></div>
+                                    <button id="btnSubmit">Submit</button>
+                                </form>
+                            <?php } else { ?>
+                                <p>The payment gateway is currently disabled. Please contact the site administrator.</p>
+                            <?php } ?>
+                        <?php } ?>
+                        <!-- Form to send to Authorize.net -->
+                        <?php if (isset($_POST['invoiceNumber'], $_POST['invoiceAmount'])) {
                             $invoiceAmount = $_POST['invoiceAmount'];
                             $invoiceNumber = $_POST['invoiceNumber'];
                         ?>
-                    <a href="https://www.authorize.net/"><img
-                            src="https://www.authorize.net/content/dam/anet-redesign/reseller/authorizenet-200x50.png"
-                            alt="Authorize.net Logo" width="200" height="50" /></a>
-                    <?php if ($gatewayEnabled == '1') {
+                            <a href="https://www.authorize.net/"><img src="https://www.authorize.net/content/dam/anet-redesign/reseller/authorizenet-200x50.png" alt="Authorize.net Logo" width="200" height="50" /></a>
+                            <?php if ($gatewayEnabled == '1') {
                                 if (strlen($invoiceNumber) <= 5) { ?>
-                    <form method="post" action="<?php echo $paymentURL; ?>" id="formAuthorizeNetTestPage"
-                        name="formAuthorizeNetTestPage">
-                        <?php $paymentToken = getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, $invoiceAmount, $invoiceNumber, $merchantEnv, $merchantTransactionType); ?>
-                        <input type="hidden" name="token" value="<?php echo $paymentToken; ?>" />
-                        <p>Click the button below to be re-directed to our processing partner, Authorize.net to complete
-                            payment. You will be returned to our site when done.</p>
-                        <p>If you have issues with the page re-direct, you may need to allow pop-ups and browser
-                            re-directs for our site in your web browser.</p>
-                        <p>For your security, we do not store your payment information on our site.</p>
-                        <br />
-                        <button id="btnContinue">Continue to Authorize.net</button>
-                    </form>
-                    <?php } else { ?>
-                    <form method="post" action="">
-                        <h3>Invoice Retrieval Form</h3>
-                        <p>Enter the invoice number you wish to pay.</p>
-                        <label for="invoiceNumber">Invoice Number*</label>
-                        <input id="invoiceNumber" type="text" name="invoiceNumber" minlength="5" maxlength="6"
-                            placeholder="<?php echo $invoiceNumber; ?>" required />
-                        <?php if (strlen($invoiceNumber) >= 6) { ?>
-                        <div class="card">
-                            <span class="cardError"><i class="fa-solid fa-times"></i></span>
-                            <h1 class="cardMsg">Invalid Invoice</h1>
-                            <h2 class="cardSubMsg">Sorry</h2>
-                            <p> A six-digit invoice number may be a lease invoice, these must be paid to Great America.
-                            </p>
+                                    <form method="post" action="<?php echo $paymentURL; ?>" id="formAuthorizeNetTestPage" name="formAuthorizeNetTestPage">
+                                        <?php $paymentToken = getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, $invoiceAmount, $invoiceNumber, $merchantEnv, $merchantTransactionType); ?>
+                                        <input type="hidden" name="token" value="<?php echo $paymentToken; ?>" />
+                                        <p>Click the button below to be re-directed to our processing partner, Authorize.net to complete
+                                            payment. You will be returned to our site when done.</p>
+                                        <p>If you have issues with the page re-direct, you may need to allow pop-ups and browser
+                                            re-directs for our site in your web browser.</p>
+                                        <p>For your security, we do not store your payment information on our site.</p>
+                                        <br />
+                                        <button id="btnContinue">Continue to Authorize.net</button>
+                                    </form>
+                                <?php } else { ?>
+                                    <form method="post" action="">
+                                        <h3>Invoice Retrieval Form</h3>
+                                        <p>Enter the invoice number you wish to pay.</p>
+                                        <label for="invoiceNumber">Invoice Number*</label>
+                                        <input id="invoiceNumber" type="text" name="invoiceNumber" minlength="5" maxlength="6" placeholder="<?php echo $invoiceNumber; ?>" required />
+                                        <?php if (strlen($invoiceNumber) >= 6) { ?>
+                                            <div class="card">
+                                                <span class="cardError"><i class="fa-solid fa-times"></i></span>
+                                                <h1 class="cardMsg">Invalid Invoice</h1>
+                                                <h2 class="cardSubMsg">Sorry</h2>
+                                                <p> A six-digit invoice number may be a lease invoice.
+                                                </p>
+                                                <br />
+                                                <p>You may pay lease invoices online <a href="https://www.accountservicing.com/payment">Here</a>.</p>
+                                                <p>If you think you made a mistake, <a href="<?php echo get_permalink(get_the_ID()); ?>">you
+                                                        can revisit
+                                                        the payment page and try again</a>.</p>
+                                                <div class="cardTags">
+                                                    <span class="cardTag">Invalid Invoice Number</span>
+                                                </div>
+                                            </div>
+                                        <?php } ?>
+                                        <p>Enter the amount of the invoice you wish to pay.</p>
+                                        <label for="invoiceAmount">Invoice Amount*</label>
+                                        <div class="amountField"><input id="invoiceAmount" type="number" min="0.01" step="0.01" name="invoiceAmount" placeholder="<?php echo $invoiceAmount; ?>" pattern="[0-9.,]+" required /></div>
+                                        <button id="btnSubmit">Submit</button>
+                                    </form>
+                                <?php } ?>
+                            <?php } else { ?>
+                                <p>The payment gateway is currently disabled. Please contact the site administrator.</p>
+                            <?php } ?>
+                        <?php } ?>
+                        <hr />
+                        <p>The Authorize.Net Payment Gateway manages the complex routing of sensitive customer information
+                            through the electronic check and credit card processing networks. See an <a href="https://www.authorize.net/resources/howitworksdiagram/">online payments diagram</a> to
+                            see how it works.</p>
+                        <p>The company adheres to strict industry standards for payment processing, including:
                             <br />
-                            <p>You may pay Great America lease invoices online <a
-                                    href="https://www.accountservicing.com/payment">Here</a>.</p>
-                            <p>If you think you made a mistake, <a href="<?php echo get_permalink(get_the_ID()); ?>">you
-                                    can revisit
-                                    the payment page and try again</a>.</p>
+                        <ul>
+                            <li>128-bit Secure Sockets Layer (SSL) technology for secure Internet Protocol (IP)
+                                transactions.</li>
+                            <li>Industry leading encryption hardware and software methods and security protocols to protect
+                                customer information.</li>
+                            <li>Compliance with the Payment Card Industry Data Security Standard (PCI DSS).</li>
+                        </ul>
+                        <br />
+                        <p>For additional information regarding the privacy of your sensitive cardholder data, please read
+                            the
+                            <a href="https://www.authorize.net/company/privacy/">Authorize.Net Privacy Policy</a>.
+                        </p>
+                        </p>
+                        <?php if (isset($merchantSealCode) && $merchantSealCode != NULL || $merchantSealCode != "") { //variable is set and isn't null or blank
+                        ?>
+                            <p><a href="<?php echo get_site_url(); ?>"><?php echo $thisDomainName; ?></a> is registered with the
+                                Authorize.Net Verified Merchant Seal program.</p>
+                            <!-- Authorize.Net Seal -->
+                            <div><?php echo $merchantSealCode; ?></div>
+                        <?php } ?>
+                    <?php } elseif (is_page('return')) { ?>
+                        <h2>Payment Complete</h2>
+                        <br />
+                        <div class="card">
+                            <span class="cardSuccess"><i class="fa-solid fa-check"></i></span>
+                            <h1 class="cardMsg">Payment Complete</h1>
+                            <h2 class="cardSubMsg">Thank you!</h2>
+                            <p> Your transaction has been completed, and a receipt for your payment
+                                has been emailed to you. Look for an email from Authorize.net</p>
+                            <br />
+                            <p>For your security, we do not store your payment information on our site.</p>
                             <div class="cardTags">
-                                <span class="cardTag">Invalid Invoice Number</span>
+                                <span class="cardTag">completed</span>
                             </div>
                         </div>
-                        <?php } ?>
-                        <p>Enter the amount of the invoice you wish to pay.</p>
-                        <label for="invoiceAmount">Invoice Amount*</label>
-                        <div class="amountField"><input id="invoiceAmount" type="number" min="0.01" step="0.01"
-                                name="invoiceAmount" placeholder="<?php echo $invoiceAmount; ?>" pattern="[0-9.,]+"
-                                required /></div>
-                        <button id="btnSubmit">Submit</button>
-                    </form>
-                    <?php } ?>
-                    <?php } else { ?>
-                    <p>The payment gateway is currently disabled. Please contact the site administrator.</p>
-                    <?php } ?>
-                    <?php } ?>
-                    <hr />
-                    <p>The Authorize.Net Payment Gateway manages the complex routing of sensitive customer information
-                        through the electronic check and credit card processing networks. See an <a
-                            href="https://www.authorize.net/resources/howitworksdiagram/">online payments diagram</a> to
-                        see how it works.</p>
-                    <p>The company adheres to strict industry standards for payment processing, including:
                         <br />
-                    <ul>
-                        <li>128-bit Secure Sockets Layer (SSL) technology for secure Internet Protocol (IP)
-                            transactions.</li>
-                        <li>Industry leading encryption hardware and software methods and security protocols to protect
-                            customer information.</li>
-                        <li>Compliance with the Payment Card Industry Data Security Standard (PCI DSS).</li>
-                    </ul>
-                    <br />
-                    <p>For additional information regarding the privacy of your sensitive cardholder data, please read
-                        the
-                        <a href="https://www.authorize.net/company/privacy/">Authorize.Net Privacy Policy</a>.
-                    </p>
-                    </p>
-                    <?php if (isset($merchantSealCode) && $merchantSealCode != NULL || $merchantSealCode != "") { //variable is set and isn't null or blank
-                        ?>
-                    <p><a href="<?php echo get_site_url(); ?>"><?php echo $thisDomainName; ?></a> is registered with the
-                        Authorize.Net Verified Merchant Seal program.</p>
-                    <!-- Authorize.Net Seal -->
-                    <div><?php echo $merchantSealCode; ?></div>
-                    <?php } ?>
-                    <?php } elseif (is_page('return')) { ?>
-                    <h2>Payment Complete</h2>
-                    <br />
-                    <div class="card">
-                        <span class="cardSuccess"><i class="fa-solid fa-check"></i></span>
-                        <h1 class="cardMsg">Payment Complete</h1>
-                        <h2 class="cardSubMsg">Thank you!</h2>
-                        <p> Your transaction has been completed, and a receipt for your payment
-                            has been emailed to you. Look for an email from Authorize.net</p>
-                        <br />
-                        <p>For your security, we do not store your payment information on our site.</p>
-                        <div class="cardTags">
-                            <span class="cardTag">completed</span>
+                        <p>For additional information regarding the privacy of your sensitive cardholder data, please read
+                            the
+                            <a href="https://www.authorize.net/company/privacy/">Authorize.Net Privacy Policy</a>.
+                        </p>
+                        <!-- section for additional payments -->
+                        <div>
+                            <h5>Need to make another payment?</h5>
+                            <p>Click the button below to make another payment.</p>
+                            <a href="<?php echo get_site_url(); ?>/support/payments"><button id="btnContinue">Make Another
+                                    Payment</button></a>
                         </div>
-                    </div>
-                    <br />
-                    <p>For additional information regarding the privacy of your sensitive cardholder data, please read
-                        the
-                        <a href="https://www.authorize.net/company/privacy/">Authorize.Net Privacy Policy</a>.
-                    </p>
-                    <!-- section for additional payments -->
-                    <div>
-                        <h5>Need to make another payment?</h5>
-                        <p>Click the button below to make another payment.</p>
-                        <a href="<?php echo get_site_url(); ?>/support/payments"><button id="btnContinue">Make Another
-                                Payment</button></a>
-                    </div>
                     <?php } elseif (is_page('cancel')) { ?>
-                    <h2>Payment Cancelled</h2>
-                    <br />
-                    <div class="card">
-                        <span class="cardError"><i class="fa-solid fa-times"></i></span>
-                        <h1 class="cardMsg">Payment Canceled</h1>
-                        <h2 class="cardSubMsg">Thank you.</h2>
-                        <p> Your transaction has been canceled, and you have not been charged.</p>
+                        <h2>Payment Cancelled</h2>
                         <br />
-                        <p>For your security, we do not store your payment information on our site.</p>
-                        <div class="cardTags">
-                            <span class="cardTag">Canceled</span>
+                        <div class="card">
+                            <span class="cardError"><i class="fa-solid fa-times"></i></span>
+                            <h1 class="cardMsg">Payment Canceled</h1>
+                            <h2 class="cardSubMsg">Thank you.</h2>
+                            <p> Your transaction has been canceled, and you have not been charged.</p>
+                            <br />
+                            <p>For your security, we do not store your payment information on our site.</p>
+                            <div class="cardTags">
+                                <span class="cardTag">Canceled</span>
+                            </div>
                         </div>
-                    </div>
-                    <br />
-                    <p>For additional information regarding the privacy of your sensitive cardholder data, please read
-                        the
-                        <a href="https://www.authorize.net/company/privacy/">Authorize.Net Privacy Policy</a>.
-                    </p>
-                    <!-- section for additional payments -->
-                    <div>
-                        <h5>Need to make another payment?</h5>
-                        <p>Click the button below to make another payment.</p>
-                        <a href="<?php echo get_site_url(); ?>/support/payments"><button id="btnContinue">Make Another
-                                Payment</button></a>
-                    </div>
+                        <br />
+                        <p>For additional information regarding the privacy of your sensitive cardholder data, please read
+                            the
+                            <a href="https://www.authorize.net/company/privacy/">Authorize.Net Privacy Policy</a>.
+                        </p>
+                        <!-- section for additional payments -->
+                        <div>
+                            <h5>Need to make another payment?</h5>
+                            <p>Click the button below to make another payment.</p>
+                            <a href="<?php echo get_site_url(); ?>/support/payments"><button id="btnContinue">Make Another
+                                    Payment</button></a>
+                        </div>
                     <?php } ?>
                 </div>
             </div>
             <div class="col-md-5">
                 <section class="container">
                     <?php if ($cc == true) { ?>
-                    <div class="row is-flex row-space">
-                        <div class="col-md-2 col-xs-12 small-none is-center is-right">
-                            <figure class="icon-for-section credit">
-                            </figure>
+                        <div class="row is-flex row-space">
+                            <div class="col-md-2 col-xs-12 small-none is-center is-right">
+                                <figure class="icon-for-section credit">
+                                </figure>
+                            </div>
+                            <div class="col-md-10 col-xs-8">
+                                <h5 class="typo-h5">Credit & debit cards</h5>
+                                <p>We accept <?php echo $acceptedCreditCards; ?>.
+                                </p>
+                                <ul class="payment-methods-container">
+                                    <?php foreach ($acceptedCreditCardsLogos as $creditCard) { ?>
+                                        <li class="card-brands <?php echo $creditCard; ?>"></li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="col-md-10 col-xs-8">
-                            <h5 class="typo-h5">Credit & debit cards</h5>
-                            <p>We accept <?php echo $acceptedCreditCards; ?>.
-                            </p>
-                            <ul class="payment-methods-container">
-                                <?php foreach ($acceptedCreditCardsLogos as $creditCard) { ?>
-                                <li class="card-brands <?php echo $creditCard; ?>"></li>
-                                <?php } ?>
-                            </ul>
-                        </div>
-                    </div>
                     <?php } ?>
                     <?php if ($bankAccount == true) { ?>
-                    <div class="row is-flex row-space">
-                        <div class="col-md-2 col-xs-12 small-none is-center is-right">
-                            <div>
-                                <figure class="icon-for-section ach"></figure>
+                        <div class="row is-flex row-space">
+                            <div class="col-md-2 col-xs-12 small-none is-center is-right">
+                                <div>
+                                    <figure class="icon-for-section ach"></figure>
+                                </div>
+                            </div>
+                            <div class="col-md-10 col-xs-8">
+                                <h5 class="typo-h5">ACH payments</h5>
+                                <p>ACH payments are accepted.
+                                </p>
                             </div>
                         </div>
-                        <div class="col-md-10 col-xs-8">
-                            <h5 class="typo-h5">ACH payments</h5>
-                            <p>ACH payments are accepted.
-                            </p>
-                        </div>
-                    </div>
                     <?php } ?>
                     <?php if ($digital == true) { ?>
-                    <div class="row is-flex row-space">
-                        <div class="col-md-2 col-xs-12 small-none is-center is-right">
-                            <div>
-                                <figure class="icon-for-section digital"></figure>
+                        <div class="row is-flex row-space">
+                            <div class="col-md-2 col-xs-12 small-none is-center is-right">
+                                <div>
+                                    <figure class="icon-for-section digital"></figure>
+                                </div>
+                            </div>
+                            <div class="col-md-10 col-xs-8">
+                                <h5 class="typo-h5">Digital payments</h5>
+                                <p>Digital Gateway payments are accepted.
+                                </p>
+                                <ul class="payment-methods-container">
+                                    <?php foreach ($acceptedDigitalGatewaysLogos as $digitalGateway) { ?>
+                                        <li class="card-brands <?php echo $digitalGateway; ?>"></li>
+                                    <?php } ?>
+                                </ul>
                             </div>
                         </div>
-                        <div class="col-md-10 col-xs-8">
-                            <h5 class="typo-h5">Digital payments</h5>
-                            <p>Digital Gateway payments are accepted.
-                            </p>
-                            <ul class="payment-methods-container">
-                                <?php foreach ($acceptedDigitalGatewaysLogos as $digitalGateway) { ?>
-                                <li class="card-brands <?php echo $digitalGateway; ?>"></li>
-                                <?php } ?>
-                            </ul>
-                        </div>
-                    </div>
                     <?php } ?>
                     <div class="row is-flex row-space">
                         <h5 class="typo-h5">Contact Us</h5>
-                        <p>For any questions, please contact us at <a
-                                href="mailto:careteam@modernimpressions.com">careteam@modernimpressions.com</a>
+                        <p>For any questions, please contact us at <a href="mailto:careteam@modernimpressions.com">careteam@modernimpressions.com</a>
                             or
                             call us at <a href="tel:1-704-597-7278">1-704-597-7278</a></p>
                     </div>
