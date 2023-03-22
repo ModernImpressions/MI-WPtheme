@@ -234,7 +234,7 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                                                 <span class="cardError"><i class="fa-solid fa-times"></i></span>
                                                 <h1 class="cardMsg">Invalid Invoice</h1>
                                                 <h2 class="cardSubMsg">Sorry</h2>
-                                                <p> A six-digit invoice number may be a lease invoice.
+                                                <p> An eight-digit invoice number may be a lease invoice.
                                                 </p>
                                                 <br />
                                                 <p>You may pay lease invoices online <a href="https://www.accountservicing.com/payment">Here</a>.</p>
