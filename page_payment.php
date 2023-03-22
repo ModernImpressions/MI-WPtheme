@@ -194,7 +194,7 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                                     <h3>Invoice Retrieval Form</h3>
                                     <p>Enter the invoice number you wish to pay.</p>
                                     <label for="invoiceNumber">Invoice Number*</label>
-                                    <input id="invoiceNumber" type="text" name="invoiceNumber" minlength="5" maxlength="6" placeholder=" " required />
+                                    <input id="invoiceNumber" type="text" name="invoiceNumber" minlength="6" maxlength="8" placeholder=" " required />
                                     <p>Enter the amount of the invoice you wish to pay.</p>
                                     <label for="invoiceAmount">Invoice Amount*</label>
                                     <div class="amountField"><input id="invoiceAmount" type="number" min="0.01" step="0.01" name="invoiceAmount" placeholder="0.00" pattern="[0-9.,]+" required /></div>
@@ -211,7 +211,7 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                         ?>
                             <a href="https://www.authorize.net/"><img src="https://www.authorize.net/content/dam/anet-redesign/reseller/authorizenet-200x50.png" alt="Authorize.net Logo" width="200" height="50" /></a>
                             <?php if ($gatewayEnabled == '1') {
-                                if (strlen($invoiceNumber) <= 6) { ?>
+                                if (strlen($invoiceNumber) <= 7) { ?>
                                     <form method="post" action="<?php echo $paymentURL; ?>" id="formAuthorizeNetTestPage" name="formAuthorizeNetTestPage">
                                         <?php $paymentToken = getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, $invoiceAmount, $invoiceNumber, $merchantEnv, $merchantTransactionType); ?>
                                         <input type="hidden" name="token" value="<?php echo $paymentToken; ?>" />
