@@ -211,7 +211,7 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                         ?>
                             <a href="https://www.authorize.net/"><img src="https://www.authorize.net/content/dam/anet-redesign/reseller/authorizenet-200x50.png" alt="Authorize.net Logo" width="200" height="50" /></a>
                             <?php if ($gatewayEnabled == '1') {
-                                if (strlen($invoiceNumber) <= 5) { ?>
+                                if (strlen($invoiceNumber) <= 6) { ?>
                                     <form method="post" action="<?php echo $paymentURL; ?>" id="formAuthorizeNetTestPage" name="formAuthorizeNetTestPage">
                                         <?php $paymentToken = getAnAcceptPaymentPage($merchantLoginID, $merchantTransactionKey, $invoiceAmount, $invoiceNumber, $merchantEnv, $merchantTransactionType); ?>
                                         <input type="hidden" name="token" value="<?php echo $paymentToken; ?>" />
@@ -229,12 +229,12 @@ $acceptedCreditCards = implode(', ', array_filter(array_merge(array(implode(', '
                                         <p>Enter the invoice number you wish to pay.</p>
                                         <label for="invoiceNumber">Invoice Number*</label>
                                         <input id="invoiceNumber" type="text" name="invoiceNumber" minlength="5" maxlength="6" placeholder="<?php echo $invoiceNumber; ?>" required />
-                                        <?php if (strlen($invoiceNumber) >= 6) { ?>
+                                        <?php if (strlen($invoiceNumber) >= 8) { ?>
                                             <div class="card">
                                                 <span class="cardError"><i class="fa-solid fa-times"></i></span>
                                                 <h1 class="cardMsg">Invalid Invoice</h1>
                                                 <h2 class="cardSubMsg">Sorry</h2>
-                                                <p> A six-digit invoice number may be a lease invoice.
+                                                <p> An eight-digit invoice number may be a lease invoice.
                                                 </p>
                                                 <br />
                                                 <p>You may pay lease invoices online <a href="https://www.accountservicing.com/payment">Here</a>.</p>
